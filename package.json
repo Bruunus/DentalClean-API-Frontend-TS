@@ -1,0 +1,21 @@
+{
+  "name": "dentalcleanapp_ts",
+  "version": "1.0.0",
+  "description": "Aplicativo front-end para consumir api backend Java DentalClean",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc",
+    "server": "lite-server --baseDir=dist",
+    "start": "ts-node src/app.ts",
+    "watch": "tsc -w"
+  },
+  "keywords": [],
+  "author": "Bruno Fernandes dos Santos",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  }
+}
