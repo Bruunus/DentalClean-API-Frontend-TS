@@ -20,21 +20,21 @@
 
 /* Estilos para telas extra grandes (a partir de 1200px) */
 @media (min-width: 1200px) {
-    .ajuste-list-group{ width: 123%; }
-    .ajuste-list-group-item-child { width: 141%; }
+    .ajuste-list-group{ width: 120%; }
+    .ajuste-list-group-item-child { width: 135%; }
 }
 
 @media (min-width: 1775.56px) {
-    .ajuste-list-group{ width: 120%; }
-    .ajuste-list-group-item-child { width: 141%; }
+    .ajuste-list-group{ width: 118%; }
+    .ajuste-list-group-item-child { width: 130%; }
 }
 
 @media (min-width: 1997.50px) {
-    .ajuste-list-group{ width: 117%; }
-    .ajuste-list-group-item-child { width: 128%; }
+    .ajuste-list-group{ width: 118%; }
+    .ajuste-list-group-item-child { width: 130%; }
 }
 
-@media (min-width: 2130.67px) {
+@media (min-width: 2124.67px) {
     .ajuste-list-group{ width: 116%; } /* Aguardando ajuste */
     .ajuste-list-group-item-child { width: 128%; }
 }

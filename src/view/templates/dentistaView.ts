@@ -4,7 +4,7 @@ export class DentistaView {
 
         return `
 
-            <h3>Pacientes</h3>
+            <h3>Dentistas</h3>
             <table style='border: 1px solid gray;'>
             <thead>
                 <tr>

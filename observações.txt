@@ -7,4 +7,5 @@ Problema: Ao enviar os dados via JSON para a API, não está salvando o campo 'd
 Possível solução: Faz o teste de envio dos dados com a API aberta no eclipse junto com o app typescript ao mesmo tempo para aumentar as chances de correção em tempo em runtime.
 
 
- 
+GIT Hub subir projeto
+ https://www.alura.com.br/artigos/nova-exigencia-do-git-de-autenticacao-por-token-o-que-e-o-que-devo-fazer 

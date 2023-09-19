@@ -18,8 +18,12 @@
     margin-bottom: 3em;
   
 }
-.img-logo:hover {
+.img-link:hover {
     cursor: default;
+}
+
+.image-area:hover {
+    cursor: pointer;
 }
 
 
