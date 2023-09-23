@@ -1,88 +1,125 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>::DentalClean</title>
 
-    
+
     <link rel="stylesheet" href="css/bootstrap_4_1_3/bootstrap.min.css">
     <link rel="shortcut icon" href="#">
-    <link rel="stylesheet" href="css/media-query.css">
+    <link rel="stylesheet" href="css/media-query/mobile-max767.css">
+    <link rel="stylesheet" href="css/media-query/tablet-max992.css">
+    <link rel="stylesheet" href="css/media-query/laptops-max1199.css">
+    <link rel="stylesheet" href="css/media-query/telas-4K-min1200.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
 
     <div class="container-fluid row">
 
-        
-    <div class="col-3 custom-col-3 container-1">
-        
-        <a href="http://localhost:3000" class="img-link">
-            <img src="img/logo-dental-clean-menu.PNG" alt="DentalClean" class="img-logo" draggable="false">
-        </a>
 
-         
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12  pl-0 pr-0 col-ajuste-nav">
 
-        <ul id="container-menu">
-            <li id="menu">
-                <a href="#" class="list-group-item list-group-item-action ajuste-list-group todos-grupos-de-lista" id="link-img">
-                    <span class="name-button">Cadastro</span>
-                </a>
-            </li>
+            <nav class="nav-container ">
 
-                <ul>
+                <div class="row row-child-nav-container">
+
+
+                    
+                    <!-- Imagem de 
+                     -->
+                    <div class="col-12 col-child-nav-container-1">
+
+                        <a href="http://localhost:3000" class="  img-link">
+                            <img src="img/logo-dental-clean-menu.PNG" alt="DentalClean" class="img-fluid img-logo"
+                                draggable="false">
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- Menu de opções -->
+                    <div class="col-12 col-child-nav-container-2">
+
+                        <div id="list-example" class="list-group">
+                            <a class="list-group-item list-group-item-action" href="#list-item-1">Dentistas</a>
+                            <a class="list-group-item list-group-item-action" href="#list-item-2">Cadastros</a>
+                            <!-- <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
+                            <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a> -->
+                          </div>
+                    </div>
+
+
+
+                </div>
+
+
+                <!-- 
+                    
+                        Links para escolher o menu de opções do bootstrap
+
+                        https://getbootstrap.com/docs/4.0/content/images/
+                        https://getbootstrap.com/docs/4.0/components/navs/#base-nav
+                        https://getbootstrap.com/docs/4.0/components/navs/#fill-and-justify
+                        https://getbootstrap.com/docs/4.0/components/scrollspy/#list-item-4
+                        https://getbootstrap.com/docs/4.0/components/navbar/#nav
+                        https://getbootstrap.com/docs/4.0/components/navbar/#supported-content
+                    
+                    -->
+
+
+
+
+                <!-- <ul id="container-menu">
+                    <li id="menu">
+                        <a href="#" class="list-group-item list-group-item-action ajuste-list-group todos-grupos-de-lista" id="link-img">
+                            <span class="name-button">Cadastro</span>
+                        </a>
+                    </li>
+                        <ul>
+                            <li>
+                                <a href="#" id="cadastroDentista" class="list-group-item list-group-item-action ajuste-list-group-item-child todos-grupos-de-lista" style="display: none;">
+                                    Dentistas
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" id="cadastroCliente" class="list-group-item list-group-item-action ajuste-list-group-item-child todos-grupos-de-lista" style="display: none;">
+                                    Pacientes
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li>
-                        <a href="#" id="cadastroDentista" class="list-group-item list-group-item-action ajuste-list-group-item-child todos-grupos-de-lista" style="display: none;">
+                        <a href="#" id="listaDentista" class="list-group-item list-group-item-action ajuste-list-group todos-grupos-de-lista">
                             Dentistas
                         </a>
                     </li>
+                </ul> -->
+            </nav>
+        </div>
 
-                    <li>
-                        <a href="#" id="cadastroCliente" class="list-group-item list-group-item-action ajuste-list-group-item-child todos-grupos-de-lista" style="display: none;">
-                            Pacientes
-                        </a>
-                    </li>
-                </ul>
 
-            </li>
-
-            <li>
-                <a href="#" id="listaDentista" class="list-group-item list-group-item-action ajuste-list-group todos-grupos-de-lista">
-                    Dentistas
-                </a>
-            </li>
-        </ul>
-
-    </div>
+        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 ml-2 col-ajuste-section">
+            <section class="screenViewTemplate" id="screenView">(section)</section>
+        </div>
 
 
 
-
-    <div class="col-9 container-2" id="screenView">.
-
-
-
-            
-    </div>
-    <p>O Editar/update ficará dentro do template de "Clientes" e "Dentistas"</p>
+        <!-- <p>O Editar/update ficará dentro do template de "Clientes" e "Dentistas"</p>
     <a href="https://www.w3schools.com/cssref/tryit.php?filename=trycss3_transition-property">scrol que eu quero no menu</a>
-        
+         -->
     </div>
 
 
-    
+
 
     <script type="module" src="js/app.js"></script>
-    <script>
 
-        const imagem = document.querySelector('.img-logo');
-        const area = document.querySelector('area');
-
-        console.log(imagem)
-        console.log(area)
-
-    </script>
 </body>
+
 </html>

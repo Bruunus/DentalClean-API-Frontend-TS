@@ -21,11 +21,17 @@ html {
 
 .container {
   width: 100%;
-  padding-right: 15px;
+  padding-right: 15px; 
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
+
+
+/* CONFIGURAÇÃO DE RESPONSIVIDADE DO SISTEMA DentalClean */
+
+
+/* Dispositivos mobile */
 
 @media (min-width: 576px) {
   .container {
@@ -33,17 +39,26 @@ html {
   }
 }
 
+/* Tablets */
+
 @media (min-width: 768px) {
   .container {
     max-width: 720px;
   }
 }
 
+
+/* Laptops de 1024px */
 @media (min-width: 992px) {
   .container {
     max-width: 960px;
+
+
+
   }
 }
+
+/* Telas grandes 4K */
 
 @media (min-width: 1200px) {
   .container {
@@ -53,7 +68,7 @@ html {
 
 .container-fluid {
   width: 100%;
-  padding-right: 15px;
+  padding-right: 0px;   /* Alterado para 0 para o sistema DentalClean */
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;

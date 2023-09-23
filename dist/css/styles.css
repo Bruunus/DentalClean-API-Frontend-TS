@@ -1,3 +1,6 @@
+/* Configuração estática do projeto DentalClean */
+
+
 @font-face {
     font-family: 'fonte-tema';
     src: url('../fonts/Croogla4F.ttf') format('truetype');
@@ -6,8 +9,15 @@
 
 
 body {
-    /* background-color: rgb(189, 189, 255); */
+    font-size: 1rem;
 }
+
+
+.col-ajuste-nav {
+    background-color: #cad7c9;
+}
+
+
 
 
 

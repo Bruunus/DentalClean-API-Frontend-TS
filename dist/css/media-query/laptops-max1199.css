@@ -1,0 +1,39 @@
+ 
+
+    /* 
+   
+    CONFIGURAÇÃO RESPONSIVA DE TELAS PARA DISPOSITIVOS - Laptop
+
+    CONFIGURAÇÃO VÁLIDA PARA ENTRE TELAS DE 992px à 1199px de largura 
+    
+    Específica para laptops em torno de 1024px
+   
+    */
+
+
+@media (min-width: 992px) {
+
+
+    
+
+    .container {
+      max-width: 960px;
+    }
+    
+    .col-ajuste-nav {
+         max-width: 15%; /*  Tela de casa - 18% perfeito*/
+    }
+    
+
+    .nav-container {
+         height: 100vh; /* Incluso também para telas grandes - (min-width: 1200px) */
+        
+     }
+
+     .col-ajuste-section {
+         flex: 0 0 84%;
+         max-width: 100%;
+     }
+     
+
+  }

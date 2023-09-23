@@ -21,8 +21,8 @@ function routeCallCadastroDentista() { controller.redirectViewCadastroDentista()
 function routeCallListarDentistas() { controller.redirectViewListarDentista(); }
 
 
-ulMenuDashboard.addEventListener('click', eventHideShow);
-linkImg.addEventListener('click', eventRedirectLinkImg);
+//ulMenuDashboard.addEventListener('click', eventHideShow);
+//linkImg.addEventListener('click', eventRedirectLinkImg);
 linkCadastroCliente.addEventListener('click', routeCallCadastroCliente);
 linkCadastroDentista.addEventListener('click', routeCallCadastroDentista);
 linkListaDentista.addEventListener('click', routeCallListarDentistas);
