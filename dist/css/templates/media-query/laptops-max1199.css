@@ -1,0 +1,133 @@
+ 
+
+    /* 
+   
+    CONFIGURAÇÃO RESPONSIVA DE TELAS PARA DISPOSITIVOS - Laptop
+
+    CONFIGURAÇÃO VÁLIDA PARA ENTRE TELAS DE 992px à 1199px de largura 
+    
+    Específica para laptops em torno de 1024px
+   
+    */
+
+
+@media (min-width: 992px) {
+
+    .container {
+      max-width: 960px;
+    }
+    
+    
+    /**
+    * Estilo do template de opções de cadastro da classe RegistrationOptionsViewer.ts
+    */
+    .container_renderOptionsViwer {
+      /* background-color: thistle; */
+      border: 1px solid #0076B8;
+      height: auto;
+      display: flex;
+      justify-content: start;
+      align-items: top;
+      
+    }
+
+    #renderOptionsViwer { 
+      background-color: lightcoral;
+      
+    }
+
+    .btn_cad_paciente, .btn_cad_dentista {
+      padding: 10px 50px 10px 50px;
+    }
+
+    .btn_cad_paciente {
+      margin-right: 20px;
+    }
+
+
+
+    /* 
+    * Estilização das tabelas de listas do sistema.
+    *
+    */
+    .table_dentist {
+      width: 100%;
+      table-layout: fixed;
+    }
+
+
+    .div_container_tables {
+      width: 100%; 
+      height: 100vh; 
+      max-height: 90vh; 
+      overflow: scroll;
+    }
+
+   
+    /* 
+    * Estilo de titulos da coluna (th)
+    * Ajustes de larguras e posição das colunas.
+    *
+    */
+    .thead_dentist {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0.1px !important;
+      background-color: #f1a085;
+      z-index: 1000; 
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 
+       
+    }
+
+    .table_dentist th, .table_dentist td {
+      width: 200px;
+      white-space: nowrap;
+      text-align: left;
+      padding: 10px;
+    }
+
+    .table.table_dentist th {
+      border-top: none;
+      border-bottom: none;
+      
+    }
+
+
+    /* 
+    * Definição de larguras e tamanhos para cada coluna
+    *
+    */
+
+
+
+    /* Coluna 1 - Nome Completo */
+
+    .table_dentist th:nth-child(1), .table_dentist td:nth-child(1) {
+      width: 171px !important;
+    }
+
+
+    /* Coluna 2 - Data de nascimento */
+
+    .table_dentist th:nth-child(2), .table_dentist td:nth-child(2) {
+      width: 171px;
+      background-color: #baecba;
+      padding-left: 10px;
+      white-space: nowrap;
+    }
+    
+
+
+     
+
+    
+
+     
+
+
+    
+    
+
+
+
+  }

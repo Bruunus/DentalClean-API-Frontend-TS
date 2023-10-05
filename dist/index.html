@@ -8,21 +8,32 @@
 
 
     <link rel="stylesheet" href="css/bootstrap_4_1_3/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="shortcut icon" href="#">
+
+    <!-- Media queries do documento HTML principal -->
     <link rel="stylesheet" href="css/media-query/mobile-max767.css">
     <link rel="stylesheet" href="css/media-query/tablet-max992.css">
     <link rel="stylesheet" href="css/media-query/laptops-max1199.css">
     <link rel="stylesheet" href="css/media-query/telas-4K-min1200.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/index.css">
+
+    <!-- Media queries dos templates TS -->
+    <link rel="stylesheet" href="css/templates/media-query/mobile-max767.css">
+    <link rel="stylesheet" href="css/templates/media-query/tablet-max992.css">
+    <link rel="stylesheet" href="css/templates/media-query/laptops-max1199.css">
+    <link rel="stylesheet" href="css/templates/media-query/telas-4K-min1200.css">
+
+    <!-- <link rel="stylesheet" href="css/templates/screenTemplateView.css">
+    <link rel="stylesheet" href="css/templates/pacienteView.css"> -->
+     
 </head>
 
 <body>
 
-    <div class="container-fluid row">
+    <div class="container-fluid row ajuste-row">
 
 
-        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12  pl-0 pr-0 col-ajuste-nav">
+        <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12  pl-0 pr-0 col-ajuste-nav">
 
             <nav class="nav-container ">
 
@@ -47,8 +58,8 @@
                     <div class="col-12 col-child-nav-container-2">
 
                         <div id="list-example" class="list-group">
-                            <a class="list-group-item list-group-item-action" href="#list-item-1">Dentistas</a>
-                            <a class="list-group-item list-group-item-action" href="#list-item-2">Cadastros</a>
+                            <a id="listaDentista" class="list-group-item list-group-item-action classe-list-group-item" href="#">Dentistas</a>
+                            <a id="opcoesDeCadastro" class="list-group-item list-group-item-action classe-list-group-item" href="#">Cadastros</a>
                             <!-- <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
                             <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a> -->
                           </div>
@@ -57,60 +68,32 @@
 
 
                 </div>
-
-
-                <!-- 
-                    
-                        Links para escolher o menu de opções do bootstrap
-
-                        https://getbootstrap.com/docs/4.0/content/images/
-                        https://getbootstrap.com/docs/4.0/components/navs/#base-nav
-                        https://getbootstrap.com/docs/4.0/components/navs/#fill-and-justify
-                        https://getbootstrap.com/docs/4.0/components/scrollspy/#list-item-4
-                        https://getbootstrap.com/docs/4.0/components/navbar/#nav
-                        https://getbootstrap.com/docs/4.0/components/navbar/#supported-content
-                    
-                    -->
-
-
-
-
-                <!-- <ul id="container-menu">
-                    <li id="menu">
-                        <a href="#" class="list-group-item list-group-item-action ajuste-list-group todos-grupos-de-lista" id="link-img">
-                            <span class="name-button">Cadastro</span>
-                        </a>
-                    </li>
-                        <ul>
-                            <li>
-                                <a href="#" id="cadastroDentista" class="list-group-item list-group-item-action ajuste-list-group-item-child todos-grupos-de-lista" style="display: none;">
-                                    Dentistas
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" id="cadastroCliente" class="list-group-item list-group-item-action ajuste-list-group-item-child todos-grupos-de-lista" style="display: none;">
-                                    Pacientes
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" id="listaDentista" class="list-group-item list-group-item-action ajuste-list-group todos-grupos-de-lista">
-                            Dentistas
-                        </a>
-                    </li>
-                </ul> -->
             </nav>
         </div>
 
-
-        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 ml-2 col-ajuste-section">
-            <section class="screenViewTemplate" id="screenView">(section)</section>
+            <!-- Ajustar as medias-queryes dos tabletes e smarthphone a partir daqui -->
+        <div class="col-xl-10 col-lg-10 col-ajuste-section">
+            <div class="container-col-ajuste-section-filho-template row">                
+                
+                <div id="screenViewContainer" class=""></div>
+                <!-- style="overflow-x: auto; " -->
+            </div>
         </div>
 
 
 
-        <!-- <p>O Editar/update ficará dentro do template de "Clientes" e "Dentistas"</p>
+
+        <!-- <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 ml-2 col-ajuste-section">
+             
+            <div class="row d-flex">
+                <div class="col-auto w-100 flex-fill" style="background-color: aquamarine; max-height: 100%;">col 1</div>
+            </div>
+
+
+
+
+
+         <p>O Editar/update ficará dentro do template de "Clientes" e "Dentistas"</p>
     <a href="https://www.w3schools.com/cssref/tryit.php?filename=trycss3_transition-property">scrol que eu quero no menu</a>
          -->
     </div>

@@ -1,0 +1,39 @@
+   /* 
+   
+    CONFIGURAÇÃO RESPONSIVA DE TELAS PARA DISPOSITIVOS - 4K
+
+    CONFIGURAÇÃO VÁLIDA A PARTIR DE 1200px de largura de tela - Tipos de telas grandes 4K
+   
+    */
+
+    
+   @media (min-width: 1200px) and (max-width: 1899px) {
+
+    .container {
+      max-width: 1140px;
+    }
+
+    
+ 
+   
+  }
+
+
+ 
+
+  /* Configuração para Dispositivos 4K tamanho família e Televisores */
+
+  @media (min-width: 1900px) {
+     html body  {
+          font-size: 1.2rem;
+     }
+
+    
+     #renderOptionsViwer {
+          /* background-color: deepskyblue; */
+     }
+     
+
+
+     
+  }

@@ -29,5 +29,4 @@ export class AppModule {
             }, 25);
         }
     }
-    redirectLinkImg() { }
 }

@@ -9,3 +9,10 @@ Possível solução: Faz o teste de envio dos dados com a API aberta no eclipse 
 
 GIT Hub subir projeto
  https://www.alura.com.br/artigos/nova-exigencia-do-git-de-autenticacao-por-token-o-que-e-o-que-devo-fazer 
+
+
+
+
+
+ Antiga configuração dos templates
+ 

@@ -1,21 +1,14 @@
-import { ControllerTS } from './module/controllerTS.js';
+import { ControllerRouteTS } from './controller/controllerTS.js';
 import { PacienteController } from './controller/pacienteController.js';
 import { AppModule } from './module/appModule.js';
 console.log('app.ts iniciado');
 const appModule = new AppModule();
 const pacienteController = new PacienteController();
-const controller = new ControllerTS();
-const ulMenuDashboard = document.querySelector('#menu');
-const linkCadastroCliente = document.querySelector('#cadastroCliente');
-const linkCadastroDentista = document.querySelector('#cadastroDentista');
+const controllerRouteTS = new ControllerRouteTS();
 const linkListaDentista = document.querySelector('#listaDentista');
-const linkImg = document.querySelector('#link-img');
-function eventHideShow() { appModule.eventHideShow(); }
-function eventRedirectLinkImg() { appModule.redirectLinkImg(); }
-function routeCallCadastroCliente() { controller.redirectViewCadastroPaciente(); }
-function routeCallCadastroDentista() { controller.redirectViewCadastroDentista(); }
-function routeCallListarDentistas() { controller.redirectViewListarDentista(); }
-linkCadastroCliente.addEventListener('click', routeCallCadastroCliente);
-linkCadastroDentista.addEventListener('click', routeCallCadastroDentista);
+const linkRegistrationOptionsViewer = document.querySelector('#opcoesDeCadastro');
+function routeCallListarDentistas() { controllerRouteTS.redirectViewListarDentista(); }
+function routeCallDisplayOptions() { controllerRouteTS.redirectScreenViewOptions(); }
 linkListaDentista.addEventListener('click', routeCallListarDentistas);
+linkRegistrationOptionsViewer.addEventListener('click', routeCallDisplayOptions);
 pacienteController.loadListPatient();

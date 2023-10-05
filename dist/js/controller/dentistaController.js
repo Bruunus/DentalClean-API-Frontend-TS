@@ -7,14 +7,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { ControllerRouteTS } from "./controllerTS.js";
 import { DentistaView } from "../view/templates/dentistaView.js";
 export class DentistaController {
     loadListDentist() {
         this.fetchDentistData()
             .then((dentistData) => {
             const templateView = DentistaView.listDentist(dentistData);
-            const screenView = document.querySelector('#screenView');
-            screenView.innerHTML = templateView;
+            ControllerRouteTS.loadScreenView(templateView);
         });
     }
     fetchDentistData() {

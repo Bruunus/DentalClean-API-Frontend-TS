@@ -13,9 +13,6 @@
 
 @media (min-width: 992px) {
 
-
-    
-
     .container {
       max-width: 960px;
     }
@@ -31,9 +28,12 @@
      }
 
      .col-ajuste-section {
-         flex: 0 0 84%;
-         max-width: 100%;
+        
      }
      
+
+     .col-child-nav-container-2 {
+        margin-top: 2rem;
+    }
 
   }

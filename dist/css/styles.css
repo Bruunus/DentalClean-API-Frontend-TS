@@ -13,11 +13,85 @@ body {
 }
 
 
-.col-ajuste-nav {
-    background-color: #cad7c9;
+/* Ajuste da row */
+
+.ajuste-row {
+    height: 100vh;
 }
 
 
 
 
 
+/* Coluna 1 */
+
+.col-ajuste-nav {
+    background-color: #76A4E2;
+}
+
+
+
+.classe-list-group-item {
+    font-family: 'fonte-tema';   
+
+    border-top-left-radius: .0rem !important;
+    border-top-right-radius: .0rem !important;
+    border-bottom-right-radius: .0rem !important;
+    border-bottom-left-radius: .0rem !important;
+    border: 0;
+
+    background-color: #76A4E2;
+    color: white;
+    letter-spacing: 0.3px;
+    
+    
+}
+
+.classe-list-group-item:hover {
+    background-color: #8DB4E7;
+    color: white;    
+    font-weight: 570;
+}
+
+.classe-list-group-item:active {
+    background-color: #a2bfe6;
+}
+
+.classe-list-group-item:not(:hover) {
+    background-color: #76A4E2;
+    color: white;     
+}
+
+
+/* Coluna 2 */
+
+/* Essas configurações estão aqui temporariamente por teste. Elas deverão is para as medias-queries de telas grandes */
+
+.col-ajuste-section {
+    max-height: 100vh !important;
+    /* background-color: rgb(238, 236, 236); Para Manutenção  */
+
+    padding: 39px 42px 35px 60px;
+}
+
+.container-col-ajuste-section-filho-template {
+    width: 100% !important;
+    height: 100% !important;
+    /* background-color: #a2bfe6; *//
+}
+
+
+#screenViewContainer {
+    background-color: beige;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+ 

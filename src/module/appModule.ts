@@ -48,7 +48,8 @@ export class AppModule {
         }
 
 
-        public redirectLinkImg() {  }
+     
+        
 
  
         

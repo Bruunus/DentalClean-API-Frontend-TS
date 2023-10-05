@@ -11,7 +11,7 @@ export class CadastroDentistaView {
             <div style="border 0.5px solid lightgray">
                 <form id="form_cadastro_dentista"> 
                     <label for="nomeCompleto">Nome completo</label>
-                    <input type="text" name="nomeCompleto" id="nomeCompleto">
+                    <input type="text" name="nomeCompleto" id="nomeCompleto" maxlength="20">
                     <br>
                     <label for="dataNascimento">Data de nascimento</label>
                     <input type="date" name="dataNascimento" id="dataNascimento">

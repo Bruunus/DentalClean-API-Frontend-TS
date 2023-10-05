@@ -7,14 +7,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { ControllerRouteTS } from './controllerTS.js';
 import { PacienteView } from '../view/templates/pacienteView.js';
 export class PacienteController {
     loadListPatient() {
         this.fetchPatientData()
             .then((pacienteData) => {
             const templateView = PacienteView.listaPaciente(pacienteData);
-            const screenView = document.querySelector('#screenView');
-            screenView.innerHTML = templateView;
+            ControllerRouteTS.loadScreenView(templateView);
         })
             .catch((error) => {
             console.error('Erro ao buscar e imprimir os dados do paciente:', error);

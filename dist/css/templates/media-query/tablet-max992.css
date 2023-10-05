@@ -1,0 +1,26 @@
+
+    /* 
+   
+    CONFIGURAÇÃO RESPONSIVA DE TELAS PARA DISPOSITIVOS - tablet
+
+    CONFIGURAÇÃO VÁLIDA PARA ENTRE TELAS DE 768px à 991p de largura 
+    
+     resolução específica para tablets
+   
+    */
+
+ 
+   
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .container {
+      max-width: 720px;
+
+    }
+
+   
+    
+     
+
+  }
+

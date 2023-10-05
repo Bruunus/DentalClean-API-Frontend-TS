@@ -1,6 +1,10 @@
+import { AppModule } from "../module/appModule.js";
+import { ControllerRouteTS } from "./controllerTS.js";
 import { DentistaView } from "../view/templates/dentistaView.js";
 
 export class DentistaController {
+
+    
 
     /**
      * Essa classe precisa fazer um fatch para a api e armazenar os dados JSON
@@ -13,9 +17,8 @@ export class DentistaController {
             .then((dentistData) => {
 
                 const templateView = DentistaView.listDentist(dentistData);
-                const screenView = document.querySelector('#screenView');
-
-                screenView.innerHTML = templateView;
+                ControllerRouteTS.loadScreenView(templateView);  // chamando o controller para redirecionar
+                
             })
     }
 

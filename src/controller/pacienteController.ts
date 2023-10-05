@@ -1,3 +1,4 @@
+import { ControllerRouteTS } from './controllerTS.js';
 import { PacienteView } from '../view/templates/pacienteView.js';
 
 
@@ -13,9 +14,7 @@ export class PacienteController {
             .then((pacienteData) => {
 
                 const templateView = PacienteView.listaPaciente(pacienteData);
-                const screenView = document.querySelector('#screenView');
-
-                screenView.innerHTML = templateView;        
+                ControllerRouteTS.loadScreenView(templateView);       
          
         })
         .catch((error) => {
