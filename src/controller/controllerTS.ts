@@ -65,7 +65,7 @@ export class ControllerRouteTS {
     public static loadScreenView(templateView: string): void {
          
         ControllerRouteTS.redirect.innerHTML = templateView;
-
+        AppModule.loadCellEffects();
     }
 
  

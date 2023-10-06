@@ -4,48 +4,34 @@ export class AppModule {
     private lInkCadastroDentista:HTMLElement = document.querySelector('#cadastroDentista');
 
 
-        public eventHideShow() : void {
-            
-            if(this.lICadastroCliente.style.display === 'none' && this.lInkCadastroDentista.style.display === 'none') {
 
-                this.lICadastroCliente.style.display = 'block';
-                this.lInkCadastroDentista.style.display = 'block'; 
+        /**
+         * Metodo que realiza a interação nsa tabelas para facilitar manipulação das
+         * linhas da tabelas pelo usuário
+         */
+        public static loadCellEffects(): void {
 
-                // animation
-                this.lICadastroCliente.style.maxHeight = '0';
-                this.lInkCadastroDentista.style.maxHeight = '0';
+            const cells = document.querySelectorAll('.table_dentist tr');
 
-                this.lICadastroCliente.style.transition = 'max-height 0.5s ease-in-out';
-                this.lInkCadastroDentista.style.transition = 'max-height 0.5s ease-in-out';
+            cells.forEach(function(cell) {
+                cell.addEventListener('click', function() {
+                    // Remover a classe ativa de todas as células da tabela
+                    cells.forEach(function(cell) {
+                        cell.classList.remove('active-cell');
+                    });
 
-                setTimeout(() => {
-                    this.lICadastroCliente.style.display = 'block';
-                    this.lInkCadastroDentista.style.display = 'block';
-              
-                    // Remova a altura máxima para permitir a expansão suave
-                    this.lICadastroCliente.style.maxHeight = 'none';
-                    this.lInkCadastroDentista.style.maxHeight = 'none';
-                  }, 10);
-                
-            } else  {
-
-                // Defina a altura máxima de volta para 0 para ocultar os elementos
-                this.lICadastroCliente.style.maxHeight = '0';
-                this.lInkCadastroDentista.style.maxHeight = '0';
-
-                // Defina a transição de altura para suave
-                this.lICadastroCliente.style.transition = 'max-height 0.3s ease-in-out';
-                this.lInkCadastroDentista.style.transition = 'max-height 0.3s ease-in-out';
-
-                // Defina o display de volta para none após um pequeno atraso
-                setTimeout(() => {
-                    this.lICadastroCliente.style.display = 'none';
-                    this.lInkCadastroDentista.style.display = 'none';
-                }, 25); // Atraso deve corresponder à duração da transição
-                
-            } 
+                    // Adicionar a classe ativa apenas à célula clicada
+                    cell.classList.add('active-cell');
+                    
+                });
+            });
             
         }
+
+
+
+
+
 
 
      

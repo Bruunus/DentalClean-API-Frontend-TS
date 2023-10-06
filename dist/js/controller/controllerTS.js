@@ -1,6 +1,7 @@
 import { DentistaController } from "./dentistaController.js";
 import { CadastroDentistaView } from "../view/templates/cadastroDentistaView.js";
 import { RegistrationOptionsViewer } from "../view/templates/registrationOptionsViewer.js";
+import { AppModule } from "../module/appModule.js";
 export class ControllerRouteTS {
     constructor() {
         this.dentistaController = new DentistaController();
@@ -27,6 +28,7 @@ export class ControllerRouteTS {
     }
     static loadScreenView(templateView) {
         ControllerRouteTS.redirect.innerHTML = templateView;
+        AppModule.loadCellEffects();
     }
 }
 ControllerRouteTS.screenViewContainer = '#screenViewContainer';

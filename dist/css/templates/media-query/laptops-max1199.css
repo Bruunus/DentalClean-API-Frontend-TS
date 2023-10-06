@@ -19,8 +19,9 @@
     
     
     /**
-    * Estilo do template de opções de cadastro da classe RegistrationOptionsViewer.ts
+    * Menu: "Cadastros" -  RegistrationOptionsViewer.ts
     */
+
     .container_renderOptionsViwer {
       /* background-color: thistle; */
       border: 1px solid #0076B8;
@@ -46,8 +47,9 @@
 
 
 
+
     /* 
-    * Estilização das tabelas de listas do sistema.
+    * Estilização das tabelas de listas do sistema. (Todas)
     *
     */
     .table_dentist {
@@ -73,24 +75,47 @@
       position: -webkit-sticky;
       position: sticky;
       top: 0.1px !important;
-      background-color: #f1a085;
+      /* background-color: #f1a085; */
       z-index: 1000; 
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 
        
     }
 
+    .thead_dentist th {
+      font-family: 'fonte-tema';
+      letter-spacing: 0.3px;
+    }
+
     .table_dentist th, .table_dentist td {
       width: 200px;
       white-space: nowrap;
-      text-align: left;
+      text-align: center;
       padding: 10px;
     }
 
     .table.table_dentist th {
       border-top: none;
       border-bottom: none;
-      
     }
+
+
+    /*
+    * Formatação apenas das linhas da tabela
+    */
+    .tr_format {
+      /* background-color: aquamarine; */
+      border-bottom: 1px solid rgba(211, 211, 211, 0.5);
+    }
+    .tr_format:hover {
+       
+    }
+
+
+
+
+
+    
+
 
 
     /* 
@@ -98,35 +123,101 @@
     *
     */
 
-
-
+    
     /* Coluna 1 - Nome Completo */
 
-    .table_dentist th:nth-child(1), .table_dentist td:nth-child(1) {
-      width: 171px !important;
-    }
+    .table_dentist th:nth-child(1), .table_dentist td:nth-child(1) { width: 171px !important; }
+    .table_dentist td:nth-child(1){ text-align: left !important; }
 
 
     /* Coluna 2 - Data de nascimento */
 
-    .table_dentist th:nth-child(2), .table_dentist td:nth-child(2) {
-      width: 171px;
-      background-color: #baecba;
-      padding-left: 10px;
-      white-space: nowrap;
-    }
-    
+    .table_dentist th:nth-child(2), .table_dentist td:nth-child(2) { width: 128px; /* background-color: #baecba; */ }
 
+
+    /* Coluna 3 - CPF */
+
+    .table_dentist th:nth-child(3), .table_dentist td:nth-child(3) { width: 134px; /* background-color: #baecba; */ }
+
+
+
+    /* Coluna 4 - CRO */
+
+    .table_dentist th:nth-child(4), .table_dentist td:nth-child(4) { width: 83px; /* background-color: #baecba; */ }
+
+
+
+    /* Coluna 5 - Especialidade */
+
+    .table_dentist th:nth-child(5), .table_dentist td:nth-child(5) { width: 200px; /* background-color: #baecba; */ }
 
      
 
+    /* Coluna 6 - Telefone residencial */
+
+    .table_dentist th:nth-child(6), .table_dentist td:nth-child(6) { width: 139px; /* background-color: #baecba; */ }
+
+
+
+    /* Coluna 7 - Telefone celular */
+
+    .table_dentist th:nth-child(7), .table_dentist td:nth-child(7) { width: 141px; /* background-color: #baecba; */ }
+
     
+
+    /* Coluna 8 - E-mail */
+
+    .table_dentist th:nth-child(8), .table_dentist td:nth-child(8) { width: 246px; /* background-color: #baecba;  */}
 
      
 
+    /* Coluna 9 - Rua */
+
+    .table_dentist th:nth-child(9), .table_dentist td:nth-child(9) { width: 282px; /* background-color: #baecba;  */}
+
+
+
+    /* Coluna 10 - Número */
+
+    .table_dentist th:nth-child(10), .table_dentist td:nth-child(10) { width: 83px; /* background-color: #baecba;  */}
+    
+
+
+    /* Coluna 11 - Bairro */
+
+    .table_dentist th:nth-child(11), .table_dentist td:nth-child(11) { width: 183px; /* background-color: #baecba; */ }
+    
+
+
+    /* Coluna 12 - Cidade */
+
+    .table_dentist th:nth-child(12), .table_dentist td:nth-child(12) { width: 250px; /* background-color: #baecba; */ }
+
+
+
+    /* Coluna 13 - Estado */
+
+    .table_dentist th:nth-child(13), .table_dentist td:nth-child(13) { width: 76px; /* background-color: #baecba; */ }
+
 
     
-    
+    /* Coluna 14 - Editar */
+
+    .table_dentist th:nth-child(14), .table_dentist td:nth-child(14) { width: 76px; /* background-color: #baecba; */ }
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
 
 
 

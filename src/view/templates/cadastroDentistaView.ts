@@ -42,19 +42,19 @@ export class CadastroDentistaView {
                     <input type="text" name="telefoneCelular" id="telefoneCelular">
                     <br>
                     <label for="email">E-mail</label>
-                    <input type="text" name="email" id="email">
+                    <input type="text" name="email" id="email" maxlength="35">
                     <br>
                     <label for="rua">Rua</label>
-                    <input type="text" name="rua" id="rua">
+                    <input type="text" name="rua" id="rua" maxlength="32">
                     <br>
                     <label for="numero">Número</label>
-                    <input type="text" name="numero" id="numero">
+                    <input type="text" name="numero" id="numero" maxlength="5">
                     <br>
                     <label for="bairro">Bairro</label>
-                    <input type="text" name="bairro" id="bairro">
+                    <input type="text" name="bairro" id="bairro" maxlength="20">
                     <br>
                     <label for="cidade">Cidade</label>
-                    <input type="text" name="cidade" id="cidade">
+                    <input type="text" name="cidade" id="cidade" maxlength="24">
                     <br>
                     <label for="estado">Estado</label>
                     <input type="text" name="estado" id="estado">
