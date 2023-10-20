@@ -1,7 +1,5 @@
 import { DentistaController } from "./dentistaController.js";
 import { CadastroDentistaView } from "../view/templates/cadastroDentistaView.js";
-import { CadastroPacienteView } from "../view/templates/cadastroPacienteView.js"
-import { DentistaView } from "../view/templates/dentistaView.js";
 import { RegistrationOptionsViewer } from "../view/templates/registrationOptionsViewer.js";
 import { AppModule } from "../module/appModule.js";
 
@@ -11,8 +9,8 @@ export class ControllerRouteTS {
      * Controller TS responsável para renderizar os templates que são invocados conforme o usuário clicar em app.ts
      */
     private loadTemplate: any;
-    private static screenViewContainer: string = '#screenViewContainer'; 
-    private static redirect:HTMLElement = document.querySelector('#screenViewContainer');
+    public static screenViewContainer: string = '#screenViewContainer'; 
+    public static redirect:HTMLElement = document.querySelector('#screenViewContainer');
 
     
      
@@ -57,16 +55,21 @@ export class ControllerRouteTS {
 
 
     
+
     /**
-     * Controller renderizador do template da lista de dentistas
+     * Controller do template da lista de dentistas
      * @param templateView
      * 
      */
-    public static loadScreenView(templateView: string): void {
+    public static loadScreenAllViewDentist(templateView: string): void {
          
         ControllerRouteTS.redirect.innerHTML = templateView;
         AppModule.loadCellEffects();
+        
     }
+
+
+
 
  
 

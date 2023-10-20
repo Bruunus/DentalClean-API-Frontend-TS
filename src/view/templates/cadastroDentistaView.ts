@@ -33,7 +33,19 @@ export class CadastroDentistaView {
                     <input type="text" name="cro" id="cro">
                     <br>
                     <label for="especialidade">Especialidade</label>
-                    <input type="text" name="especialidade" id="especialidade">
+                    <!-- <input type="text" name="especialidade" id="especialidade"> -->
+                    <select id="especialidade">
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="Cirurgia">Cirurgia</option>
+                        <option value="Cirurgia Bucomaxilofacial">Cirurgia Bucomaxilofacial</option>
+                        <option value="Dentística">Dentística</option>
+                        <option value="Endodontia">Endodontia</option>
+                        <option value="Odontopediatria">Odontopediatria</option>
+                        <option value="Prótese Dentária">Prótese Dentária</option>
+                        <option value="Periodontia">Periodontia</option>
+                        <option value="Odontogeriatria">Odontogeriatria</option>
+                        <option value="Estética">Estética</option>
+                    </select>
                     <br>
                     <label for="telefoneResidencial">Telefine Res.</label>
                     <input type="text" name="telefoneResidencial" id="telefoneResidencial">
@@ -77,6 +89,7 @@ export class CadastroDentistaView {
             console.error("Problema encontrado ao renderizar formulário.");
             return;
         } else {
+            
             formSubmit.addEventListener('submit', (event) => {
                 event.preventDefault();
 
@@ -84,7 +97,11 @@ export class CadastroDentistaView {
                 const dataNascimento = (formSubmit.querySelector('#dataNascimento') as HTMLInputElement)?.value || '';
                 const cpf = (formSubmit.querySelector('#cpf') as HTMLInputElement)?.value || '';
                 const cro = (formSubmit.querySelector('#cro') as HTMLInputElement)?.value || '';
-                const especialidade = (formSubmit.querySelector('#especialidade') as HTMLInputElement)?.value || '';
+                /* const especialidade = (formSubmit.querySelector('#especialidade') as HTMLInputElement)?.value || ''; */
+                
+                const especialidadeSelect = document.querySelector('#especialidade') as HTMLSelectElement;
+                const especialidade = especialidadeSelect?.value;
+                
                 const telefoneResidencial = (formSubmit.querySelector('#telefoneResidencial') as HTMLInputElement)?.value || '';
                 const telefoneCelular = (formSubmit.querySelector('#telefoneCelular') as HTMLInputElement)?.value || '';
                 const email = (formSubmit.querySelector('#email') as HTMLInputElement)?.value || '';
@@ -111,6 +128,8 @@ export class CadastroDentistaView {
                         '\nEstado: ' + estado
                     );
 
+                    
+
 
 
                     // chamador da API backend aqui ! 
@@ -136,7 +155,7 @@ export class CadastroDentistaView {
 
                 this.limpaCampos();
                 alert('Registro realizado com sucesso!')
-                location.reload();
+                //location.reload();
 
             })
         }

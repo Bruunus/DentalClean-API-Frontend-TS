@@ -14,7 +14,7 @@ export class PacienteController {
         this.fetchPatientData()
             .then((pacienteData) => {
             const templateView = PacienteView.listaPaciente(pacienteData);
-            ControllerRouteTS.loadScreenView(templateView);
+            ControllerRouteTS.loadScreenAllViewDentist(templateView);
         })
             .catch((error) => {
             console.error('Erro ao buscar e imprimir os dados do paciente:', error);

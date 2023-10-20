@@ -91,7 +91,7 @@ body {
 
 .active-cell {
     /* background-color: #d1d1d1; */
-    background-color: #ECECEC;
+    background-color: rgb(223,245,253)!important;
 }
 
 .no-select {
@@ -102,6 +102,7 @@ body {
     -webkit-user-select: none; /* Chrome, Safari, and Opera */
     user-select: none;
 }
+
 
 
 

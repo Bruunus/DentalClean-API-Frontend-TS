@@ -23,7 +23,19 @@ export class CadastroDentistaView {
                     <input type="text" name="cro" id="cro">
                     <br>
                     <label for="especialidade">Especialidade</label>
-                    <input type="text" name="especialidade" id="especialidade">
+                    <!-- <input type="text" name="especialidade" id="especialidade"> -->
+                    <select id="especialidade">
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="Cirurgia">Cirurgia</option>
+                        <option value="Cirurgia Bucomaxilofacial">Cirurgia Bucomaxilofacial</option>
+                        <option value="Dentística">Dentística</option>
+                        <option value="Endodontia">Endodontia</option>
+                        <option value="Odontopediatria">Odontopediatria</option>
+                        <option value="Prótese Dentária">Prótese Dentária</option>
+                        <option value="Periodontia">Periodontia</option>
+                        <option value="Odontogeriatria">Odontogeriatria</option>
+                        <option value="Estética">Estética</option>
+                    </select>
                     <br>
                     <label for="telefoneResidencial">Telefine Res.</label>
                     <input type="text" name="telefoneResidencial" id="telefoneResidencial">
@@ -63,21 +75,22 @@ export class CadastroDentistaView {
         }
         else {
             formSubmit.addEventListener('submit', (event) => {
-                var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
+                var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
                 event.preventDefault();
                 const nomeCompleto = ((_a = formSubmit.querySelector('#nomeCompleto')) === null || _a === void 0 ? void 0 : _a.value) || '';
                 const dataNascimento = ((_b = formSubmit.querySelector('#dataNascimento')) === null || _b === void 0 ? void 0 : _b.value) || '';
                 const cpf = ((_c = formSubmit.querySelector('#cpf')) === null || _c === void 0 ? void 0 : _c.value) || '';
                 const cro = ((_d = formSubmit.querySelector('#cro')) === null || _d === void 0 ? void 0 : _d.value) || '';
-                const especialidade = ((_e = formSubmit.querySelector('#especialidade')) === null || _e === void 0 ? void 0 : _e.value) || '';
-                const telefoneResidencial = ((_f = formSubmit.querySelector('#telefoneResidencial')) === null || _f === void 0 ? void 0 : _f.value) || '';
-                const telefoneCelular = ((_g = formSubmit.querySelector('#telefoneCelular')) === null || _g === void 0 ? void 0 : _g.value) || '';
-                const email = ((_h = formSubmit.querySelector('#email')) === null || _h === void 0 ? void 0 : _h.value) || '';
-                const rua = ((_j = formSubmit.querySelector('#rua')) === null || _j === void 0 ? void 0 : _j.value) || '';
-                const numero = (_k = formSubmit.querySelector('#numero')) === null || _k === void 0 ? void 0 : _k.value;
-                const bairro = ((_l = formSubmit.querySelector('#bairro')) === null || _l === void 0 ? void 0 : _l.value) || '';
-                const cidade = ((_m = formSubmit.querySelector('#cidade')) === null || _m === void 0 ? void 0 : _m.value) || '';
-                const estado = ((_o = formSubmit.querySelector('#estado')) === null || _o === void 0 ? void 0 : _o.value) || '';
+                const especialidadeSelect = document.querySelector('#especialidade');
+                const especialidade = especialidadeSelect === null || especialidadeSelect === void 0 ? void 0 : especialidadeSelect.value;
+                const telefoneResidencial = ((_e = formSubmit.querySelector('#telefoneResidencial')) === null || _e === void 0 ? void 0 : _e.value) || '';
+                const telefoneCelular = ((_f = formSubmit.querySelector('#telefoneCelular')) === null || _f === void 0 ? void 0 : _f.value) || '';
+                const email = ((_g = formSubmit.querySelector('#email')) === null || _g === void 0 ? void 0 : _g.value) || '';
+                const rua = ((_h = formSubmit.querySelector('#rua')) === null || _h === void 0 ? void 0 : _h.value) || '';
+                const numero = (_j = formSubmit.querySelector('#numero')) === null || _j === void 0 ? void 0 : _j.value;
+                const bairro = ((_k = formSubmit.querySelector('#bairro')) === null || _k === void 0 ? void 0 : _k.value) || '';
+                const cidade = ((_l = formSubmit.querySelector('#cidade')) === null || _l === void 0 ? void 0 : _l.value) || '';
+                const estado = ((_m = formSubmit.querySelector('#estado')) === null || _m === void 0 ? void 0 : _m.value) || '';
                 try {
                     console.log('Nome completo: ' + nomeCompleto +
                         '\nData nascimento: ' + dataNascimento +
@@ -99,7 +112,6 @@ export class CadastroDentistaView {
                 }
                 this.limpaCampos();
                 alert('Registro realizado com sucesso!');
-                location.reload();
             });
         }
     }

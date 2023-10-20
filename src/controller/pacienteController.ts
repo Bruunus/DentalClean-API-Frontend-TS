@@ -14,7 +14,7 @@ export class PacienteController {
             .then((pacienteData) => {
 
                 const templateView = PacienteView.listaPaciente(pacienteData);
-                ControllerRouteTS.loadScreenView(templateView);       
+                ControllerRouteTS.loadScreenAllViewDentist(templateView);       
          
         })
         .catch((error) => {

@@ -26,7 +26,7 @@ export class ControllerRouteTS {
         linkButtonCadastroPaciente.addEventListener('click', loadTemplatePaciente);
         linkButtonCadastroDentista.addEventListener('click', loadTemplateDentista);
     }
-    static loadScreenView(templateView) {
+    static loadScreenAllViewDentist(templateView) {
         ControllerRouteTS.redirect.innerHTML = templateView;
         AppModule.loadCellEffects();
     }

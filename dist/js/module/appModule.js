@@ -1,8 +1,4 @@
 export class AppModule {
-    constructor() {
-        this.lICadastroCliente = document.querySelector('#cadastroCliente');
-        this.lInkCadastroDentista = document.querySelector('#cadastroDentista');
-    }
     static loadCellEffects() {
         const cells = document.querySelectorAll('.table_dentist tr');
         cells.forEach(function (cell) {

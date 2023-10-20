@@ -58,12 +58,24 @@ export class CadastroController {
     }
 
 
-    public cadastrarDentista(nome: string, dataNascimento: string, cpf: string, especialidade: string, cro: string, telefoneResidencial: string,
-        telefoneCelular: string, email: string, rua: string, numero: string, bairro: string, cidade: string,
-        estado: string) :void {
+    public cadastrarDentista(
+        nomeCompleto: string, 
+        dataNascimento: string, 
+        cpf: string, 
+        cro: string, 
+        especialidade: string,  
+        telefoneResidencial: string,
+        telefoneCelular: string, 
+        email: string, 
+        rua: string, 
+        numero: string, 
+        bairro: string, 
+        cidade: string,
+        estado: string
+        ) :void {
 
             const dentistaDataJSON = {
-                nomeCompleto: nome,
+                nomeCompleto: nomeCompleto,
                 rua: rua,
                 numero: numero,
                 bairro: bairro,

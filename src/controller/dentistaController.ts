@@ -15,10 +15,7 @@ export class DentistaController {
 
         this.fetchDentistData()
             .then((dentistData) => {
-
                 const templateView = DentistaView.listDentist(dentistData);
-                ControllerRouteTS.loadScreenView(templateView);  // chamando o controller para redirecionar
-                
             })
     }
 

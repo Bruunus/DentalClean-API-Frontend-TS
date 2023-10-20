@@ -1,33 +1,33 @@
 export class AppModule {
 
-    private lICadastroCliente: HTMLElement = document.querySelector('#cadastroCliente');
-    private lInkCadastroDentista:HTMLElement = document.querySelector('#cadastroDentista');
-
-
 
         /**
          * Metodo que realiza a interação nsa tabelas para facilitar manipulação das
-         * linhas da tabelas pelo usuário
+         * linhas da tabelas pelo usuário.
+         * 
+         * Quando o evento escutar o clique do mouse sob uma linha da tabela o background será
+         * imediatamente acionado e permanecerá até que outro clique em outra linha seja clicado,
+         * quando isso acontece a última linha é desabilitada para poder selecionar a nova linha.
          */
         public static loadCellEffects(): void {
-
             const cells = document.querySelectorAll('.table_dentist tr');
-
+    
             cells.forEach(function(cell) {
-                cell.addEventListener('click', function() {
-                    // Remover a classe ativa de todas as células da tabela
+
+                cell.addEventListener('click', function() {                    
                     cells.forEach(function(cell) {
                         cell.classList.remove('active-cell');
-                    });
-
-                    // Adicionar a classe ativa apenas à célula clicada
+                    });    
                     cell.classList.add('active-cell');
-                    
                 });
             });
-            
         }
 
+
+        
+        
+
+ 
 
 
 

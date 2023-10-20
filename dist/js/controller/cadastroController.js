@@ -38,9 +38,9 @@ export class CadastroController {
             console.error(error);
         });
     }
-    cadastrarDentista(nome, dataNascimento, cpf, especialidade, cro, telefoneResidencial, telefoneCelular, email, rua, numero, bairro, cidade, estado) {
+    cadastrarDentista(nomeCompleto, dataNascimento, cpf, cro, especialidade, telefoneResidencial, telefoneCelular, email, rua, numero, bairro, cidade, estado) {
         const dentistaDataJSON = {
-            nomeCompleto: nome,
+            nomeCompleto: nomeCompleto,
             rua: rua,
             numero: numero,
             bairro: bairro,

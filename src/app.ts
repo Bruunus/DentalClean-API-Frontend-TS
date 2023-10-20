@@ -20,6 +20,7 @@ const linkRegistrationOptionsViewer = document.querySelector('#opcoesDeCadastro'
 
 
 
+
 function routeCallListarDentistas() { controllerRouteTS.redirectViewListarDentista(); }
 function routeCallDisplayOptions() { controllerRouteTS.redirectScreenViewOptions(); }
 
