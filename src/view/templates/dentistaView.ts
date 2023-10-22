@@ -7,16 +7,12 @@ export class DentistaView {
 
 
     static listDentist(dentistData: any[]):void {
-
     
     AppModule.loadCellEffects();
 
-
     dentistData.sort((a, b) => {
-
         const nomeA = a.nomeCompleto.toUpperCase();
         const nomeB = b.nomeCompleto.toUpperCase();
-
         if (nomeA < nomeB) {
             return -1;
         }
@@ -78,7 +74,7 @@ export class DentistaView {
             </table>
         </div>`;
         
-        // Renderizando a lista de dentistas...
+        // Renderizando o template da lista de dentistas...
         ControllerRouteTS.loadScreenAllViewDentist(template);
 
         // selecionando todos os links de Editar...
@@ -106,18 +102,15 @@ export class DentistaView {
         linkEditarDentista.forEach((link) => {
             
             link.addEventListener('click', (event) => {
-                
+
                 // indentity element cliked
                 const elementoClicado = event.target as HTMLElement;
 
                 // pega a coluna em que foi clicada no link Editar
                 const linha = elementoClicado.closest('.table_hover_dentist tr');
-                
 
                 // coletando os dados 
                 if (linha) {
-
-                    
                     const nomeCompletoEditar = linha.querySelector('.nomeCompleto')?.textContent;
                     const dataNascimentoEditar = linha.querySelector('.dataNascimento')?.textContent;
                     const cpfEditar = linha.querySelector('.cpf')?.textContent;
@@ -133,7 +126,6 @@ export class DentistaView {
                     const estadoEditar = linha.querySelector('.estado')?.textContent;
 
                     const JSONUpdate = {
-
                         nomeCompleto: nomeCompletoEditar,
                         dataNascimento: dataNascimentoEditar,
                         cpf: cpfEditar,
@@ -152,10 +144,7 @@ export class DentistaView {
                     const sendArray = [JSONUpdate];
                     EditDentistView.screenEditar(sendArray);
 
-                    
-
                 }
-
         
             })
         })

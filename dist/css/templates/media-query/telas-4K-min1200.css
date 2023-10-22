@@ -32,6 +32,45 @@
      #renderOptionsViwer {
           /* background-color: deepskyblue; */
      }
+
+
+
+
+     /* Configurações das colunas da tabela para telas grandes */
+
+
+    /* Coluna 5 - Especialidade */
+                                                          /* Modificado para tela grande */
+    .table_dentist th:nth-child(5), .table_dentist td:nth-child(5) { width: 250px; /* background-color: #d16f36; */ }
+
+    
+
+    /* Coluna 9 - Rua */
+                                                                      /* Modificado para tela grande */
+    .table_dentist th:nth-child(9), .table_dentist td:nth-child(9) { width: 335px; /* background-color: #d16f36 */; }
+
+
+
+    /* Coluna 10 - Número */
+
+    .table_dentist th:nth-child(10), .table_dentist td:nth-child(10) { width: 98px; /* background-color: #baecba; */ }
+    
+
+
+    /* Coluna 11 - Bairro */
+
+    .table_dentist th:nth-child(11), .table_dentist td:nth-child(11) { width: 214px; /* background-color: #baecba; */ }
+    
+
+
+    /* Coluna 12 - Cidade */
+
+    .table_dentist th:nth-child(12), .table_dentist td:nth-child(12) { width: 250px; /* background-color: #baecba; */ }
+
+
+
+
+
      
 
 
