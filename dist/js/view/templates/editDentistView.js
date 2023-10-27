@@ -1,163 +1,173 @@
 import { ControllerRouteTS } from "../../controller/controllerTS.js";
 export class EditDentistView {
-    constructor() {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
-        this.formSubmit = document.querySelector('#form_editar');
-        this.croEditado = ((_a = this.formSubmit.querySelector('#croEditar')) === null || _a === void 0 ? void 0 : _a.value) || '';
-        this.nomeCompletoEditado = ((_b = this.formSubmit.querySelector('#nomeCompletoEditar')) === null || _b === void 0 ? void 0 : _b.value) || '';
-        this.ruaEditado = (_c = this.formSubmit.querySelector('#ruaEditar')) === null || _c === void 0 ? void 0 : _c.value;
-        this.numeroEditado = (_d = this.formSubmit.querySelector('#numeroEditar')) === null || _d === void 0 ? void 0 : _d.value;
-        this.bairroEditado = (_e = this.formSubmit.querySelector('#bairroEditar')) === null || _e === void 0 ? void 0 : _e.value;
-        this.cidadeEditado = (_f = this.formSubmit.querySelector('#cidadeEditar')) === null || _f === void 0 ? void 0 : _f.value;
-        this.estadoEditado = (_g = this.formSubmit.querySelector('#estadoEditar')) === null || _g === void 0 ? void 0 : _g.value;
-        this.emailEditado = (_h = this.formSubmit.querySelector('#emailEditar')) === null || _h === void 0 ? void 0 : _h.value;
-        this.dataNascimentoEditado = (_j = this.formSubmit.querySelector('#dataNascimentoEditar')) === null || _j === void 0 ? void 0 : _j.value;
-        this.telefoneResidencialEditado = (_k = this.formSubmit.querySelector('#telefoneResidencialEditar')) === null || _k === void 0 ? void 0 : _k.value;
-        this.telefoneCelularEditado = (_l = this.formSubmit.querySelector('#telefoneCelularEditar')) === null || _l === void 0 ? void 0 : _l.value;
-        this.especialidadeEditado = (_m = this.formSubmit.querySelector('#especialidadeEditar')) === null || _m === void 0 ? void 0 : _m.value;
-        this.cpfEditado = (_o = this.formSubmit.querySelector('#cpfEditar')) === null || _o === void 0 ? void 0 : _o.value;
-    }
-    ;
-    static screenEditar(objectDentist) {
-        const template = `Templete Editar
-        
-        
-        ${objectDentist.map((update) => {
-            return `
+    constructor(objectDentist) {
+        if (objectDentist.length > 0) {
+            const firstDentist = objectDentist[0];
+            this.id = firstDentist.id;
+            this.croEditado = firstDentist.cro || '';
+            this.nomeCompletoEditado = firstDentist.nomeCompleto || '';
+            this.ruaEditado = firstDentist.rua || '';
+            this.numeroEditado = firstDentist.numero || '';
+            this.bairroEditado = firstDentist.bairro || '';
+            this.cidadeEditado = firstDentist.cidade || '';
+            this.estadoEditado = firstDentist.estado || '';
+            this.emailEditado = firstDentist.email || '';
+            this.dataNascimentoEditado = firstDentist.dataNascimento || '';
+            this.telefoneResidencialEditado = firstDentist.telefoneResidencial || '';
+            this.telefoneCelularEditado = firstDentist.telefoneCelular || '';
+            this.especialidadeEditado = firstDentist.especialidade || '';
+            this.cpfEditado = firstDentist.cpf || '';
+        }
+        else {
+        }
+        const template = `
 
-            <form action="" id="form_editar">
-                <label name="croEditar">CRO</label>
-                <input type="text" id="croEditar" disabled value="${update.cro}">
-
-                <label name="nomeCompletoEditar">Nome Completo</label>
-                <input type="text" class="editar" id="nomeCompletoEditar" disabled value="${update.nomeCompleto}">
-
-                <label name="especialidadeEditar">Especialidade</label>
-                <input type="text" class="editar" id="especialidadeEditar" disabled value="${update.especialidade}">
+            <form action="" id="form_editar"> 
+            
+                <input type="text" id="spanId" disabled value="${this.id}"> 
+          
+                <label name="nomeCompletoEditado">Nome Completo</label>
+                <input type="text" class="editar" id="nomeCompletoEditado" disabled value="${this.nomeCompletoEditado}">
 
                 <label name="dataNascimentoEditar">Data nascimento</label>
-                <input type="date" class="editar" id="dataNascimentoEditar" disabled value="${update.dataNascimento}">
+                <input type="date" class="editar" id="dataNascimentoEditar" disabled value="${this.dataNascimentoEditado}">
 
                 <label name="cpfEditar">CPF</label>
-                <input type="text" class="editar" id="cpfEditar" disabled value="${update.cpf}">
+                <input type="text" class="editar" id="cpfEditar" disabled value="${this.cpfEditado}">
 
+                <label name="cro">CRO</label>
+                <input type="text" class="editar" id="cro" disabled value="${this.croEditado}">
+
+                <label name="especialidadeEditar">Especialidade</label>
+                <input type="text" class="editar" id="especialidadeEditar" disabled value="${this.especialidadeEditado}">
+                
                 <label name="telefoneResidencialEditar">Telefone Res.</label>
-                <input type="text" class="editar" id="telefoneResidencialEditar" disabled value="${update.telefoneResidencial}">
+                <input type="text" class="editar" id="telefoneResidencialEditar" disabled value="${this.telefoneResidencialEditado}">
 
                 <label name="telefoneCelularEditar">Telefone Cel.</label>
-                <input type="text" class="editar" id="telefoneCelularEditar" disabled value="${update.telefoneCelular}">
+                <input type="text" class="editar" id="telefoneCelularEditar" disabled value="${this.telefoneCelularEditado}">
 
                 <label name="emailEditar">E-mail</label>
-                <input type="text" class="editar" id="emailEditar" disabled value="${update.email}">
+                <input type="text" class="editar" id="emailEditar" disabled value="${this.emailEditado}">
 
                 <label name="ruaEditar">Rua</label>
-                <input type="text" class="editar" id="ruaEditar" disabled value="${update.rua}">
+                <input type="text" class="editar" id="ruaEditar" disabled value="${this.ruaEditado}">
 
                 <label name="numeroEditar">Número</label>
-                <input type="text" class="editar" id="numeroEditar" disabled value="${update.numero}">
+                <input type="text" class="editar" id="numeroEditar" disabled value="${this.numeroEditado}">
 
                 <label name="bairroEditar">Bairro</label>
-                <input type="text" class="editar" id="bairroEditar" disabled value="${update.bairro}">
+                <input type="text" class="editar" id="bairroEditar" disabled value="${this.bairroEditado}">
 
                 <label name="cidadeEditar">Cidade</label>
-                <input type="text" class="editar" id="cidadeEditar" disabled value="${update.cidade}">
+                <input type="text" class="editar" id="cidadeEditar" disabled value="${this.cidadeEditado}">
 
                 <label name="estadoEditar">Estado</label>
-                <input type="text" class="editar" id="estadoEditar" disabled value="${update.estado}">
+                <input type="text" class="editar" id="estadoEditar" disabled value="${this.estadoEditado}">  
+
+            
+
+            <br>
+            <br>
+            <br>
+
+            <button type="button" class="btn btn-primary" id="btnUpdate">Editar</button>
+            <button type="submit" class="btn btn-primary" id="btnSave" disabled>Atualizar</button>
+            <button type="button" class="btn btn-primary" id="btnDelete">Excluir</button>
 
             </form>
-
-            <br>
-            <br>
-            <br>
-
-            <button class="btn btn-primary" id="btnUpdate">Atualizar</button>
-            <button class="btn btn-primary" id="btnSave" disabled>Salvar</button>
-            <button class="btn btn-primary" id="btnDelete">Excluir</button>
-            
             `;
-        }).join('')}
-        
-        `;
         ControllerRouteTS.loadScreenAllViewDentist(template);
-        const optionUpdate = document.querySelector('#btnUpdate');
-        const optionDelete = document.querySelector('#btnDelete');
-        const optionSave = document.querySelector('#btnSave');
-        optionUpdate.addEventListener('click', () => {
-            const camposEditar = document.querySelectorAll('form .editar');
-            camposEditar.forEach(tags => {
-                tags.removeAttribute('disabled');
+        this.btnEditOptions = document.querySelector('#btnUpdate');
+        this.btnDelete = document.querySelector('#btnDelete');
+        this.btnUpdate = document.querySelector('#btnSave');
+        this.btnEditOptions.addEventListener('click', () => { this.editOptionsViwer(); });
+        this.btnUpdate.addEventListener('click', () => { this.update(this.id); });
+        this.btnDelete.addEventListener('click', () => { this.delete(this.id); });
+    }
+    ;
+    editOptionsViwer() {
+        const camposEditar = document.querySelectorAll('form .editar');
+        camposEditar.forEach(tags => {
+            tags.removeAttribute('disabled');
+        });
+        this.btnUpdate.removeAttribute('disabled');
+    }
+    update(id) {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
+        const formSubmit = document.querySelector('#form_editar');
+        if (!formSubmit) {
+            console.error("Problema encontrado ao renderizar formulário.");
+            return;
+        }
+        else {
+            this.nomeCompletoEditado = ((_a = formSubmit.querySelector('#nomeCompletoEditado')) === null || _a === void 0 ? void 0 : _a.value) || '';
+            this.dataNascimentoEditado = ((_b = formSubmit.querySelector('#dataNascimentoEditar')) === null || _b === void 0 ? void 0 : _b.value) || '';
+            this.cpfEditado = ((_c = formSubmit.querySelector('#cpfEditar')) === null || _c === void 0 ? void 0 : _c.value) || '';
+            this.croEditado = ((_d = formSubmit.querySelector('#croEditar')) === null || _d === void 0 ? void 0 : _d.value) || '';
+            this.especialidadeEditado = ((_e = formSubmit.querySelector('#especialidadeEditar')) === null || _e === void 0 ? void 0 : _e.value) || '';
+            this.telefoneResidencialEditado = ((_f = formSubmit.querySelector('#telefoneResidencialEditar')) === null || _f === void 0 ? void 0 : _f.value) || '';
+            this.telefoneCelularEditado = ((_g = formSubmit.querySelector('#telefoneCelularEditar')) === null || _g === void 0 ? void 0 : _g.value) || '';
+            this.emailEditado = ((_h = formSubmit.querySelector('#emailEditar')) === null || _h === void 0 ? void 0 : _h.value) || '';
+            this.ruaEditado = ((_j = formSubmit.querySelector('#ruaEditar')) === null || _j === void 0 ? void 0 : _j.value) || '';
+            this.numeroEditado = ((_k = formSubmit.querySelector('#numeroEditar')) === null || _k === void 0 ? void 0 : _k.value) || '';
+            this.bairroEditado = ((_l = formSubmit.querySelector('#bairroEditar')) === null || _l === void 0 ? void 0 : _l.value) || '';
+            this.cidadeEditado = ((_m = formSubmit.querySelector('#cidadeEditar')) === null || _m === void 0 ? void 0 : _m.value) || '';
+            this.estadoEditado = ((_o = formSubmit.querySelector('#estadoEditar')) === null || _o === void 0 ? void 0 : _o.value) || '';
+            const objectDentist = {
+                nomeCompleto: this.nomeCompletoEditado,
+                rua: this.ruaEditado,
+                numero: this.numeroEditado,
+                bairro: this.bairroEditado,
+                cidade: this.cidadeEditado,
+                estado: this.estadoEditado,
+                email: this.emailEditado,
+                dataNascimento: this.dataNascimentoEditado,
+                telefoneResidencial: this.telefoneResidencialEditado,
+                telefoneCelular: this.telefoneCelularEditado,
+                especialidade: this.especialidadeEditado,
+                cro: this.croEditado,
+                cpf: this.cpfEditado
+            };
+            fetch(`http://localhost:8080/atualizar/cadastro/dentista/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(objectDentist),
+            })
+                .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`Erro ao atualizar os dados`);
+                }
+                if (!response.ok) {
+                    return response.json();
+                }
+            })
+                .then((data) => {
+                console.log(`Dados atualizados com sucesso !`);
+                console.log(objectDentist);
+            })
+                .catch((error) => {
+                console.error(error);
             });
-            optionSave.removeAttribute('disabled');
-        });
-        optionSave.addEventListener('click', () => {
-            const cro = new EditDentistView();
-            EditDentistView.update();
-        });
-        optionDelete.addEventListener('click', () => {
-            const cro = new EditDentistView();
-            EditDentistView.delete();
-        });
+            location.reload();
+        }
     }
-    static update() {
-        const editDentistView = new EditDentistView();
-        const dentistaDataJSON = {
-            nomeCompleto: editDentistView.nomeCompletoEditado,
-            rua: editDentistView.ruaEditado,
-            numero: editDentistView.numeroEditado,
-            bairro: editDentistView.bairroEditado,
-            cidade: editDentistView.cidadeEditado,
-            estado: editDentistView.estadoEditado,
-            email: editDentistView.emailEditado,
-            dataNascimento: editDentistView.dataNascimentoEditado,
-            telefoneResidencial: editDentistView.telefoneResidencialEditado,
-            telefoneCelular: editDentistView.telefoneCelularEditado,
-            especialidade: editDentistView.especialidadeEditado,
-            cro: editDentistView.croEditado,
-            cpf: editDentistView.cpfEditado
-        };
-        fetch(`http://localhost:8080/atualizar/cadastro/dentista?cro=${dentistaDataJSON.cro}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dentistaDataJSON),
-        })
-            .then((response) => {
-            if (!response.ok) {
-                throw new Error(`Erro ao atualizar os dados`);
-            }
-            if (!response.ok) {
-                return response.json();
-            }
-        })
-            .then((data) => {
-            console.log(`Dados atualizados com sucesso !`);
-            console.log(dentistaDataJSON);
-        })
-            .catch((error) => {
-            console.error(error);
-        });
-    }
-    static delete() {
-        const deleteDentistView = new EditDentistView();
-        const cro = deleteDentistView.croEditado;
-        console.log(cro);
-        fetch(`http://localhost:8080/api/delete/dentista?cro=${cro}`, {
+    delete(id) {
+        fetch(`http://localhost:8080/api/delete/dentista/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
             }
         })
             .then(response => {
-            if (!response.ok) {
+            if (response.ok) {
+                alert('Dentista excluído com sucesso!');
+            }
+            else {
                 throw new Error('Erro ao excluir os dados');
             }
-            return response.json();
-        })
-            .then(data => {
-            console.log('Dados excluídos com sucesso!');
-            console.log(data);
         })
             .catch(error => {
             console.error(error);

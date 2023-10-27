@@ -110,7 +110,7 @@ export class Dentist {
                         estado: estadoEditar
                     };
                     const sendArray = [JSONUpdate];
-                    EditDentistView.screenEditar(sendArray);
+                    this.renderEditDentistView = new EditDentistView(sendArray);
                 }
             });
             editarCell.appendChild(linkEditar);

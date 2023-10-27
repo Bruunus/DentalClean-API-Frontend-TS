@@ -58,7 +58,7 @@ export class DentistaView {
                             <td class="bairro">${dentist.bairro}</td>
                             <td class="cidade">${dentist.cidade}</td>
                             <td class="estado">${dentist.estado}</td>
-                            <td><a href="#" class="editarDentista">Editar</a></td>
+                            <td><a href="#" class="editarDentista" data-id="${dentist.id}">Editar</a></td>
 
                         </tr>
                     `;
@@ -86,6 +86,7 @@ export class DentistaView {
                 const elementoClicado = event.target;
                 const linha = elementoClicado.closest('.table_hover_dentist tr');
                 if (linha) {
+                    const idDentista = elementoClicado.getAttribute('data-id');
                     const nomeCompletoEditar = (_a = linha.querySelector('.nomeCompleto')) === null || _a === void 0 ? void 0 : _a.textContent;
                     const dataNascimentoEditar = (_b = linha.querySelector('.dataNascimento')) === null || _b === void 0 ? void 0 : _b.textContent;
                     const cpfEditar = (_c = linha.querySelector('.cpf')) === null || _c === void 0 ? void 0 : _c.textContent;
@@ -100,6 +101,7 @@ export class DentistaView {
                     const cidadeEditar = (_m = linha.querySelector('.cidade')) === null || _m === void 0 ? void 0 : _m.textContent;
                     const estadoEditar = (_o = linha.querySelector('.estado')) === null || _o === void 0 ? void 0 : _o.textContent;
                     const JSONUpdate = {
+                        id: idDentista,
                         nomeCompleto: nomeCompletoEditar,
                         dataNascimento: dataNascimentoEditar,
                         cpf: cpfEditar,
@@ -115,7 +117,7 @@ export class DentistaView {
                         estado: estadoEditar
                     };
                     const sendArray = [JSONUpdate];
-                    EditDentistView.screenEditar(sendArray);
+                    this.renderEditDentistView = new EditDentistView(sendArray);
                 }
             });
         });

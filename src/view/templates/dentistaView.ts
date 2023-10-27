@@ -5,6 +5,8 @@ import { EditDentistView } from "./editDentistView.js";
 
 export class DentistaView {
 
+    private static renderEditDentistView: EditDentistView;
+
 
     static listDentist(dentistData: any[]):void {
     
@@ -65,7 +67,7 @@ export class DentistaView {
                             <td class="bairro">${dentist.bairro}</td>
                             <td class="cidade">${dentist.cidade}</td>
                             <td class="estado">${dentist.estado}</td>
-                            <td><a href="#" class="editarDentista">Editar</a></td>
+                            <td><a href="#" class="editarDentista" data-id="${dentist.id}">Editar</a></td>
 
                         </tr>
                     `;
@@ -109,8 +111,10 @@ export class DentistaView {
                 // pega a coluna em que foi clicada no link Editar
                 const linha = elementoClicado.closest('.table_hover_dentist tr');
 
+
                 // coletando os dados 
                 if (linha) {
+                    const idDentista = elementoClicado.getAttribute('data-id');
                     const nomeCompletoEditar = linha.querySelector('.nomeCompleto')?.textContent;
                     const dataNascimentoEditar = linha.querySelector('.dataNascimento')?.textContent;
                     const cpfEditar = linha.querySelector('.cpf')?.textContent;
@@ -126,6 +130,7 @@ export class DentistaView {
                     const estadoEditar = linha.querySelector('.estado')?.textContent;
 
                     const JSONUpdate = {
+                        id: idDentista,
                         nomeCompleto: nomeCompletoEditar,
                         dataNascimento: dataNascimentoEditar,
                         cpf: cpfEditar,
@@ -142,7 +147,7 @@ export class DentistaView {
                     }
                      
                     const sendArray = [JSONUpdate];
-                    EditDentistView.screenEditar(sendArray);
+                    this.renderEditDentistView = new EditDentistView(sendArray);
 
                 }
         

@@ -5,6 +5,9 @@ import { AppModule } from "./appModule.js";
 export class Dentist {
 
 
+    private static renderEditDentistView: EditDentistView;
+
+
     // Lógica para ordenar dentistas por critério (nome completo, CPF, etc.)
     /**
      * 
@@ -186,7 +189,7 @@ export class Dentist {
                     }
 
                     const sendArray = [JSONUpdate];
-                    EditDentistView.screenEditar(sendArray);
+                    this.renderEditDentistView = new EditDentistView(sendArray);
                 }
 
 
