@@ -16,6 +16,157 @@
     .container {
       max-width: 960px;
     }
+
+
+    /******  Estilos para o menu principal  ******/ 
+
+    .container-botoes-menu {
+      width: 281px;
+    }
+
+    .botoes-menu {
+      /* background-color: #76a4e2; */
+      height: 3.5rem;
+
+      background-color: #76a4e2;
+      color: white;
+
+      padding-top: 0.7rem !important;
+
+      border: 0;
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+
+      letter-spacing: 0.3px;
+      text-align: left;
+      font-family: 'fonte-tema';
+      font-size: 1.2rem;
+    } 
+
+
+    .botoes-menu:focus, .botoes-menu:active {
+      /* background-color: #76a4e2; */
+      box-shadow: none;
+      outline: none;
+    }
+
+
+
+
+    /**
+    * 
+    * Estilo para efeito de hover editado da biblioteca Hover.css
+    * dist/css/hover_master/css/hover.css
+    * 
+    */
+
+    .botoes-menu.hvr-sweep-to-right {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .botoes-menu.hvr-sweep-to-right::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 100%; 
+      bottom: 0;
+      left: 0;
+      background: #8db4e7;
+      transition: right 0.4s ease;  
+    }
+    
+    .botoes-menu.hvr-sweep-to-right:hover::before {
+      right: 0;
+    }
+    
+    .botoes-menu.hvr-sweep-to-right:active::before {
+      right: 0;
+      transition: none;  
+    }
+
+
+    /**
+    * 
+    * Estilo dos submenus do menu principal
+    * 
+    */
+    .container-sub-menu-buttons-a {
+      background-color: #76a4e2;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      width: 15.4444444rem;
+      margin-top: 0;
+    }
+
+    /* Desabilita o efeito de hover na classe dropdown-item - bootstrap*/
+    .dropdown-item:hover {
+      background-color: #6993ca;
+      color: white;  
+      transition: none;  
+    }
+
+    .sub-menu-buttons-a {
+      margin-left: 0.8rem;
+      height: 3rem !important;
+      padding-top: 0.6rem !important;
+      border: 0.5px solid #6790c6;
+    }
+
+    .op-dentist {
+      color: #ffffff;  /* #4c7c72 - ideal */
+      background-color: #75bfaf;
+    }
+
+    .op-patient {
+      background-color: #deae78;
+    }
+
+    /*
+
+      PAUSA - Continuar e aplicar o hover.css nos submenus e mapear cada link para template correto e 
+      limpar os itens restantes
+
+    */
+
+
+
+
+
+
+    .sub-menu-buttons-a.hvr-sweep-to-right {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .sub-menu-buttons-a.hvr-sweep-to-right::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 100%; 
+      bottom: 0;
+      left: 0;
+      background: #638abd;
+      transition: right 0.4s ease;  
+    }
+    
+    .sub-menu-buttons-a.hvr-sweep-to-right:hover::before {
+      right: 0;
+    }
+    
+    .sub-menu-buttons-a.hvr-sweep-to-right:active::before {
+      right: 0;
+      transition: none;  
+    }
+
+
+  
+
+
+
+
+    /******  Estilos para Templates  ******/ 
     
     
     /**
@@ -94,6 +245,13 @@
     .div_container_tables:hover {
       overflow: scroll !important;
     }
+
+
+
+
+
+
+    /******  Estilos para Listas de exibição  ******/ 
 
    
     /* 
@@ -265,7 +423,7 @@
 
     ::-webkit-scrollbar {
       width: 0.6666666rem;  
-      height: 0.6666666rem;
+      height: 0.7666666rem; /* Engrossar barra */
     }
 
 
@@ -278,7 +436,7 @@
 
     /* Estilo da pista da barra de rolagem (a parte onde o polegar se move) */
     ::-webkit-scrollbar-track {
-      background-color: #def4ff24; /* Cor da pista da barra de rolagem */
+      background-color: #f3fbff; /* Cor da pista da barra de rolagem */
     }
 
 

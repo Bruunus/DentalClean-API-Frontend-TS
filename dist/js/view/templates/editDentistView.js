@@ -1,4 +1,5 @@
 import { ControllerRouteTS } from "../../controller/controllerTS.js";
+import { DentistaController } from "../../controller/dentistaController.js";
 export class EditDentistView {
     constructor(objectDentist) {
         if (objectDentist.length > 0) {
@@ -36,7 +37,7 @@ export class EditDentistView {
                 <input type="text" class="editar" id="cpfEditar" disabled value="${this.cpfEditado}">
 
                 <label name="cro">CRO</label>
-                <input type="text" class="editar" id="cro" disabled value="${this.croEditado}">
+                <input type="text" class="editar" id="croEditar" disabled value="${this.croEditado}">
 
                 <label name="especialidadeEditar">Especialidade</label>
                 <input type="text" class="editar" id="especialidadeEditar" disabled value="${this.especialidadeEditado}">
@@ -146,12 +147,12 @@ export class EditDentistView {
             })
                 .then((data) => {
                 console.log(`Dados atualizados com sucesso !`);
-                console.log(objectDentist);
+                this.renderTemplate = new DentistaController();
+                this.renderTemplate.loadListDentist();
             })
                 .catch((error) => {
                 console.error(error);
             });
-            location.reload();
         }
     }
     delete(id) {
@@ -164,6 +165,8 @@ export class EditDentistView {
             .then(response => {
             if (response.ok) {
                 alert('Dentista excluído com sucesso!');
+                this.renderTemplate = new DentistaController();
+                this.renderTemplate.loadListDentist();
             }
             else {
                 throw new Error('Erro ao excluir os dados');

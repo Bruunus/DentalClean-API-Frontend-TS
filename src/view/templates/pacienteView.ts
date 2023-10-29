@@ -3,6 +3,8 @@ import { AppModule } from "../../module/appModule.js";
 export class PacienteView { 
  
 
+    // implementação do menu navbar -> https://getbootstrap.com/docs/4.0/components/navbar/?#forms
+
     static listaPaciente(pacienteData: any[]) {
 
         return  `

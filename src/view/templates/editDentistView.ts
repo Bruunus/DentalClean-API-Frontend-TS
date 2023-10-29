@@ -1,4 +1,5 @@
 import { ControllerRouteTS } from "../../controller/controllerTS.js"; 
+import { DentistaController } from "../../controller/dentistaController.js";
 
 export  class EditDentistView {
  
@@ -22,8 +23,7 @@ export  class EditDentistView {
     private btnUpdate: HTMLElement | null;
     private btnDelete: HTMLElement | null;
 
-   
-    
+    private renderTemplate: DentistaController;   
     
 
      
@@ -68,7 +68,7 @@ export  class EditDentistView {
                 <input type="text" class="editar" id="cpfEditar" disabled value="${this.cpfEditado}">
 
                 <label name="cro">CRO</label>
-                <input type="text" class="editar" id="cro" disabled value="${this.croEditado}">
+                <input type="text" class="editar" id="croEditar" disabled value="${this.croEditado}">
 
                 <label name="especialidadeEditar">Especialidade</label>
                 <input type="text" class="editar" id="especialidadeEditar" disabled value="${this.especialidadeEditado}">
@@ -142,6 +142,14 @@ export  class EditDentistView {
 
  
 
+    /**
+     * Método utlizado para atualizar um cadastro de dentista no banco dedados.
+     * Utilizando a técnica de captura de dados de formulário, adicionados ao JSON 
+     * e enviado para o servidor via API para tratamentos dos dados na base de dados.
+     * 
+     * @param id 
+     * @returns 
+     */
     private update(id:string): void {
          
         const formSubmit = document.querySelector('#form_editar');
@@ -192,31 +200,38 @@ export  class EditDentistView {
         },
             body: JSON.stringify(objectDentist),
         })
-        .then((response) => {
-            if(!response.ok) {
-                throw new Error(`Erro ao atualizar os dados`);
-            }
-            if(!response.ok) {
-                return response.json();
-            }
-        })
+            .then((response) => {
+                if(!response.ok) {
+                    // console.log(objectDentist);  {Debbug}
+                    throw new Error(`Erro ao atualizar os dados`);
+                }
+                if(!response.ok) {
+                    return response.json();
+                }
+            })
 
-        .then((data) => {
-            console.log(`Dados atualizados com sucesso !`);
-            console.log(objectDentist);
-        })
-            .catch((error) => {
-                console.error(error);
-        });
-
-        location.reload();
-        
+            .then((data) => {
+                console.log(`Dados atualizados com sucesso !`);
+                //console.log(objectDentist);   {Debbug}
+                this.renderTemplate = new DentistaController();
+                this.renderTemplate.loadListDentist();
+            })
+                .catch((error) => {
+                    console.error(error);
+                    //console.log(objectDentist);   {Debbug}
+            });
         }
-        
     }
 
 
 
+    /**
+     * Método utilizado para excluir um cadastro de dentista no banco de dados.
+     * Atrávés do id di cadastro capturado e mapeado é feito uma requisição para
+     * exclusão segundo o mesmo.
+     * 
+     * @param id 
+     */
     private delete(id: string): void {
         fetch(`http://localhost:8080/api/delete/dentista/${id}`, {
             method: 'DELETE',
@@ -227,7 +242,8 @@ export  class EditDentistView {
         .then(response => {
             if (response.ok) {
                 alert('Dentista excluído com sucesso!');
-                // chamar template string aqui 
+                this.renderTemplate = new DentistaController();
+                this.renderTemplate.loadListDentist();
 
             } else {
                 throw new Error('Erro ao excluir os dados');

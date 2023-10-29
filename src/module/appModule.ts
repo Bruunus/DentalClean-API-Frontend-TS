@@ -11,6 +11,7 @@ export class AppModule {
          */
         public static loadCellEffects(): void {
             const cells = document.querySelectorAll('.table_dentist tr');
+
     
             cells.forEach(function(cell) {
 
@@ -21,7 +22,14 @@ export class AppModule {
                     cell.classList.add('active-cell');
                 });
             });
+
         }
+ 
+
+
+
+
+
 
 
         

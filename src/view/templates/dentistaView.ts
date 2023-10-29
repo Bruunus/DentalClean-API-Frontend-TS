@@ -4,6 +4,7 @@ import { Dentist } from "../../module/dentist.js";
 import { EditDentistView } from "./editDentistView.js";
 
 export class DentistaView {
+    
 
     private static renderEditDentistView: EditDentistView;
 
@@ -29,9 +30,9 @@ export class DentistaView {
     
         <div class="div_titulo"><h4 class="no-select">Dentistas</h4></div>
 
-        <div class="div_container_tables" >
+        <div class="div_container_tables" style="background-color: #f7fcff;">
             
-            <table class="table_dentist  table-hover ">
+            <table class="table_dentist  table-hover " style="background-color: white">
                 <thead class="thead_dentist">
                     <tr class="no-select">
                         <th><a href="#" id="nomeCompleto">Nome Completo</a></th>
@@ -53,7 +54,7 @@ export class DentistaView {
                 <tbody class="table_hover_dentist">
                 ${dentistData.map((dentist: any) => {
                     return `
-                        <tr class="no-select tr_format" > 
+                        <tr class="no-select tr_format" style="color: #354057"> 
                             <td class="nomeCompleto">${dentist.nomeCompleto}</td>
                             <td class="dataNascimento">${dentist.dataNascimento}</td>
                             <td class="cpf">${dentist.cpf}</td>
@@ -99,7 +100,7 @@ export class DentistaView {
 
 
         const linkEditarDentista = document.querySelectorAll('.editarDentista');
-        console.log(linkEditarDentista)
+        // console.log(linkEditarDentista)  {Debbug}
 
         linkEditarDentista.forEach((link) => {
             

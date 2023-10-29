@@ -4,12 +4,14 @@ import { PacienteController } from './controller/pacienteController.js';
 import { AppModule } from './module/appModule.js';
 
 
+
 console.log('app.ts iniciado');
 
 
 const appModule = new AppModule();
 const pacienteController = new PacienteController();
 const controllerRouteTS = new ControllerRouteTS();
+
 
 
 

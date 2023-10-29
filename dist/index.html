@@ -8,6 +8,7 @@
 
 
     <link rel="stylesheet" href="css/bootstrap_4_1_3/bootstrap.min.css">
+    <link rel="stylesheet" href="css/hover_master/css/hover.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="shortcut icon" href="#">
 
@@ -57,12 +58,46 @@
                     <!-- Menu de opções -->
                     <div class="col-12 col-child-nav-container-2">
 
-                        <div id="list-example" class="list-group">
-                            <a id="listaDentista" class="list-group-item list-group-item-action classe-list-group-item" href="#">Dentistas</a>
+                        <!-- Nova implementação do bootstrap  -->
+
+                        <div class="btn-group-vertical container-botoes-menu">
+                        
+                        <button type="button" class="btn botoes-menu hvr-sweep-to-right" >Destistas</button>
+
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" 
+                                type="button" 
+                                class="btn dropdown-toggle botoes-menu hvr-sweep-to-right"  
+                                data-toggle="dropdown" 
+                                aria-haspopup="true" 
+                                aria-expanded="false">
+                                Cadastro
+                            </button>
+
+                            <div class="dropdown-menu container-sub-menu-buttons-a" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item botoes-menu sub-menu-buttons-a hvr-sweep-to-right op-dentist" href="#">Dentista</a>
+                                <a class="dropdown-item botoes-menu sub-menu-buttons-a hvr-sweep-to-right op-patient" href="#">Paciente</a>
+                            </div>
+                        </div>
+
+
+
+
+                        <div id="list-example" class="list-group nav-item dropdown">
+                            <a id="listaDentista" class="list-group-item list-group-item-action classe-list-group-item hvr-sweep-to-right" href="#">Dentistas</a>
                             <a id="opcoesDeCadastro" class="list-group-item list-group-item-action classe-list-group-item" href="#">Cadastros</a>
-                            <!-- <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
-                            <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a> -->
+                            
+                            <a class="dropdown-item hvr-sweep-to-right"  href="#">Dentista</a>
+                            <a class="dropdown-item hvr-sweep-to-right" href="#">Pacientes</a>
+
+
+                            <div class="hvr-sweep-to-right">Hover me</div>  
+
+                            
+                        
                           </div>
+ 
+                           
                     </div>
 
 
@@ -75,6 +110,7 @@
         <div class="col-xl-10 col-lg-10 col-ajuste-section">
             <div class="container-col-ajuste-section-filho-template row">                
                 
+
                 <div id="screenViewContainer" class=""></div>
             </div>
         </div>
@@ -91,6 +127,11 @@
 
 
     <script type="module" src="js/app.js"></script>
+
+    <!-- Importação CDN compatíveis com a versão atual do bootstrap 4.1.3 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 </body>
 

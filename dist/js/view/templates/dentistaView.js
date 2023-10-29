@@ -20,9 +20,9 @@ export class DentistaView {
     
         <div class="div_titulo"><h4 class="no-select">Dentistas</h4></div>
 
-        <div class="div_container_tables" >
+        <div class="div_container_tables" style="background-color: #f7fcff;">
             
-            <table class="table_dentist  table-hover ">
+            <table class="table_dentist  table-hover " style="background-color: white">
                 <thead class="thead_dentist">
                     <tr class="no-select">
                         <th><a href="#" id="nomeCompleto">Nome Completo</a></th>
@@ -44,7 +44,7 @@ export class DentistaView {
                 <tbody class="table_hover_dentist">
                 ${dentistData.map((dentist) => {
             return `
-                        <tr class="no-select tr_format" > 
+                        <tr class="no-select tr_format" style="color: #354057"> 
                             <td class="nomeCompleto">${dentist.nomeCompleto}</td>
                             <td class="dataNascimento">${dentist.dataNascimento}</td>
                             <td class="cpf">${dentist.cpf}</td>
@@ -79,7 +79,6 @@ export class DentistaView {
             });
         });
         const linkEditarDentista = document.querySelectorAll('.editarDentista');
-        console.log(linkEditarDentista);
         linkEditarDentista.forEach((link) => {
             link.addEventListener('click', (event) => {
                 var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
