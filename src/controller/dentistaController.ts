@@ -11,11 +11,14 @@ export class DentistaController {
      * para posteriormente imprimir em um template string
      */
 
+
+
     public loadListDentist(): void {
 
         this.fetchDentistData()
             .then((dentistData) => {
-                const templateView = DentistaView.listDentist(dentistData);
+                const templateView = DentistaView.render(dentistData);
+                AppModule.loadCellEffects(); /* Carregamento de efeitos de células */
             })
     }
 

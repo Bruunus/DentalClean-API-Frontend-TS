@@ -22,6 +22,8 @@ export class Dentist {
      * @returns 
      */
     static sortDentists(dentistData: any[], sortBy: string): any[] {
+
+        
         
         switch (sortBy) {
             case 'dataNascimento':

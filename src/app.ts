@@ -1,4 +1,3 @@
-import { RegistrationOptionsViewer } from './view/templates/registrationOptionsViewer';
 import { ControllerRouteTS } from './controller/controllerTS.js';
 import { PacienteController } from './controller/pacienteController.js';
 import { AppModule } from './module/appModule.js';
@@ -17,20 +16,22 @@ const controllerRouteTS = new ControllerRouteTS();
 
  
 const linkListaDentista = document.querySelector('#listaDentista');
-const linkRegistrationOptionsViewer = document.querySelector('#opcoesDeCadastro');
-
+const linkButtonCadastroDentista = document.querySelector('#btnCadDentista');
+const linkButtonCadastroPaciente = document.querySelector('#btnCadPaciente');
 
 
 
 
 function routeCallListarDentistas() { controllerRouteTS.redirectViewListarDentista(); }
-function routeCallDisplayOptions() { controllerRouteTS.redirectScreenViewOptions(); }
+function routeCallDentistRegistration() { controllerRouteTS.redirectScreenDentist(); }
+function routeCallPatientRegistration() { controllerRouteTS.redirectScreenPatient(); }
 
 
 
 
 linkListaDentista.addEventListener('click', routeCallListarDentistas);
-linkRegistrationOptionsViewer.addEventListener('click', routeCallDisplayOptions);
+linkButtonCadastroDentista.addEventListener('click', routeCallDentistRegistration);
+linkButtonCadastroPaciente.addEventListener('click', routeCallPatientRegistration);
 
 
 

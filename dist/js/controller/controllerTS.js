@@ -1,31 +1,18 @@
 import { DentistaController } from "./dentistaController.js";
 import { CadastroDentistaView } from "../view/templates/cadastroDentistaView.js";
-import { RegistrationOptionsViewer } from "../view/templates/registrationOptionsViewer.js";
+import { CadastroPacienteView } from "../view/templates/cadastroPacienteView.js";
 import { AppModule } from "../module/appModule.js";
+import { DentistaView } from "../view/templates/dentistaView.js";
 export class ControllerRouteTS {
     constructor() {
         this.dentistaController = new DentistaController();
+        this.cadastroDentistaView = new CadastroDentistaView(ControllerRouteTS.screenViewContainer);
+        this.cadastroPacienteView = new CadastroPacienteView(ControllerRouteTS.screenViewContainer);
+        this.listarDentista = new DentistaView(ControllerRouteTS.screenViewContainer);
     }
     redirectViewListarDentista() { this.dentistaController.loadListDentist(); }
-    redirectScreenViewOptions() {
-        const loadScreenViewOptions = RegistrationOptionsViewer.renderOptionsViwer();
-        ControllerRouteTS.redirect.innerHTML = loadScreenViewOptions;
-        const screenViewContainer = document.querySelector('#screenViewContainer');
-        const linkButtonCadastroPaciente = document.querySelector('#btnCadPaciente');
-        const linkButtonCadastroDentista = document.querySelector('#btnCadDentista');
-        function loadTemplatePaciente() {
-            const cadastroPacienteView = new CadastroDentistaView(ControllerRouteTS.screenViewContainer);
-            this.loadTemplate = cadastroPacienteView.render();
-            this.screenViewContainer.innerHTML = this.loadTemplate;
-        }
-        function loadTemplateDentista() {
-            const cadastroDentistaView = new CadastroDentistaView(ControllerRouteTS.screenViewContainer);
-            this.loadTemplate = cadastroDentistaView.render();
-            this.screenViewContainer.innerHTML = this.loadTemplate;
-        }
-        linkButtonCadastroPaciente.addEventListener('click', loadTemplatePaciente);
-        linkButtonCadastroDentista.addEventListener('click', loadTemplateDentista);
-    }
+    redirectScreenDentist() { this.cadastroDentistaView.render(); }
+    redirectScreenPatient() { this.cadastroPacienteView.render(); }
     static loadScreenAllViewDentist(templateView) {
         ControllerRouteTS.redirect.innerHTML = templateView;
         AppModule.loadCellEffects();

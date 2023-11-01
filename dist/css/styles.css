@@ -71,7 +71,7 @@ body {
     max-height: 100vh !important;
     /* background-color: rgb(238, 236, 236); Para Manutenção  */
 
-    padding: 39px 42px 35px 60px;
+    padding: 17px 42px 35px 60px !important;
 }
 
 .container-col-ajuste-section-filho-template {

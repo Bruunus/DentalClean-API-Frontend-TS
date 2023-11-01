@@ -6,9 +6,12 @@ const appModule = new AppModule();
 const pacienteController = new PacienteController();
 const controllerRouteTS = new ControllerRouteTS();
 const linkListaDentista = document.querySelector('#listaDentista');
-const linkRegistrationOptionsViewer = document.querySelector('#opcoesDeCadastro');
+const linkButtonCadastroDentista = document.querySelector('#btnCadDentista');
+const linkButtonCadastroPaciente = document.querySelector('#btnCadPaciente');
 function routeCallListarDentistas() { controllerRouteTS.redirectViewListarDentista(); }
-function routeCallDisplayOptions() { controllerRouteTS.redirectScreenViewOptions(); }
+function routeCallDentistRegistration() { controllerRouteTS.redirectScreenDentist(); }
+function routeCallPatientRegistration() { controllerRouteTS.redirectScreenPatient(); }
 linkListaDentista.addEventListener('click', routeCallListarDentistas);
-linkRegistrationOptionsViewer.addEventListener('click', routeCallDisplayOptions);
+linkButtonCadastroDentista.addEventListener('click', routeCallDentistRegistration);
+linkButtonCadastroPaciente.addEventListener('click', routeCallPatientRegistration);
 pacienteController.loadListPatient();
