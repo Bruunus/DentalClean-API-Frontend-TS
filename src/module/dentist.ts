@@ -26,6 +26,11 @@ export class Dentist {
         
         
         switch (sortBy) {
+
+            case 'nomeCompleto':
+                dentistData.sort((a, b) => a.nomeCompleto.localeCompare(b.nomeCompleto));
+                break;
+
             case 'dataNascimento':
                 dentistData.sort((a, b) => b.dataNascimento.localeCompare(a.dataNascimento));
                 break;
@@ -48,12 +53,6 @@ export class Dentist {
 
             case 'estado':
                 dentistData.sort((a,b) => a.estado.localeCompare(b.estado));
-
-            
-            default:
-                
-                dentistData.sort((a, b) => a.nomeCompleto.localeCompare(b.nomeCompleto));
-                break;
         }
         return dentistData;
     }
@@ -146,8 +145,10 @@ export class Dentist {
             cidadeCell.textContent = dentist.cidade;
             estadoCell.textContent = dentist.estado;
 
+            // criando o link editar...
             linkEditar.textContent = 'Editar';
             linkEditar.classList.add('editar');
+
             linkEditar.addEventListener('click', (event) => { 
                 
                 // pegar os dados do link clicado
@@ -174,7 +175,7 @@ export class Dentist {
                     // criar um JSON dele
 
                     const JSONUpdate = {
-
+                        id: dentist.id,
                         nomeCompleto: nomeCompletoEditar,
                         dataNascimento: dataNascimentoEditar,
                         cpf: cpfEditar,
@@ -227,7 +228,45 @@ export class Dentist {
 
             AppModule.loadCellEffects();
         });
+
+
+        const linksDeOrdenacao = Array.from(document.querySelectorAll('.thead_dentist th a')) as HTMLAnchorElement[];
+        this.linkDeOrdenacao(linksDeOrdenacao, dentistData);
+
+
+
+
+        
+
+
+
     }
+
+
+
+
+    /**
+     * Método tem a finalidade de adicionar ouvintes de evento aos links de ordenação da tabela. 
+     * Quando um desses links é clicado, o evento de clique é acionado.
+     * @param linksDeOrdenacao 
+     * @param dentistData 
+     */
+    public static linkDeOrdenacao(linksDeOrdenacao: HTMLAnchorElement[], dentistData: any[]) {
+        // ordenação da tabela de acordo com a coluna desejada...
+        linksDeOrdenacao.forEach((th) => {
+            th.addEventListener('click', (event) => {
+
+                event.preventDefault();
+                const sortBy = th.id;
+                const orderBy = Dentist.sortDentists(dentistData, sortBy);
+
+                if (sortBy) {                    
+                    Dentist.renderDentistList(orderBy);
+                }
+            });
+        });
+    }
+
 
 
 

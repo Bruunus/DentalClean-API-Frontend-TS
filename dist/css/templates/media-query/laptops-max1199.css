@@ -93,7 +93,7 @@
     .sub-menu-buttons-a {
       margin-left: 0.8rem;
       height: 2.7rem !important;
-      padding-top: 0.555555rem !important;
+      padding-top: 0.555555rem;
       border: 0.5px solid #6a94cb;
     }
 
@@ -145,7 +145,7 @@
     
     
     /**
-    * Menu Tela: "Cadastros" -  RegistrationOptionsViewer.ts
+    * Menu Tela: Todos os templates
     */
 
     .container_renderOptionsViwer {
@@ -172,12 +172,7 @@
     }
 
 
-   /* 
-    * Tela: dentistaView - div Título
-    *
-    */
-
-    .div_titulo {
+    .div_titulo_dentist {
 
       background-color: #e0f5ff;
       text-align: center;
@@ -189,7 +184,7 @@
 
     }
 
-    .div_titulo h4 {
+    .div_titulo_dentist h4 {
       font-family: 'fonte-tema';
       padding-top: 5px;
       margin-bottom: 0;
@@ -198,7 +193,7 @@
 
 
     /* 
-    * Tela: dentistaView - Estilização das tabelas de listas do sistema. (Todas)
+    * Tela: dentistaView - Estilização das tabelas de listas do sistema. (Todas: Paciente e Dentista)
     *
     */
     .table_dentist {
@@ -212,6 +207,8 @@
       height: 100vh; 
       max-height: 82.5vh !important;  /* Definição do tamanho da tabela no total */
       overflow: hidden;
+      scrollbar-width: thin;
+      
 
       border-left: 1px solid #4092cf3b;
       border-right: 1px solid #4092cf3b;
@@ -219,7 +216,92 @@
     }
     .div_container_tables:hover {
       overflow: scroll !important;
+      
     }
+
+
+    /******** Estilo para o menu navbar (pesquisar) ********/
+
+    /* Estilo para o container nav */
+
+    .container-nav-bar-pesquisar {
+      border-left: 1px solid #4092cf3b;
+      border-right: 1px solid #4092cf3b;
+  }
+
+  .nav-container-pesquisar {
+      padding: 7px 16px 2px 7px;
+      background-color: #e0f5ff;
+  }
+
+  .input-form-pesquisar {
+      height: 2rem;
+      border-color: #c2d9f1;
+  }
+
+  .input-form-pesquisar:focus {
+      outline: none;
+      box-shadow: 0 0 0 .1rem #aed4f7;
+      border-color: #accff1;
+      background-color: #fff;
+  }
+
+  .form-pesquisar {
+      margin-left: 54.566666rem;
+  }
+
+  .btn-pesquisar {
+      /*
+          Importante: A cor do botão e seus detalhes foi definida diretamente no framework, segue o caminho 
+          dist/css/bootstrap_4_1_3/bootstrap.min.css -> Pesquise por 'btn-outline-success'
+      */
+      height: 2rem;
+      padding-top: 4px; 
+      
+  }
+
+
+
+  /* Estilo do botão pesquisar */
+
+  .btn-outline-success{
+      color: #4092cf;  
+      background-color:transparent;
+      background-image:none;
+      border-color: #439bd9;
+  }
+  .btn-outline-success:hover{
+      color:#fff;
+      background-color: #4092cf;
+      border-color:#377eb1;
+  }
+  .btn-outline-success.focus,.btn-outline-success:focus{
+      /* box-shadow:0 0 0 .2rem rgba(40,167,69,.5)  - Original Bootstrap*/
+      /*Desabilitando focus do botão*/
+      outline: none;
+      box-shadow: none;
+      border-color: #3274a3;
+  }
+  .btn-outline-success.disabled,.btn-outline-success:disabled{
+      color:lightgray;
+      border-color:lightgray;
+      background-color:transparent;
+
+  }
+  .btn-outline-success:not(:disabled):not(.disabled).active,.btn-outline-success:not(:disabled):not(.disabled):active,.show>.btn-outline-success.dropdown-toggle{
+      color:#fff;
+      background-color: #3c8ac2;
+      border-color:#3274a3;
+  }
+  .btn-outline-success:not(:disabled):not(.disabled).active:focus,.btn-outline-success:not(:disabled):not(.disabled):active:focus,.show>.btn-outline-success.dropdown-toggle:focus{
+      /* box-shadow:0 0 0 .2rem rgba(40,167,69,.5)  Original Bootstrap*/
+      /*Desabilitando focus do botão*/
+      outline: none;
+      box-shadow: none;
+      border-color: #3274a3;
+  }
+
+
 
 
 
@@ -393,26 +475,42 @@
 
 
 
-    /* Estilo da barra de rolagem */
+    /* Estilo da barra de rolagem  da tabela de destista */
 
 
-    ::-webkit-scrollbar {
+    .div_container_tables::-webkit-scrollbar {   
       width: 0.6666666rem;  
       height: 0.7666666rem; /* Engrossar barra */
     }
 
 
     /* Estilo do polegar da barra de rolagem (a parte que você arrasta) */
-    ::-webkit-scrollbar-thumb {
+    .div_container_tables::-webkit-scrollbar-thumb {
       background-color: #2ab78cc4; /* Cor do polegar da barra de rolagem */
       border-radius: 4px; /* Raio de borda do polegar */
+      transition: fadeIn 0.3s ease;
      
     }
 
+    .div_container_tables:hover::-webkit-scrollbar-thumb {
+      background-color: #2ab78cc4;
+      opacity: 1;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
     /* Estilo da pista da barra de rolagem (a parte onde o polegar se move) */
-    ::-webkit-scrollbar-track {
+    .div_container_tables::-webkit-scrollbar-track {
       background-color: #f3fbff; /* Cor da pista da barra de rolagem */
     }
+
 
 
    

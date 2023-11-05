@@ -20,7 +20,7 @@ export class ControllerRouteTS {
     
     
   
-    public redirectViewListarDentista(): void { this.dentistaController.loadListDentist(); }
+    public redirectViewListarDentista(): void { this.dentistaController.accessListDentist(); }
 
 
     public redirectScreenDentist(): void { this.cadastroDentistaView.render(); }

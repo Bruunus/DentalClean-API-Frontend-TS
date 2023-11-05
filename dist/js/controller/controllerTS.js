@@ -10,7 +10,7 @@ export class ControllerRouteTS {
         this.cadastroPacienteView = new CadastroPacienteView(ControllerRouteTS.screenViewContainer);
         this.listarDentista = new DentistaView(ControllerRouteTS.screenViewContainer);
     }
-    redirectViewListarDentista() { this.dentistaController.loadListDentist(); }
+    redirectViewListarDentista() { this.dentistaController.accessListDentist(); }
     redirectScreenDentist() { this.cadastroDentistaView.render(); }
     redirectScreenPatient() { this.cadastroPacienteView.render(); }
     static loadScreenAllViewDentist(templateView) {

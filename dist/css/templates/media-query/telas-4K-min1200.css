@@ -35,6 +35,9 @@
 
 
 
+
+
+
     /******  Estilos para o menu principal  ******/ 
 
     .container-botoes-menu {
@@ -48,9 +51,47 @@
 
     }
 
+    /* Tela do template principal */
+    .div_container_tables {
+      max-height: 78.5vh !important;  /* Definição do tamanho da tabela no total */
+    }
+
+
+    /******** Estilo para o menu navbar (pesquisar) ********/
+
+    /* Estilo para o container nav para 4K*/
+
+    .col-ajuste-section  {
+      padding: 55px 42px 35px 60px !important;
+    }
+
+    .nav-container-pesquisar {
+      padding: 7px 5px 2px 240px;
+      background-color: #e0f5ff;
+    }
 
 
 
+    /******  Estilos para o menu principal - 4k ******/ 
+
+
+    .container-botoes-menu {  
+      width: 17.555555rem !important;
+    }
+
+    .botoes-menu {
+      height: 3rem ;
+      font-size: 1.222222rem !important;
+    }
+
+    .container-sub-menu-buttons-a {
+      width: 15.322222rem !important;
+    }
+
+    .sub-menu-buttons-a {
+      height: 2.8rem !important;
+      padding-top: 0.555555rem !important;
+    }  
 
 
 
@@ -61,13 +102,13 @@
 
 
     /* Coluna 5 - Especialidade */
-                                                          /* Modificado para tela grande */
+                                                          /* Modificado para 4K */
     .table_dentist th:nth-child(5), .table_dentist td:nth-child(5) { width: 250px; /* background-color: #d16f36; */ }
 
     
 
     /* Coluna 9 - Rua */
-                                                                      /* Modificado para tela grande */
+                                                                      /* Modificado para 4K */
     .table_dentist th:nth-child(9), .table_dentist td:nth-child(9) { width: 335px; /* background-color: #d16f36 */; }
 
 

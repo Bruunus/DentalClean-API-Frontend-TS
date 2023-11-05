@@ -1,6 +1,8 @@
 export class PacienteView {
     static listaPaciente(pacienteData) {
         return `
+
+            
            
 
             <table class='table table-sm'>

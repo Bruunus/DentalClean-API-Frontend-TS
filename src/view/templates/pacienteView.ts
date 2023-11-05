@@ -8,6 +8,8 @@ export class PacienteView {
     static listaPaciente(pacienteData: any[]) {
 
         return  `
+
+            
            
 
             <table class='table table-sm'>
@@ -59,6 +61,7 @@ export class PacienteView {
         `}
                     
                     
+
 
     
 

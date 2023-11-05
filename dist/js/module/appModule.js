@@ -10,4 +10,7 @@ export class AppModule {
             });
         });
     }
+    static compareSelectEspecialidade(especialidade) {
+        const especialidadeEditar = document.querySelector('#especialidadeEditar');
+    }
 }

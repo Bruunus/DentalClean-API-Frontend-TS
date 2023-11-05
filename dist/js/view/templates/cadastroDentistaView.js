@@ -59,7 +59,7 @@ export class CadastroDentistaView {
                     <input type="text" name="cidade" id="cidade" maxlength="24">
                     <br>
                     <label for="estado">Estado</label>
-                    <input type="text" name="estado" id="estado">
+                    <input type="text" name="estado" maxlength="35" id="estado">
                     <br><br>
                     <button type="submit">Salvar</button>
                 </form>     

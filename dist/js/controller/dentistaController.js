@@ -9,15 +9,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { AppModule } from "../module/appModule.js";
 import { DentistaView } from "../view/templates/dentistaView.js";
+import { Dentist } from "../module/dentist.js";
 export class DentistaController {
     loadListDentist() {
-        this.fetchDentistData()
-            .then((dentistData) => {
-            const templateView = DentistaView.render(dentistData);
-            AppModule.loadCellEffects();
-        });
-    }
-    fetchDentistData() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const response = yield fetch('http://localhost:8080/api/read/dentistas');
@@ -29,6 +23,34 @@ export class DentistaController {
                 console.error('Servidor API dentista offline:', error);
                 throw error;
             }
+        });
+    }
+    seachDentistForName(value) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const response = yield fetch(`http://localhost:8080/api/read/listar/dentista/seach?nome=${value}`);
+                const dentistSeachJSON = yield response.json();
+                return dentistSeachJSON;
+            }
+            catch (error) {
+                alert('Nome não encontrado. É possível que não exista na lista de dentistas.');
+                console.error('Erro ao realizar a busca: ', error);
+                throw error;
+            }
+        });
+    }
+    accessListDentist() {
+        this.loadListDentist()
+            .then((dentistData) => {
+            const templateView = DentistaView.render(dentistData);
+            AppModule.loadCellEffects();
+        });
+    }
+    accessSeachDentist(value) {
+        this.seachDentistForName(value)
+            .then((resultSeachData) => {
+            const templatView = Dentist.renderDentistList(resultSeachData);
+            AppModule.loadCellEffects();
         });
     }
 }

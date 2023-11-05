@@ -3,6 +3,9 @@ import { AppModule } from "./appModule.js";
 export class Dentist {
     static sortDentists(dentistData, sortBy) {
         switch (sortBy) {
+            case 'nomeCompleto':
+                dentistData.sort((a, b) => a.nomeCompleto.localeCompare(b.nomeCompleto));
+                break;
             case 'dataNascimento':
                 dentistData.sort((a, b) => b.dataNascimento.localeCompare(a.dataNascimento));
                 break;
@@ -20,9 +23,6 @@ export class Dentist {
                 break;
             case 'estado':
                 dentistData.sort((a, b) => a.estado.localeCompare(b.estado));
-            default:
-                dentistData.sort((a, b) => a.nomeCompleto.localeCompare(b.nomeCompleto));
-                break;
         }
         return dentistData;
     }
@@ -95,6 +95,7 @@ export class Dentist {
                     const cidadeEditar = (_m = linha.querySelector('.cidade')) === null || _m === void 0 ? void 0 : _m.textContent;
                     const estadoEditar = (_o = linha.querySelector('.estado')) === null || _o === void 0 ? void 0 : _o.textContent;
                     const JSONUpdate = {
+                        id: dentist.id,
                         nomeCompleto: nomeCompletoEditar,
                         dataNascimento: dataNascimentoEditar,
                         cpf: cpfEditar,
@@ -130,6 +131,20 @@ export class Dentist {
             row.appendChild(editarCell);
             tableBody.appendChild(row);
             AppModule.loadCellEffects();
+        });
+        const linksDeOrdenacao = Array.from(document.querySelectorAll('.thead_dentist th a'));
+        this.linkDeOrdenacao(linksDeOrdenacao, dentistData);
+    }
+    static linkDeOrdenacao(linksDeOrdenacao, dentistData) {
+        linksDeOrdenacao.forEach((th) => {
+            th.addEventListener('click', (event) => {
+                event.preventDefault();
+                const sortBy = th.id;
+                const orderBy = Dentist.sortDentists(dentistData, sortBy);
+                if (sortBy) {
+                    Dentist.renderDentistList(orderBy);
+                }
+            });
         });
     }
 }

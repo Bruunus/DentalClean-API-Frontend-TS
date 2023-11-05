@@ -24,6 +24,26 @@ export class AppModule {
             });
 
         }
+
+
+
+        /**
+         * Método para tratar de carregar o valor respectivo do banco de dados 
+         * dentro do select do template Editar Dentista 
+         * 
+         * @param especialidade 
+         */
+        public static compareSelectEspecialidade(especialidade: string) {
+
+            const especialidadeEditar = document.querySelector('#especialidadeEditar');
+
+            // Iterando pelas opções do select
+            for(let i = 0; i < especialidade.options.length; i++) {
+
+                const option = especialidadeEditar.options[i];
+            }
+
+        }
  
 
 
