@@ -1,0 +1,214 @@
+/*******  Configuração de estilo para o componente Menu Principal  *******/
+/*
+
+    Autor: Bruno Fernandes
+    Obs: Ordem das medias-queries do maior para o menor.
+    max: menor que : valor
+    min: maior que : valor
+
+
+*/
+
+
+
+/**
+*   Estilos para menu em si 
+*/
+
+.container-botoes-menu {
+    width: 100%;   /* Seguindo o pai */
+}
+
+
+.botoes-menu {
+    /* background-color: #76a4e2; */
+    width: 100%;
+    height: 3.0rem;
+
+    background-color: #76a4e2;
+    color: white;
+
+    padding-top: 0.7rem !important;
+    padding-left: 1.2rem !important;    /* verificar se em 4k fica bom */
+
+    border: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+
+    letter-spacing: 0.3px;
+    text-align: left;
+    font-family: 'fonte-tema';
+    font-size: 1.1vw !important;
+} 
+
+.botoes-menu:focus, .botoes-menu:active {
+    /* background-color: #76a4e2; */
+    box-shadow: none;
+    outline: none;
+}     
+
+
+/**
+* Estilo para efeito de hover Hover.css para o menu em si 
+* (dist/css/hover_master/css/hover.css)
+*/
+.botoes-menu.hvr-sweep-to-right { position: relative; overflow: hidden; }
+.botoes-menu.hvr-sweep-to-right::before { content: "";  position: absolute; top: 0; right: 100%; 
+    bottom: 0; left: 0; background: #8db4e7; transition: right 0.4s ease;}
+.botoes-menu.hvr-sweep-to-right:hover::before { right: 0; }
+.botoes-menu.hvr-sweep-to-right:active::before {  right: 0; transition: none; }
+
+
+.botoes-menu:focus, .botoes-menu:active {
+    /* background-color: #76a4e2; */
+    box-shadow: none;
+    outline: none;
+}
+
+
+
+
+
+
+
+
+/**
+*   Estilo para sub-menus
+*/
+.container-sub-menu-buttons-a {
+    background-color: #76a4e2 !important;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    width: 12.8rem;
+    margin-top: 0;
+}
+  
+  
+
+.dropdown-item { 
+    /* Desabilita o efeito de hover na classe dropdown-item - bootstrap*/
+    background-color: #6d98d1 !important; 
+}
+
+.dropdown-item:hover {
+    background-color: #6993ca;
+    color: white;  
+    transition: none;  
+}
+  
+.sub-menu-buttons-a {
+    margin-left: 0.8rem;
+    height: 2.7rem !important;
+    padding-top: 0.555555rem;
+    border: 0.5px solid #6a94cb;
+}
+
+
+/**
+* Aplicação do hover para botões principais do sub-menu
+*/
+
+/* Sub-menu "Dentista" */
+.op-dentist, .op-patient {
+    color: #ffffff;  
+    background-color: #8db4e7;
+}
+
+/* Hover.css - "Dentistas" */
+.op-dentist.hvr-sweep-to-right { position: relative; overflow: hidden; }
+.op-dentist.hvr-sweep-to-right::before { content: "";  position: absolute; top: 0; right: 100%; bottom: 0;
+left: 0; background: #75bfaf; transition: right 0.4s ease;  }
+.op-dentist-a.hvr-sweep-to-right:hover::before { right: 0; }
+.op-dentist.hvr-sweep-to-right:active::before { right: 0; transition: none; }
+
+
+/* Hover.css - "Pacientes" */
+.op-patient.hvr-sweep-to-right { position: relative; overflow: hidden; }
+.op-patient.hvr-sweep-to-right::before { content: "";  position: absolute; top: 0; right: 100%; bottom: 0;
+left: 0; background: #deae78; transition: right 0.4s ease;  }
+.op-patient-a.hvr-sweep-to-right:hover::before { right: 0; }
+.op-patient.hvr-sweep-to-right:active::before { right: 0; transition: none; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+*   Configuração de estilo para pc 
+*/
+
+
+
+
+
+/**
+*   Configuração de estilo para pc padrão do Santa Marcelina - 1600px largura
+*   Usar esta medida como referência para as outras.
+*
+*   Medida ideal: 1598px
+*/
+@media (width: 1598px)  {
+
+    /* Capiturar resolução da media querie atual */
+    /* .col-ajuste-nav {
+        background-color: #a73b40;
+    } */
+
+
+
+
+}
+
+
+
+
+/**
+*   Configuração de estilo para notebook largo
+*/
+@media (min-width: 1025px) and (max-width: 1440px) {
+
+    /* Capiturar resolução da media querie atual */
+    /* .col-ajuste-nav {
+        background-color: #953ba7;
+    } */
+
+}
+
+
+
+
+
+/**
+*   Configuração de estilo para notebook
+*/
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    /* Capiturar resolução da media querie atual */
+   /*  .col-ajuste-nav {
+        background-color: #59a73b;
+    } */
+    
+}
+
+
+/* tablet */
+@media (min-width: 768px) and (max-width: 991px) {}
+
+/* mobile */
+@media (min-width: 513px) and (max-width: 767px) {}
+@media (min-width: 378px) and (max-width: 512px) {}
+@media (min-width: 298px) and (max-width: 377px) {}
+@media (min-width: 282px) and (max-width: 297px) {}

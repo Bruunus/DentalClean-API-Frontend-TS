@@ -1,4 +1,4 @@
-import { ControllerRouteTS } from "../../controller/controllerTS.js";
+
 import { DentistaController } from "../../controller/dentistaController.js";
 import { AppModule } from "../../module/appModule.js";
 import { Dentist } from "../../module/dentist.js";
@@ -9,12 +9,10 @@ export class DentistaView {
 
     private static renderEditDentistView: EditDentistView;
     private static template: string;
-    private static elementDOM: HTMLElement;
     private static btnSeach: HTMLElement;
     private static nameDentistSeach: string;
 
-    public constructor(renderizadorId?: string) {
-        DentistaView.elementDOM = document.querySelector(renderizadorId);
+    public constructor() {
         DentistaView.template;
         DentistaView.btnSeach;
         DentistaView.nameDentistSeach;
@@ -48,7 +46,7 @@ export class DentistaView {
      * @param dentistData 
      * @param renderizadorId 
      */
-    static render(dentistData?: any[], renderizadorId?: string):void {
+    static render(dentistData: any[]):void {
     
         this.orderByName(dentistData);
 
@@ -125,7 +123,8 @@ export class DentistaView {
             </table>
         </div>`;
         
-        this.elementDOM.innerHTML = this.template;
+        const elementDOM = document.querySelector('#container-child-right');
+        elementDOM.innerHTML = this.template;
       
         const linksDeOrdenacao = Array.from(document.querySelectorAll('.thead_dentist th a')) as HTMLAnchorElement[];
         Dentist.linkDeOrdenacao(linksDeOrdenacao, dentistData);

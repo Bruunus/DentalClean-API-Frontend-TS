@@ -53,4 +53,7 @@ export class DentistaController {
             AppModule.loadCellEffects();
         });
     }
+    testeRender() {
+        alert('test render is a Ok');
+    }
 }

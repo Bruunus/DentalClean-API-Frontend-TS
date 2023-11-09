@@ -1,5 +1,5 @@
-import { ControllerRouteTS } from './controllerTS.js';
 import { PacienteView } from '../view/templates/pacienteView.js';
+import { ControllerRouteTS } from './controllerRouterTS.js';
 
 
 export class PacienteController {
@@ -8,13 +8,13 @@ export class PacienteController {
      * para posteriormente imprimir em um template string
      */
 
-       public loadListPatient(): void {
+       public accessListPatient(): void {
 
         this.fetchPatientData()
             .then((pacienteData) => {
 
                 const templateView = PacienteView.listaPaciente(pacienteData);
-                ControllerRouteTS.loadScreenAllViewDentist(templateView);       
+                     
          
         })
         .catch((error) => {

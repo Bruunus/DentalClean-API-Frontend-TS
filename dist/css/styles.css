@@ -9,8 +9,55 @@
 
 
 body {
-    font-size: 1rem;
+    font-size: 1vw !important;
 }
+
+
+#container-pai, #container-child-lef, #container-child-righ {
+    height: 100vh;
+}
+
+
+/* Teste novo */
+#container-pai {
+    display: grid;
+    grid-template-columns: 15% 1fr; /* Definindo as colunas e defininido o tamanho da 1º */
+    gap: 0.5rem;  /* espaçamento entre as colunas do grid */
+ 
+    
+}
+
+#container-child-left {
+    max-width: 100%;
+    display: block;
+    background: #76a4e2;
+}
+
+#container-child-right {
+    max-width: 100%;
+    max-height: 100vh !important;
+    display: block;
+    background-color: lightgoldenrodyellow;
+    padding: 1rem !important;
+    overflow: auto !important;
+}
+
+
+.img-logo {
+    /* Tornando a imagem responsiva */
+    width: 100%; /* Defina um valor fixo em pixels ou em porcentagem para controlar o tamanho da imagem */
+    max-width: 100%; /* Garante que a imagem não ultrapasse o tamanho do contêiner pai se for menor */
+    height: auto; /* Mantém as proporções da imagem */
+    display: block;
+}
+
+
+
+
+
+
+
+
 
 
 /* Ajuste da row */
@@ -28,6 +75,9 @@ body {
 .col-ajuste-nav {
     background-color: #76A4E2;
 }
+
+
+
 
 
 
@@ -63,16 +113,7 @@ body {
 }
 
 
-/* Coluna 2 */
 
-/* Essas configurações estão aqui temporariamente por teste. Elas deverão is para as medias-queries de telas grandes */
-
-.col-ajuste-section {
-    max-height: 100vh !important;
-    /* background-color: rgb(238, 236, 236); Para Manutenção  */
-
-    padding: 17px 42px 35px 60px !important;
-}
 
 .container-col-ajuste-section-filho-template {
     width: 100% !important;

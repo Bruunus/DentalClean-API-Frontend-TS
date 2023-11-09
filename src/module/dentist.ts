@@ -1,4 +1,4 @@
-import { ControllerRouteTS } from "../controller/controllerTS.js";
+
 import { EditDentistView } from "../view/templates/editDentistView.js";
 import { AppModule } from "./appModule.js";
 

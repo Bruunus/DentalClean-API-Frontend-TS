@@ -13,10 +13,15 @@ export class ControllerRouteTS {
     redirectViewListarDentista() { this.dentistaController.accessListDentist(); }
     redirectScreenDentist() { this.cadastroDentistaView.render(); }
     redirectScreenPatient() { this.cadastroPacienteView.render(); }
+    static loadScreenMenu(templateView) {
+        ControllerRouteTS.redirectChildLeft.innerHTML = templateView;
+    }
     static loadScreenAllViewDentist(templateView) {
-        ControllerRouteTS.redirect.innerHTML = templateView;
+        ControllerRouteTS.redirectChildRight.innerHTML = templateView;
         AppModule.loadCellEffects();
     }
 }
-ControllerRouteTS.screenViewContainer = '#screenViewContainer';
-ControllerRouteTS.redirect = document.querySelector('#screenViewContainer');
+ControllerRouteTS.screenViewContainerMenu = '#container-child-left';
+ControllerRouteTS.screenViewContainer = '#container-child-right';
+ControllerRouteTS.redirectChildLeft = document.querySelector('#container-child-left');
+ControllerRouteTS.redirectChildRight = document.querySelector('#container-child-right');

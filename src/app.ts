@@ -1,13 +1,20 @@
-import { ControllerRouteTS } from './controller/controllerTS.js';
+import { ControllerRouteTS } from './controller/controllerRouterTS.js';
 import { PacienteController } from './controller/pacienteController.js';
 import { AppModule } from './module/appModule.js';
-import { EditDentistView } from './view/templates/editDentistView.js';
+import { Menu } from './view/templates/menu.js';
 
 
 
 console.log('app.ts iniciado');
 
 
+
+
+
+
+ 
+
+const menu = new Menu();
 const appModule = new AppModule();
 const pacienteController = new PacienteController();
 const controllerRouteTS = new ControllerRouteTS();
@@ -15,14 +22,15 @@ const controllerRouteTS = new ControllerRouteTS();
 
 
 
+
  
-const linkListaDentista = document.querySelector('#listaDentista');
+/* const linkListaDentista = document.querySelector('#listaDentista');
 const linkButtonCadastroDentista = document.querySelector('#btnCadDentista');
-const linkButtonCadastroPaciente = document.querySelector('#btnCadPaciente');
+const linkButtonCadastroPaciente = document.querySelector('#btnCadPaciente'); */
 
 
 /* Trecho para facilitar a construção do template Editar Dentista */
-const btnEditarTemporario = document.querySelector('#editarTemp');
+/* const btnEditarTemporario = document.querySelector('#editarTemp');
 
 btnEditarTemporario.addEventListener('click', () => {
 
@@ -47,10 +55,10 @@ btnEditarTemporario.addEventListener('click', () => {
 
 
     const obj = new EditDentistView(sendArray);
-})
+}) */
 
 
-
+/* 
 
 function routeCallListarDentistas() { controllerRouteTS.redirectViewListarDentista(); }
 function routeCallDentistRegistration() { controllerRouteTS.redirectScreenDentist(); }
@@ -63,17 +71,50 @@ linkListaDentista.addEventListener('click', routeCallListarDentistas);
 linkButtonCadastroDentista.addEventListener('click', routeCallDentistRegistration);
 linkButtonCadastroPaciente.addEventListener('click', routeCallPatientRegistration);
 
-
+ */
 
 
 
 
 // Load list patient
-pacienteController.loadListPatient();
+
+//pacienteController.loadListPatient();
 
 
 
 
+
+
+
+//ControllerRouteTS.loadTestFilhoLeft(templateTesteFilhoLeft);
+
+
+ControllerRouteTS.loadAppDentalClean();
+
+
+
+
+/* const body = document.querySelector('html body');
+const childLeft = `[Filho esquerdo]`;
+const childRight = `[Filho direito]`;
+console.log(body)
+
+const templateFather = `
+
+<div id="container-pai">
+    <div id="container-child-left" class="col-ajuste-nav">
+        ${childLeft}
+    </div>
+
+    <div id="container-child-right" class="col-ajuste-section">
+        ${childRight}
+    </div>
+</div>
+
+
+`;
+
+body.innerHTML = templateFather; */
 
 
 

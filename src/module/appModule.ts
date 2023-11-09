@@ -38,10 +38,10 @@ export class AppModule {
             const especialidadeEditar = document.querySelector('#especialidadeEditar');
 
             // Iterando pelas opções do select
-            for(let i = 0; i < especialidade.options.length; i++) {
+           /*  for(let i = 0; i < especialidade.options.length; i++) {
 
                 const option = especialidadeEditar.options[i];
-            }
+            } */
 
         }
  

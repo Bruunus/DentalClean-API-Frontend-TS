@@ -18,114 +18,17 @@
     }
 
 
-    /******  Estilos para o menu principal  ******/ 
-
-    .container-botoes-menu {
-      width: 14.888888rem;
-      
-    }
-
-    .botoes-menu {
-      /* background-color: #76a4e2; */
-      height: 3.0rem;
-
-      background-color: #76a4e2;
-      color: white;
-
-      padding-top: 0.7rem !important;
-      padding-left: 1.2rem !important;    /* verificar se em 4k fica bom */
-
-      border: 0;
-      border-top-right-radius: 0;
-      border-top-left-radius: 0;
-
-      letter-spacing: 0.3px;
-      text-align: left;
-      font-family: 'fonte-tema';
-      font-size: 1.1rem;
-    } 
-
-
-    .botoes-menu:focus, .botoes-menu:active {
-      /* background-color: #76a4e2; */
-      box-shadow: none;
-      outline: none;
-    }
-
-
-
-
-    /**
-    * Estilo para efeito de hover editado da biblioteca Hover.css para od botões do menu principal
-    * dist/css/hover_master/css/hover.css
-    */
-    .botoes-menu.hvr-sweep-to-right { position: relative; overflow: hidden; }
-    .botoes-menu.hvr-sweep-to-right::before { content: "";  position: absolute; top: 0; right: 100%; 
-      bottom: 0; left: 0; background: #8db4e7; transition: right 0.4s ease;}
-    .botoes-menu.hvr-sweep-to-right:hover::before { right: 0; }
-    .botoes-menu.hvr-sweep-to-right:active::before {  right: 0; transition: none; }
-
-
-
+    
 
     /******  Estilos para os sub-menus  ******/ 
 
 
-    .container-sub-menu-buttons-a {
-      background-color: #76a4e2 !important;
-      padding: 0;
-      border: 0;
-      border-radius: 0;
-      width: 12.8rem;
-      margin-top: 0;
-    }
 
-
-    /* Desabilita o efeito de hover na classe dropdown-item - bootstrap*/
-    .dropdown-item { background-color: #6d98d1 !important; }
-
-    .dropdown-item:hover {
-      background-color: #6993ca;
-      color: white;  
-      transition: none;  
-    }
-
-    .sub-menu-buttons-a {
-      margin-left: 0.8rem;
-      height: 2.7rem !important;
-      padding-top: 0.555555rem;
-      border: 0.5px solid #6a94cb;
-    }
 
     
 
 
-    /**
-    * Aplicação do hover para botões principais do sub-menu
-    */
 
-
-    /* Sub-menu "Dentista" */
-    .op-dentist {
-      color: #ffffff;  /* #4c7c72 - ideal */
-      background-color: #8db4e7;
-    }
-    .op-dentist.hvr-sweep-to-right { position: relative; overflow: hidden; }
-    .op-dentist.hvr-sweep-to-right::before { content: "";  position: absolute; top: 0; right: 100%; bottom: 0;
-      left: 0; background: #75bfaf; transition: right 0.4s ease;  }
-    .op-dentist-a.hvr-sweep-to-right:hover::before { right: 0; }
-    .op-dentist.hvr-sweep-to-right:active::before { right: 0; transition: none; }
-
-
-    /* Sub-menu "Pacientes" */
-    .op-patient {
-      background-color: #8db4e7;
-    }
-    .op-patient.hvr-sweep-to-right { position: relative; overflow: hidden; }
-    .op-patient.hvr-sweep-to-right::before { content: "";  position: absolute; top: 0; right: 100%; bottom: 0;
-      left: 0; background: #deae78; transition: right 0.4s ease;  }
-    .op-patient-a.hvr-sweep-to-right:hover::before { right: 0; }
-    .op-patient.hvr-sweep-to-right:active::before { right: 0; transition: none; }
 
 
 
@@ -139,30 +42,6 @@
 
 
     
-
-
-    /******  Estilos para Templates  ******/ 
-    
-    
-    /**
-    * Menu Tela: Todos os templates
-    */
-
-    .container_renderOptionsViwer {
-      /* background-color: thistle; */
-      /* border: 1px solid #0076B8; */
-      height: auto;
-      display: flex;
-      justify-content: start;
-      align-items: top;
-      
-    }
-
-    #renderOptionsViwer { 
-      /* background-color: lightcoral; */
-      
-    }
-
     .btn_cad_paciente, .btn_cad_dentista {
       padding: 10px 50px 10px 50px;
     }
@@ -247,7 +126,7 @@
   }
 
   .form-pesquisar {
-      margin-left: 54.566666rem;
+      margin-left: 54.266666rem !important;
   }
 
   .btn-pesquisar {

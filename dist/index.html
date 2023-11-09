@@ -12,17 +12,21 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="shortcut icon" href="#">
 
-    <!-- Media queries do documento HTML principal -->
-    <link rel="stylesheet" href="css/media-query/mobile-max767.css">
-    <link rel="stylesheet" href="css/media-query/tablet-max992.css">
-    <link rel="stylesheet" href="css/media-query/laptops-max1199.css">
-    <link rel="stylesheet" href="css/media-query/telas-4K-min1200.css">
+    <!-- Media queries do documento HTML principal TEMP -->
+    <link rel="stylesheet" href="css/templates/media-query-component/mobile-max767.css">
+    <link rel="stylesheet" href="css/templates/media-query-component/tablet-max992.css">
+    <link rel="stylesheet" href="css/templates/media-query-component/laptops-max1199.css">
+    <link rel="stylesheet" href="css/templates/media-query-component/telas-4K-min1200.css">
+
+    <!-- Nova organização - Media queries component -->
+
+    <link rel="stylesheet" href="css/templates/media-query-component/menu-principal/menu-principal.css">
 
     <!-- Media queries dos templates TS -->
-    <link rel="stylesheet" href="css/templates/media-query/mobile-max767.css">
-    <link rel="stylesheet" href="css/templates/media-query/tablet-max992.css">
-    <link rel="stylesheet" href="css/templates/media-query/laptops-max1199.css">
-    <link rel="stylesheet" href="css/templates/media-query/telas-4K-min1200.css">
+    <link rel="stylesheet" href="css/templates/media-query-component/mobile-max767.css">
+    <link rel="stylesheet" href="css/templates/media-query-component/tablet-max992.css">
+    <link rel="stylesheet" href="css/templates/media-query-component/laptops-max1199.css">
+    <link rel="stylesheet" href="css/templates/media-query-component/telas-4K-min1200.css">
 
     <!-- <link rel="stylesheet" href="css/templates/screenTemplateView.css">
     <link rel="stylesheet" href="css/templates/pacienteView.css"> -->
@@ -30,24 +34,23 @@
 </head>
 
 <body>
+    <!-- container row ajuste-row -->
+    <!-- <div id="container-pai"> -->
 
-    <div class="container-fluid row ajuste-row">
+        <!-- col-xl-2 col-lg-2 col-md-12 col-sm-12  pl-0 pr-0  -->
+        <!--<div id="container-child-left" class="col-ajuste-nav">  
 
-
-        <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12  pl-0 pr-0 col-ajuste-nav">
-
-            <nav class="nav-container ">
+             <nav class="nav-container ">
 
                 <div class="row row-child-nav-container">
 
 
                     
-                    <!-- Imagem de 
-                     -->
+                    
                     <div class="col-12 col-child-nav-container-1">
 
                         <a href="http://localhost:3000" class="  img-link">
-                            <img src="img/logo-dental-clean-menu.PNG" alt="DentalClean" class="img-fluid img-logo"
+                            <img src="img/logo-dental-clean-menu.PNG" alt="DentalClean" class=" img-logo"
                                 draggable="false">
                         </a>
 
@@ -55,32 +58,32 @@
 
 
 
-                    <!-- Menu de opções -->
+                  
                     <div class="col-12 col-child-nav-container-2">
 
-                        <!-- Nova implementação do bootstrap  -->
+                         Nova implementação do bootstrap  
 
                         <div class="btn-group-vertical container-botoes-menu">
                         
-                        <button type="button" id="listaDentista" class="btn botoes-menu hvr-sweep-to-right" >Destistas</button>
+                            <button type="button" id="listaDentista" class="btn botoes-menu hvr-sweep-to-right" >Destistas</button>
                         
-                        <!-- temporário -->
-                        <button type="button" 
-                                id="editarTemp" 
-                                class="btn botoes-menu hvr-sweep-to-right" 
-                                style="color: rgb(156, 78, 65);">Editar temp</button>
+                          
+                            <button type="button" 
+                                    id="editarTemp" 
+                                    class="btn botoes-menu hvr-sweep-to-right" 
+                                    style="color: rgb(156, 78, 65);">Editar temp</button>
 
-               
+                
 
-                        <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" 
-                                type="button" 
-                                class="btn dropdown-toggle botoes-menu hvr-sweep-to-right"  
-                                data-toggle="dropdown" 
-                                aria-haspopup="true" 
-                                aria-expanded="false">
-                                Cadastro
-                            </button>
+                            <div class="btn-group" role="group">
+                                <button id="btnGroupDrop1" 
+                                    type="button" 
+                                    class="btn dropdown-toggle botoes-menu hvr-sweep-to-right"  
+                                    data-toggle="dropdown" 
+                                    aria-haspopup="true" 
+                                    aria-expanded="false">
+                                    Cadastro
+                                </button>
 
                             <div class="dropdown-menu container-sub-menu-buttons-a" aria-labelledby="btnGroupDrop1">
                                 <a class="dropdown-item botoes-menu sub-menu-buttons-a hvr-sweep-to-right op-dentist"
@@ -114,17 +117,29 @@
                 
 
 
-            </nav>
-        </div>
+            </nav> 
+        </div>-->
 
             <!-- Ajustar as medias-queryes dos tabletes e smarthphone a partir daqui -->
-        <div class="col-xl-10 col-lg-10 col-ajuste-section">
+            <!-- col-xl-10 col-lg-10 -->
+        <!-- <div id="container-child-right" class="col-ajuste-section"> -->
+
+            <!-- Novo conteúdo da API aqui -->
+            
+
+
+
+<!--
             <div class="container-col-ajuste-section-filho-template row">                
                 
+                 Conteúdo da API 
 
                 <div id="screenViewContainer" class=""></div>
             </div>
-        </div>
+
+-->
+
+        <!-- </div> -->
 
 
             <!-- Aplicar modal do bootstrap
@@ -132,7 +147,7 @@
 
 
     
-    </div>
+    <!-- </div> -->
 
 
 

@@ -1,5 +1,4 @@
 import { AppModule } from "../module/appModule.js";
-import { ControllerRouteTS } from "./controllerTS.js";
 import { DentistaView } from "../view/templates/dentistaView.js";
 import { Dentist } from "../module/dentist.js";
 
@@ -49,6 +48,7 @@ export class DentistaController {
             .then((dentistData) => {
                 const templateView = DentistaView.render(dentistData);
                 AppModule.loadCellEffects(); /* Carregamento de efeitos de células */
+                
             })
     }
 
@@ -61,6 +61,10 @@ export class DentistaController {
             })
 
 
+    }
+
+    public testeRender(): void {
+        alert('test render is a Ok')
     }
 
 

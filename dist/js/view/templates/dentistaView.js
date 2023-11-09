@@ -2,8 +2,7 @@ import { DentistaController } from "../../controller/dentistaController.js";
 import { Dentist } from "../../module/dentist.js";
 import { EditDentistView } from "./editDentistView.js";
 export class DentistaView {
-    constructor(renderizadorId) {
-        DentistaView.elementDOM = document.querySelector(renderizadorId);
+    constructor() {
         DentistaView.template;
         DentistaView.btnSeach;
         DentistaView.nameDentistSeach;
@@ -21,7 +20,7 @@ export class DentistaView {
             return 0;
         });
     }
-    static render(dentistData, renderizadorId) {
+    static render(dentistData) {
         this.orderByName(dentistData);
         this.template = `
         <head>
@@ -95,7 +94,8 @@ export class DentistaView {
                 </tbody>
             </table>
         </div>`;
-        this.elementDOM.innerHTML = this.template;
+        const elementDOM = document.querySelector('#container-child-right');
+        elementDOM.innerHTML = this.template;
         const linksDeOrdenacao = Array.from(document.querySelectorAll('.thead_dentist th a'));
         Dentist.linkDeOrdenacao(linksDeOrdenacao, dentistData);
         const linkEditarDentista = document.querySelectorAll('.editarDentista');
