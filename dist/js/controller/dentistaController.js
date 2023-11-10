@@ -34,8 +34,6 @@ export class DentistaController {
             }
             catch (error) {
                 alert('Nome não encontrado. É possível que não exista na lista de dentistas.');
-                console.error('Erro ao realizar a busca: ', error);
-                throw error;
             }
         });
     }

@@ -35,8 +35,13 @@ export class DentistaController {
             return dentistSeachJSON;
         } catch (error) {
             alert('Nome não encontrado. É possível que não exista na lista de dentistas.');
-            console.error('Erro ao realizar a busca: ', error);
-            throw error;
+
+            // Nesse ponto aqui precisa carregar a lista de dentista novamente
+            // ou programe para apenas chamar a listagem de dentista como retorno
+
+
+            /* console.error('Erro ao realizar a busca: ', error);
+            throw error; */
         }
     }
 

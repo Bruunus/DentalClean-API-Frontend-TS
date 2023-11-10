@@ -23,24 +23,6 @@
     /******  Estilos para os sub-menus  ******/ 
 
 
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
     .btn_cad_paciente, .btn_cad_dentista {
       padding: 10px 50px 10px 50px;
@@ -51,23 +33,9 @@
     }
 
 
-    .div_titulo_dentist {
+    
 
-      background-color: #e0f5ff;
-      text-align: center;
-      border: 1px solid #4092cf3b;
-      border-radius: 10px 10px 0 0; /* Raio de borda nos cantos superiores esquerdo e direito */
-      
-      /* border: 1px 1px 0 1px solid #2f5968; */
-      color: #4092cf;
-
-    }
-
-    .div_titulo_dentist h4 {
-      font-family: 'fonte-tema';
-      padding-top: 5px;
-      margin-bottom: 0;
-    }
+    
 
 
 
@@ -97,89 +65,6 @@
       overflow: scroll !important;
       
     }
-
-
-    /******** Estilo para o menu navbar (pesquisar) ********/
-
-    /* Estilo para o container nav */
-
-    .container-nav-bar-pesquisar {
-      border-left: 1px solid #4092cf3b;
-      border-right: 1px solid #4092cf3b;
-  }
-
-  .nav-container-pesquisar {
-      padding: 7px 16px 2px 7px;
-      background-color: #e0f5ff;
-  }
-
-  .input-form-pesquisar {
-      height: 2rem;
-      border-color: #c2d9f1;
-  }
-
-  .input-form-pesquisar:focus {
-      outline: none;
-      box-shadow: 0 0 0 .1rem #aed4f7;
-      border-color: #accff1;
-      background-color: #fff;
-  }
-
-  .form-pesquisar {
-      margin-left: 54.266666rem !important;
-  }
-
-  .btn-pesquisar {
-      /*
-          Importante: A cor do botão e seus detalhes foi definida diretamente no framework, segue o caminho 
-          dist/css/bootstrap_4_1_3/bootstrap.min.css -> Pesquise por 'btn-outline-success'
-      */
-      height: 2rem;
-      padding-top: 4px; 
-      
-  }
-
-
-
-  /* Estilo do botão pesquisar */
-
-  .btn-outline-success{
-      color: #4092cf;  
-      background-color:transparent;
-      background-image:none;
-      border-color: #439bd9;
-  }
-  .btn-outline-success:hover{
-      color:#fff;
-      background-color: #4092cf;
-      border-color:#377eb1;
-  }
-  .btn-outline-success.focus,.btn-outline-success:focus{
-      /* box-shadow:0 0 0 .2rem rgba(40,167,69,.5)  - Original Bootstrap*/
-      /*Desabilitando focus do botão*/
-      outline: none;
-      box-shadow: none;
-      border-color: #3274a3;
-  }
-  .btn-outline-success.disabled,.btn-outline-success:disabled{
-      color:lightgray;
-      border-color:lightgray;
-      background-color:transparent;
-
-  }
-  .btn-outline-success:not(:disabled):not(.disabled).active,.btn-outline-success:not(:disabled):not(.disabled):active,.show>.btn-outline-success.dropdown-toggle{
-      color:#fff;
-      background-color: #3c8ac2;
-      border-color:#3274a3;
-  }
-  .btn-outline-success:not(:disabled):not(.disabled).active:focus,.btn-outline-success:not(:disabled):not(.disabled):active:focus,.show>.btn-outline-success.dropdown-toggle:focus{
-      /* box-shadow:0 0 0 .2rem rgba(40,167,69,.5)  Original Bootstrap*/
-      /*Desabilitando focus do botão*/
-      outline: none;
-      box-shadow: none;
-      border-color: #3274a3;
-  }
-
 
 
 

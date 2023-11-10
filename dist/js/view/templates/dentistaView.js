@@ -33,20 +33,21 @@ export class DentistaView {
         </div>
 
 
-        <div class="container-nav-bar-pesquisar">
+        <div class="row justify-content-end container-nav-bar-pesquisar">
 
-            <nav class="navbar navbar-expand-lg nav-container-pesquisar">
+            <nav class="col-3 navbar navbar-expand-lg nav-container-pesquisar">
 
-                <form id="form-submit" class="form-inline my-2 my-lg-0 form-pesquisar" >
+                <form id=" form-submit" class="form-pesquisar d-flex" >
                     
-                    <input id="input-seach" class="form-control mr-sm-2 input-form-pesquisar" type="search" placeholder="Nome" aria-label="Search">
-                    <button id="btn-seach" class="btn btn-outline-success my-2 my-sm-0 btn-pesquisar" type="submit">Pesquisar</button>
+                    <input id="input-seach" class=" form-control mr-sm-2 input-form-pesquisar" type="search" placeholder="Nome" aria-label="Search">
+                    <button id="btn-seach" class=" btn btn-outline-success my-2 my-sm-0 btn-pesquisar" type="submit">Pesquisar</button>
                 
                 </form>
                  
             </nav>
 
         </div>
+
 
         <div class="div_container_tables" style="background-color: #f7fcff;">
             
@@ -140,7 +141,7 @@ export class DentistaView {
                 }
             });
         });
-        const form = document.getElementById('form-submit');
+        const form = document.querySelector('.container-nav-bar-pesquisar nav form');
         const input = document.getElementById('input-seach');
         const btnSeach = document.getElementById('btn-seach');
         this.seachDentist(form, input, btnSeach);

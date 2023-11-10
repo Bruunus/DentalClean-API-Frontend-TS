@@ -14,30 +14,30 @@ body {
 
 
 #container-pai, #container-child-lef, #container-child-righ {
-    height: 100vh;
+    height: 100vh !important;
 }
 
 
 /* Teste novo */
 #container-pai {
-    display: grid;
-    grid-template-columns: 15% 1fr; /* Definindo as colunas e defininido o tamanho da 1º */
-    gap: 0.5rem;  /* espaçamento entre as colunas do grid */
+    display: grid !important;
+    grid-template-columns: 15% 1fr !important; /* Definindo as colunas e defininido o tamanho da 1º */
+    gap: 0.5rem !important;  /* espaçamento entre as colunas do grid */
  
     
 }
 
 #container-child-left {
-    max-width: 100%;
-    display: block;
-    background: #76a4e2;
+    max-width: 100% !important;
+    display: block !important;
+    background: #76a4e2 !important;
 }
 
 #container-child-right {
     max-width: 100%;
     max-height: 100vh !important;
     display: block;
-    background-color: lightgoldenrodyellow;
+    /* background-color: lightgoldenrodyellow; */
     padding: 1rem !important;
     overflow: auto !important;
 }
@@ -46,7 +46,7 @@ body {
 .img-logo {
     /* Tornando a imagem responsiva */
     width: 100%; /* Defina um valor fixo em pixels ou em porcentagem para controlar o tamanho da imagem */
-    max-width: 100%; /* Garante que a imagem não ultrapasse o tamanho do contêiner pai se for menor */
+    max-width: 100%; /* Seguir o container pai */
     height: auto; /* Mantém as proporções da imagem */
     display: block;
 }
@@ -55,12 +55,7 @@ body {
 
 
 
-
-
-
-
-
-/* Ajuste da row */
+ 
 
 .ajuste-row {
     height: 100vh;

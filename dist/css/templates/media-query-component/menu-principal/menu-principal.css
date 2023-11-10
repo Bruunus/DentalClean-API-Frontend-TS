@@ -23,13 +23,13 @@
 .botoes-menu {
     /* background-color: #76a4e2; */
     width: 100%;
-    height: 3.0rem;
+    height: 3.0vw;
 
     background-color: #76a4e2;
     color: white;
 
-    padding-top: 0.7rem !important;
-    padding-left: 1.2rem !important;    /* verificar se em 4k fica bom */
+    padding-top: 0.7vw !important;
+    padding-left: 1.2vw !important;    /* verificar se em 4k fica bom */
 
     border: 0;
     border-top-right-radius: 0;
@@ -76,13 +76,28 @@
 *   Estilo para sub-menus
 */
 .container-sub-menu-buttons-a {
-    background-color: #76a4e2 !important;
+    
     padding: 0;
+    margin-top: 0;
     border: 0;
     border-radius: 0;
-    width: 12.8rem;
-    margin-top: 0;
+    background-color: #76a4e2 !important;    
 }
+/* pc  */
+@media (min-width: 1278px) and (max-width: 1902px) {
+    .container-sub-menu-buttons-a {
+        width: 85% !important;
+    }
+}
+
+/* laptop */
+@media (max-width: 1257px) {
+    .container-sub-menu-buttons-a {
+        width: 85% !important;
+    }
+}
+
+
   
   
 
@@ -98,9 +113,10 @@
 }
   
 .sub-menu-buttons-a {
-    margin-left: 0.8rem;
-    height: 2.7rem !important;
-    padding-top: 0.555555rem;
+    max-width: 100% !important;
+    margin-left: 0.8vw;
+    height: 2.7vw !important;
+    padding-top: 0.555555vw;
     border: 0.5px solid #6a94cb;
 }
 
