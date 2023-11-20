@@ -6,10 +6,28 @@
     src: url('../fonts/Croogla4F.ttf') format('truetype');
 }
 
+/**
+*   Aguardando fonte para os textos do sistema
+*/
+@font-face {
+    
+}
+
+
+.system-color-text {
+    color: #33334d !important;
+}
 
 
 body {
-    font-size: 1vw !important;
+    font-size: 15px !important;
+}
+
+@media(min-width: 1601px) {
+    /* Para telas 5K */
+    body {
+        font-size: .9vw !important;
+    }
 }
 
 
@@ -23,8 +41,6 @@ body {
     display: grid !important;
     grid-template-columns: 15% 1fr !important; /* Definindo as colunas e defininido o tamanho da 1º */
     gap: 0.5rem !important;  /* espaçamento entre as colunas do grid */
- 
-    
 }
 
 #container-child-left {
@@ -33,14 +49,18 @@ body {
     background: #76a4e2 !important;
 }
 
+
 #container-child-right {
     max-width: 100%;
     max-height: 100vh !important;
     display: block;
     /* background-color: lightgoldenrodyellow; */
-    padding: 1rem !important;
+    padding: 1rem 2.3rem !important;
     overflow: auto !important;
 }
+ 
+
+
 
 
 .img-logo {
@@ -110,18 +130,7 @@ body {
 
 
 
-.container-col-ajuste-section-filho-template {
-    width: 100% !important;
-    height: 100% !important;
-    /* background-color: #a2bfe6; *//
-}
 
-
-#screenViewContainer {
-    /* background-color: beige; */
-    width: 100%;
-    height: 100%;
-}
 
 
 

@@ -9,11 +9,12 @@ export class AppDentalCleanView {
 
 
             <div id="container-pai">
-                <div id="container-child-left" class="col-ajuste-nav">
+            
+                <div id="container-child-left">
                     ${childLeft} 
                 </div>
 
-                <div id="container-child-right" class="col-ajuste-section"></div>
+                <div id="container-child-right"></div>
             </div>
 
 

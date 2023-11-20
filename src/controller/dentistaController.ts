@@ -29,20 +29,20 @@ export class DentistaController {
 
 
     private async  seachDentistForName(value: string) : Promise<any> {
-        try {
+      
             const response = await fetch(`http://localhost:8080/api/read/listar/dentista/seach?nome=${value}`);
-            const dentistSeachJSON = await response.json();
-            return dentistSeachJSON;
-        } catch (error) {
-            alert('Nome não encontrado. É possível que não exista na lista de dentistas.');
 
-            // Nesse ponto aqui precisa carregar a lista de dentista novamente
-            // ou programe para apenas chamar a listagem de dentista como retorno
-
-
-            /* console.error('Erro ao realizar a busca: ', error);
-            throw error; */
-        }
+            if(response.ok) {
+                const dentistSeachJSON = await response.json();
+                return dentistSeachJSON;
+            } else {
+                alert('Nome não encontrado no sistema ou não existe.');
+                this.accessListDentist();
+                
+            }
+            
+ 
+        
     }
 
 
@@ -50,12 +50,13 @@ export class DentistaController {
     public accessListDentist(): void {
 
         this.loadListDentist()
-            .then((dentistData) => {
-                const templateView = DentistaView.render(dentistData);
-                AppModule.loadCellEffects(); /* Carregamento de efeitos de células */
-                
-            })
+        .then((dentistData) => {
+            const templateView = DentistaView.render(dentistData);
+            AppModule.loadCellEffects(); /* Carregamento de efeitos de células */
+        })
+         
     }
+    
 
     public accessSeachDentist(value: string): void {
 
@@ -67,6 +68,55 @@ export class DentistaController {
 
 
     }
+
+
+    /**
+     * Método responsável por realizar update definitivo no banco de dados.
+     * @param id 
+     * @param objectDataForUpdate 
+     */
+    private fetchAPIUpdate(id:string, objectDataForUpdate) {
+
+        fetch(`http://localhost:8080/atualizar/cadastro/dentista/${id}`, {
+
+            method: 'PUT',
+            headers: {
+                'Content-Type':'application/json'
+        },
+            body: JSON.stringify(objectDataForUpdate),
+        })
+            .then((response) => {
+                if(!response.ok) {
+                    // console.log(objectDentist);  {Debbug}
+                    throw new Error(`Erro ao atualizar os dados`);
+                }
+                if(!response.ok) {
+                    return response.json();
+                }
+            })
+
+            .then((data) => {
+                console.log(`Dados atualizados com sucesso !`);
+                //console.log(objectDentist);   {Debbug}
+                const renderTemplate = new DentistaController();
+                renderTemplate.accessListDentist();
+            })
+                .catch((error) => {
+                    console.error(error);
+                    //console.log(objectDentist);   {Debbug}
+            });
+        
+
+    }
+
+    public setFetAPIUpdate(id:string, objectDataForUpdate) {
+        const idFet = id;
+        const objFer = objectDataForUpdate;
+        this.fetchAPIUpdate(idFet, objFer);
+    }
+
+
+
 
     public testeRender(): void {
         alert('test render is a Ok')

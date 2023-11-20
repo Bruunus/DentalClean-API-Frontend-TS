@@ -1,6 +1,7 @@
 
 import { ControllerRouteTS } from "../../controller/controllerRouterTS.js";
 import { DentistaController } from "../../controller/dentistaController.js";
+import { Dentist } from "../../module/dentist.js";
 
 export  class EditDentistView {
  
@@ -58,45 +59,7 @@ export  class EditDentistView {
         this.template = `
         <head>
             <style>
-                /* Configuração para 4k */
-                #container_editar {
-
-                    background-color: #f6fbfd;
-                    
-                    padding: 1rem;
-                    margin: 0 !important;
-
-
-                    border-left: 1px solid #4092cf3b;
-                    border-right: 1px solid #4092cf3b;
-                    border-bottom: 1px solid #4092cf3b;
-                }
-
-                .div_titulo_edit_dentist {
-                    background-color: #c1e7f7;
-                    text-align: center;
-
-                    border: 1px solid #4092cf3b;
-                    
-                    border-radius: 10px 10px 0 0;
-                    color: #3a86bc;
-                }
-
-                .div_titulo_edit_dentist h4 {
-                    font-family: 'fonte-tema';
-                    padding-top: 5px;
-                    margin-bottom: 0;
-                  }
-
-                .t-font-form-editar {
-
-                }
-
-
-                /* Icones do formulário */
-                .input-name {
-                    width: 15rem !important;
-                }
+              
 
 
 
@@ -115,24 +78,24 @@ export  class EditDentistView {
                         <!-- col 1 -->
             
                         <div class="form-group col-md-6">
-                            <label class="t-font-form-editar" name="nomeCompletoEditado">Nome Completo</label>
-                            <input type="text" class="form-control editar" id="nomeCompletoEditado" maxlength="20" disabled value="${this.nomeCompletoEditado}">
+                            <label class="system-color-text" name="nomeCompletoEditado">Nome Completo</label>
+                            <input type="text" class="form-control editar " id="nomeCompletoEditado" maxlength="20" disabled value="${this.nomeCompletoEditado}">
                         </div>
                         <div class="form-group col-md-3">
-                            <label name="dataNascimentoEditar">Data nascimento</label>
+                            <label class="system-color-text" name="dataNascimentoEditar">Data nascimento</label>
                             <input type="date" class="form-control editar " id="dataNascimentoEditar" disabled value="${this.dataNascimentoEditado}">
                         </div>
                         <div class="form-group  col-md-3">
-                            <label name="cpfEditar">CPF</label>
+                            <label class="system-color-text" name="cpfEditar">CPF</label>
                             <input type="text" class="form-control editar" id="cpfEditar" disabled value="${this.cpfEditado}">
                         </div>
                         <!-- col 2 -->
-                        <div class="form-group col-md-auto">
-                            <label name="cro">CRO</label>
-                            <input type="number" class="form-control editar" id="croEditar" disabled max="4" value="${this.croEditado}">
+                        <div class="form-group col-2">
+                            <label class="system-color-text" name="cro">CRO</label>
+                            <input type="number" class="form-control editar" id="croEditar" disabled  value="${this.croEditado}">
                         </div>
-                        <div class="form-group col-md-auto">
-                            <label name="especialidadeEditar">Especialidade</label>
+                        <div class="form-group col-2">
+                            <label class="system-color-text" name="especialidadeEditar">Especialidade</label>
                            <!-- <input type="text" class="form-control editar" id="especialidadeEditar" disabled value="${this.especialidadeEditado}">
                             -->
                             <select id="especialidadeEditar" class="form-control editar" disabled >
@@ -149,39 +112,39 @@ export  class EditDentistView {
                             </select>
                             </select>
                         </div>
-                        <div class="form-group col-md-3">
-                            <label name="telefoneResidencialEditar">Telefone Res.</label>
+                        <div class="form-group col-md-4">
+                            <label class="system-color-text" name="telefoneResidencialEditar">Telefone Res.</label>
                             <input type="text" class="form-control editar" id="telefoneResidencialEditar" disabled value="${this.telefoneResidencialEditado}">
                         </div>
-                        <div class="form-group col-md-3">
-                            <label name="telefoneCelularEditar">Telefone Cel.</label>
+                        <div class="form-group col-md-4">
+                            <label class="system-color-text" name="telefoneCelularEditar">Telefone Cel.</label>
                             <input type="text" class="form-control editar" id="telefoneCelularEditar" disabled value="${this.telefoneCelularEditado}">
                         </div>
                         <!-- col 3 -->
                         <div class="form-group col-md-12">
-                            <label name="emailEditar">E-mail</label>
+                            <label class="system-color-text" name="emailEditar">E-mail</label>
                             <input type="text" class="form-control editar" id="emailEditar" disabled maxlength="35" value="${this.emailEditado}">
                         </div>
                         <!-- col 4 -->
                         <div class="form-group col-md-5">
-                            <label name="ruaEditar">Rua</label>
+                            <label class="system-color-text" name="ruaEditar">Rua</label>
                             <input type="text" class="form-control editar" id="ruaEditar" disabled maxlength="32" value="${this.ruaEditado}">
                         </div>
                         <div class="form-group col-md-3">
-                            <label name="numeroEditar">Número</label>
+                            <label class="system-color-text" name="numeroEditar">Número</label>
                             <input type="text" class="form-control editar" id="numeroEditar" disabled maxlength="5" value="${this.numeroEditado}">
                         </div>
                         <div class="form-group col-md-4">
-                            <label name="bairroEditar">Bairro</label>
+                            <label class="system-color-text" name="bairroEditar">Bairro</label>
                             <input type="text" class="form-control editar" id="bairroEditar" disabled maxlength="20" value="${this.bairroEditado}">
                         </div>
                         <!-- col 5 -->
                         <div class="form-group col-md-9">
-                            <label name="cidadeEditar">Cidade</label>
+                            <label class="system-color-text" name="cidadeEditar">Cidade</label>
                             <input type="text" class="form-control editar" id="cidadeEditar" disabled maxlength="24" value="${this.cidadeEditado}">
                         </div>
                         <div class="form-group col-md-3">
-                            <label name="estadoEditar">Estado</label>
+                            <label class="system-color-text" name="estadoEditar">Estado</label>
                             <input type="text" class="form-control editar" id="estadoEditar" disabled maxlength="35" value="${this.estadoEditado}">
                         </div>
             
@@ -190,7 +153,7 @@ export  class EditDentistView {
                 <br>
                 
                 <button type="button" class="btn btn-primary" id="btnUpdate">Editar</button>
-                <button type="submit" class="btn btn-primary" id="btnSave" disabled>Atualizar</button>
+                <button type="submit" class="btn btn-primary" id="btnSave" data-toggle="modal" disabled>Atualizar</button>
                 <button type="button" class="btn btn-primary" id="btnDelete">Excluir</button>
                 </form>
             </div>
@@ -200,6 +163,13 @@ export  class EditDentistView {
         this.controllerRouterTS = new ControllerRouteTS();
         this.controllerRouterTS.loadCallEditDentist(this.template);
 
+        const validationNameAndCROJSON = {
+
+            nome: this.nomeCompletoEditado,
+            cro: this.croEditado
+
+
+        } 
 
 
 
@@ -212,7 +182,11 @@ export  class EditDentistView {
         this.btnUpdate = document.querySelector('#btnSave');
 
         this.btnEditOptions.addEventListener('click',  this.editOptionsViwer );
-        this.btnUpdate.addEventListener('click', () => { this.update(this.id) });
+
+        this.btnUpdate.addEventListener('click', () => { this.update(this.id, [validationNameAndCROJSON]) });
+
+
+
         this.btnDelete.addEventListener('click', () => { this.delete(this.id) })
         
         
@@ -234,8 +208,8 @@ export  class EditDentistView {
             camposEditar.forEach(tags => {
                 tags.removeAttribute('disabled');
             });
-            
-            this.btnUpdate.removeAttribute('disabled');
+            const btnUpdate = document.querySelector('#btnSave');
+            btnUpdate.removeAttribute('disabled');
     }
 
 
@@ -249,9 +223,13 @@ export  class EditDentistView {
      * @param id 
      * @returns 
      */
-    private update(id:string): void {
+    private update(id:string, validation: any[]): void {
+
+
          
         const formSubmit = document.querySelector('#form_editar');
+        
+
 
         if(!formSubmit) {
             console.error("Problema encontrado ao renderizar formulário.");
@@ -271,9 +249,9 @@ export  class EditDentistView {
         this.bairroEditado = (formSubmit.querySelector('#bairroEditar') as HTMLInputElement)?.value || '';
         this.cidadeEditado = (formSubmit.querySelector('#cidadeEditar') as HTMLInputElement)?.value || '';
         this.estadoEditado = (formSubmit.querySelector('#estadoEditar') as HTMLInputElement)?.value || '';
-        
 
-        const objectDentist= {
+
+        const updateObjectDentist = {
             nomeCompleto: this.nomeCompletoEditado,
             rua: this.ruaEditado,
             numero: this.numeroEditado,
@@ -291,34 +269,45 @@ export  class EditDentistView {
 
 
 
-        fetch(`http://localhost:8080/atualizar/cadastro/dentista/${id}`, {
+        
+        // validando os dados...
+        let nomeOriginal: string;
+        let croOriginal: string;
 
-            method: 'PUT',
-            headers: {
-                'Content-Type':'application/json'
-        },
-            body: JSON.stringify(objectDentist),
-        })
-            .then((response) => {
-                if(!response.ok) {
-                    // console.log(objectDentist);  {Debbug}
-                    throw new Error(`Erro ao atualizar os dados`);
+        // extraindo JSON...
+        validation.forEach(objeto => {
+            for (const chave in objeto) {
+                if (objeto.hasOwnProperty(chave)) {
+                    const valor = objeto[chave];
+                    if(chave === 'nome') { nomeOriginal = valor; }
+                    if(chave === 'cro') { croOriginal = valor }
+                    console.log(`Chave: ${chave}, Valor: ${valor}`); //- {Debug}
                 }
-                if(!response.ok) {
-                    return response.json();
-                }
-            })
+            }
+        });
 
-            .then((data) => {
-                console.log(`Dados atualizados com sucesso !`);
-                //console.log(objectDentist);   {Debbug}
-                this.renderTemplate = new DentistaController();
-                this.renderTemplate.accessListDentist();
-            })
-                .catch((error) => {
-                    console.error(error);
-                    //console.log(objectDentist);   {Debbug}
-            });
+        const modal = new Dentist(); 
+
+        // condição de validade 1
+        if(nomeOriginal !== this.nomeCompletoEditado && croOriginal === this.croEditado) {
+
+            
+            modal.modalInformationUpdateDentist('MODAL_CHANGE_NAME', id, updateObjectDentist);
+           
+            
+            } else if(croOriginal !== this.croEditado && nomeOriginal === this.nomeCompletoEditado){           
+            
+                modal.modalInformationUpdateDentist('MODAL_CHANGE_CRO',id, updateObjectDentist);
+        
+                } else if(nomeOriginal !== this.nomeCompletoEditado && croOriginal !== this.croEditado) {
+                    
+                    modal.modalInformationUpdateDentist('NEW_CRO_AND_NEW_NAME', id, updateObjectDentist);
+                    } else if(croOriginal === this.croEditado && nomeOriginal === this.nomeCompletoEditado) {
+
+                        modal.modalInformationUpdateDentist('NORMAL_MODE',id, updateObjectDentist);
+
+                    }
+        
         }
     }
 
@@ -342,7 +331,7 @@ export  class EditDentistView {
             if (response.ok) {
                 alert('Dentista excluído com sucesso!');
                 this.renderTemplate = new DentistaController();
-                this.renderTemplate.accessListDentist();
+                this.renderTemplate.accessListDentist(/* 'SCREEN_DENTIST' */);
 
             } else {
                 throw new Error('Erro ao excluir os dados');
@@ -352,4 +341,11 @@ export  class EditDentistView {
             console.error(error);
         });
     }
+
+
+
+
+
+
+
 }    

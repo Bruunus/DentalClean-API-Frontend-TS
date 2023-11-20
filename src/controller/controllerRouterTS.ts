@@ -89,12 +89,21 @@ export class ControllerRouteTS {
 
 
     /**
-     * Controller responsável por carregar a lista de dentistas.
+     * Controller responsável por carregar a tela de dentistas.
      */
-    public routerCallListDentist(): void {
+    public routerCallScreenDentist(): void {
 
         const dentistController = new DentistaController();
-        dentistController.accessListDentist();
+        dentistController.accessListDentist(/* 'SCREEN_DENTIST' */);
+
+    }
+
+    /**
+     * Controller responsável por apenas renderizar a tabela crua da API
+     */
+    public loadListDentistOnly(): void {
+        const dentistaController = new DentistaController();
+        dentistaController.accessListDentist(/* 'LIST_DENTIIST_ONLY' */);
 
     }
 
@@ -119,6 +128,13 @@ export class ControllerRouteTS {
         const renderTemplate = document.querySelector('#container-child-right');
         renderTemplate.innerHTML = template;
 
+    }
+
+
+
+    public updateDentist(id: string, jsonObjectDentist: any[]) : void {
+        const updateInDataBase = new DentistaController();
+        updateInDataBase.setFetAPIUpdate(id, jsonObjectDentist);
     }
 
 

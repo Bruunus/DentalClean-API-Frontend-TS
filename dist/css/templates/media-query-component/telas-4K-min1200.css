@@ -24,32 +24,13 @@
   /* Configuração para Dispositivos 4K tamanho família e Televisores */
 
   @media (min-width: 1900px) {
-     html body  {
-          font-size: 1.2rem;
-     }
-
     
-     #renderOptionsViwer {
-          /* background-color: deepskyblue; */
-     }
+    
 
 
 
 
 
-
-    /******  Estilos para o menu principal  ******/ 
-
-    .container-botoes-menu {
-      width: 14.888888rem;
-    }
-
-    .botoes-menu {
-      height: 3.5rem;
-      padding-top: 0.7rem !important;
-      font-size: 1.2rem;
-
-    }
 
     /* Tela do template principal */
     .div_container_tables {
@@ -61,43 +42,15 @@
 
     /* Estilo para o container nav para 4K*/
 
-    .col-ajuste-section  {
-      padding: 55px 42px 35px 60px !important;
-    }
-
-    .nav-container-pesquisar {
-      padding: 7px 5px 2px 240px;
-      background-color: #e0f5ff;
-    }
-
-
-    .form-pesquisar {
-      margin-left: 54.566666rem !important;
-    }
-
 
 
     /******  Estilos para o menu principal - 4k ******/ 
 
 
-    .container-botoes-menu {  
-      width: 17.555555rem !important;
-    }
-
-    .botoes-menu {
-      height: 3rem ;
-      font-size: 1.222222rem !important;
-    }
-
-    .container-sub-menu-buttons-a {
-      width: 15.322222rem !important;
-    }
-
-    .sub-menu-buttons-a {
-      height: 2.8rem !important;
-      padding-top: 0.555555rem !important;
-    }  
-
+    
+ 
+     
+     
 
 
 

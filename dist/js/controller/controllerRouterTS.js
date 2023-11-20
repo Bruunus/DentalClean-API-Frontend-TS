@@ -27,9 +27,13 @@ export class ControllerRouteTS {
         menu.loadEvents();
         this.routerCallListPatient();
     }
-    routerCallListDentist() {
+    routerCallScreenDentist() {
         const dentistController = new DentistaController();
         dentistController.accessListDentist();
+    }
+    loadListDentistOnly() {
+        const dentistaController = new DentistaController();
+        dentistaController.accessListDentist();
     }
     static routerCallListPatient() {
         const patientController = new PacienteController();
@@ -38,6 +42,10 @@ export class ControllerRouteTS {
     loadCallEditDentist(template) {
         const renderTemplate = document.querySelector('#container-child-right');
         renderTemplate.innerHTML = template;
+    }
+    updateDentist(id, jsonObjectDentist) {
+        const updateInDataBase = new DentistaController();
+        updateInDataBase.setFetAPIUpdate(id, jsonObjectDentist);
     }
 }
 ControllerRouteTS.screenViewContainerMenu = '#container-child-left';

@@ -63,12 +63,13 @@ export class DentistaView {
 
         <div class="row justify-content-end container-nav-bar-pesquisar">
 
+
             <nav class="col-3 navbar navbar-expand-lg nav-container-pesquisar">
 
                 <form id=" form-submit" class="form-pesquisar d-flex" >
                     
-                    <input id="input-seach" class=" form-control mr-sm-2 input-form-pesquisar" type="search" placeholder="Nome" aria-label="Search">
-                    <button id="btn-seach" class=" btn btn-outline-success my-2 my-sm-0 btn-pesquisar" type="submit">Pesquisar</button>
+                    <input id="input-seach" class=" form-control ml-3 input-form-pesquisar" type="search" placeholder="Nome Dentista" aria-label="Search">
+                    <button id="btn-seach" class=" btn btn-outline-success my-2 my-sm-0 d-flex align-items-center btn-pesquisar" type="submit">Pesquisar</button>
                 
                 </form>
                  
@@ -131,7 +132,7 @@ export class DentistaView {
         Dentist.linkDeOrdenacao(linksDeOrdenacao, dentistData);
 
 
-        const linkEditarDentista = document.querySelectorAll('.editarDentista');
+        const linkEditarDentista = document.querySelectorAll('.editarDentista');     
         // console.log(linkEditarDentista)  {Debbug}
 
         linkEditarDentista.forEach((link) => {
@@ -211,6 +212,7 @@ export class DentistaView {
             event.preventDefault();  
         
             const seachValue = input.value;
+
             const callAPI = new DentistaController();
             callAPI.accessSeachDentist(seachValue);
             
