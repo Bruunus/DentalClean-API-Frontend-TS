@@ -5,7 +5,11 @@
 		"rootDir": "src",
 		"strict": false,
 		"noEmitOnError": true,
-		"removeComments": true
+		"removeComments": true,
+		"paths": {
+			"@styles": ["./dist/css/styles.css"],
+			"@my-module": ["./node_modules/my-module"]
+		  }
 	},
 	"include": [
 		"src/**/*.ts"

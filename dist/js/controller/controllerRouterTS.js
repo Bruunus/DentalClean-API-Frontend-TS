@@ -9,6 +9,12 @@ export class ControllerRouteTS {
     constructor() {
         ControllerRouteTS.initBody = document.querySelector('html body');
     }
+    static loadAppDentalClean() {
+        new AppDentalCleanView(ControllerRouteTS.initBody);
+        const menu = new Menu();
+        menu.loadEvents();
+        this.routerCallListPatient();
+    }
     static loadScreenViewPatient(templateView) {
         ControllerRouteTS.redirectChildRight.innerHTML = templateView;
         AppModule.loadCellEffects();
@@ -20,12 +26,6 @@ export class ControllerRouteTS {
     redirectScreenRegisterPatient() {
         this.cadastroPacienteView = new CadastroPacienteView(ControllerRouteTS.screenViewContainer);
         this.cadastroPacienteView.render();
-    }
-    static loadAppDentalClean() {
-        new AppDentalCleanView(ControllerRouteTS.initBody);
-        const menu = new Menu();
-        menu.loadEvents();
-        this.routerCallListPatient();
     }
     routerCallScreenDentist() {
         const dentistController = new DentistaController();

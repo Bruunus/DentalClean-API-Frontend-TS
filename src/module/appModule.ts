@@ -1,6 +1,9 @@
 export class AppModule {
 
 
+    
+
+
         /**
          * Metodo que realiza a interação nsa tabelas para facilitar manipulação das
          * linhas da tabelas pelo usuário.
@@ -47,8 +50,22 @@ export class AppModule {
  
 
 
+         
+ 
+        /* Talvez implate */
+        public static addLinkStylesSheet(href?: string) : void {
+            
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'css/styles.css';
+            /* document.head.appendChild(link); */
 
 
+        }
+
+        
+
+      
 
 
 

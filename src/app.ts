@@ -12,6 +12,7 @@ const controllerRouteTS = new ControllerRouteTS();
 
 
 ControllerRouteTS.loadAppDentalClean();
+
 const loadConfigurationResponsive = new Responsiveness();
 
  

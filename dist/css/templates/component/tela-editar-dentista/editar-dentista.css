@@ -1,0 +1,125 @@
+
+
+
+/*
+*   Configuração do título do template.
+*   (componente separado do formulário)
+*/
+.div_titulo_edit_dentist {
+    background-color: #c1e7f7;
+    text-align: center;
+
+    border: 1px solid #4092cf3b;
+    
+    border-radius: 10px 10px 0 0;
+    color: #3a86bc;
+}
+
+
+.div_titulo_edit_dentist h4 {
+    font-size: 1.4666666vw !important;
+    font-family: 'fonte-tema';
+    padding-top: 5px;
+    margin-bottom: 0;
+}
+
+
+
+/**
+*   Configuração do container principal do formulário
+*/
+  #container_editar {
+    
+    background-color: #f6fbfd;
+    
+    padding: 1rem;
+    margin: 0 !important;
+
+    border-left: 1px solid #4092cf3b;
+    border-right: 1px solid #4092cf3b;
+    border-bottom: 1px solid #4092cf3b;
+}
+
+
+
+@media(min-width: 1601px) {
+    .form-control {
+        font-size: .9vw !important;
+    }
+}
+
+/*
+*   Estilo para todos os inputs do formulário
+*/
+.form-row div input, .form-row div select  {
+    height: 2vw;
+}
+
+
+.form-row div label {
+    color: #33334d !important;
+}
+
+
+/* Icones do formulário */
+.input-name {
+    width: 15rem !important;
+}
+
+
+
+/* 
+*   Configuração para exibição do modal de alteração de nome não aterando o CRO
+*/
+.modal-title {
+    line-height: 3vw !important;
+    margin-left: 0.3vw !important;
+}
+
+
+.btn-modal-salvar, .btn-modal-cancelar {
+    font-size: .9vw !important;
+    height: 2vw;
+    
+}
+
+
+
+
+
+/*
+*   Estilo do modal 
+*/
+
+.modal-responsive {
+    max-width: 100% !important;
+    width: 33vw !important;
+    height: 90vh !important;
+}
+
+.modal-content {
+
+}
+
+.modal-header {
+    max-width: 100% !important;
+    padding: 1vw;
+}
+
+.img-warning {
+    max-width: 100%; /* Seguir o container pai */
+    height: auto; /* Mantém as proporções da imagem */
+    display: block;
+}
+
+.modal-body {
+    max-width: 100% !important;
+}
+
+.modal-footer {
+    max-width: 100% !important;
+}
+
+@media (max-width: 1229px) {
+    
+}

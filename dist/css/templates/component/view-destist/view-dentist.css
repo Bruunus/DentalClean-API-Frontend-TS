@@ -1,0 +1,434 @@
+
+
+/******** Estilo para título da tabela ********/
+
+ 
+
+.div_titulo_dentist {
+
+    background-color: #e0f5ff;
+    text-align: center  !important;
+    border: 1px solid #4092cf3b;
+    border-radius: 10px 10px 0 0 !important; /* Raio de borda nos cantos superiores esquerdo e direito */
+    
+    color: #4092cf;
+
+}
+
+.div_titulo_dentist h4 {
+    font-family: 'fonte-tema';
+    
+    padding-top: 5px;
+    margin-bottom: 0;
+}
+
+
+
+
+
+/******** Estilo para o menu navbar (pesquisar) ********/
+
+/* Estilo para o container nav */
+
+  .container-nav-bar-pesquisar {
+      background-color: #def4ff;
+      max-width: 100% !important;
+      border-left: 1px solid #4092cf3b;
+      border-right: 1px solid #4092cf3b;
+      margin-right: 0vw !important;
+      margin-left: 0vw !important;
+  } 
+
+  .nav-container-pesquisar {
+      max-width: 100% !important;
+      padding: 7px 16px 2px 7px;
+      background-color: #def4ff;
+  }
+
+
+
+/******** Barra de pesquisa ********/
+
+.form-seach {
+    width: 100%;
+}
+
+/* row */
+.form-seach div {
+    /* background-color: lightpink;  {Debug}   */
+
+    height: 38.55px; /* Altura fixa */
+
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+
+
+.form-seach div div:nth-child(1) {
+
+    /* background-color: red; {Debug}   */
+
+    padding-left: 7px;
+    padding-right: 5px;
+
+    -ms-flex: 0 0 80.666667%;
+    flex: 0 0 19.666667%;
+    min-width: 19.666667%;
+    max-width: 22.666667%; /* tamanho máximo de largura */
+
+
+}
+
+.form-seach div div:nth-child(2) {
+
+    /* background-color: lightgreen; {Debug}    */
+
+    padding-left: 5px;
+    padding-right: 10px;
+
+    flex: 0 0 9%;
+    max-width: 40%;
+
+}
+
+
+.form-seach div div input {
+    /* input segue o pai */
+    width: 100%;
+    height: 30px;   /* Altura fixa */
+    max-width: 100%;
+    font-size: 15px !important;
+}
+
+
+.form-seach div div button {
+    font-size: 14px !important;
+    height: 29px;   /* Altura fixa */
+    width: 88.27px; /* Largura fixa */
+}
+
+
+
+  .input-form-pesquisar {
+      max-width: 100%;
+      height: 2vw;
+      margin-right: 0.7vw!important;
+      border-color: #c2d9f1;
+      font-size: .9vw !important;
+  }
+
+  .input-form-pesquisar:focus, .input-form-pesquisar:active {
+      outline: none;
+      box-shadow: 0 0 0 .1rem #aed4f7;
+      border-color: #accff1;
+      background-color: #fff;
+  }
+
+  
+
+  /*
+          Importante: A cor do botão e seus detalhes foi definida diretamente no framework, segue o caminho 
+          dist/css/bootstrap_4_1_3/bootstrap.min.css -> Pesquise por 'btn-outline-success'
+      */
+  .btn-pesquisar {
+      font-size: .9vw !important;
+      height: 2vw;
+
+      /* centralizando nome do button */
+      align-items: center;
+      justify-content: center;
+      justify-items: center;
+      text-align: center;
+      display: flex;
+      
+  }
+
+
+
+  /* Estilo do botão pesquisar */
+
+  .btn-outline-success{
+      max-width: 100% !important;
+      color: #4092cf;  
+      background-color:transparent;
+      background-image:none;
+      border-color: #439bd9;
+  }
+  .btn-outline-success:hover{
+      color:#fff;
+      background-color: #4092cf;
+      border-color:#377eb1;
+  }
+  .btn-outline-success.focus,.btn-outline-success:focus{
+      /* box-shadow:0 0 0 .2rem rgba(40,167,69,.5)  - Original Bootstrap*/
+      /*Desabilitando focus do botão*/
+      outline: none;
+      box-shadow: none;
+      border-color: #3274a3;
+  }
+  .btn-outline-success.disabled,.btn-outline-success:disabled{
+      color:lightgray;
+      border-color:lightgray;
+      background-color:transparent;
+
+  }
+  .btn-outline-success:not(:disabled):not(.disabled).active,.btn-outline-success:not(:disabled):not(.disabled):active,.show>.btn-outline-success.dropdown-toggle{
+      color:#fff;
+      background-color: #3c8ac2;
+      border-color:#3274a3;
+  }
+  .btn-outline-success:not(:disabled):not(.disabled).active:focus,.btn-outline-success:not(:disabled):not(.disabled):active:focus,.show>.btn-outline-success.dropdown-toggle:focus{
+      /* box-shadow:0 0 0 .2rem rgba(40,167,69,.5)  Original Bootstrap*/
+      /*Desabilitando focus do botão*/
+      outline: none;
+      box-shadow: none;
+      border-color: #3274a3;
+  }
+
+
+
+
+  
+
+/******** Estilo a lista da tabela ********/
+
+
+
+
+/*
+*   Configuração do container da tabela
+*/
+
+.div_container_tables {
+  width: 100%; 
+  height: 84vh !important;  /* tamanho recomendado */
+  max-height: 100vh !important; /* Definição do tamanho da tabela no total */
+  overflow: hidden;
+  scrollbar-width: thin;
+  
+
+  border-left: 1px solid #4092cf3b;
+  border-right: 1px solid #4092cf3b;
+  border-bottom: 1px solid #4092cf3b;
+}
+.div_container_tables:hover {
+  overflow: scroll !important;
+  
+}
+
+
+
+
+/* 
+*  Configuração e layout da tabela
+*/
+.table_dentist {
+  max-width: 100%;
+  table-layout: fixed;
+}
+
+.table_dentist th, .table_dentist td {
+  /* width: 200px; */
+  white-space: nowrap;
+  text-align: center;
+  padding: 0.5vw;
+}
+
+.table.table_dentist th {
+  border-top: none;
+  border-bottom: none;
+}
+
+/* AGUARDANDO FONTE PARA TEXTO */
+.table_dentist td {
+  color: #33334d;
+  /*  font-family: 'fonte-sistema'; */
+}
+
+
+
+
+/* 
+*  Configuração da row principal th 
+*/
+
+.thead_dentist {
+  /* background-color: #f1a085; */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0.1px !important;
+  z-index: 1000; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+    
+}
+
+.thead_dentist th {
+  background-color: #def4ff;
+  font-family: 'fonte-tema';
+  letter-spacing: 0.3px;
+}
+
+.thead_dentist th a {
+  color: #2ab78cc4;
+}
+.thead_dentist th a:hover {
+  text-decoration: underline;
+  color: #2ab78cc4 !important;
+}
+
+.color_font_th {
+  color: #2ab78cc4 !important;
+}
+
+
+
+
+/*
+* Formatação apenas das linhas da tabela
+*/
+
+/* Alteração de background da classe do framework bootstrap .table-hover - (Template dentista) */
+.table-hover .table_hover_dentist tr:hover td {
+  background: rgb(239, 249, 252);
+}
+
+.tr_format {
+  background-color: #def4ff0a;
+  border-bottom: 1px solid #4092cf3b;
+}
+
+
+
+
+/* 
+  * Definição de larguras e tamanhos para cada coluna
+  *
+  */
+
+  
+  /* Coluna 1 - Nome Completo */
+
+  .table_dentist th:nth-child(1), .table_dentist td:nth-child(1) { width: 171vw !important; }
+  .table_dentist td:nth-child(1){ text-align: center !important; }
+
+
+  /* Coluna 2 - Data de nascimento */
+
+  .table_dentist th:nth-child(2), .table_dentist td:nth-child(2) { width: 128vw; /* background-color: #baecba; */ }
+
+
+  /* Coluna 3 - CPF */
+
+  .table_dentist th:nth-child(3), .table_dentist td:nth-child(3) { width: 134vw; /* background-color: #baecba; */ }
+
+
+
+  /* Coluna 4 - CRO */
+
+  .table_dentist th:nth-child(4), .table_dentist td:nth-child(4) { width: 83vw; /* background-color: #baecba; */ }
+
+
+
+  /* Coluna 5 - Especialidade */
+
+  .table_dentist th:nth-child(5), .table_dentist td:nth-child(5) { width: 200vw; /* background-color: #baecba; */ }
+
+  
+
+  /* Coluna 6 - Telefone residencial */
+
+  .table_dentist th:nth-child(6), .table_dentist td:nth-child(6) { width: 139vw; /* background-color: #baecba; */ }
+
+
+
+  /* Coluna 7 - Telefone celular */
+
+  .table_dentist th:nth-child(7), .table_dentist td:nth-child(7) { width: 141vw; /* background-color: #baecba; */ }
+
+
+
+  /* Coluna 8 - E-mail */
+
+  .table_dentist th:nth-child(8), .table_dentist td:nth-child(8) { width: 246vw; /* background-color: #baecba;  */}
+
+  
+
+  /* Coluna 9 - Rua */
+
+  .table_dentist th:nth-child(9), .table_dentist td:nth-child(9) { width: 282vw; /* background-color: #baecba;  */}
+
+
+
+  /* Coluna 10 - Número */
+
+  .table_dentist th:nth-child(10), .table_dentist td:nth-child(10) { width: 83vw; /* background-color: #baecba;  */}
+
+
+
+  /* Coluna 11 - Bairro */
+
+  .table_dentist th:nth-child(11), .table_dentist td:nth-child(11) { width: 183vw; /* background-color: #baecba; */ }
+
+
+
+  /* Coluna 12 - Cidade */
+
+  .table_dentist th:nth-child(12), .table_dentist td:nth-child(12) { width: 250vw; /* background-color: #baecba; */ }
+
+
+
+  /* Coluna 13 - Estado */
+
+  .table_dentist th:nth-child(13), .table_dentist td:nth-child(13) { width: 76vw; /* background-color: #baecba; */ }
+
+
+
+  /* Coluna 14 - Editar */
+
+  .table_dentist th:nth-child(14), .table_dentist td:nth-child(14) { width: 76vw; /* background-color: #baecba; */ }
+
+
+
+/* 
+*   Estilo da barra de rolagem  da tabela de destista 
+*/
+
+.div_container_tables::-webkit-scrollbar {   
+  width: 0.6666666rem;  
+  height: 0.7666666rem; /* Engrossar barra */
+}
+
+
+/* Estilo do polegar da barra de rolagem (a parte que você arrasta) */
+.div_container_tables::-webkit-scrollbar-thumb {
+  background-color: #2ab78cc4; /* Cor do polegar da barra de rolagem */
+  border-radius: 4px; /* Raio de borda do polegar */
+  transition: fadeIn 0.3s ease;
+  
+}
+
+.div_container_tables:hover::-webkit-scrollbar-thumb {
+  background-color: #2ab78cc4;
+  opacity: 1;
+}
+
+/* Estilo da pista da barra de rolagem (a parte onde o polegar se move) */
+.div_container_tables::-webkit-scrollbar-track {
+  background-color: #f3fbff; /* Cor da pista da barra de rolagem */
+}
+
+
+
+/******** Sessão de media queries do componente ********/
+
+
+@media (max-width: 1600px) {
+
+
+
+}
+

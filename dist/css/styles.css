@@ -52,7 +52,7 @@ body {
 
 #container-child-right {
     max-width: 100%;
-    max-height: 100vh !important;
+    max-height: 100vh !important; /* tranca da tela */
     display: block;
     /* background-color: lightgoldenrodyellow; */
     padding: 1rem 2.3rem !important;

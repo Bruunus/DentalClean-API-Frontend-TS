@@ -34,17 +34,22 @@ export class DentistaView {
 
 
         <div class="row justify-content-end container-nav-bar-pesquisar">
+            <nav class="col-12 navbar navbar-expand-lg nav-container-pesquisar" style="
+                /* border: 1px solid tomato; {Debug} */
+                padding: 0 !important;
+            ">
 
+                <form class="form-seach">
+                    <div class="row d-flex justify-content-end">
+                        <div class="col">
+                           <input type="search" id="input-seach" class="form-control input-form-pesquisar" placeholder="Nome Dentista" aria-label="Search">
+                        </div>
 
-            <nav class="col-3 navbar navbar-expand-lg nav-container-pesquisar">
-
-                <form id=" form-submit" class="form-pesquisar d-flex" >
-                    
-                    <input id="input-seach" class=" form-control ml-3 input-form-pesquisar" type="search" placeholder="Nome Dentista" aria-label="Search">
-                    <button id="btn-seach" class=" btn btn-outline-success my-2 my-sm-0 d-flex align-items-center btn-pesquisar" type="submit">Pesquisar</button>
-                
+                        <div class="col">
+                            <button id="btn-seach" class=" btn btn-outline-success btn-pesquisar" type="submit">Pesquisar</button>
+                        </div>
+                    </div>
                 </form>
-                 
             </nav>
 
         </div>
@@ -71,6 +76,7 @@ export class DentistaView {
                         <th class="color_font_th">Editar</th>
                     </tr>
                 </thead>
+
                 <tbody class="table_hover_dentist">
                 ${dentistData.map((dentist) => {
             return `

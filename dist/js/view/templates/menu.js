@@ -11,12 +11,23 @@ export class Menu {
         <a href="http://localhost:3000" class="img-link">
             <img src="img/logo-dental-clean-menu.PNG" alt="DentalClean" class=" img-logo">
         </a>
-    
      
         <div class="btn-group-vertical container-botoes-menu">
                     
-            <button type="button" id="listaDentista" class="btn botoes-menu hvr-sweep-to-right ">Destistas</button>
+
+    
+                <button
                     
+                    type="button"
+                    id="listaDentista"
+                    class="btn botoes-menu hvr-sweep-to-right ">
+
+                        Destistas
+                        
+                </button>
+    
+        
+         
             <!--        
             <button type="button" 
                     id="editarTemp" 
@@ -47,7 +58,7 @@ export class Menu {
 
                     <a class="dropdown-item botoes-menu sub-menu-buttons-a hvr-sweep-to-right op-patient"
                         id="btnCadPaciente"
-                        href="#">
+                        href="#" >
                         Paciente
                     </a>
                 </div>

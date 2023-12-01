@@ -29,6 +29,23 @@ export class ControllerRouteTS {
    }
 
 
+   /**
+    * Controller principal responsável pelo carregamento do aplicativo.
+    * @param body 
+    */
+   public static loadAppDentalClean(): void  { 
+
+        new AppDentalCleanView(ControllerRouteTS.initBody);
+        const menu = new Menu();
+        menu.loadEvents();
+        this.routerCallListPatient();
+
+    }
+
+
+    
+
+
 
 
    /**
@@ -72,18 +89,7 @@ export class ControllerRouteTS {
    
 
 
-   /**
-    * Controller principal responsável pelo carregamento do aplicativo.
-    * @param body 
-    */
-   public static loadAppDentalClean() { 
-
-        new AppDentalCleanView(ControllerRouteTS.initBody);
-        const menu = new Menu();
-        menu.loadEvents();
-        this.routerCallListPatient();
-
-    }
+   
 
 
 

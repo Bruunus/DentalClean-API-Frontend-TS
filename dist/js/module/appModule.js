@@ -13,4 +13,9 @@ export class AppModule {
     static compareSelectEspecialidade(especialidade) {
         const especialidadeEditar = document.querySelector('#especialidadeEditar');
     }
+    static addLinkStylesSheet(href) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'css/styles.css';
+    }
 }
