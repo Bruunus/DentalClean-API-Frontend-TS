@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { PacienteView } from '../view/templates/pacienteView.js';
+import { PacienteView } from '../view/templates/patient/pacienteView.js';
 export class PacienteController {
     accessListPatient() {
         this.fetchPatientData()

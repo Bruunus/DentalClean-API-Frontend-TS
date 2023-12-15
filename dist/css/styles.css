@@ -1,4 +1,4 @@
-/* Configuração estática do projeto DentalClean */
+/* Configuração estática genérica do projeto DentalClean */
 
 
 @font-face {
@@ -6,23 +6,22 @@
     src: url('../fonts/Croogla4F.ttf') format('truetype');
 }
 
-/**
-*   Aguardando fonte para os textos do sistema
-*/
-@font-face {
-    
-}
 
-
+/* Cor da fonte do sistema */
 .system-color-text {
     color: #33334d !important;
 }
 
 
-body {
+/* Tamanho padrão de tipografia */
+body, .label-form, .form-input, .select-form {
     font-size: 15px !important;
 }
 
+ 
+
+
+/* Ajuste de tamanho de tipografia para telas maiores */
 @media(min-width: 1601px) {
     /* Para telas 5K */
     body {
@@ -31,18 +30,21 @@ body {
 }
 
 
+/* Altura padrão de todos os componentes da tela */
 #container-pai, #container-child-lef, #container-child-righ {
     height: 100vh !important;
 }
 
 
-/* Teste novo */
+/* Container pai do body principal */
 #container-pai {
     display: grid !important;
     grid-template-columns: 15% 1fr !important; /* Definindo as colunas e defininido o tamanho da 1º */
     gap: 0.5rem !important;  /* espaçamento entre as colunas do grid */
 }
 
+
+/* container esquedo */
 #container-child-left {
     max-width: 100% !important;
     display: block !important;
@@ -50,6 +52,7 @@ body {
 }
 
 
+/* container direito */
 #container-child-right {
     max-width: 100%;
     max-height: 100vh !important; /* tranca da tela */
@@ -58,11 +61,10 @@ body {
     padding: 1rem 2.3rem !important;
     overflow: auto !important;
 }
- 
 
 
 
-
+/* img responsiva que ocupa 100% do container pai */
 .img-logo {
     /* Tornando a imagem responsiva */
     width: 100%; /* Defina um valor fixo em pixels ou em porcentagem para controlar o tamanho da imagem */
@@ -75,57 +77,21 @@ body {
 
 
 
+
+
+
+
  
 
-.ajuste-row {
-    height: 100vh;
-}
+
+
+
+ 
 
 
 
 
 
-/* Coluna 1 */
-
-.col-ajuste-nav {
-    background-color: #76A4E2;
-}
-
-
-
-
-
-
-.classe-list-group-item {
-    font-family: 'fonte-tema';   
-
-    border-top-left-radius: .0rem !important;
-    border-top-right-radius: .0rem !important;
-    border-bottom-right-radius: .0rem !important;
-    border-bottom-left-radius: .0rem !important;
-    border: 0;
-
-    background-color: #76A4E2;
-    color: white;
-    letter-spacing: 0.3px;
-    
-    
-}
-
-.classe-list-group-item:hover {
-    background-color: #8DB4E7;
-    color: white;    
-    font-weight: 570;
-}
-
-.classe-list-group-item:active {
-    background-color: #a2bfe6;
-}
-
-.classe-list-group-item:not(:hover) {
-    background-color: #76A4E2;
-    color: white;     
-}
 
 
 
@@ -135,9 +101,9 @@ body {
 
 
 .active-cell {
-    /* background-color: #d1d1d1; */
     background-color: rgb(223,245,253)!important;
 }
+
 
 .no-select {
     user-select: none;

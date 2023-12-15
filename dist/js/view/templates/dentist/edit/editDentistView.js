@@ -1,6 +1,6 @@
-import { ControllerRouteTS } from "../../controller/controllerRouterTS.js";
-import { DentistaController } from "../../controller/dentistaController.js";
-import { Dentist } from "../../module/dentist.js";
+import { ControllerRouteTS } from "../../../../controller/controllerRouterTS.js";
+import { DentistaController } from "../../../../controller/dentistaController.js";
+import { Dentist } from "../../../../module/dentist.js";
 export class EditDentistView {
     constructor(objectDentist) {
         if (objectDentist.length > 0) {
@@ -45,26 +45,26 @@ export class EditDentistView {
             
                         <div class="form-group col-md-6">
                             <label class="system-color-text label-form" name="nomeCompletoEditado">Nome Completo</label>
-                            <input type="text" class="form-control editar " id="nomeCompletoEditado" maxlength="20" disabled value="${this.nomeCompletoEditado}">
+                            <input type="text" class="form-control form-input editar " id="nomeCompletoEditado" maxlength="20" disabled value="${this.nomeCompletoEditado}">
                         </div>
                         <div class="form-group col-md-3">
                             <label class="system-color-text label-form" name="dataNascimentoEditar">Data nascimento</label>
-                            <input type="date" class="form-control editar " id="dataNascimentoEditar" disabled value="${this.dataNascimentoEditado}">
+                            <input type="date" class="form-control form-input editar " id="dataNascimentoEditar" disabled value="${this.dataNascimentoEditado}">
                         </div>
                         <div class="form-group  col-md-3">
                             <label class="system-color-text label-form" name="cpfEditar">CPF</label>
-                            <input type="text" class="form-control editar" id="cpfEditar" disabled value="${this.cpfEditado}">
+                            <input type="text" class="form-control form-input editar" id="cpfEditar" disabled value="${this.cpfEditado}">
                         </div>
                         <!-- col 2 -->
                         <div class="form-group col-12 col-sm-12 col-lg-6">
                             <label class="system-color-text label-form" name="cro">CRO</label>
-                            <input type="number" class="form-control editar" id="croEditar" disabled  value="${this.croEditado}">
+                            <input type="number" class="form-control form-input editar" id="croEditar" disabled  value="${this.croEditado}">
                         </div>
                         <div class="form-group col-12 col-sm-12 col-lg-6">
                             <label class="system-color-text label-form" name="especialidadeEditar">Especialidade</label>
                            <!-- <input type="text" class="form-control editar" id="especialidadeEditar" disabled value="${this.especialidadeEditado}">
                             -->
-                            <select id="especialidadeEditar" class="form-control editar" disabled >
+                            <select id="especialidadeEditar" class="form-control select-form editar" disabled >
                                 <option value="" disabled selected>Selecione</option>
                                 <option value="Cirurgia">Cirurgia</option>
                                 <option value="Cirurgia Bucomaxilofacial">Cirurgia Bucomaxilofacial</option>
@@ -79,39 +79,39 @@ export class EditDentistView {
                             </select>
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="system-color-text label-form" name="telefoneResidencialEditar">Telefone Res.</label>
-                            <input type="text" class="form-control editar" id="telefoneResidencialEditar" disabled value="${this.telefoneResidencialEditado}">
+                            <label class="system-color-text label-form" name="telefoneResidencialEditar">Telefine Residencial</label>
+                            <input type="text" class="form-control form-input editar" id="telefoneResidencialEditar" disabled value="${this.telefoneResidencialEditado}">
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="system-color-text label-form" name="telefoneCelularEditar">Telefone Cel.</label>
-                            <input type="text" class="form-control editar" id="telefoneCelularEditar" disabled value="${this.telefoneCelularEditado}">
+                            <label class="system-color-text label-form" name="telefoneCelularEditar">Telefone Celular</label>
+                            <input type="text" class="form-control form-input editar" id="telefoneCelularEditar" disabled value="${this.telefoneCelularEditado}">
                         </div>
                         <!-- col 3 -->
                         <div class="form-group col-md-12">
                             <label class="system-color-text label-form" name="emailEditar">E-mail</label>
-                            <input type="text" class="form-control editar" id="emailEditar" disabled maxlength="35" value="${this.emailEditado}">
+                            <input type="text" class="form-control form-input editar" id="emailEditar" disabled maxlength="35" value="${this.emailEditado}">
                         </div>
                         <!-- col 4 -->
                         <div class="form-group col-md-5">
                             <label class="system-color-text label-form" name="ruaEditar">Rua</label>
-                            <input type="text" class="form-control editar" id="ruaEditar" disabled maxlength="32" value="${this.ruaEditado}">
+                            <input type="text" class="form-control form-input editar" id="ruaEditar" disabled maxlength="32" value="${this.ruaEditado}">
                         </div>
                         <div class="form-group col-md-3">
                             <label class="system-color-text label-form" name="numeroEditar">Número</label>
-                            <input type="text" class="form-control editar" id="numeroEditar" disabled maxlength="5" value="${this.numeroEditado}">
+                            <input type="text" class="form-control form-input editar" id="numeroEditar" disabled maxlength="5" value="${this.numeroEditado}">
                         </div>
                         <div class="form-group col-md-4">
                             <label class="system-color-text label-form" name="bairroEditar">Bairro</label>
-                            <input type="text" class="form-control editar" id="bairroEditar" disabled maxlength="20" value="${this.bairroEditado}">
+                            <input type="text" class="form-control form-input editar" id="bairroEditar" disabled maxlength="20" value="${this.bairroEditado}">
                         </div>
                         <!-- col 5 -->
                         <div class="form-group col-md-9">
                             <label class="system-color-text label-form" name="cidadeEditar">Cidade</label>
-                            <input type="text" class="form-control editar" id="cidadeEditar" disabled maxlength="24" value="${this.cidadeEditado}">
+                            <input type="text" class="form-control form-input editar" id="cidadeEditar" disabled maxlength="24" value="${this.cidadeEditado}">
                         </div>
                         <div class="form-group col-md-3">
                             <label class="system-color-text label-form" name="estadoEditar">Estado</label>
-                            <input type="text" class="form-control editar" id="estadoEditar" disabled maxlength="35" value="${this.estadoEditado}">
+                            <input type="text" class="form-control form-input editar" id="estadoEditar" disabled maxlength="35" value="${this.estadoEditado}">
                         </div>
             
                     </div>
@@ -120,7 +120,7 @@ export class EditDentistView {
                 <div id="container-father-div-editar">
                    
                     <button type="button" class="btn btn-secondary" id="btnUpdate">Editar</button>
-                    <button type="button" class="btn btn-secondary" id="btnSave" disabled>Atualizar</button>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#" id="btnSave" disabled>Atualizar</button>
                     <button type="button" class="btn btn-secondary" id="btnDelete">Excluir</button>
                     
                 </div>
@@ -135,11 +135,12 @@ export class EditDentistView {
             nome: this.nomeCompletoEditado,
             cro: this.croEditado
         };
+        this.form = document.querySelector('#container_editar form');
         this.btnEditOptions = document.querySelector('#btnUpdate');
         this.btnDelete = document.querySelector('#btnDelete');
         this.btnUpdate = document.querySelector('#btnSave');
         this.btnEditOptions.addEventListener('click', this.editOptionsViwer);
-        this.btnUpdate.addEventListener('click', () => { this.update(this.id, [validationNameAndCROJSON]); });
+        this.btnUpdate.addEventListener('click', () => { this.update(this.form, this.id, [validationNameAndCROJSON]); });
         this.btnDelete.addEventListener('click', () => { this.delete(this.id); });
     }
     ;
@@ -154,9 +155,8 @@ export class EditDentistView {
         const btnUpdate = document.querySelector('#btnSave');
         btnUpdate.removeAttribute('disabled');
     }
-    update(id, validation) {
+    update(formSubmit, id, validation) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
-        const formSubmit = document.querySelector('#form_editar');
         if (!formSubmit) {
             console.error("Problema encontrado ao renderizar formulário.");
             return;
@@ -175,20 +175,10 @@ export class EditDentistView {
             this.bairroEditado = ((_l = formSubmit.querySelector('#bairroEditar')) === null || _l === void 0 ? void 0 : _l.value) || '';
             this.cidadeEditado = ((_m = formSubmit.querySelector('#cidadeEditar')) === null || _m === void 0 ? void 0 : _m.value) || '';
             this.estadoEditado = ((_o = formSubmit.querySelector('#estadoEditar')) === null || _o === void 0 ? void 0 : _o.value) || '';
+            console.log('Pegando os valores:\n\n', this.nomeCompletoEditado, '\n', this.dataNascimentoEditado, '\n', this.cpfEditado, '\n', this.croEditado, '\n', this.especialidadeEditado, '\n', this.telefoneResidencialEditado, '\n', this.telefoneCelularEditado, '\n', this.emailEditado, '\n', this.ruaEditado, '\n', this.numeroEditado, '\n', this.bairroEditado, '\n', this.cidadeEditado, '\n', this.estadoEditado);
             const updateObjectDentist = {
                 nomeCompleto: this.nomeCompletoEditado,
-                rua: this.ruaEditado,
-                numero: this.numeroEditado,
-                bairro: this.bairroEditado,
-                cidade: this.cidadeEditado,
-                estado: this.estadoEditado,
-                email: this.emailEditado,
-                dataNascimento: this.dataNascimentoEditado,
-                telefoneResidencial: this.telefoneResidencialEditado,
-                telefoneCelular: this.telefoneCelularEditado,
-                especialidade: this.especialidadeEditado,
-                cro: this.croEditado,
-                cpf: this.cpfEditado
+                cro: this.croEditado
             };
             let nomeOriginal;
             let croOriginal;
@@ -202,22 +192,20 @@ export class EditDentistView {
                         if (chave === 'cro') {
                             croOriginal = valor;
                         }
-                        console.log(`Chave: ${chave}, Valor: ${valor}`);
                     }
                 }
             });
             const modal = new Dentist();
-            if (nomeOriginal !== this.nomeCompletoEditado && croOriginal === this.croEditado) {
-                modal.modalInformationUpdateDentist('MODAL_CHANGE_NAME', id, updateObjectDentist);
-            }
-            else if (croOriginal !== this.croEditado && nomeOriginal === this.nomeCompletoEditado) {
+            if (updateObjectDentist.nomeCompleto === nomeOriginal && updateObjectDentist.cro != croOriginal) {
                 modal.modalInformationUpdateDentist('MODAL_CHANGE_CRO', id, updateObjectDentist);
             }
-            else if (nomeOriginal !== this.nomeCompletoEditado && croOriginal !== this.croEditado) {
+            else if (updateObjectDentist.nomeCompleto != nomeOriginal && updateObjectDentist.cro === croOriginal) {
+                modal.modalInformationUpdateDentist('MODAL_CHANGE_NAME', id, updateObjectDentist);
+            }
+            else if (updateObjectDentist.nomeCompleto != nomeOriginal && updateObjectDentist.cro != croOriginal) {
                 modal.modalInformationUpdateDentist('NEW_CRO_AND_NEW_NAME', id, updateObjectDentist);
             }
-            else if (croOriginal === this.croEditado && nomeOriginal === this.nomeCompletoEditado) {
-                modal.modalInformationUpdateDentist('NORMAL_MODE', id, updateObjectDentist);
+            else {
             }
         }
     }

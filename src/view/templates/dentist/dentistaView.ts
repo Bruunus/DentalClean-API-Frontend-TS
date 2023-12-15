@@ -1,8 +1,8 @@
 
-import { DentistaController } from "../../controller/dentistaController.js";
-import { AppModule } from "../../module/appModule.js";
-import { Dentist } from "../../module/dentist.js";
-import { EditDentistView } from "./editDentistView.js";
+import { DentistaController } from "../../../controller/dentistaController.js";
+import { AppModule } from "../../../module/appModule.js";
+import { Dentist } from "../../../module/dentist.js";
+import { EditDentistView } from "./edit/editDentistView.js";
 
 export class DentistaView {
     
@@ -46,19 +46,23 @@ export class DentistaView {
      * @param dentistData 
      * @param renderizadorId 
      */
-    static render(dentistData: any[]):void {
+    static render(dentistData: any[]):void {     
+
+        
     
         this.orderByName(dentistData);
 
         this.template = `
         <head>
-        <style>
-        </style>
+            <style>
+
+            </style>
         </head>
+
 
         <div class="div_titulo_dentist">
             <h4 class="no-select">Dentistas</h4>
-        </div>
+        </div>  
 
 
         <div class="row justify-content-end container-nav-bar-pesquisar">
@@ -106,7 +110,11 @@ export class DentistaView {
                 </thead>
 
                 <tbody class="table_hover_dentist">
+
                 ${dentistData.map((dentist: any) => {
+
+                   
+                    
                     return `
                         <tr class="no-select tr_format" style="color: #354057"> 
                             <td class="nomeCompleto">${dentist.nomeCompleto}</td>
@@ -123,7 +131,9 @@ export class DentistaView {
                             <td class="cidade">${dentist.cidade}</td>
                             <td class="estado">${dentist.estado}</td>
                             <td><a href="#" class="editarDentista" data-id="${dentist.id}">Editar</a></td>
-
+                            <script>
+                                console.log("${dentist.cpf}")
+                            </script>
                         </tr>
                     `;
                 }).join('')}
@@ -228,6 +238,9 @@ export class DentistaView {
         });
 
     }
+
+
+
     
 
 

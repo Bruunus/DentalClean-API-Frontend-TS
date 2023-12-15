@@ -1,9 +1,7 @@
-import { AppContents } from './appContents.js';
-import { Menu } from "./menu.js";
+import { Menu } from "./menu/menu.js";
 export class AppDentalCleanView {
     constructor(body) {
         this.menu = new Menu();
-        this.appContents = new AppContents();
         const childLeft = this.menu.getMenuRender();
         this.dentalCleanTemplate = `
 

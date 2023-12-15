@@ -1,0 +1,18 @@
+
+
+
+
+/*********** Laptops pequenos ***********/    
+
+@media (max-width: 1200px)  {
+
+
+    #form_cadastro_dentista div div {
+        display: flex;
+        justify-content: center;
+      }
+
+
+}
+
+

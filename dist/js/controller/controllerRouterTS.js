@@ -1,7 +1,7 @@
-import { CadastroDentistaView } from "../view/templates/cadastroDentistaView.js";
-import { CadastroPacienteView } from "../view/templates/cadastroPacienteView.js";
+import { CadastroDentistaView } from "../view/templates/dentist/register/cadastroDentistaView.js";
+import { CadastroPacienteView } from "../view/templates/patient/register/cadastroPacienteView.js";
 import { AppModule } from "../module/appModule.js";
-import { Menu } from "../view/templates/menu.js";
+import { Menu } from "../view/templates/menu/menu.js";
 import { AppDentalCleanView } from "../view/templates/appDentalCleanView.js";
 import { DentistaController } from "./dentistaController.js";
 import { PacienteController } from "./pacienteController.js";

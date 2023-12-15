@@ -1,5 +1,5 @@
 import { AppModule } from "../module/appModule.js";
-import { DentistaView } from "../view/templates/dentistaView.js";
+import { DentistaView } from "../view/templates/dentist/dentistaView.js";
 import { Dentist } from "../module/dentist.js";
 
 export class DentistaController {
@@ -97,7 +97,7 @@ export class DentistaController {
 
             .then((data) => {
                 console.log(`Dados atualizados com sucesso !`);
-                //console.log(objectDentist);   {Debbug}
+                console.log(data);   //{Debbug}
                 const renderTemplate = new DentistaController();
                 renderTemplate.accessListDentist();
             })

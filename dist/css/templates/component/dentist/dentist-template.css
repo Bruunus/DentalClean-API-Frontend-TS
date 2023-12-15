@@ -1,0 +1,25 @@
+/* Regras genéricas para todos os templates */
+
+/******** Estilo para título da tabela ********/
+
+
+
+.div_titulo_dentist {
+
+    background-color: #e0f5ff;
+    text-align: center  !important;
+    border: 1px solid #4092cf3b;
+    border-radius: 10px 10px 0 0 !important; /* Raio de borda nos cantos superiores esquerdo e direito */
+    
+    color: #4092cf;
+
+}
+
+.div_titulo_dentist h4 {
+    font-family: 'fonte-tema';
+    
+    padding-top: 5px;
+    margin-bottom: 0;
+}
+
+

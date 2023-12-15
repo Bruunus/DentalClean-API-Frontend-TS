@@ -69,21 +69,25 @@ export class Responsiveness {
           containerChildLeft.appendChild(containerChildLeft_div_1);
           containerChildLeft.appendChild(containerChildLeft_div_2); 
 
+        } else if (window.matchMedia("(min-width: 1602px)").matches) {
+
+          imgLogo.setAttribute('src', 'img/logo-dental-clean-original.PNG');
+
         } 
 
-          
-
-         
 
 
-        
-
-          
-        
-
-      }
+      const btnModalUpdateChangeNome = document.querySelector('#btnModalUpdateChangeNome');
 
       
+      if(window.matchMedia("(max-width: 360px)").matches) {
+        btnModalUpdateChangeNome.textContent = 'Atualizar';
+      } else {
+        
+        btnModalUpdateChangeNome.textContent = 'Atualizar mesmo assim';
+      }
+
+    }
         
 
     }  

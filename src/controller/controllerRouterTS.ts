@@ -1,13 +1,14 @@
+import { CadastroDentistaView2 } from './../view/templates/dentist/register/cadastroDentistaView2';
 
-import { CadastroDentistaView } from "../view/templates/cadastroDentistaView.js";
-import { CadastroPacienteView } from "../view/templates/cadastroPacienteView.js";
+import { CadastroDentistaView } from "../view/templates/dentist/register/cadastroDentistaView.js";
+import { CadastroPacienteView } from "../view/templates/patient/register/cadastroPacienteView.js";
 import { AppModule } from "../module/appModule.js";
-import { DentistaView } from "../view/templates/dentistaView.js";
-import { Menu } from "../view/templates/menu.js";
-import { AppContents } from "../view/templates/appContents.js";
+import { DentistaView } from "../view/templates/dentist/dentistaView.js";
+import { Menu } from "../view/templates/menu/menu.js";
 import { AppDentalCleanView } from "../view/templates/appDentalCleanView.js";
 import { DentistaController } from "./dentistaController.js";
 import { PacienteController } from "./pacienteController.js";
+import { Dentist } from "../module/dentist.js";
 
 export class ControllerRouteTS {
 
@@ -19,13 +20,18 @@ export class ControllerRouteTS {
    public static redirectChildLeft:HTMLElement = document.querySelector('#container-child-left');
    public static redirectChildRight:HTMLElement = document.querySelector('#container-child-right');
    private static initBody: HTMLElement;
+
    private cadastroDentistaView: CadastroDentistaView;
    private cadastroPacienteView: CadastroPacienteView;
+    
+    
 
 
    public constructor() {
 
         ControllerRouteTS.initBody = document.querySelector('html body') as HTMLElement;
+
+         
    }
 
 
@@ -36,9 +42,12 @@ export class ControllerRouteTS {
    public static loadAppDentalClean(): void  { 
 
         new AppDentalCleanView(ControllerRouteTS.initBody);
+
         const menu = new Menu();
+        
         menu.loadEvents();
         this.routerCallListPatient();
+       
 
     }
 
@@ -68,8 +77,16 @@ export class ControllerRouteTS {
     * Controlador para redirecionar formulário de cadastro de dentista
     */
    public redirectScreenRegisterDentist(): void { 
+
+    
         this.cadastroDentistaView = new CadastroDentistaView(ControllerRouteTS.screenViewContainer);
         this.cadastroDentistaView.render();
+
+      
+        
+        
+        
+
     }
 
 

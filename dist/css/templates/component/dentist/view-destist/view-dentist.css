@@ -1,31 +1,5 @@
 
 
-/******** Estilo para título da tabela ********/
-
- 
-
-.div_titulo_dentist {
-
-    background-color: #e0f5ff;
-    text-align: center  !important;
-    border: 1px solid #4092cf3b;
-    border-radius: 10px 10px 0 0 !important; /* Raio de borda nos cantos superiores esquerdo e direito */
-    
-    color: #4092cf;
-
-}
-
-.div_titulo_dentist h4 {
-    font-family: 'fonte-tema';
-    
-    padding-top: 5px;
-    margin-bottom: 0;
-}
-
-
-
-
-
 /******** Estilo para o menu navbar (pesquisar) ********/
 
 /* Estilo para o container nav */
@@ -137,6 +111,8 @@
   .btn-pesquisar {
       font-size: .9vw !important;
       height: 2vw;
+      font-family: 'fonte-tema';
+      letter-spacing: 0.5px;
 
       /* centralizando nome do button */
       align-items: center;
@@ -421,14 +397,4 @@
   background-color: #f3fbff; /* Cor da pista da barra de rolagem */
 }
 
-
-
-/******** Sessão de media queries do componente ********/
-
-
-@media (max-width: 1600px) {
-
-
-
-}
 

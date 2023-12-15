@@ -1,6 +1,4 @@
-import { AppContents } from './appContents.js';
-
-import { Menu } from "./menu.js";
+import { Menu } from "./menu/menu.js";
 
 export class AppDentalCleanView {
 
@@ -8,7 +6,6 @@ export class AppDentalCleanView {
     private dentalCleanTemplate: string;
     private menu = new Menu();
     private static childRight: string;
-    private appContents = new AppContents();
 
     
 

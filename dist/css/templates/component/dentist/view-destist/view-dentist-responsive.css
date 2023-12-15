@@ -239,14 +239,45 @@
 
 /* Mobile - Large */
 
-@media(max-width: 425px) and (min-width: 374px){
+@media(max-width: 425px) {
 
     /* imagem */
+    .img-logo {
+        max-width: 77% !important;
+    }
+
     /* botões do menu */
+    .botoes-menu {
+        font-size: 13pt !important;
+    }
+
     /* titulo do template */
+    .div_titulo_dentist h4 {
+        font-size: 15pt;
+    }
+
     /* barra de pesquisa */
-    /* titulos das colunas da tabela*/
+    .form-seach {
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+    }
+
+    .form-seach div div input {
+        border-radius: 0.55rem !important;
+        font-size: 12pt !important;
+    }
+
+    /* titulos das colunas */
+    .thead_dentist th a {
+        font-size: 12pt !important;
+    }
     /* linhas da tabela */
+    .table_dentist td {
+        font-size: 12pt !important;
+    }
+
+
+
 
     /* Para títulos: entre 14 e 25 pt */
     /* Para textos: 12pt */
@@ -258,15 +289,15 @@
 
 
 /* Mobile - Medium */
-@media(max-width: 375px) and (min-width: 321px) {
+/* @media(max-width: 375px) and (min-width: 321px) {
 
-}
+} */
 
 
 
 
 /* Mobile - Small */
-@media(max-widt: 320px) {
+/* @media(max-widt: 320px) {
 
-}
+} */
 

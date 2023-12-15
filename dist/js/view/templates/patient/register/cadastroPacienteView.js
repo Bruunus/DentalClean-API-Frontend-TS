@@ -1,18 +1,10 @@
-import { CadastroController } from "../../controller/cadastroController.js";
-
+import { CadastroController } from "../../../../controller/cadastroController.js";
 export class CadastroPacienteView {
-
-    private elementDOM: HTMLElement;
-    private pacienteAPI = new CadastroController();
-    
-    
-    public constructor(renderizadorId: string) {
+    constructor(renderizadorId) {
+        this.pacienteAPI = new CadastroController();
         this.elementDOM = document.querySelector(renderizadorId);
     }
-     
-
-    private templatePaciente() :string {
-
+    templatePaciente() {
         return `
         
             <h2>Formulário de Cadastro de Paciente</h2>
@@ -73,101 +65,66 @@ export class CadastroPacienteView {
             </div>
         `;
     }
-
-
-    private eventSubmit(): void {
-
+    eventSubmit() {
         const formSubmit = document.querySelector('#form_cadastro_paciente');
-
         if (!formSubmit) {
             console.error("Problema encontrado ao renderizar formulário.");
             return;
-        } else {
-
+        }
+        else {
             formSubmit.addEventListener('submit', (event) => {
+                var _a, _b, _c, _d, _e, _f, _g, _h, _j;
                 event.preventDefault();
-
-                const nomeCompleto = (formSubmit.querySelector('#nomeCompleto') as HTMLInputElement)?.value || '';
-                const dataNascimento = (formSubmit.querySelector('#dataNascimento') as HTMLInputElement)?.value || '';
-
-                // capturando o valor de dentro da tag options
-                const selectElementGenero = formSubmit.querySelector('#genero') as HTMLSelectElement;
+                const nomeCompleto = ((_a = formSubmit.querySelector('#nomeCompleto')) === null || _a === void 0 ? void 0 : _a.value) || '';
+                const dataNascimento = ((_b = formSubmit.querySelector('#dataNascimento')) === null || _b === void 0 ? void 0 : _b.value) || '';
+                const selectElementGenero = formSubmit.querySelector('#genero');
                 const selectedIndexGenero = selectElementGenero.selectedIndex;
                 const genero = selectedIndexGenero !== -1 ? selectElementGenero.options[selectedIndexGenero].text : '';
-                                
-                const email = (formSubmit.querySelector('#email') as HTMLInputElement)?.value || '';
-
-                const selectElementConvenio = formSubmit.querySelector('#convenio') as HTMLSelectElement;
+                const email = ((_c = formSubmit.querySelector('#email')) === null || _c === void 0 ? void 0 : _c.value) || '';
+                const selectElementConvenio = formSubmit.querySelector('#convenio');
                 const selectedIndexConvenio = selectElementConvenio.selectedIndex;
                 const convenio = selectedIndexConvenio !== -1 ? selectElementConvenio.options[selectedIndexConvenio].text : '';
-
-                const numeroCarteirinha = (formSubmit.querySelector('#numCarteirinha') as HTMLInputElement)?.value;
-                const rua = (formSubmit.querySelector('#rua') as HTMLInputElement)?.value || '';
-                const numero = (formSubmit.querySelector('#numero') as HTMLInputElement)?.value;
-                const bairro = (formSubmit.querySelector('#bairro') as HTMLInputElement)?.value || '';
-                const cidade = (formSubmit.querySelector('#cidade') as HTMLInputElement)?.value || '';
-                const estado = (formSubmit.querySelector('#estado') as HTMLInputElement)?.value || '';
- 
-
-                console.log(
-                    'Nome completo: ' + nomeCompleto +
-                    '\nData nascimento: ' +dataNascimento  +
-                    '\nGênero: ' + genero  +
-                    '\nE-mail: ' + email  +
-                    '\nConvênio: ' + convenio  +
-                    '\nN Carteirinha: ' + numeroCarteirinha + '  (' +typeof numeroCarteirinha +')' +
+                const numeroCarteirinha = (_d = formSubmit.querySelector('#numCarteirinha')) === null || _d === void 0 ? void 0 : _d.value;
+                const rua = ((_e = formSubmit.querySelector('#rua')) === null || _e === void 0 ? void 0 : _e.value) || '';
+                const numero = (_f = formSubmit.querySelector('#numero')) === null || _f === void 0 ? void 0 : _f.value;
+                const bairro = ((_g = formSubmit.querySelector('#bairro')) === null || _g === void 0 ? void 0 : _g.value) || '';
+                const cidade = ((_h = formSubmit.querySelector('#cidade')) === null || _h === void 0 ? void 0 : _h.value) || '';
+                const estado = ((_j = formSubmit.querySelector('#estado')) === null || _j === void 0 ? void 0 : _j.value) || '';
+                console.log('Nome completo: ' + nomeCompleto +
+                    '\nData nascimento: ' + dataNascimento +
+                    '\nGênero: ' + genero +
+                    '\nE-mail: ' + email +
+                    '\nConvênio: ' + convenio +
+                    '\nN Carteirinha: ' + numeroCarteirinha + '  (' + typeof numeroCarteirinha + ')' +
                     '\nRua: ' + rua +
-                    '\nNúmero: ' + numero  +'  (' +typeof numero +')' +
+                    '\nNúmero: ' + numero + '  (' + typeof numero + ')' +
                     '\nBairro: ' + bairro +
                     '\nCidade: ' + cidade +
-                    '\nEstado: ' + estado
-                );
-
-
+                    '\nEstado: ' + estado);
                 try {
-                    this.pacienteAPI.cadastrarPaciente(
-                        nomeCompleto,
-                        dataNascimento,
-                        genero,
-                        email,
-                        convenio,
-                        numeroCarteirinha,
-                        rua,
-                        numero,
-                        bairro,
-                        cidade,
-                        estado
-                    );
-
-                    
+                    this.pacienteAPI.cadastrarPaciente(nomeCompleto, dataNascimento, genero, email, convenio, numeroCarteirinha, rua, numero, bairro, cidade, estado);
                     this.limpaCampos();
-                    alert('Registro realizado com sucesso!')
+                    alert('Registro realizado com sucesso!');
                     location.reload();
-                     
-                } catch (error) {
-                     console.log('Erro ao envidar JSON: ' + error.message);
                 }
-
-                
+                catch (error) {
+                    console.log('Erro ao envidar JSON: ' + error.message);
+                }
             });
-
         }
     }
- 
-
-    private limpaCampos(): void {
-        const nomeCompleto = document.querySelector('#nomeCompleto') as HTMLInputElement;
-        const dataNascimento = document.querySelector('#dataNascimento') as HTMLInputElement
-        const genero = document.querySelector('#genero') as HTMLInputElement;
-        const email = document.querySelector('#email') as HTMLInputElement;
-        const convenio = document.querySelector('#convenio') as HTMLInputElement;
-        const numeroCarteirinha = document.querySelector('#numCarteirinha') as HTMLInputElement;
-        const rua = document.querySelector('#rua') as HTMLInputElement;
-        const numero = document.querySelector('#numero') as HTMLInputElement;
-        const bairro = document.querySelector('#bairro') as HTMLInputElement;
-        const cidade = document.querySelector('#cidade') as HTMLInputElement;
-        const estado = document.querySelector('#estado') as HTMLInputElement;
-
+    limpaCampos() {
+        const nomeCompleto = document.querySelector('#nomeCompleto');
+        const dataNascimento = document.querySelector('#dataNascimento');
+        const genero = document.querySelector('#genero');
+        const email = document.querySelector('#email');
+        const convenio = document.querySelector('#convenio');
+        const numeroCarteirinha = document.querySelector('#numCarteirinha');
+        const rua = document.querySelector('#rua');
+        const numero = document.querySelector('#numero');
+        const bairro = document.querySelector('#bairro');
+        const cidade = document.querySelector('#cidade');
+        const estado = document.querySelector('#estado');
         nomeCompleto.value = '';
         dataNascimento.value = '';
         genero.value = '';
@@ -179,20 +136,16 @@ export class CadastroPacienteView {
         bairro.value = '';
         cidade.value = '';
         estado.value = '';
-         
     }
-
-    private formProcess(event: Event) {
+    formProcess(event) {
         event.preventDefault();
-        console.log('formProcess - Submit acionado - metodo cadastrarPaciente()')
+        console.log('formProcess - Submit acionado - metodo cadastrarPaciente()');
     }
-
-
-    render(): void {
+    render() {
         this.elementDOM.innerHTML = this.templatePaciente();
         this.eventSubmit();
         const formSubmit = document.querySelector('#form_cadastro_paciente');
-        if(formSubmit) {
+        if (formSubmit) {
             formSubmit.addEventListener('submit', this.formProcess.bind(this));
         }
     }

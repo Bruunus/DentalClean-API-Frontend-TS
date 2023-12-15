@@ -35,20 +35,71 @@ Sprints da tela Editar Dentista:
     -   [Feito]     Transferir o método fetchAPIUpdate que está na classe Classe EditDentistView para a classe DentistConstroller e fazer a chamada pelo ControllerRouterTS
     -   [Feito]     Transferir os métodos de modal (todos) para a classe module/Dentist e ser invocado por lá
     -                   
-    -   [Aguardando estilo dos botões]            Estilizar modal com o tema do sistema.
-    -               Estilizar o focus das inputs do formulário e colocar um cor tema.
+    -   [Feito]     Estilizar modal com o tema do sistema.
+    -   [Feito]     Estilizar o focus das inputs do formulário e colocar um cor tema.
                          
 
-    -               No campo especialidade ao carregar a tela precisa vir com a especialidade atual do dentista.
+    -    [Feito]        No campo especialidade ao carregar a tela precisa vir com a especialidade atual do dentista.
 
-                        Regras Condicionais: Se a especialidade for alterada o sistema pedir confirmação por modal se realmente foi alterada a especialidade:
+         [Feito]        Regras Condicionais: Se a especialidade for alterada o sistema pedir confirmação por modal se realmente foi alterada a especialidade:
 
-                        Mensagem: "O sistema detectou que houve alteração na especialidade do Dr(a). ${nome do dentista}", você confirma a alteração ?
-        
-    -                   Caso houver troca de especialidade no select, precisa exibir um modal informando que uma nova especialidade foi detectada e que precisa de confirmação.
-    -                   Arrumar o button "Atualizar" que está em modo disabled constante, depois realizar o teste de update.
-    -                   Configurar o button "Excluir" para que quando for excluir exibir um modal pedindo confirmação da exclusão, clicando em sim fazer o procedimento de exclusão normal.
-    -                   Estilizar o grupo de botões e os critérios são: Procure no bootstrap sobre o "button group" e analise de gostar de algum layout e crie todo agrupado, deixar os botões largos. Pintar da cor do sistema
+         [Feito]        Mensagem: "O sistema detectou que houve alteração na especialidade do Dr(a). ${nome do dentista}", você confirma a alteração ?
+
+    -    [Feito]        Caso houver troca de especialidade no select, precisa exibir um modal informando que uma nova especialidade foi detectada e que precisa de confirmação.
+    -    [Feito]        Arrumar o button "Atualizar" que está em modo disabled constante, depois realizar o teste de update.
+    -    [Feito]        Configurar o button "Excluir" para que quando for excluir exibir um modal pedindo confirmação da exclusão, clicando em sim fazer o procedimento de exclusão normal.
+    -    [Feito]        Estilizar o grupo de botões e os critérios são: Procure no bootstrap sobre o "button group" e analise de gostar de algum layout e crie todo agrupado, deixar os botões largos. Pintar da cor do sistema.
+
+
+    *Formatação do formulário de cadastro (dentista e paciente)*
+
+    -   [Feito]         Campo CPF: Colocar mascara de ###.###.###-##
+    -   [Feito]         Campo Telefone Residencial: Colocar mascara de (##) ####-####
+    -   [Feito]         Campo Telefone Celular: Colocar máscara de (##) # ####-####
+
+
+
+
+    *Regra de validação do formulário de cadastro (dentista e paciente)*
+
+    -   [Feito]         Campo Nome completo: Limite de caracter de 20  
+    -   []  Campo CPF: Precisa ser type="text" | deixar autocomplete="off" | Aceitar apenas números | Limite de 14 caracteres para passar.
+    -   []  Campo CRO: Limite de caracter de 4 | Aceitar apenas números | deixar autocomplete="off"
+    -   []  Campo Telefone Residencial: Limite de 14 caracteres para passar (Considerando espaço) | Precisa ser type="text" | deixar autocomplete="off"
+    -   []  Campo Telefone Celular: Limite de caracter de 15 (Considerando espaço)  | deixar autocomplete="off | Precisa ser type="text" 
+    -   []  Campo e-mail: Precisa ter @ e '.com' no final do contrário não passa, deve ter a mensagem 'Expressão incorreta para e-mail' | Limite de caracter de 31
+    -   []  Campo rua: Limite de caracter de 20
+    -   []  Campo Número: Limite de caracter de 5
+    -   []  Campo Bairro: Limite de caracter de 24
+    -   []  Campo Cidade: Limite de caracter de 24
+    -   []  Campo Estado: Limite de caracter de 2 | Regra para somente aceitar caracter maiúsculo, mesmo se digitar como minúsculo.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

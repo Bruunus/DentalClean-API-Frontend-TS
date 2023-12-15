@@ -5,8 +5,6 @@ export class AppContents {
         </div>`;
         this.tela2 = `[tela 2]`;
     }
-    listDentist() {
-    }
     getActualCallScreen(actualTemplate) {
         actualTemplate = actualTemplate;
         return actualTemplate;

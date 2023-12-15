@@ -1,6 +1,6 @@
-import { DentistaController } from "../../controller/dentistaController.js";
-import { Dentist } from "../../module/dentist.js";
-import { EditDentistView } from "./dentist/edit/editDentistView.js";
+import { DentistaController } from "../../../controller/dentistaController.js";
+import { Dentist } from "../../../module/dentist.js";
+import { EditDentistView } from "./edit/editDentistView.js";
 export class DentistaView {
     constructor() {
         DentistaView.template;
@@ -24,13 +24,15 @@ export class DentistaView {
         this.orderByName(dentistData);
         this.template = `
         <head>
-        <style>
-        </style>
+            <style>
+
+            </style>
         </head>
+
 
         <div class="div_titulo_dentist">
             <h4 class="no-select">Dentistas</h4>
-        </div>
+        </div>  
 
 
         <div class="row justify-content-end container-nav-bar-pesquisar">
@@ -78,6 +80,7 @@ export class DentistaView {
                 </thead>
 
                 <tbody class="table_hover_dentist">
+
                 ${dentistData.map((dentist) => {
             return `
                         <tr class="no-select tr_format" style="color: #354057"> 
@@ -95,7 +98,9 @@ export class DentistaView {
                             <td class="cidade">${dentist.cidade}</td>
                             <td class="estado">${dentist.estado}</td>
                             <td><a href="#" class="editarDentista" data-id="${dentist.id}">Editar</a></td>
-
+                            <script>
+                                console.log("${dentist.cpf}")
+                            </script>
                         </tr>
                     `;
         }).join('')}
