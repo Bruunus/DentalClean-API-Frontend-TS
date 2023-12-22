@@ -134,5 +134,20 @@ left: 0; background: #deae78; transition: right 0.4s ease;  }
 .op-patient.hvr-sweep-to-right:active::before { right: 0; transition: none; }
 
 
+/* temporariamente */
+#container-sprint {
+    margin-top: 21rem; /* Risco de estourar o container acima de 21 */
+    padding: 0.6vw 1.2vw !important;
+    margin-bottom: 2rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+#container-sprint span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
 
 

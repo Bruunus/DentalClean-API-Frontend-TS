@@ -2,9 +2,24 @@
 
 
 
+@media(max-width:1601px) {
+
+  #form_cadastro_dentista div input, #form_cadastro_dentista div select {
+    height: 32px;
+  }
+
+
+}
+
+
 /*********** Laptops pequenos ***********/    
 
 @media (max-width: 1200px)  {
+
+
+  #container-child-right {
+    height: 46rem;
+  }
 
 
     #form_cadastro_dentista div div {

@@ -6,11 +6,12 @@ import { EditDentistView } from "../dentist/edit/editDentistView.js";
 export class Menu {
 
     private template: string;
-    private  btnListaDentista: HTMLButtonElement;
-    private  btnEditarTemp: HTMLButtonElement;
-    private  subBtnRegisterDentist: HTMLButtonElement;
-    private  subBtnRegisterPatient: HTMLButtonElement;
+    private btnListaDentista: HTMLButtonElement;
+    private btnEditarTemp: HTMLButtonElement;
+    private subBtnRegisterDentist: HTMLButtonElement;
+    private subBtnRegisterPatient: HTMLButtonElement;
     private renderizador: HTMLElement;
+    private linkSprint: HTMLElement; 
 
     private controllerRouterTS: ControllerRouteTS = new ControllerRouteTS();
 
@@ -87,6 +88,9 @@ export class Menu {
 
 
     </div>
+
+
+   
         
 
         `;
@@ -108,12 +112,13 @@ export class Menu {
         /* this.btnEditarTemp = document.querySelector('#editarTemp'); */
         this.subBtnRegisterDentist = document.querySelector('#btnCadDentista');
         this.subBtnRegisterPatient = document.querySelector('#btnCadPaciente');
+        this.linkSprint = document.querySelector('#container-sprint span');
 
         this.btnListaDentista.addEventListener('click', this.controllerRouterTS.routerCallScreenDentist);
         /* this.btnEditarTemp.addEventListener('click', this.editTempUpdateDentist); */
         this.subBtnRegisterDentist.addEventListener('click', this.controllerRouterTS.redirectScreenRegisterDentist);
         this.subBtnRegisterPatient.addEventListener('click', this.controllerRouterTS.redirectScreenRegisterPatient);
-
+        
 
     }
 

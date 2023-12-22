@@ -1,5 +1,3 @@
-import { CadastroDentistaView2 } from './../view/templates/dentist/register/cadastroDentistaView2';
-
 import { CadastroDentistaView } from "../view/templates/dentist/register/cadastroDentistaView.js";
 import { CadastroPacienteView } from "../view/templates/patient/register/cadastroPacienteView.js";
 import { AppModule } from "../module/appModule.js";
@@ -9,6 +7,7 @@ import { AppDentalCleanView } from "../view/templates/appDentalCleanView.js";
 import { DentistaController } from "./dentistaController.js";
 import { PacienteController } from "./pacienteController.js";
 import { Dentist } from "../module/dentist.js";
+import { Sprint } from '../view/templates/sprint/sprint.js';
 
 export class ControllerRouteTS {
 
@@ -33,6 +32,17 @@ export class ControllerRouteTS {
 
          
    }
+
+   /** 
+    * Sprint - projeto temporário durante a fase de dev
+    * 
+   */
+   public renderSprint() {
+
+        new Sprint();
+
+   }
+    
 
 
    /**

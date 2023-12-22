@@ -195,6 +195,7 @@ export  class EditDentistView {
 
 
         this.btnEditOptions.addEventListener('click',  this.editOptionsViwer );
+        
 
         this.btnUpdate.addEventListener('click', () => {  this.update(this.form ,this.id, [validationNameAndCROJSON]) });
 

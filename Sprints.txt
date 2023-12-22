@@ -60,19 +60,68 @@ Sprints da tela Editar Dentista:
 
 
 
+    *Regra de mascara do formulário de cadastro (dentista e paciente)*
+
+ 
+    -   [Feito]  Campo CPF: Precisa ser type="text" | deixar autocomplete="off" | Aceitar apenas números | Limite de 14 caracteres para passar.
+    -   [Feito]  Campo CRO: Limite de caracter de 4 | Aceitar apenas números | deixar autocomplete="off"
+    -   [Feito]  Campo Telefone Residencial: Limite de 14 caracteres para passar (Considerando espaço) | Precisa ser type="text" | deixar autocomplete="off"
+    -   [Feito]  Campo Telefone Celular: Limite de caracter de 15 (Considerando espaço)  | deixar autocomplete="off | Precisa ser type="text" 
+    
+    -   [Feito]  Campo rua: Limite de caracter de 20 | não pode número
+    -   [Feito]  Campo Número: Limite de caracter de 6 | não pode número
+    -   [Feito]  Campo Bairro: Limite de caracter de 24 | não pode número
+    -   [Feito]  Campo Cidade: Limite de caracter de 24 | não pode número
+    -   []  Campo Estado: Limite de caracter de 2 | Regra para somente aceitar caracter maiúsculo  | não pode número, mesmo se digitar como minúsculo.
+        Ao inserir caracter minúsculo tornar para maiúsculo        
+
+    -   [Feito]      Campo CPF: Não pode aceitar caracteres
+    -   [Feito]      Campo Nome completo: Limite de caracter de 20 | Aceitar somente letras | Transformar a primeira letra após o espaço em maiúscula.
+    -   [Feito]      Campo Telefone Residencial: Não pode aceitar letras e caracteres       
+    -   [Feito]      Campo Telefone Celular: Não pode aceitar letras e caracteres
+    -   [Feito]      Campo Rua | Numero | Bairro | Cidade | Estado : Não pode aceitar caracteres e nem números
+ 
+
+
     *Regra de validação do formulário de cadastro (dentista e paciente)*
 
-    -   [Feito]         Campo Nome completo: Limite de caracter de 20  
-    -   []  Campo CPF: Precisa ser type="text" | deixar autocomplete="off" | Aceitar apenas números | Limite de 14 caracteres para passar.
-    -   []  Campo CRO: Limite de caracter de 4 | Aceitar apenas números | deixar autocomplete="off"
-    -   []  Campo Telefone Residencial: Limite de 14 caracteres para passar (Considerando espaço) | Precisa ser type="text" | deixar autocomplete="off"
-    -   []  Campo Telefone Celular: Limite de caracter de 15 (Considerando espaço)  | deixar autocomplete="off | Precisa ser type="text" 
+    -   []  Campo Data de nascimento: O ano não pode ultrapassar até 18 anos. case: data abaixo de 18 anos
     -   []  Campo e-mail: Precisa ter @ e '.com' no final do contrário não passa, deve ter a mensagem 'Expressão incorreta para e-mail' | Limite de caracter de 31
-    -   []  Campo rua: Limite de caracter de 20
-    -   []  Campo Número: Limite de caracter de 5
-    -   []  Campo Bairro: Limite de caracter de 24
-    -   []  Campo Cidade: Limite de caracter de 24
-    -   []  Campo Estado: Limite de caracter de 2 | Regra para somente aceitar caracter maiúsculo, mesmo se digitar como minúsculo.
+    -   [Feito]  Campo nome completo: Quantidade mínima de 3 caracteres
+    -   [Feito]  Todos os campo: Não podem estar vazios.    [22-12-2023]
+    
+    
+
+
+
+
+
+     --- Manutenção ---
+
+    -   []      Finalizar a estilização do modal   (O estilo não aparece para telas 4k)
+
+    -   []      Verificar o evento do botão "Atualiza" da tela 'Editar Dentista' o mesmo não está salvando
+
+    -   []      Ajudar o botão 'Pesquisar' do List Dentist para telas grandes, o mesmo está muito pequeno. Alterar a fonte para font-size: 16px !important; e 
+                alterar dilatar o botão em si. Aumentar a altura tambem do input e a fonte para 
+                font-size: 16px !important igualmente.
+
+    -   []      Tela de atualização: Não está atualizando os dados previamente - Verificar
+
+    -   []      Gerar informativo de confirmação de atualização, exclusão, e de cadastro realizado com sucesso.
+                Verificar a possibilidade de mensagens de erros também 
+
+    -   []      Verificar a tela de cadastro de dentista quando a media querie chega em 768px. Quando chega nessa
+                resolução o template de cadastro de dentista está aparecendo a 2° barra de rolagem o que não é para            
+                ocorrer. Ja soltei o menu superior para rolar a vontada para resolução pequena, porém está aparecendo uma   
+                2° barra de rolagem. 
+
+    -   []      Arrumar o focus do butão sibmit de cadastro de dentista, pois quando navega com o Tab não dá para identificar.
+                Devolva o focus novamente com a cor conbinativa do sistema.
+
+    -   []      Problema na troca das imagens quando entra em media-querie. Quando voce volta a tela do menor para
+                o maior a imagem não é recarregada. Problema dos if/else da classe responsiviness. Tente adicionar
+                else para cada if para ver se 
 
 
 

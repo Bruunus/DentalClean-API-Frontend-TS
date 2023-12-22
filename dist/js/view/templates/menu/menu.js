@@ -70,6 +70,9 @@ export class Menu {
 
 
     </div>
+
+
+   
         
 
         `;
@@ -78,6 +81,7 @@ export class Menu {
         this.btnListaDentista = document.querySelector('#listaDentista');
         this.subBtnRegisterDentist = document.querySelector('#btnCadDentista');
         this.subBtnRegisterPatient = document.querySelector('#btnCadPaciente');
+        this.linkSprint = document.querySelector('#container-sprint span');
         this.btnListaDentista.addEventListener('click', this.controllerRouterTS.routerCallScreenDentist);
         this.subBtnRegisterDentist.addEventListener('click', this.controllerRouterTS.redirectScreenRegisterDentist);
         this.subBtnRegisterPatient.addEventListener('click', this.controllerRouterTS.redirectScreenRegisterPatient);

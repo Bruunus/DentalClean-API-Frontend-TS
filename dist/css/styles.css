@@ -24,9 +24,11 @@ body, .label-form, .form-input, .select-form {
 /* Ajuste de tamanho de tipografia para telas maiores */
 @media(min-width: 1601px) {
     /* Para telas 5K */
-    body {
+    body, .label-form, .form-input, .select-form, .form-control {
         font-size: .9vw !important;
     }
+
+     
 }
 
 

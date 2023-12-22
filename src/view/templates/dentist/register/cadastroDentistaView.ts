@@ -1,9 +1,10 @@
 import { CadastroController } from "../../../../controller/cadastroController.js";
+import { ValidationAndMask } from "../../../../module/validationAndMask.js";
 
 export class CadastroDentistaView {
 
     private elementDOM: HTMLElement;
-    private dentistaAPI = new CadastroController();
+    
 
     private nomeValidation: HTMLInputElement;
 
@@ -30,29 +31,33 @@ export class CadastroDentistaView {
                 <form id="form_cadastro_dentista" class="row"> 
                     <!-- col 1 -->
 
-                    <div class="form-group col-md-6 col-sm-12">                        
-                        <label for="nomeCompleto" class="label-form">Nome completo</label>
-                        <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control form-input" maxlength="20">                        
+                    <div class="form-group col-md-6 col-sm-12 container-nome-completo">                        
+                        <label for="nomeCompleto" class="label-form">Nome completo (ou abreviado)</label>
+                        <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control form-input required" maxlength="20">                        
+                        <span class="spanMessage">O campo não pode estar vazio</span>
                     </div>
 
-                    <div class="form-group col-md-6 col-sm-12"> 
+                    <div class="form-group col-md-6 col-sm-12 container-data-nascimento"> 
                         <label for="dataNascimento" class="label-form">Data de nascimento</label>
-                        <input type="date" name="dataNascimento" id="dataNascimento" class="form-control form-input">
+                        <input type="date" name="dataNascimento" id="dataNascimento" class="form-control form-input required">
+                        <span class="spanMessage">O campo não pode estar vazio</span>
                     </div>
                     
-                    <div class="form-group col-md-4 col-sm-12"> 
+                    <div class="form-group col-md-4 col-sm-12 container-cpf"> 
                         <label for="cpf" class="label-form">CPF</label>
-                        <input type="text" autocomplete="off" name="cpf" id="cpf" class="form-control form-input cpfInputFormDentist" maxlength="14">
+                        <input type="text" autocomplete="off" name="cpf" id="cpf" class="form-control form-input cpfInputFormDentist required" maxlength="14">
+                        <span class="spanMessage">O campo não pode estar vazio</span>
                     </div>
                     
-                    <div class="form-group col-md-4 col-sm-12">
+                    <div class="form-group col-md-4 col-sm-12 container-cro">
                         <label for="cro" class="label-form">CRO</label>
-                        <input type="number" name="cro" id="cro" class="form-control form-input" maxlength="4">
+                        <input type="text" name="cro" id="cro" class="form-control form-input required" maxlength="4">
+                        <span class="spanMessage">O campo não pode estar vazio</span>
                     </div>
 
-                    <div class="form-group col-md-4 col-sm-12"> 
+                    <div class="form-group col-md-4 col-sm-12 container-especialidade"> 
                         <label for="especialidade" class="label-form">Especialidade</label>
-                        <select id="especialidade" class="form-control select-form">
+                        <select id="especialidade" class="form-control select-form required">
                             <option value="" disabled selected>Selecione</option>
                             <option value="Cirurgia">Cirurgia</option>
                             <option value="Cirurgia Bucomaxilofacial">Cirurgia Bucomaxilofacial</option>
@@ -64,46 +69,55 @@ export class CadastroDentistaView {
                             <option value="Odontogeriatria">Odontogeriatria</option>
                             <option value="Estética">Estética</option>
                         </select>
+                        <span class="spanMessage">O campo não pode estar vazio</span>
                     </div>
 
-                    <div class="form-group col-md-4 col-sm-12"> 
+                    <div class="form-group col-md-4 col-sm-12 container-tel-res"> 
                         <label for="telefoneResidencial" class="label-form">Telefine Residencial</label>
-                        <input type="text" name="telefoneResidencial" id="telefoneResidencial" class="form-control form-input" maxlength="14">
+                        <input type="text" name="telefoneResidencial" id="telefoneResidencial" class="form-control form-input required" maxlength="14">
+                        <span class="spanMessage">O campo não pode estar vazio</span>
                     </div>
 
-                    <div class="form-group col-md-4 col-sm-12"> 
+                    <div class="form-group col-md-4 col-sm-12 container-tel-cel"> 
                         <label for="telefoneCelular" class="label-form">Telefone Celular</label>
-                        <input type="text" name="telefoneCelular" id="telefoneCelular" class="form-control form-input" maxlength="16">
+                        <input type="text" name="telefoneCelular" id="telefoneCelular" class="form-control form-input required" maxlength="16">
+                        <span class="spanMessage">O campo não pode estar vazio</span>
                     </div>
 
-                    <div class="form-group col-md-4 col-sm-12"> 
+                    <div class="form-group col-md-4 col-sm-12 container-email"> 
                         <label for="email" class="label-form">E-mail</label>
-                        <input type="text" name="email" id="email" maxlength="35" class="form-control form-input" maxlength="31">
+                        <input type="text" name="email" id="email" maxlength="35" class="form-control form-input required" maxlength="31">
+                        <span class="spanMessage">O campo não pode estar vazio</span>
                     </div>
 
-                    <div class="form-group col-md-6 col-sm-12"> 
+                    <div class="form-group col-md-6 col-sm-12 container-rua"> 
                         <label for="rua" class="label-form">Rua</label>
-                        <input type="text" name="rua" id="rua" maxlength="32" class="form-control form-input" maxlength="25">
+                        <input type="text" name="rua" id="rua" maxlength="20" class="form-control form-input required" maxlength="25">
+                        <span class="spanMessage">O campo não pode estar vazio</span>
                     </div>
 
-                    <div class="form-group col-md-6 col-sm-12"> 
+                    <div class="form-group col-md-6 col-sm-12 container-numero"> 
                         <label for="numero" class="label-form">Número</label>
-                        <input type="number" name="numero" id="numero" maxlength="5" class="form-control form-input" >
+                        <input type="text" name="numero" id="numero" maxlength="6" class="form-control form-input required" >
+                        <span class="spanMessage">O campo não pode estar vazio</span>
                     </div>
 
-                    <div class="form-group col-md-4 col-sm-12"> 
+                    <div class="form-group col-md-4 col-sm-12 container-bairro"> 
                         <label for="bairro" class="label-form">Bairro</label>
-                        <input type="text" name="bairro" id="bairro" maxlength="20" class="form-control form-input">
+                        <input type="text" name="bairro" id="bairro" maxlength="24" class="form-control form-input required">
+                        <span class="spanMessage">O campo não pode estar vazio</span>
                     </div class="form-group col-md-4">
 
-                    <div class="form-group col-md-4 col-sm-12"> 
+                    <div class="form-group col-md-4 col-sm-12 container-cidade"> 
                         <label for="cidade" class="label-form">Cidade</label>
-                        <input type="text" name="cidade" id="cidade" maxlength="24" class="form-control form-input">
+                        <input type="text" name="cidade" id="cidade" maxlength="24" class="form-control form-input required">
+                        <span class="spanMessage">O campo não pode estar vazio</span>
                     </div>
 
-                    <div class="form-group col-md-4 col-sm-12"> 
+                    <div class="form-group col-md-4 col-sm-12 container-estado"> 
                         <label for="estado" class="label-form">Estado</label>
-                        <input type="text" name="estado" maxlength="2" id="estado" class="form-control form-input">
+                        <input type="text" name="estado" maxlength="2" id="estado" class="form-control form-input required">
+                        <span class="spanMessage">O campo não pode estar vazio</span>
                     </div>
 
                     <div class="form-group col-12">
@@ -153,8 +167,9 @@ export class CadastroDentistaView {
                 const cidade = (formSubmit.querySelector('#cidade') as HTMLInputElement)?.value || '';
                 const estado = (formSubmit.querySelector('#estado') as HTMLInputElement)?.value || '';
 
-                try {
-                    console.log(
+
+              
+                    /* console.log(
                         'Nome completo: ' + nomeCompleto +
                         '\nData nascimento: ' +dataNascimento  +
                         '\nCPF: ' + cpf  +
@@ -168,42 +183,66 @@ export class CadastroDentistaView {
                         '\nBairro: ' + bairro +
                         '\nCidade: ' + cidade +
                         '\nEstado: ' + estado
-                    );    
+                    );     */
                     
                     
                     /* VALIDATION PROCISAR AQUI ANTES DE ENVIAR A API */
-                    this.validation();
+                    
+
+                    const nomeCompletoValid = document.querySelector('#nomeCompleto') as HTMLInputElement;
+                    const dataNascimentoValid = document.querySelector('#dataNascimento') as HTMLInputElement;
+                    const cpfValid = document.querySelector('#cpf') as HTMLInputElement;
+                    const telefoneResidencialValid = document.querySelector('#telefoneResidencial') as HTMLInputElement; 
+                    const telefoneCelularValid = document.querySelector('#telefoneCelular') as HTMLInputElement;
+                    const croValid = document.querySelector('#cro') as HTMLInputElement;
+                    const especialidadeValid = document.querySelector('#especialidade') as HTMLInputElement;
+                    const emailValid = document.querySelector('#email') as HTMLInputElement;        
+                    const numeroValid = document.querySelector('#numero') as HTMLInputElement;
+                    const ruaValid = document.querySelector('#rua') as HTMLInputElement;
+                    const bairroValid = document.querySelector('#bairro') as HTMLInputElement;
+                    const cidadeValid = document.querySelector('#cidade') as HTMLInputElement;
+                    const estadoValid = document.querySelector('#estado') as HTMLInputElement;
 
 
+
+
+                    const validation = new ValidationAndMask();
+
+                        validation.validationRulerForm(                        
+                            nomeCompletoValid,
+                            dataNascimentoValid,
+                            cpfValid,
+                            croValid,
+                            especialidadeValid,
+                            telefoneResidencialValid,
+                            telefoneCelularValid,
+                            emailValid,
+                            ruaValid,
+                            numeroValid,
+                            bairroValid,
+                            cidadeValid,
+                            estadoValid
+                        );
+                    
+                   
+
+
+                        
 
 
 
                     
-                    // chamador da API backend aqui ! 
-                    this.dentistaAPI.cadastrarDentista(                        
-                        nomeCompleto,
-                        dataNascimento,
-                        cpf,
-                        cro,
-                        especialidade,
-                        telefoneResidencial,
-                        telefoneCelular,
-                        email,
-                        rua,
-                        numero,
-                        bairro,
-                        cidade,
-                        estado
-                    );
+                    // chamador da API backend aqui ! _20_/_12_/_2023_ 
+                    /* 
+                    ); */
+
+
 
                      
 
-                } catch (error) {
-                    console.log('Erro ao envidar JSON: ' + error.message);
-                }
-
-                this.limpaCampos();
-                alert('Registro realizado com sucesso!')
+              
+                
+                /* alert('Registro realizado com sucesso!') */
                 //location.reload();
 
             })
@@ -212,107 +251,56 @@ export class CadastroDentistaView {
 
 
 
-    private limpaCampos(): void {
-
-        const nomeCompleto = document.querySelector('#nomeCompleto') as HTMLInputElement;
-        const dataNascimento = document.querySelector('#dataNascimento') as HTMLInputElement;
-        const cpf = document.querySelector('#cpf') as HTMLInputElement;
-        const cro = document.querySelector('#cro') as HTMLInputElement;
-        const especialidade = document.querySelector('#especialidade') as HTMLInputElement;
-        const telefoneResidencial = document.querySelector('#telefoneResidencial') as HTMLInputElement;
-        const telefoneCelular = document.querySelector('#telefoneCelular') as HTMLInputElement;
-        const email = document.querySelector('#email') as HTMLInputElement;
-        const rua = document.querySelector('#rua') as HTMLInputElement;
-        const numero = document.querySelector('#numero') as HTMLInputElement;
-        const bairro = document.querySelector('#bairro') as HTMLInputElement;
-        const cidade = document.querySelector('#cidade') as HTMLInputElement;
-        const estado = document.querySelector('#estado') as HTMLInputElement;
-
-
-        nomeCompleto.value = '';
-        dataNascimento.value = '';
-        cpf.value = '';
-        cro.value = '';
-        especialidade.value = '';
-        telefoneResidencial.value = '';
-        telefoneCelular.value = '';
-        email.value = '';
-        rua.value = '';
-        numero.value = '';
-        bairro.value = '';
-        cidade.value = '';
-        estado.value = '';
-
-    }
 
 
 
-    private mask(): void {
 
-        const cpfvalidation = document.querySelector('#cpf') as HTMLInputElement;
-        const telefoneResidencialValidation = document.querySelector('#telefoneResidencial') as HTMLInputElement; 
-        const telefonecelularValidation = document.querySelector('#telefoneCelular') as HTMLInputElement;
+    private maskAndValidation(): void {
 
-        cpfvalidation.addEventListener('keypress', (event) => {
-            const key = event.key;
-            const validKeys =  ['0','1','2','3','4','5','6','7','8','9','.','-'];
+        const mask = new ValidationAndMask();
 
-            if(!validKeys.includes(key)) {
-                event.preventDefault();
-            } else {
-                let inputCpfMask = cpfvalidation.value.length;
-                if(inputCpfMask === 3 || inputCpfMask === 7) {
-                    cpfvalidation.value += '.';
-                } else if(inputCpfMask === 11) {
-                    cpfvalidation.value += '-'
-                }
-            }
+        const nomeCompletoMask = document.querySelector('#nomeCompleto') as HTMLInputElement;
+        const dataNascimentoMask = document.querySelector('#dataNascimento') as HTMLInputElement;
+        const cpfMask = document.querySelector('#cpf') as HTMLInputElement;
+        const telefoneResidencialMask = document.querySelector('#telefoneResidencial') as HTMLInputElement; 
+        const telefonecelularMask = document.querySelector('#telefoneCelular') as HTMLInputElement;
+        const croMask = document.querySelector('#cro') as HTMLInputElement;
+        const especialidadeMask = document.querySelector('#especialidade') as HTMLInputElement;
+        const emailMask = document.querySelector('#email') as HTMLInputElement;        
+        const numeroMask = document.querySelector('#numero') as HTMLInputElement;
+        const ruaMask = document.querySelector('#rua') as HTMLInputElement;
+        const bairroMask = document.querySelector('#bairro') as HTMLInputElement;
+        const cidadeMask = document.querySelector('#cidade') as HTMLInputElement;
+        const estadoMask = document.querySelector('#estado') as HTMLInputElement;
 
 
-            
-        });
+        /* Nome completo */
+        mask.bloquearNumerosECaracteres(nomeCompletoMask);
+        mask.characterLowerCase(nomeCompletoMask);
 
-        telefoneResidencialValidation.addEventListener('keypress', () => {
-            let telResMask = telefoneResidencialValidation.value.length;
-            if(telResMask === 0) {
-                telefoneResidencialValidation.value += '(';
-            } else if(telResMask === 3) {
-                telefoneResidencialValidation.value += ') ';
-            } else if(telResMask === 9) {
-                telefoneResidencialValidation.value += '-';
-            }
-        });
+        mask.cpfMask(cpfMask);
 
-        telefonecelularValidation.addEventListener('keypress', () => {
-            /* console.log(telefonecelularValidation) */
+        mask.bloquearLetrasECaracteres(croMask);
+        mask.bloquearLetrasECaracteres(numeroMask);
 
-            let telCelMask = telefonecelularValidation.value.length;
-            switch (telCelMask) {
+        mask.telefoneResidencialMask(telefoneResidencialMask);
+        mask.bloquearLetrasECaracteres(telefoneResidencialMask);
 
-                case 0: telefonecelularValidation.value += '(';
-                    break;
-                case 3: telefonecelularValidation.value += ') ';
-                    break;
-                case 4: telefonecelularValidation.value += ' ';
-                    break;
-                case 6: telefonecelularValidation.value += ' ';
-                    break;
-                case 11: telefonecelularValidation.value += '-';
-            }
-
-
-        })
-
-    }
-
-
-
-    private validation() : void {
-
-
+        mask.telefonecelularMask(telefonecelularMask);
+        mask.bloquearLetrasECaracteres(telefonecelularMask);
 
         
-    }    
+        mask.bloquearNumerosECaracteres(ruaMask);
+        mask.bloquearNumerosECaracteres(bairroMask);
+        mask.bloquearNumerosECaracteres(cidadeMask);
+
+        mask.bloquearNumerosECaracteres(estadoMask);
+        mask.upperCaseLong(estadoMask);
+
+        
+
+   
+    }
 
 
 
@@ -325,7 +313,7 @@ export class CadastroDentistaView {
     render(): void {
 
         this.elementDOM.innerHTML = this.templateCadastroDentista();
-        this.mask();
+        this.maskAndValidation();
         this.eventSubmit();
         const formSubmit = document.querySelector('#form_cadastro_dentista');
         if(!formSubmit) {

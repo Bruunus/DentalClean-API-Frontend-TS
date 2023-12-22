@@ -1,10 +1,10 @@
 /**
 *   Responsividade para telas grandes 4K
 */
-@media(min-width: 1602) {
+/* @media(min-width: 1602) {
    
 
-}
+} */
 
 
 /*********** Telas média/pequena ***********/    
@@ -12,11 +12,9 @@
 /**
 *   Altura do container (tabela) para todas as medias
 */
-@media(max-width: 1601px) {
-    .div_container_tables {
-        height: 80vh !important;
-    }
-}
+/* @media(max-width: 1601px) {
+    
+} */
 
 
 
