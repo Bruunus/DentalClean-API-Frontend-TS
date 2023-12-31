@@ -243,4 +243,7 @@ export class Dentist {
                 break;
         }
     }
+    nomeCompletoValidation(nomeCompleto) {
+        console.log('O nome completo passou pela validação de dentist');
+    }
 }

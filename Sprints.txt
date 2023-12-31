@@ -80,56 +80,89 @@ Sprints da tela Editar Dentista:
     -   [Feito]      Campo Telefone Residencial: Não pode aceitar letras e caracteres       
     -   [Feito]      Campo Telefone Celular: Não pode aceitar letras e caracteres
     -   [Feito]      Campo Rua | Numero | Bairro | Cidade | Estado : Não pode aceitar caracteres e nem números
- 
+    -   [Feito]  Todos os campo: Não podem estar vazios.    [22-12-2023]
 
 
     *Regra de validação do formulário de cadastro (dentista e paciente)*
 
-    -   []  Campo Data de nascimento: O ano não pode ultrapassar até 18 anos. case: data abaixo de 18 anos
-    -   []  Campo e-mail: Precisa ter @ e '.com' no final do contrário não passa, deve ter a mensagem 'Expressão incorreta para e-mail' | Limite de caracter de 31
     -   [Feito]  Campo nome completo: Quantidade mínima de 3 caracteres
-    -   [Feito]  Todos os campo: Não podem estar vazios.    [22-12-2023]
+    -   [Feito]  Campo Data de nascimento: O ano não pode ultrapassar até 18 anos. case: data abaixo de 18 anos
+    -   [Feito]  Campo e-mail: Precisa ter @ e '.com' no final do contrário não passa, deve ter a mensagem 'Expressão incorreta para e-mail' | Limite de caracter de 31
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+
     
+    * Modais do sistema *
     
 
+    -   []      Criar uma nova classe para gerenciar todos os modais do sistema: modalController.ts - receber todas as 
+                requisições de modais por lá.
+    -   []      Finalizar a estilização do modal do CRO  (O estilo não aparece para telas 4k)   
+    -   []      Criar novo modal NEW_CRO_AND_NEW_NAME 
+    -   []      Finalizar a estilização do modal de Novo nome e novo cro  (O estilo não aparece para telas 4k)
 
 
-
-
-     --- Manutenção ---
-
-    -   []      Finalizar a estilização do modal   (O estilo não aparece para telas 4k)
-
-    -   []      Verificar o evento do botão "Atualiza" da tela 'Editar Dentista' o mesmo não está salvando
+    * Tela Listar Dentista*
 
     -   []      Ajudar o botão 'Pesquisar' do List Dentist para telas grandes, o mesmo está muito pequeno. Alterar a fonte para font-size: 16px !important; e 
                 alterar dilatar o botão em si. Aumentar a altura tambem do input e a fonte para 
                 font-size: 16px !important igualmente.
 
-    -   []      Tela de atualização: Não está atualizando os dados previamente - Verificar
 
-    -   []      Gerar informativo de confirmação de atualização, exclusão, e de cadastro realizado com sucesso.
-                Verificar a possibilidade de mensagens de erros também 
 
-    -   []      Verificar a tela de cadastro de dentista quando a media querie chega em 768px. Quando chega nessa
-                resolução o template de cadastro de dentista está aparecendo a 2° barra de rolagem o que não é para            
-                ocorrer. Ja soltei o menu superior para rolar a vontada para resolução pequena, porém está aparecendo uma   
-                2° barra de rolagem. 
+    * Menu principal *  
 
-    -   []      Arrumar o focus do butão sibmit de cadastro de dentista, pois quando navega com o Tab não dá para identificar.
-                Devolva o focus novamente com a cor conbinativa do sistema.
 
     -   []      Problema na troca das imagens quando entra em media-querie. Quando voce volta a tela do menor para
                 o maior a imagem não é recarregada. Problema dos if/else da classe responsiviness. Tente adicionar
                 else para cada if para ver se 
 
+              
 
 
+    * Tela cadastro dentista *
 
+    -   []  O spanMessag para telas maiores está muito pequeno e o form também. Mexer e aumentar a tipografia.
+    -   []  Definir altura dos templates na tela principal para telas grandes, pois está muito perto do topo.
+    -   []  validação para cpf: A mascara está ok porém o usuario pode nao completar a sequencias dos numeros. Que tenha 
+        um validador que faça a contagem total que precisa para um cpf incluindo os caracteres. Caso seje menor acione o erro.
+    -   [] validação para cro: (A mesma necessidade do campo cpf acima);
+    -   [] validação para Telefone Residencial: (A mesma necessidade do campo cpf acima);
+    -   [] validação para Telefone Celular: (A mesma necessidade do campo cpf acima);
+    -   [] validação para rua: O mesma necessidade do campo nomeCompleto - Não pode ter menos que 3 caracteres
+    -   []  validade para numero: Não pode ter o número 0 (zero)
+    -   [] validação para Bairro: O mesma necessidade do campo nomeCompleto - Não pode ter menos que 3 caracteres
+    -   [] validação para Cidade: O mesma necessidade do campo nomeCompleto - Não pode ter menos que 3 caracteres
+    -   []  Gerar mensagem de "cadastro realizado com sucesso" depois de enviar.
+    -   []      Verificar a tela de cadastro de dentista quando a media querie chega em 768px. Quando chega nessa
+            resolução o template de cadastro de dentista está aparecendo a 2° barra de rolagem o que não é para            
+            ocorrer. Ja soltei o menu superior para rolar a vontada para resolução pequena, porém está aparecendo uma   
+            2° barra de rolagem. 
+    -   []      Arrumar o focus do butão sibmit de cadastro de dentista, pois quando navega com o Tab não dá para identificar.
+                Devolva o focus novamente com a cor conbinativa do sistema.
+    -   []      O Campo nomeCompleto está permitindo colar números. A digitação está ok porém precisa adicionar o seguinte
+                
+                const input = document.querySelector('#seuInput');
 
+                input.addEventListener('paste', (event) => {
+                    const pastedText = event.clipboardData.getData('text');
+                    if (/^\d+$/.test(pastedText)) {
+                        event.preventDefault();
+                    }
+                });  
 
+    *Tela Editar*
 
-
+    -   []      Verificar o evento do botão "Atualiza" da tela 'Editar Dentista' o mesmo não está salvando.
+    -   []      Tela de atualização: Não está atualizando os dados previamente - Verificar
+    -   []      Gerar mensagem de "Dados atualizados com sucesso" no botão atualizar.
+    -   []      Gerar mensagem de "Dados atualizados com sucesso" no botão excluir.
 
 
 

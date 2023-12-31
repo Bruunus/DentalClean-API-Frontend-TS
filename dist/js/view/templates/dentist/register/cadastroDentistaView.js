@@ -1,7 +1,14 @@
+import { CadastroController } from "../../../../controller/cadastroController.js";
+import { ErrorAndWarningSystem } from "../../../../module/errorAndWarningSystem.js";
 import { ValidationAndMask } from "../../../../module/validationAndMask.js";
 export class CadastroDentistaView {
     constructor(renderizadorId) {
+        this.error = new ErrorAndWarningSystem();
+        this.dentistaAPI = new CadastroController();
+        this.colorError = '#fb8b77';
+        this.colorOriginal = '#61a19352';
         this.elementDOM = document.querySelector(renderizadorId);
+        this.spanCpf = document.querySelector('.container-cpf span');
     }
     templateCadastroDentista() {
         return `           
@@ -19,13 +26,13 @@ export class CadastroDentistaView {
                     <div class="form-group col-md-6 col-sm-12 container-nome-completo">                        
                         <label for="nomeCompleto" class="label-form">Nome completo (ou abreviado)</label>
                         <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control form-input required" maxlength="20">                        
-                        <span class="spanMessage">O campo não pode estar vazio</span>
+                        <span id="spanNomeCompletoDentist" class="spanMessage">O campo não pode estar vazio</span>
                     </div>
 
                     <div class="form-group col-md-6 col-sm-12 container-data-nascimento"> 
                         <label for="dataNascimento" class="label-form">Data de nascimento</label>
                         <input type="date" name="dataNascimento" id="dataNascimento" class="form-control form-input required">
-                        <span class="spanMessage">O campo não pode estar vazio</span>
+                        <span id="spanDataNascimentoDentist" class="spanMessage">O campo não pode estar vazio</span>
                     </div>
                     
                     <div class="form-group col-md-4 col-sm-12 container-cpf"> 
@@ -58,7 +65,7 @@ export class CadastroDentistaView {
                     </div>
 
                     <div class="form-group col-md-4 col-sm-12 container-tel-res"> 
-                        <label for="telefoneResidencial" class="label-form">Telefine Residencial</label>
+                        <label for="telefoneResidencial" class="label-form">Telefone Residencial</label>
                         <input type="text" name="telefoneResidencial" id="telefoneResidencial" class="form-control form-input required" maxlength="14">
                         <span class="spanMessage">O campo não pode estar vazio</span>
                     </div>
@@ -124,69 +131,123 @@ export class CadastroDentistaView {
         }
         else {
             formSubmit.addEventListener('submit', (event) => {
-                var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
                 event.preventDefault();
-                const nomeCompleto = ((_a = formSubmit.querySelector('#nomeCompleto')) === null || _a === void 0 ? void 0 : _a.value) || '';
-                const dataNascimento = ((_b = formSubmit.querySelector('#dataNascimento')) === null || _b === void 0 ? void 0 : _b.value) || '';
-                const cpf = ((_c = formSubmit.querySelector('#cpf')) === null || _c === void 0 ? void 0 : _c.value) || '';
-                const cro = ((_d = formSubmit.querySelector('#cro')) === null || _d === void 0 ? void 0 : _d.value) || '';
-                const especialidadeSelect = document.querySelector('#especialidade');
-                const especialidade = especialidadeSelect === null || especialidadeSelect === void 0 ? void 0 : especialidadeSelect.value;
-                const telefoneResidencial = ((_e = formSubmit.querySelector('#telefoneResidencial')) === null || _e === void 0 ? void 0 : _e.value) || '';
-                const telefoneCelular = ((_f = formSubmit.querySelector('#telefoneCelular')) === null || _f === void 0 ? void 0 : _f.value) || '';
-                const email = ((_g = formSubmit.querySelector('#email')) === null || _g === void 0 ? void 0 : _g.value) || '';
-                const rua = ((_h = formSubmit.querySelector('#rua')) === null || _h === void 0 ? void 0 : _h.value) || '';
-                const numero = (_j = formSubmit.querySelector('#numero')) === null || _j === void 0 ? void 0 : _j.value;
-                const bairro = ((_k = formSubmit.querySelector('#bairro')) === null || _k === void 0 ? void 0 : _k.value) || '';
-                const cidade = ((_l = formSubmit.querySelector('#cidade')) === null || _l === void 0 ? void 0 : _l.value) || '';
-                const estado = ((_m = formSubmit.querySelector('#estado')) === null || _m === void 0 ? void 0 : _m.value) || '';
-                const nomeCompletoValid = document.querySelector('#nomeCompleto');
-                const dataNascimentoValid = document.querySelector('#dataNascimento');
-                const cpfValid = document.querySelector('#cpf');
-                const telefoneResidencialValid = document.querySelector('#telefoneResidencial');
-                const telefoneCelularValid = document.querySelector('#telefoneCelular');
-                const croValid = document.querySelector('#cro');
-                const especialidadeValid = document.querySelector('#especialidade');
-                const emailValid = document.querySelector('#email');
-                const numeroValid = document.querySelector('#numero');
-                const ruaValid = document.querySelector('#rua');
-                const bairroValid = document.querySelector('#bairro');
-                const cidadeValid = document.querySelector('#cidade');
-                const estadoValid = document.querySelector('#estado');
-                const validation = new ValidationAndMask();
-                validation.validationRulerForm(nomeCompletoValid, dataNascimentoValid, cpfValid, croValid, especialidadeValid, telefoneResidencialValid, telefoneCelularValid, emailValid, ruaValid, numeroValid, bairroValid, cidadeValid, estadoValid);
+                const nomeCompleto = formSubmit.querySelector('#nomeCompleto');
+                const dataNascimento = formSubmit.querySelector('#dataNascimento');
+                const cpf = formSubmit.querySelector('#cpf');
+                const cro = formSubmit.querySelector('#cro');
+                const especialidade = document.querySelector('#especialidade');
+                const telefoneResidencial = formSubmit.querySelector('#telefoneResidencial');
+                const telefoneCelular = formSubmit.querySelector('#telefoneCelular');
+                const email = formSubmit.querySelector('#email');
+                const rua = formSubmit.querySelector('#rua');
+                const numero = formSubmit.querySelector('#numero');
+                const bairro = formSubmit.querySelector('#bairro');
+                const cidade = formSubmit.querySelector('#cidade');
+                const estado = formSubmit.querySelector('#estado');
+                console.log('Nome completo: ' + nomeCompleto.value +
+                    '\nData nascimento: ' + dataNascimento.value +
+                    '\nCPF: ' + cpf.value +
+                    '\nCRO: ' + cro.value +
+                    '\nEspecialidade: ' + especialidade.value +
+                    '\nTelefone Res: ' + telefoneResidencial.value +
+                    '\nTelefone Cel: ' + telefoneCelular.value +
+                    '\nE-mail: ' + email.value +
+                    '\nRua: ' + rua.value +
+                    '\nNúmero: ' + numero.value + '  (' + typeof numero + ')' +
+                    '\nBairro: ' + bairro.value +
+                    '\nCidade: ' + cidade.value +
+                    '\nEstado: ' + estado.value);
+                const validationAndMask = new ValidationAndMask();
+                validationAndMask.validationRulerForm(nomeCompleto, dataNascimento, cpf, cro, especialidade, telefoneResidencial, telefoneCelular, email, rua, numero, bairro, cidade, estado);
+                const selectedDate = new Date(dataNascimento.value);
+                const currentDate = new Date();
+                const diffInYears = currentDate.getFullYear() - selectedDate.getFullYear();
+                const spanDataNascimento = document.querySelector('.container-data-nascimento .spanMessage');
+                const spanNomeCompleto = document.querySelector('.container-nome-completo span');
+                const spanEmail = document.querySelector('.container-email span');
+                const regex1 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                const regex2 = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                let messageServer = 'Erro: Erro de parâmetro ou campo vazio';
+                if (nomeCompleto.value.length < 4) {
+                    this.error.setErrorMessage(nomeCompleto, spanNomeCompleto, this.colorError, messageServer);
+                }
+                else if (diffInYears < 18 || diffInYears > 70) {
+                    this.error.setErrorMessage(dataNascimento, spanDataNascimento, this.colorError, messageServer);
+                }
+                else if (!regex1.test(email.value) || !regex2.test(email.value)) {
+                    this.error.setErrorMessage(email, spanEmail, this.colorError, messageServer);
+                }
+                else {
+                    this.dentistaAPI.cadastrarDentista(nomeCompleto.value, dataNascimento.value, cpf.value, cro.value, especialidade.value, telefoneResidencial.value, telefoneCelular.value, email.value, rua.value, numero.value, bairro.value, cidade.value, estado.value);
+                    this.limpaCampos();
+                    location.reload();
+                }
             });
         }
     }
+    limpaCampos() {
+        const nomeCompleto = document.querySelector('#nomeCompleto');
+        const dataNascimento = document.querySelector('#dataNascimento');
+        const cpf = document.querySelector('#cpf');
+        const cro = document.querySelector('#cro');
+        const especialidade = document.querySelector('#especialidade');
+        const telefoneResidencial = document.querySelector('#telefoneResidencial');
+        const telefoneCelular = document.querySelector('#telefoneCelular');
+        const email = document.querySelector('#email');
+        const rua = document.querySelector('#rua');
+        const numero = document.querySelector('#numero');
+        const bairro = document.querySelector('#bairro');
+        const cidade = document.querySelector('#cidade');
+        const estado = document.querySelector('#estado');
+        nomeCompleto.value = '';
+        dataNascimento.value = '';
+        cpf.value = '';
+        cro.value = '';
+        especialidade.value = '';
+        telefoneResidencial.value = '';
+        telefoneCelular.value = '';
+        email.value = '';
+        rua.value = '';
+        numero.value = '';
+        bairro.value = '';
+        cidade.value = '';
+        estado.value = '';
+    }
     maskAndValidation() {
         const mask = new ValidationAndMask();
-        const nomeCompletoMask = document.querySelector('#nomeCompleto');
-        const dataNascimentoMask = document.querySelector('#dataNascimento');
-        const cpfMask = document.querySelector('#cpf');
-        const telefoneResidencialMask = document.querySelector('#telefoneResidencial');
-        const telefonecelularMask = document.querySelector('#telefoneCelular');
-        const croMask = document.querySelector('#cro');
-        const especialidadeMask = document.querySelector('#especialidade');
-        const emailMask = document.querySelector('#email');
-        const numeroMask = document.querySelector('#numero');
-        const ruaMask = document.querySelector('#rua');
-        const bairroMask = document.querySelector('#bairro');
-        const cidadeMask = document.querySelector('#cidade');
-        const estadoMask = document.querySelector('#estado');
-        mask.bloquearNumerosECaracteres(nomeCompletoMask);
-        mask.characterLowerCase(nomeCompletoMask);
-        mask.cpfMask(cpfMask);
-        mask.bloquearLetrasECaracteres(croMask);
-        mask.bloquearLetrasECaracteres(numeroMask);
-        mask.telefoneResidencialMask(telefoneResidencialMask);
-        mask.bloquearLetrasECaracteres(telefoneResidencialMask);
-        mask.telefonecelularMask(telefonecelularMask);
-        mask.bloquearLetrasECaracteres(telefonecelularMask);
-        mask.bloquearNumerosECaracteres(ruaMask);
-        mask.bloquearNumerosECaracteres(bairroMask);
-        mask.bloquearNumerosECaracteres(cidadeMask);
-        mask.bloquearNumerosECaracteres(estadoMask);
-        mask.upperCaseLong(estadoMask);
+        const validation = mask;
+        const nomeCompleto = document.querySelector('#nomeCompleto');
+        const dataNascimento = document.querySelector('#dataNascimento');
+        const cpf = document.querySelector('#cpf');
+        const telefoneResidencial = document.querySelector('#telefoneResidencial');
+        const telefonecelular = document.querySelector('#telefoneCelular');
+        const cro = document.querySelector('#cro');
+        const especialidade = document.querySelector('#especialidade');
+        const email = document.querySelector('#email');
+        const numero = document.querySelector('#numero');
+        const rua = document.querySelector('#rua');
+        const bairro = document.querySelector('#bairro');
+        const cidade = document.querySelector('#cidade');
+        const estado = document.querySelector('#estado');
+        mask.bloquearNumerosECaracteresMask(nomeCompleto);
+        mask.characterLowerCaseMask(nomeCompleto);
+        validation.nomeCompletoValidator(nomeCompleto);
+        validation.datadeNascimentoValidator(dataNascimento);
+        validation.removeError(dataNascimento, this.spanCpf);
+        mask.cpfMask(cpf);
+        mask.telefoneResidencialMask(telefoneResidencial);
+        mask.bloquearLetrasECaracteresMask(telefoneResidencial);
+        mask.telefonecelularMask(telefonecelular);
+        mask.bloquearLetrasECaracteresMask(telefonecelular);
+        mask.bloquearLetrasECaracteresMask(cro);
+        validation.emailValidator(email);
+        mask.bloquearLetrasECaracteresMask(numero);
+        mask.bloquearNumerosECaracteresMask(rua);
+        mask.bloquearNumerosECaracteresMask(bairro);
+        mask.bloquearNumerosECaracteresMask(cidade);
+        mask.bloquearNumerosECaracteresMask(estado);
+        mask.upperCaseLongMask(estado);
     }
     formProcess(event) {
         event.preventDefault();

@@ -422,6 +422,19 @@ export class Dentist {
     }
 
 
+
+    public nomeCompletoValidation(nomeCompleto: HTMLInputElement): void {
+
+        console.log('O nome completo passou pela validação de dentist')
+
+
+
+    }
+
+
+    
+
+
     
 
 

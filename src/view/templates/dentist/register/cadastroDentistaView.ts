@@ -1,9 +1,27 @@
 import { CadastroController } from "../../../../controller/cadastroController.js";
+import { ErrorAndWarningSystem } from "../../../../module/errorAndWarningSystem.js";
 import { ValidationAndMask } from "../../../../module/validationAndMask.js";
 
 export class CadastroDentistaView {
 
     private elementDOM: HTMLElement;
+    private error: ErrorAndWarningSystem;
+    private colorError: string;
+    private colorOriginal: string;
+    private dentistaAPI: CadastroController;
+
+    private spanCpf: HTMLSpanElement;
+    private spanCro: HTMLSpanElement;
+    private spanEspecialidade: HTMLSpanElement;
+    private spanTelRes: HTMLSpanElement;
+    private spanTelCel: HTMLSpanElement;
+    private spanEmail: HTMLSpanElement;
+    private spanRua: HTMLSpanElement;
+    private spanNumero: HTMLSpanElement;
+    private spanBairro: HTMLSpanElement;
+    private spanCidade: HTMLSpanElement;
+    private spanEstado: HTMLSpanElement;
+
     
 
     private nomeValidation: HTMLInputElement;
@@ -12,8 +30,16 @@ export class CadastroDentistaView {
      * O Construtor precisa de um id em uma tag html para poder renderizar o formulário.
      */
     public constructor(renderizadorId: string) {
-        this.elementDOM = document.querySelector(renderizadorId);
+        this.error = new ErrorAndWarningSystem();
+        this.dentistaAPI = new CadastroController();
 
+        this.colorError = '#fb8b77';
+        this.colorOriginal = '#61a19352';
+
+        this.elementDOM = document.querySelector(renderizadorId);
+        this.spanCpf = document.querySelector('.container-cpf span');
+
+        
     }
 
 
@@ -34,13 +60,13 @@ export class CadastroDentistaView {
                     <div class="form-group col-md-6 col-sm-12 container-nome-completo">                        
                         <label for="nomeCompleto" class="label-form">Nome completo (ou abreviado)</label>
                         <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control form-input required" maxlength="20">                        
-                        <span class="spanMessage">O campo não pode estar vazio</span>
+                        <span id="spanNomeCompletoDentist" class="spanMessage">O campo não pode estar vazio</span>
                     </div>
 
                     <div class="form-group col-md-6 col-sm-12 container-data-nascimento"> 
                         <label for="dataNascimento" class="label-form">Data de nascimento</label>
                         <input type="date" name="dataNascimento" id="dataNascimento" class="form-control form-input required">
-                        <span class="spanMessage">O campo não pode estar vazio</span>
+                        <span id="spanDataNascimentoDentist" class="spanMessage">O campo não pode estar vazio</span>
                     </div>
                     
                     <div class="form-group col-md-4 col-sm-12 container-cpf"> 
@@ -73,7 +99,7 @@ export class CadastroDentistaView {
                     </div>
 
                     <div class="form-group col-md-4 col-sm-12 container-tel-res"> 
-                        <label for="telefoneResidencial" class="label-form">Telefine Residencial</label>
+                        <label for="telefoneResidencial" class="label-form">Telefone Residencial</label>
                         <input type="text" name="telefoneResidencial" id="telefoneResidencial" class="form-control form-input required" maxlength="14">
                         <span class="spanMessage">O campo não pode estar vazio</span>
                     </div>
@@ -147,103 +173,104 @@ export class CadastroDentistaView {
             formSubmit.addEventListener('submit', (event) => {
                 event.preventDefault();
 
-                const nomeCompleto = (formSubmit.querySelector('#nomeCompleto') as HTMLInputElement)?.value || '';
-                const dataNascimento = (formSubmit.querySelector('#dataNascimento') as HTMLInputElement)?.value || '';
-                const cpf = (formSubmit.querySelector('#cpf') as HTMLInputElement)?.value || '';
+                const nomeCompleto = (formSubmit.querySelector('#nomeCompleto') as HTMLInputElement);
+                const dataNascimento = (formSubmit.querySelector('#dataNascimento') as HTMLInputElement);
+                const cpf = (formSubmit.querySelector('#cpf') as HTMLInputElement);
+                const cro = (formSubmit.querySelector('#cro') as HTMLInputElement);                
+                const especialidade = document.querySelector('#especialidade') as HTMLInputElement;                
+                //const especialidade = especialidadeSelect?.value;                
+                const telefoneResidencial = (formSubmit.querySelector('#telefoneResidencial') as HTMLInputElement);
+                const telefoneCelular = (formSubmit.querySelector('#telefoneCelular') as HTMLInputElement);
+                const email = (formSubmit.querySelector('#email') as HTMLInputElement);
+                const rua = (formSubmit.querySelector('#rua') as HTMLInputElement);
+                const numero = (formSubmit.querySelector('#numero') as HTMLInputElement);
+                const bairro = (formSubmit.querySelector('#bairro') as HTMLInputElement);
+                const cidade = (formSubmit.querySelector('#cidade') as HTMLInputElement);
+                const estado = (formSubmit.querySelector('#estado') as HTMLInputElement);
+
+
+            
+                console.log(
+                    'Nome completo: ' + nomeCompleto.value +
+                    '\nData nascimento: ' +dataNascimento.value  +
+                    '\nCPF: ' + cpf.value  +
+                    '\nCRO: ' + cro.value  +
+                    '\nEspecialidade: ' + especialidade.value  +
+                    '\nTelefone Res: ' + telefoneResidencial.value  +
+                    '\nTelefone Cel: ' + telefoneCelular.value  +
+                    '\nE-mail: ' + email.value  +
+                    '\nRua: ' + rua.value +
+                    '\nNúmero: ' + numero.value  +'  (' +typeof numero +')' +
+                    '\nBairro: ' + bairro.value +
+                    '\nCidade: ' + cidade.value +
+                    '\nEstado: ' + estado.value
+                );    
+                    
+                    
+                /* VALIDATION PROCISAR AQUI ANTES DE ENVIAR A API */
+                const validationAndMask = new ValidationAndMask();
+
+                validationAndMask.validationRulerForm(
+                    nomeCompleto,
+                    dataNascimento,
+                    cpf,
+                    cro,
+                    especialidade,
+                    telefoneResidencial,
+                    telefoneCelular,
+                    email,
+                    rua,
+                    numero,
+                    bairro,
+                    cidade,
+                    estado
+
+                );
+
+
+                const selectedDate = new Date(dataNascimento.value);
+                const currentDate = new Date();
+                const diffInYears = currentDate.getFullYear() - selectedDate.getFullYear();
+                const spanDataNascimento = document.querySelector('.container-data-nascimento .spanMessage') as HTMLSpanElement;
+                const spanNomeCompleto = document.querySelector('.container-nome-completo span') as HTMLSpanElement;
+
+                const spanEmail = document.querySelector('.container-email span') as HTMLSpanElement;
+                const regex1 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                const regex2 = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                let messageServer = 'Erro: Erro de parâmetro ou campo vazio'
+
+                /* Validador final */
+
+
+                if(nomeCompleto.value.length < 4) {
+                    this.error.setErrorMessage(nomeCompleto, spanNomeCompleto, this.colorError, messageServer);
+                } else if(diffInYears < 18 || diffInYears > 70) {
+                    this.error.setErrorMessage(dataNascimento, spanDataNascimento, this.colorError, messageServer);
+                } else if(!regex1.test(email.value) || !regex2.test(email.value))  {
+                    this.error.setErrorMessage(email, spanEmail, this.colorError, messageServer);
+                } else {
+
+                    this.dentistaAPI.cadastrarDentista (                        
+                        nomeCompleto.value,
+                        dataNascimento.value,
+                        cpf.value,
+                        cro.value,
+                        especialidade.value,
+                        telefoneResidencial.value,
+                        telefoneCelular.value,
+                        email.value,
+                        rua.value,
+                        numero.value,
+                        bairro.value,
+                        cidade.value,
+                        estado.value  
+                    );
+        
+                    this.limpaCampos();
+                    location.reload();
+                }
                 
 
-                const cro = (formSubmit.querySelector('#cro') as HTMLInputElement)?.value || '';
-                /* const especialidade = (formSubmit.querySelector('#especialidade') as HTMLInputElement)?.value || ''; */
-                
-                const especialidadeSelect = document.querySelector('#especialidade') as HTMLSelectElement;
-                const especialidade = especialidadeSelect?.value;
-                
-                const telefoneResidencial = (formSubmit.querySelector('#telefoneResidencial') as HTMLInputElement)?.value || '';
-                const telefoneCelular = (formSubmit.querySelector('#telefoneCelular') as HTMLInputElement)?.value || '';
-                const email = (formSubmit.querySelector('#email') as HTMLInputElement)?.value || '';
-                const rua = (formSubmit.querySelector('#rua') as HTMLInputElement)?.value || '';
-                const numero = (formSubmit.querySelector('#numero') as HTMLInputElement)?.value;
-                const bairro = (formSubmit.querySelector('#bairro') as HTMLInputElement)?.value || '';
-                const cidade = (formSubmit.querySelector('#cidade') as HTMLInputElement)?.value || '';
-                const estado = (formSubmit.querySelector('#estado') as HTMLInputElement)?.value || '';
-
-
-              
-                    /* console.log(
-                        'Nome completo: ' + nomeCompleto +
-                        '\nData nascimento: ' +dataNascimento  +
-                        '\nCPF: ' + cpf  +
-                        '\nCRO: ' + cro  +
-                        '\nEspecialidade: ' + especialidade  +
-                        '\nTelefone Res: ' + telefoneResidencial  +
-                        '\nTelefone Cel: ' + telefoneCelular  +
-                        '\nE-mail: ' + email  +
-                        '\nRua: ' + rua +
-                        '\nNúmero: ' + numero  +'  (' +typeof numero +')' +
-                        '\nBairro: ' + bairro +
-                        '\nCidade: ' + cidade +
-                        '\nEstado: ' + estado
-                    );     */
-                    
-                    
-                    /* VALIDATION PROCISAR AQUI ANTES DE ENVIAR A API */
-                    
-
-                    const nomeCompletoValid = document.querySelector('#nomeCompleto') as HTMLInputElement;
-                    const dataNascimentoValid = document.querySelector('#dataNascimento') as HTMLInputElement;
-                    const cpfValid = document.querySelector('#cpf') as HTMLInputElement;
-                    const telefoneResidencialValid = document.querySelector('#telefoneResidencial') as HTMLInputElement; 
-                    const telefoneCelularValid = document.querySelector('#telefoneCelular') as HTMLInputElement;
-                    const croValid = document.querySelector('#cro') as HTMLInputElement;
-                    const especialidadeValid = document.querySelector('#especialidade') as HTMLInputElement;
-                    const emailValid = document.querySelector('#email') as HTMLInputElement;        
-                    const numeroValid = document.querySelector('#numero') as HTMLInputElement;
-                    const ruaValid = document.querySelector('#rua') as HTMLInputElement;
-                    const bairroValid = document.querySelector('#bairro') as HTMLInputElement;
-                    const cidadeValid = document.querySelector('#cidade') as HTMLInputElement;
-                    const estadoValid = document.querySelector('#estado') as HTMLInputElement;
-
-
-
-
-                    const validation = new ValidationAndMask();
-
-                        validation.validationRulerForm(                        
-                            nomeCompletoValid,
-                            dataNascimentoValid,
-                            cpfValid,
-                            croValid,
-                            especialidadeValid,
-                            telefoneResidencialValid,
-                            telefoneCelularValid,
-                            emailValid,
-                            ruaValid,
-                            numeroValid,
-                            bairroValid,
-                            cidadeValid,
-                            estadoValid
-                        );
-                    
-                   
-
-
-                        
-
-
-
-                    
-                    // chamador da API backend aqui ! _20_/_12_/_2023_ 
-                    /* 
-                    ); */
-
-
-
-                     
-
-              
-                
-                /* alert('Registro realizado com sucesso!') */
-                //location.reload();
 
             })
         }
@@ -251,51 +278,123 @@ export class CadastroDentistaView {
 
 
 
+       /**
+       * Método expresso para limpar os campos do formulário de cadastro de dentista.
+       * Este método privado é para ser usado expressament dentro do método 
+       * validationRulerForm desta classe.
+       */
+      private limpaCampos(): void {
 
+        const nomeCompleto = document.querySelector('#nomeCompleto') as HTMLInputElement;
+        const dataNascimento = document.querySelector('#dataNascimento') as HTMLInputElement;
+        const cpf = document.querySelector('#cpf') as HTMLInputElement;
+        const cro = document.querySelector('#cro') as HTMLInputElement;
+        const especialidade = document.querySelector('#especialidade') as HTMLInputElement;
+        const telefoneResidencial = document.querySelector('#telefoneResidencial') as HTMLInputElement;
+        const telefoneCelular = document.querySelector('#telefoneCelular') as HTMLInputElement;
+        const email = document.querySelector('#email') as HTMLInputElement;
+        const rua = document.querySelector('#rua') as HTMLInputElement;
+        const numero = document.querySelector('#numero') as HTMLInputElement;
+        const bairro = document.querySelector('#bairro') as HTMLInputElement;
+        const cidade = document.querySelector('#cidade') as HTMLInputElement;
+        const estado = document.querySelector('#estado') as HTMLInputElement;
+
+
+        nomeCompleto.value = '';
+        dataNascimento.value = '';
+        cpf.value = '';
+        cro.value = '';
+        especialidade.value = '';
+        telefoneResidencial.value = '';
+        telefoneCelular.value = '';
+        email.value = '';
+        rua.value = '';
+        numero.value = '';
+        bairro.value = '';
+        cidade.value = '';
+        estado.value = '';
+
+    }
 
 
 
     private maskAndValidation(): void {
 
         const mask = new ValidationAndMask();
+        const validation = mask;
 
-        const nomeCompletoMask = document.querySelector('#nomeCompleto') as HTMLInputElement;
-        const dataNascimentoMask = document.querySelector('#dataNascimento') as HTMLInputElement;
-        const cpfMask = document.querySelector('#cpf') as HTMLInputElement;
-        const telefoneResidencialMask = document.querySelector('#telefoneResidencial') as HTMLInputElement; 
-        const telefonecelularMask = document.querySelector('#telefoneCelular') as HTMLInputElement;
-        const croMask = document.querySelector('#cro') as HTMLInputElement;
-        const especialidadeMask = document.querySelector('#especialidade') as HTMLInputElement;
-        const emailMask = document.querySelector('#email') as HTMLInputElement;        
-        const numeroMask = document.querySelector('#numero') as HTMLInputElement;
-        const ruaMask = document.querySelector('#rua') as HTMLInputElement;
-        const bairroMask = document.querySelector('#bairro') as HTMLInputElement;
-        const cidadeMask = document.querySelector('#cidade') as HTMLInputElement;
-        const estadoMask = document.querySelector('#estado') as HTMLInputElement;
+        const nomeCompleto = document.querySelector('#nomeCompleto') as HTMLInputElement;
+        const dataNascimento = document.querySelector('#dataNascimento') as HTMLInputElement;
+        const cpf = document.querySelector('#cpf') as HTMLInputElement;
+        const telefoneResidencial = document.querySelector('#telefoneResidencial') as HTMLInputElement; 
+        const telefonecelular = document.querySelector('#telefoneCelular') as HTMLInputElement;
+        const cro = document.querySelector('#cro') as HTMLInputElement;
+        const especialidade = document.querySelector('#especialidade') as HTMLInputElement;
+        const email = document.querySelector('#email') as HTMLInputElement;        
+        const numero = document.querySelector('#numero') as HTMLInputElement;
+        const rua = document.querySelector('#rua') as HTMLInputElement;
+        const bairro = document.querySelector('#bairro') as HTMLInputElement;
+        const cidade = document.querySelector('#cidade') as HTMLInputElement;
+        const estado = document.querySelector('#estado') as HTMLInputElement;
 
 
         /* Nome completo */
-        mask.bloquearNumerosECaracteres(nomeCompletoMask);
-        mask.characterLowerCase(nomeCompletoMask);
-
-        mask.cpfMask(cpfMask);
-
-        mask.bloquearLetrasECaracteres(croMask);
-        mask.bloquearLetrasECaracteres(numeroMask);
-
-        mask.telefoneResidencialMask(telefoneResidencialMask);
-        mask.bloquearLetrasECaracteres(telefoneResidencialMask);
-
-        mask.telefonecelularMask(telefonecelularMask);
-        mask.bloquearLetrasECaracteres(telefonecelularMask);
+        mask.bloquearNumerosECaracteresMask(nomeCompleto);
+        mask.characterLowerCaseMask(nomeCompleto);
+        validation.nomeCompletoValidator(nomeCompleto);
 
         
-        mask.bloquearNumerosECaracteres(ruaMask);
-        mask.bloquearNumerosECaracteres(bairroMask);
-        mask.bloquearNumerosECaracteres(cidadeMask);
 
-        mask.bloquearNumerosECaracteres(estadoMask);
-        mask.upperCaseLong(estadoMask);
+        /* Data de nascimento */
+        validation.datadeNascimentoValidator(dataNascimento);
+        validation.removeError(dataNascimento, this.spanCpf);
+
+        /* CPF */
+        mask.cpfMask(cpf);
+ 
+        
+        /* Telefone Residencial */
+        mask.telefoneResidencialMask(telefoneResidencial);
+        mask.bloquearLetrasECaracteresMask(telefoneResidencial);
+
+
+        /* Telefone Celular */
+        mask.telefonecelularMask(telefonecelular);
+        mask.bloquearLetrasECaracteresMask(telefonecelular);
+
+
+        /* CRO */
+        mask.bloquearLetrasECaracteresMask(cro);
+
+
+        /* Especialidade */
+
+
+        
+        /* E-mail */
+        validation.emailValidator(email);
+
+
+
+        /* Número */
+        mask.bloquearLetrasECaracteresMask(numero);
+
+
+        /* Rua */
+        mask.bloquearNumerosECaracteresMask(rua);
+        
+        
+        /* Bairro */
+        mask.bloquearNumerosECaracteresMask(bairro);
+        
+        
+        /* Cidade */        
+        mask.bloquearNumerosECaracteresMask(cidade);
+
+
+        /* Estado */
+        mask.bloquearNumerosECaracteresMask(estado);
+        mask.upperCaseLongMask(estado);
 
         
 

@@ -1,9 +1,44 @@
 import { CadastroController } from "../controller/cadastroController.js";
+import { Dentist } from "./dentist.js";
+import { ErrorAndWarningSystem } from "./errorAndWarningSystem.js";
 
 export class ValidationAndMask {
 
 
-    private dentistaAPI = new CadastroController();
+    
+    private error: ErrorAndWarningSystem;
+    private spanNomeCompleto: HTMLSpanElement;
+    private spanDataNascimento: HTMLSpanElement;
+    private spanEmail: HTMLSpanElement;
+    private colorError: string;
+    private colorOriginalDentist: string;
+
+
+
+    private inputDataNascimento: HTMLInputElement;
+
+
+    public constructor() {
+
+      this.error = new ErrorAndWarningSystem();
+      
+      this.spanNomeCompleto = document.querySelector('.container-nome-completo span')
+      this.spanDataNascimento = document.querySelector('.container-data-nascimento span');
+      this.spanEmail = document.querySelector('.container-email span')
+
+      this.colorError = '#fb8b77';
+      this.colorOriginalDentist = '#61a19352';
+      
+      this.inputDataNascimento = document.querySelector('#dataNascimento');
+      
+    }
+
+
+
+
+    /* Máscaras */
+
+    
 
 
 
@@ -93,7 +128,7 @@ export class ValidationAndMask {
      * no campo. 
      * @param input 
      */
-    public bloquearLetrasECaracteres(input: HTMLInputElement): void {
+    public bloquearLetrasECaracteresMask(input: HTMLInputElement): void {
 
         input.addEventListener('keypress', (event) => {
 
@@ -115,7 +150,7 @@ export class ValidationAndMask {
      * Método bloqueador de números e caracteres. 
      * @param input 
      */
-    public bloquearNumerosECaracteres(input: HTMLInputElement): void {
+    public bloquearNumerosECaracteresMask(input: HTMLInputElement): void {
         input.addEventListener('keydown', (event) => {
           const key = event.key;
           // Impedir a digitação de números e caracteres não alfabéticos, exceto o espaço
@@ -129,35 +164,9 @@ export class ValidationAndMask {
 
 
 
-      /**
-       * Regra aplicada expressamente no campo 'Nome completo' que não será aceito se houver
-       * a conjunção de até 3 letras.
-       */
-      public nomeValidation(input: HTMLInputElement): void {
+      
 
-        input.addEventListener('focusout', () => {
-
-            if (input.value.length < 4) {
-                input.style.borderColor = '#fb8b77';
-                console.log('nome incorreto');
-            } else {
-                input.style.borderColor = '#61a19352';
-                console.log('nome correto');
-
- 
-                
-            }
-
-
-
-
-            
-
-        })
-
-      };
-
-      public characterLowerCase(input: HTMLInputElement): void {
+      public characterLowerCaseMask(input: HTMLInputElement): void {
         input.addEventListener('focusout', () => {
 
           const inputValue = input.value;
@@ -199,7 +208,7 @@ export class ValidationAndMask {
       /**
        * Método que transforma todos os caracteres em maiúsculo.
        */
-      public upperCaseLong(input: HTMLInputElement): void {
+      public upperCaseLongMask(input: HTMLInputElement): void {
 
         input.addEventListener('focusout', () => {
           input.value = input.value.toUpperCase();
@@ -208,6 +217,13 @@ export class ValidationAndMask {
 
 
       }
+
+
+
+      /* Validações */
+
+
+
 
 
       /**
@@ -257,92 +273,37 @@ export class ValidationAndMask {
             cidade,
             estado
           ];
-                 
 
         const spanMessage: NodeListOf<HTMLSpanElement> = document.querySelectorAll<HTMLSpanElement>('.spanMessage');
         const verificadorDeCampoVazio = inputs.some((item) => item.value === '');
+        let message = 'O campo não pode estar vazio';
         
-        const dataNascimentoInput = inputs[1];
-        const dataNascimentoValor = dataNascimentoInput.value;
-
-        const selectedDate = new Date(dataNascimentoValor);
-        const currentDate = new Date();
-        const diffInYears = currentDate.getFullYear() - selectedDate.getFullYear();
-
-
         if(verificadorDeCampoVazio) {
 
-            inputs.forEach((item, index) => {
+          inputs.forEach((item, index) => {
+            if (item.value === '') {
+              this.error.setErrorMessage(item, spanMessage[index], this.colorError, message);                      
+            } else {
+              this.error.setRemoveMessageError(item, spanMessage[index], this.colorOriginalDentist);
+            }
 
-                if (item.value === '' ) {
-
-                    item.style.borderColor = '#fb8b77';
-                    
-                    spanMessage[index].style.display = 'block';
-                    
-
-                    } else if(diffInYears < 18) {
-
-                      item.style.borderColor = '#fb8b77';
-                      spanMessage[1].textContent = 'Data de nascimento abaixo de 18 anos';
-                      spanMessage[index].style.display = 'block';
-
-
-                      /* PRECISAMOS ARRUMAR ISSO */
-                      return
-                        throw new Error('Data de nascimento abaixo de 18 anos');
-
-                    } else {
-                      item.style.borderColor = '#61a19352';
-                      spanMessage[index].style.display = 'none';
-                    }
-
-                  item.addEventListener('focusout', () => {
-                    if (item.value === '') {
-                      item.style.borderColor = '#fb8b77';
-                      spanMessage[index].style.display = 'block';
-                    } else {
-                      item.style.borderColor = '#61a19352';
-                      spanMessage[index].style.display = 'none';
-                    }
-
-                  });
+            item.addEventListener('focusout', () => {
+              if (item.value === '') {
+                this.error.setErrorMessage(item, spanMessage[index], this.colorError, message);
+              } else {
+                this.error.setRemoveMessageError(item, spanMessage[index], this.colorOriginalDentist);
+              }
 
             });
 
-
-
-
-
-        } else {
-
-
-
-            this.dentistaAPI.cadastrarDentista (                        
-                nomeCompleto.value,
-                dataNascimento.value,
-                cpf.value,
-                cro.value,
-                especialidade.value,
-                telefoneResidencial.value,
-                telefoneCelular.value,
-                email.value,
-                rua.value,
-                numero.value,
-                bairro.value,
-                cidade.value,
-                estado.value  
-            );
-
-            this.limpaCampos();
-            
-        }
-        
-
-
-
+          });
+        } 
 
       }
+
+
+
+ 
 
  
 
@@ -353,43 +314,30 @@ export class ValidationAndMask {
  
 
 
-      /**
-       * Método expresso para limpar os campos do formulário de cadastro de dentista.
-       * Este método privado é para ser usado expressament dentro do método 
-       * validationRulerForm desta classe.
+      
+
+
+
+
+
+
+
+    /**
+       * Regra aplicada expressamente no campo 'Nome completo' que não será aceito se houver
+       * a conjunção de até 3 letras.
        */
-      private limpaCampos(): void {
+    public nomeCompletoValidator(input: HTMLInputElement): void {
 
-        const nomeCompleto = document.querySelector('#nomeCompleto') as HTMLInputElement;
-        const dataNascimento = document.querySelector('#dataNascimento') as HTMLInputElement;
-        const cpf = document.querySelector('#cpf') as HTMLInputElement;
-        const cro = document.querySelector('#cro') as HTMLInputElement;
-        const especialidade = document.querySelector('#especialidade') as HTMLInputElement;
-        const telefoneResidencial = document.querySelector('#telefoneResidencial') as HTMLInputElement;
-        const telefoneCelular = document.querySelector('#telefoneCelular') as HTMLInputElement;
-        const email = document.querySelector('#email') as HTMLInputElement;
-        const rua = document.querySelector('#rua') as HTMLInputElement;
-        const numero = document.querySelector('#numero') as HTMLInputElement;
-        const bairro = document.querySelector('#bairro') as HTMLInputElement;
-        const cidade = document.querySelector('#cidade') as HTMLInputElement;
-        const estado = document.querySelector('#estado') as HTMLInputElement;
+      input.addEventListener('focusout', () => {
+        if (input.value.length < 4) {
+          this.error.setErrorMessage(input, this.spanNomeCompleto, this.colorError, 'Erro: Forneça um nome');
+        } else {
+          this.error.setRemoveMessageError(input, this.spanNomeCompleto, this.colorOriginalDentist);
+        }
+      });
 
-
-        nomeCompleto.value = '';
-        dataNascimento.value = '';
-        cpf.value = '';
-        cro.value = '';
-        especialidade.value = '';
-        telefoneResidencial.value = '';
-        telefoneCelular.value = '';
-        email.value = '';
-        rua.value = '';
-        numero.value = '';
-        bairro.value = '';
-        cidade.value = '';
-        estado.value = '';
-
-    }
+        this.removeError(input, this.spanNomeCompleto);
+    };
 
  
 
@@ -401,21 +349,68 @@ export class ValidationAndMask {
      * é iniciado a validação para 
      * @param input 
      */
-    public checkValidationYear(input: HTMLInputElement): void {
+    public datadeNascimentoValidator(input: HTMLInputElement): void {
 
       input.addEventListener('focusout', () => {
 
         const selectedDate = new Date(input.value);
         const currentDate = new Date();
-    
         const diffInYears = currentDate.getFullYear() - selectedDate.getFullYear();
-    
-        if (diffInYears < 18) {
-          alert('Você deve ter pelo menos 18 anos de idade.');
-        }
+
+          if (diffInYears < 18) {
+            this.error.setErrorMessage(input, this.spanDataNascimento, this.colorError, 'Erro: O cadastrado deve ter idade maior que 18 anos');
+           
+          } else if (diffInYears > 70){
+            this.error.setErrorMessage(input, this.spanDataNascimento, this.colorError, 'Erro: Idade fora do parâmetro para cadastro de dentista');
+          }
+          else {
+            this.error.setRemoveMessageError(input, this.spanDataNascimento, this.colorOriginalDentist);            
+          }
+
       });
 
+
+
+      //this.removeError(input, this.spanDataNascimento);
+
+
     }
+
+
+
+
+
+    public emailValidator(input: HTMLInputElement): void {
+
+      const regex1 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      const regex2 = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+
+      input.addEventListener('focusout', () => {
+
+        if(!regex1.test(input.value) || !regex2.test(input.value)) {
+          let message = 'Erro: E-mail inválido';
+          this.error.setErrorMessage(input, this.spanEmail, this.colorError, message);
+        } else {
+          this.error.setRemoveMessageError(input, this.spanEmail, this.colorOriginalDentist);
+        }
+
+      });
+
+      this.removeError(input, this.spanEmail);
+
+    };
+
+
+    /**
+     * Método que remove mensagem de erro dos inputs
+     * @param input 
+     * @param span 
+     */
+    public removeError(input: HTMLInputElement, span: HTMLSpanElement): void {
+      input.addEventListener('focusin', () => {
+        this.error.setRemoveMessageError(input, span, this.colorOriginalDentist);
+      });
+    };
 
         
 

@@ -1,7 +1,13 @@
-import { CadastroController } from "../controller/cadastroController.js";
+import { ErrorAndWarningSystem } from "./errorAndWarningSystem.js";
 export class ValidationAndMask {
     constructor() {
-        this.dentistaAPI = new CadastroController();
+        this.error = new ErrorAndWarningSystem();
+        this.spanNomeCompleto = document.querySelector('.container-nome-completo span');
+        this.spanDataNascimento = document.querySelector('.container-data-nascimento span');
+        this.spanEmail = document.querySelector('.container-email span');
+        this.colorError = '#fb8b77';
+        this.colorOriginalDentist = '#61a19352';
+        this.inputDataNascimento = document.querySelector('#dataNascimento');
     }
     cpfMask(input) {
         input.addEventListener('keypress', (event) => {
@@ -58,7 +64,7 @@ export class ValidationAndMask {
         });
     }
     ;
-    bloquearLetrasECaracteres(input) {
+    bloquearLetrasECaracteresMask(input) {
         input.addEventListener('keypress', (event) => {
             const key = event.key;
             if (!/^\d$/.test(key) || key === '¨' || key === '*') {
@@ -67,7 +73,7 @@ export class ValidationAndMask {
         });
     }
     ;
-    bloquearNumerosECaracteres(input) {
+    bloquearNumerosECaracteresMask(input) {
         input.addEventListener('keydown', (event) => {
             const key = event.key;
             if (!/[a-zA-ZÀ-ÖØ-öø-ÿĀ-žŁ-őŒ-œƒ ]/.test(key)) {
@@ -75,20 +81,7 @@ export class ValidationAndMask {
             }
         });
     }
-    nomeValidation(input) {
-        input.addEventListener('focusout', () => {
-            if (input.value.length < 4) {
-                input.style.borderColor = '#fb8b77';
-                console.log('nome incorreto');
-            }
-            else {
-                input.style.borderColor = '#61a19352';
-                console.log('nome correto');
-            }
-        });
-    }
-    ;
-    characterLowerCase(input) {
+    characterLowerCaseMask(input) {
         input.addEventListener('focusout', () => {
             const inputValue = input.value;
             let transformedValue = '';
@@ -118,7 +111,7 @@ export class ValidationAndMask {
         });
     }
     ;
-    upperCaseLong(input) {
+    upperCaseLongMask(input) {
         input.addEventListener('focusout', () => {
             input.value = input.value.toUpperCase();
         });
@@ -141,81 +134,73 @@ export class ValidationAndMask {
         ];
         const spanMessage = document.querySelectorAll('.spanMessage');
         const verificadorDeCampoVazio = inputs.some((item) => item.value === '');
-        const dataNascimentoInput = inputs[1];
-        const dataNascimentoValor = dataNascimentoInput.value;
-        const selectedDate = new Date(dataNascimentoValor);
-        const currentDate = new Date();
-        const diffInYears = currentDate.getFullYear() - selectedDate.getFullYear();
+        let message = 'O campo não pode estar vazio';
         if (verificadorDeCampoVazio) {
             inputs.forEach((item, index) => {
                 if (item.value === '') {
-                    item.style.borderColor = '#fb8b77';
-                    spanMessage[index].style.display = 'block';
-                }
-                else if (diffInYears < 18) {
-                    item.style.borderColor = '#fb8b77';
-                    spanMessage[1].textContent = 'Data de nascimento abaixo de 18 anos';
-                    spanMessage[index].style.display = 'block';
-                    return;
-                    throw new Error('Data de nascimento abaixo de 18 anos');
+                    this.error.setErrorMessage(item, spanMessage[index], this.colorError, message);
                 }
                 else {
-                    item.style.borderColor = '#61a19352';
-                    spanMessage[index].style.display = 'none';
+                    this.error.setRemoveMessageError(item, spanMessage[index], this.colorOriginalDentist);
                 }
                 item.addEventListener('focusout', () => {
                     if (item.value === '') {
-                        item.style.borderColor = '#fb8b77';
-                        spanMessage[index].style.display = 'block';
+                        this.error.setErrorMessage(item, spanMessage[index], this.colorError, message);
                     }
                     else {
-                        item.style.borderColor = '#61a19352';
-                        spanMessage[index].style.display = 'none';
+                        this.error.setRemoveMessageError(item, spanMessage[index], this.colorOriginalDentist);
                     }
                 });
             });
         }
-        else {
-            this.dentistaAPI.cadastrarDentista(nomeCompleto.value, dataNascimento.value, cpf.value, cro.value, especialidade.value, telefoneResidencial.value, telefoneCelular.value, email.value, rua.value, numero.value, bairro.value, cidade.value, estado.value);
-            this.limpaCampos();
-        }
     }
-    limpaCampos() {
-        const nomeCompleto = document.querySelector('#nomeCompleto');
-        const dataNascimento = document.querySelector('#dataNascimento');
-        const cpf = document.querySelector('#cpf');
-        const cro = document.querySelector('#cro');
-        const especialidade = document.querySelector('#especialidade');
-        const telefoneResidencial = document.querySelector('#telefoneResidencial');
-        const telefoneCelular = document.querySelector('#telefoneCelular');
-        const email = document.querySelector('#email');
-        const rua = document.querySelector('#rua');
-        const numero = document.querySelector('#numero');
-        const bairro = document.querySelector('#bairro');
-        const cidade = document.querySelector('#cidade');
-        const estado = document.querySelector('#estado');
-        nomeCompleto.value = '';
-        dataNascimento.value = '';
-        cpf.value = '';
-        cro.value = '';
-        especialidade.value = '';
-        telefoneResidencial.value = '';
-        telefoneCelular.value = '';
-        email.value = '';
-        rua.value = '';
-        numero.value = '';
-        bairro.value = '';
-        cidade.value = '';
-        estado.value = '';
+    nomeCompletoValidator(input) {
+        input.addEventListener('focusout', () => {
+            if (input.value.length < 4) {
+                this.error.setErrorMessage(input, this.spanNomeCompleto, this.colorError, 'Erro: Forneça um nome');
+            }
+            else {
+                this.error.setRemoveMessageError(input, this.spanNomeCompleto, this.colorOriginalDentist);
+            }
+        });
+        this.removeError(input, this.spanNomeCompleto);
     }
-    checkValidationYear(input) {
+    ;
+    datadeNascimentoValidator(input) {
         input.addEventListener('focusout', () => {
             const selectedDate = new Date(input.value);
             const currentDate = new Date();
             const diffInYears = currentDate.getFullYear() - selectedDate.getFullYear();
             if (diffInYears < 18) {
-                alert('Você deve ter pelo menos 18 anos de idade.');
+                this.error.setErrorMessage(input, this.spanDataNascimento, this.colorError, 'Erro: O cadastrado deve ter idade maior que 18 anos');
+            }
+            else if (diffInYears > 70) {
+                this.error.setErrorMessage(input, this.spanDataNascimento, this.colorError, 'Erro: Idade fora do parâmetro para cadastro de dentista');
+            }
+            else {
+                this.error.setRemoveMessageError(input, this.spanDataNascimento, this.colorOriginalDentist);
             }
         });
     }
+    emailValidator(input) {
+        const regex1 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        const regex2 = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+        input.addEventListener('focusout', () => {
+            if (!regex1.test(input.value) || !regex2.test(input.value)) {
+                let message = 'Erro: E-mail inválido';
+                this.error.setErrorMessage(input, this.spanEmail, this.colorError, message);
+            }
+            else {
+                this.error.setRemoveMessageError(input, this.spanEmail, this.colorOriginalDentist);
+            }
+        });
+        this.removeError(input, this.spanEmail);
+    }
+    ;
+    removeError(input, span) {
+        input.addEventListener('focusin', () => {
+            this.error.setRemoveMessageError(input, span, this.colorOriginalDentist);
+        });
+    }
+    ;
 }
