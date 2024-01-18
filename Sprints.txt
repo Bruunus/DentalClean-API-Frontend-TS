@@ -1,145 +1,60 @@
-Sprints para o app DentalClean no Geral:
+Histórico
 
-    -                   Configurar todos os links "<a href="#">" para que ao clicar e chamar algumn template seja exibido um caminho na url.
-    -                   Procurar e configurar um fonte para os textos
-    
-    -                   Refazer todo o sistema responsívo novamente. Critérios:
-                            *   Os containers dever ser em unidades relativas (rem, % ou vw)
-                            *   Os componentes devem ser em rem e devem respeitar os limites do container caso passe devem ser quebrados
-                            *   Todos modificados no media query tanto os containers quantos os componentes.
-                            *   Configurar o modal para responsividade da tela de editar dentista.
-                            *   Não pode haver barras laterais para poder ver o restante do conteúdo e conteúdos estourados
-                            *   Os textos devem ser todos responsívos para se adaptarem conforme a resolução.
-    -               Estilizar todos os botões do sistema conforme o tema do sistema.
-    -   [Feito]     Definir tom de cor para os textos
-
-
-
-
-Sprints da tela Listar Dentista:
-
-    -   [Feito]     A responsividade na tabela e nas rows para se adaptar conforme o tamanho da tela.
-
-
-
-
-
-Sprints da tela Editar Dentista:
-
-    -   [Feito]     Configurar a tela para responsividade.
-    -   [Feito]     Alterar a cor das labels dos campos
-    -   [Feito]     Preencher a lacuna dos campos finais do "Telefone Res." e  "Telefone Cel." para toma todo o espaço da tela. 
-    -               Se campos Nome completo, CRO forem modificados o sistema precisa informar via modal que esses dados podem dar conflitos se forem alterados, implantar os modais com as mensagens respectivas:     
-    -   [Feito]     Regras Condicionais 1: Se nome for trocado e não trocar o CRO, então o sistema deve informar: "Atenção! Você alterou o nome mas não alterou o CRO, o sistema pode conflitar com tais  mudanças,            deseja prosseguir ?" - Resp: Sim / Não
-    -   [Feito]     Regras Condicionais 2: Se o CRO for trocado e não trocar o nome, então o sistema deve informar: "Atenção! Você alterou o CRO mas não alterou o nome, o sistema pode conflitar com tais mudanças deseja prosseguir ?" - Resp: Sim / Não
-    -   [Feito]     Transferir o método fetchAPIUpdate que está na classe Classe EditDentistView para a classe DentistConstroller e fazer a chamada pelo ControllerRouterTS
-    -   [Feito]     Transferir os métodos de modal (todos) para a classe module/Dentist e ser invocado por lá
-    -                   
-    -   [Feito]     Estilizar modal com o tema do sistema.
-    -   [Feito]     Estilizar o focus das inputs do formulário e colocar um cor tema.
-                         
-
-    -    [Feito]        No campo especialidade ao carregar a tela precisa vir com a especialidade atual do dentista.
-
-         [Feito]        Regras Condicionais: Se a especialidade for alterada o sistema pedir confirmação por modal se realmente foi alterada a especialidade:
-
-         [Feito]        Mensagem: "O sistema detectou que houve alteração na especialidade do Dr(a). ${nome do dentista}", você confirma a alteração ?
-
-    -    [Feito]        Caso houver troca de especialidade no select, precisa exibir um modal informando que uma nova especialidade foi detectada e que precisa de confirmação.
-    -    [Feito]        Arrumar o button "Atualizar" que está em modo disabled constante, depois realizar o teste de update.
-    -    [Feito]        Configurar o button "Excluir" para que quando for excluir exibir um modal pedindo confirmação da exclusão, clicando em sim fazer o procedimento de exclusão normal.
-    -    [Feito]        Estilizar o grupo de botões e os critérios são: Procure no bootstrap sobre o "button group" e analise de gostar de algum layout e crie todo agrupado, deixar os botões largos. Pintar da cor do sistema.
-
-
-    *Formatação do formulário de cadastro (dentista e paciente)*
-
-    -   [Feito]         Campo CPF: Colocar mascara de ###.###.###-##
-    -   [Feito]         Campo Telefone Residencial: Colocar mascara de (##) ####-####
-    -   [Feito]         Campo Telefone Celular: Colocar máscara de (##) # ####-####
-
-
-
-
-    *Regra de mascara do formulário de cadastro (dentista e paciente)*
-
- 
-    -   [Feito]  Campo CPF: Precisa ser type="text" | deixar autocomplete="off" | Aceitar apenas números | Limite de 14 caracteres para passar.
-    -   [Feito]  Campo CRO: Limite de caracter de 4 | Aceitar apenas números | deixar autocomplete="off"
-    -   [Feito]  Campo Telefone Residencial: Limite de 14 caracteres para passar (Considerando espaço) | Precisa ser type="text" | deixar autocomplete="off"
-    -   [Feito]  Campo Telefone Celular: Limite de caracter de 15 (Considerando espaço)  | deixar autocomplete="off | Precisa ser type="text" 
-    
-    -   [Feito]  Campo rua: Limite de caracter de 20 | não pode número
-    -   [Feito]  Campo Número: Limite de caracter de 6 | não pode número
-    -   [Feito]  Campo Bairro: Limite de caracter de 24 | não pode número
-    -   [Feito]  Campo Cidade: Limite de caracter de 24 | não pode número
-    -   []  Campo Estado: Limite de caracter de 2 | Regra para somente aceitar caracter maiúsculo  | não pode número, mesmo se digitar como minúsculo.
-        Ao inserir caracter minúsculo tornar para maiúsculo        
-
-    -   [Feito]      Campo CPF: Não pode aceitar caracteres
-    -   [Feito]      Campo Nome completo: Limite de caracter de 20 | Aceitar somente letras | Transformar a primeira letra após o espaço em maiúscula.
-    -   [Feito]      Campo Telefone Residencial: Não pode aceitar letras e caracteres       
-    -   [Feito]      Campo Telefone Celular: Não pode aceitar letras e caracteres
-    -   [Feito]      Campo Rua | Numero | Bairro | Cidade | Estado : Não pode aceitar caracteres e nem números
-    -   [Feito]  Todos os campo: Não podem estar vazios.    [22-12-2023]
-
-
-    *Regra de validação do formulário de cadastro (dentista e paciente)*
-
-    -   [Feito]  Campo nome completo: Quantidade mínima de 3 caracteres
-    -   [Feito]  Campo Data de nascimento: O ano não pode ultrapassar até 18 anos. case: data abaixo de 18 anos
-    -   [Feito]  Campo e-mail: Precisa ter @ e '.com' no final do contrário não passa, deve ter a mensagem 'Expressão incorreta para e-mail' | Limite de caracter de 31
-
-
-
-
-
----------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-    
-    * Modais do sistema *
+    * Modais do sistema * (Classo ModalController/EditDentistView)
     
 
-    -   []      Criar uma nova classe para gerenciar todos os modais do sistema: modalController.ts - receber todas as 
-                requisições de modais por lá.
-    -   []      Finalizar a estilização do modal do CRO  (O estilo não aparece para telas 4k)   
-    -   []      Criar novo modal NEW_CRO_AND_NEW_NAME 
-    -   []      Finalizar a estilização do modal de Novo nome e novo cro  (O estilo não aparece para telas 4k)
+    -   [Feito]     Criar uma nova classe para gerenciar todos os modais do sistema: modalController.ts - receber todas as 
+                    requisições de modais por lá.
+    -   [Feito]     Finalizar a estilização do modal do CRO  (O estilo não aparece para telas 4k)   
+    -   [Feito]     Criar novo modal NEW_CRO_AND_NEW_NAME 
+    -   [Feito]      a estilização do modal de Novo nome e novo cro  (O estilo não aparece para telas 4k)
 
 
     * Tela Listar Dentista*
 
-    -   []      Ajudar o botão 'Pesquisar' do List Dentist para telas grandes, o mesmo está muito pequeno. Alterar a fonte para font-size: 16px !important; e 
-                alterar dilatar o botão em si. Aumentar a altura tambem do input e a fonte para 
-                font-size: 16px !important igualmente.
-
+    -   [Feito]     Ajudar o botão 'Pesquisar' do List Dentist para telas grandes, o mesmo está muito pequeno. Alterar a fonte para font-size: 16px !important; e 
+                    alterar dilatar o botão em si. Aumentar a altura tambem do input e a fonte para 
+                    font-size: 16px !important igualmente.
 
 
     * Menu principal *  
 
 
-    -   []      Problema na troca das imagens quando entra em media-querie. Quando voce volta a tela do menor para
-                o maior a imagem não é recarregada. Problema dos if/else da classe responsiviness. Tente adicionar
-                else para cada if para ver se 
+    -   [Feito]     Problema na troca das imagens quando entra em media-querie. Quando voce volta a tela do menor para
+                    o maior a imagem não é recarregada. Problema dos if/else da classe responsiviness. Tente adicionar
+                    else para cada if para ver se 
+    -   [Feito]      Diminuir o temanho da tipografia do menu, para tela grande está muito grande o vh
+    -   [Feito]      Configurar a imagem para impedir que seja arrastada
 
-              
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+Sprints
 
 
     * Tela cadastro dentista *
 
-    -   []  O spanMessag para telas maiores está muito pequeno e o form também. Mexer e aumentar a tipografia.
-    -   []  Definir altura dos templates na tela principal para telas grandes, pois está muito perto do topo.
-    -   []  validação para cpf: A mascara está ok porém o usuario pode nao completar a sequencias dos numeros. Que tenha 
+    -   [Feito]  O spanMessag para telas maiores está muito pequeno e o form também. Mexer e aumentar a tipografia.
+    -   [Feito]  Definir altura dos templates na tela principal para telas grandes, pois está muito perto do topo.
+    
+    -   [Feito]  Refazer toda a validação de todos os campos novamente ! - terminado em [18/01/2024]
+    -   [Feito]  validação para cpf: A mascara está ok porém o usuario pode nao completar a sequencias dos numeros. Que tenha 
         um validador que faça a contagem total que precisa para um cpf incluindo os caracteres. Caso seje menor acione o erro.
-    -   [] validação para cro: (A mesma necessidade do campo cpf acima);
-    -   [] validação para Telefone Residencial: (A mesma necessidade do campo cpf acima);
-    -   [] validação para Telefone Celular: (A mesma necessidade do campo cpf acima);
-    -   [] validação para rua: O mesma necessidade do campo nomeCompleto - Não pode ter menos que 3 caracteres
-    -   []  validade para numero: Não pode ter o número 0 (zero)
-    -   [] validação para Bairro: O mesma necessidade do campo nomeCompleto - Não pode ter menos que 3 caracteres
-    -   [] validação para Cidade: O mesma necessidade do campo nomeCompleto - Não pode ter menos que 3 caracteres
+        - terminado em [18/01/2024]
+
+    -   [Feito] validação para cro: (A mesma necessidade do campo cpf acima); - terminado em [18/01/2024]
+    -   [Feito] validação para Telefone Residencial: (A mesma necessidade do campo cpf acima); - terminado em [18/01/2024]
+    -   [Feito] validação para Telefone Celular: (A mesma necessidade do campo cpf acima); - terminado em [18/01/2024]
+    -   [Feito] validação para rua: O mesma necessidade do campo nomeCompleto - Não pode ter menos que 3 caracteres - terminado em [18/01/2024]
+    -   [Feito]  validade para numero: Não pode ter o número 0 (zero)- terminado em [18/01/2024]
+    -   [Feito] validação para Bairro: O mesma necessidade do campo nomeCompleto - Não pode ter menos que 3 caracteres 
+        - terminado em [18/01/2024]
+    -   [Feito] validação para Cidade: O mesma necessidade do campo nomeCompleto - Não pode ter menos que 3 caracteres
+        - terminado em [18/01/2024]
+
     -   []  Gerar mensagem de "cadastro realizado com sucesso" depois de enviar.
+    
     -   []      Verificar a tela de cadastro de dentista quando a media querie chega em 768px. Quando chega nessa
             resolução o template de cadastro de dentista está aparecendo a 2° barra de rolagem o que não é para            
             ocorrer. Ja soltei o menu superior para rolar a vontada para resolução pequena, porém está aparecendo uma   
@@ -163,18 +78,48 @@ Sprints da tela Editar Dentista:
     -   []      Tela de atualização: Não está atualizando os dados previamente - Verificar
     -   []      Gerar mensagem de "Dados atualizados com sucesso" no botão atualizar.
     -   []      Gerar mensagem de "Dados atualizados com sucesso" no botão excluir.
+    -   [04-01-2024]    []  Aumentar o tamanho da tela na mesma altura da tela de cadastro de dentista. Isso é somente para 
+    telas grandes, use o @media min-width 1601
 
 
 
 
 
 
+    * Modais do sistema * (Classo ModalController/EditDentistView)
+
+
+    -  [03-01-2024]  []  Os valores captados da tela EditDentistView 'Nome completo' e 'CRO' não estão sendo escutados de modo instantaneo, apenas
+    o filtro if/else do metodo update não será o bastante, ele apenas validará o momento do envio. Então caso eu reenscreva o mesmo
+    nome que ja estava ele vai considerar uma mudança o que quebra a lógica. Por esses inputs precisam de um addEventListener em 
+    modo change para escutar em tempo real, e dentro dele realizar a validação dos ifs. 
+
+
+    -  [03-01-2024]  []  alterar a cor do botão 'Atualizar' apenas o hover dele para um amarelo sinalizando atenção pois os tais dados serão 
+    alterados.
 
 
 
 
+    * Menu principal *
+
+    -   [03-01-2024]    []  O estilo hover do hover.css na media tablet não está mais funcionando. De um jeito !
 
 
+
+
+    * tela Listar Dentista *
+
+    - [03-01-2024]  []  Diminuir o tamanho das linhas da tabelas para telas grandes. não realizae a alteração no arquivo css normal
+    respectivo use @media para tela grande.
+    - [18-01-2024]  []  Formatar a saída do campo data de nascimento, colocar em formate dd/mm/yyyy
+
+
+
+
+    * Tela cadastro dentista *
+
+    -   [03-01-2024]    []  Colocar box-shadon ao redor dos inputs em estado de erro. Pode ser coloração avermelhada.
 
 
 

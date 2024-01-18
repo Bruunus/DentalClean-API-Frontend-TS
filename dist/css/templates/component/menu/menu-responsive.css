@@ -122,7 +122,8 @@
     
 
     .container-botoes-menu {
-        /* height: 100%; */
+        
+        
         
         -ms-flex-direction: row;
         flex-direction: row;
@@ -296,7 +297,8 @@
 
 
     .container-botoes-menu {
-        /* height: 100%; */
+        
+        top: 1.9rem !important;
 
         display: flex !important;
         

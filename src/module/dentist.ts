@@ -198,7 +198,7 @@ export class Dentist {
 
                     const sendArray = [JSONUpdate];
                     this.renderEditDentistView = new EditDentistView(sendArray);
-                }
+                };
 
 
                 
@@ -207,7 +207,7 @@ export class Dentist {
                  
 
 
-              })
+              });
             editarCell.appendChild(linkEditar);
 
 
@@ -245,7 +245,7 @@ export class Dentist {
 
 
 
-    }
+    };
 
 
 
@@ -270,156 +270,12 @@ export class Dentist {
                 }
             });
         });
-    }
+    };
 
 
 
-    /**
-     * Método respectivo á classe EditDentistView. Será invocado na renderiazação do template para editar um dentista.
-     * Em caso de alteração do nome sem alterar o CRO ele é acionado e vise e versa. Também receberá modo para salvar
-     * no banco normal. Todos os updates serão encaminhado para o controler respectivo.
-     * @param modalname 
-     * @param id 
-     * @param objectDataForUpdate 
-     */
-    public modalInformationUpdateDentist(modalname: string, id: string, objectDataForUpdate): void {
-
-        console.log('Entrado em modalInformationUpdateDentist');
-        const renderTemplateFather= document.querySelector('#container-pai');
-        const btnUpdate = document.querySelector('#btnSave');
-        const updateInDataBase = new DentistaController();
-
-        switch (modalname) {
-
-            case 'MODAL_CHANGE_NAME':
-
-            // console.log('MODAL_CHANGE_NAME acionado');
-
-            // console.log('Entrado em MODAL_CHANGE_NAME') - {Debug}
-
-            // add atributo data-target
-            btnUpdate.setAttribute('data-target','#modalChangeName');
-
-            const templateModalChangeName = `
-
-            <head>
-            <style>
-            </style>
-            </head>
-            
-            <!-- Modal -->
-            <div class="modal fade" id="modalChangeName" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content modal-responsive">
-                        <div class="modal-header justify-content-start">
-                            <img src="img/warning_icon.png" alt="Warning">
-                            <h4 class="modal-title system-color-text no-select" id="exampleModalLabel">Atenção!</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="modal-body no-select">
-                                Você alterou o campo nome porém o CRO consta como o mesmo, pode haver conflitos no sistema.<br>
-                                Deseja prosseguir?
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" id="btnCancelar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="button" id="btnModalUpdateChangeNome" class="btn btn-primary" data-dismiss="modal">Atualizar mesmo assim</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            `;
-
-           // console.log('{Debug} => container do pai',   renderTemplateFather)
-
-            renderTemplateFather.insertAdjacentHTML('beforeend', templateModalChangeName);
-
-            const btnModalUpdateChangeNome = document.querySelector('#btnModalUpdateChangeNome');
-            btnModalUpdateChangeNome.addEventListener('click', () => { 
-                this.controllerRouterTs.updateDentist(id, objectDataForUpdate);
-            });
-
-
-                
-                break;
-
-            case 'MODAL_CHANGE_CRO':
-
-            btnUpdate.setAttribute('data-target','#modalChangeCro');
-
-            const templateModalChangeCro = `
-            
-            <!-- Modal -->
-            <div class="modal fade" id="modalChangeCro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-responsive" role="document">
-                <div class="modal-content">
-                    <div class="modal-header justify-content-start">
-                        <img src="img/warning_icon.png" class="img-fluid" alt="Warning">
-                        <h4 class="modal-title system-color-text" id="exampleModalLabel">Atenção!</h4>
-                    </div>
-                <div class="modal-body">
-                    <div class="modal-body">
-                        Você alterou o campo CRO porém o campo nome consta como o mesmo dentista, pode haver conflitos no sistema.<br>
-                        Deseja prosseguir?
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" id="btnModalUpdateChangeCro" class="btn btn-primary" data-dismiss="modal">Atualizar mesmo assim</button>
-                </div>
-                </div>
-            </div>
-            </div>
-            
-            
-            `;
-
-            renderTemplateFather.insertAdjacentHTML('beforeend', templateModalChangeCro);
-            const btnModalUpdateChangeCro = document.querySelector('#btnModalUpdateChangeCro');
-
-            btnModalUpdateChangeCro.addEventListener('click', () => {
-                this.controllerRouterTs.updateDentist(id, objectDataForUpdate);
-            });
-
-                break;
-
-            case 'NEW_CRO_AND_NEW_NAME': 
-
-
-
-
-
-
-
-
-
-
-            btnModalUpdateChangeCro.addEventListener('click', () => {
-                this.controllerRouterTs.updateDentist(id, objectDataForUpdate);
-            });
-
-             
-
-
-                break;
-
-            case 'NORMAL_MODE':
-
-            // mensagem informativa aqui
-            this.controllerRouterTs.updateDentist(id, objectDataForUpdate);
-
-
-                break;
-            
-            default:
-
-                break;
-        }
-        
-        
-    }
+    
+    
 
 
 
@@ -429,7 +285,7 @@ export class Dentist {
 
 
 
-    }
+    };
 
 
     

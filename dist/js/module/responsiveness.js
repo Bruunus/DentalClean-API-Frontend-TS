@@ -1,39 +1,36 @@
 export class Responsiveness {
     constructor() {
-        window.addEventListener('resize', this.getContainerResponsive);
-        this.getContainerResponsive();
+        window.addEventListener('resize', this.getImageContainerResponsive);
+        this.getImageContainerResponsive();
     }
-    getContainerResponsive() {
-        const containerChildLeft_div_1_existe = document.querySelector('.containerChildLeft_div_1');
-        const containerChildLeft_div_2_existe = document.querySelector('.containerChildLeft_div_2');
-        const imgLogo = document.querySelector('.img-logo');
-        if (window.matchMedia("(max-width: 1200px) and (min-width: 844px)").matches) {
-            imgLogo.setAttribute('src', 'img/logo-dental-clean-menu-notebook.PNG');
+    getImageContainerResponsive() {
+        const PHOTO_NORMAL = document.querySelector('#photo-normal');
+        const PHOTO_TABLET = document.querySelector('#photo-tablet');
+        const PHOTO_NOTEBOOK = document.querySelector('#photo-notebook');
+        if (window.matchMedia("(min-width: 1602px)").matches) {
+            if (PHOTO_NOTEBOOK.style.display === 'none' || PHOTO_TABLET.style.display === 'none') {
+                PHOTO_TABLET.style.display = 'none';
+                PHOTO_NOTEBOOK.style.display = 'none';
+                PHOTO_NORMAL.style.display = 'block';
+            }
         }
-        else if (window.matchMedia("(max-width: 843px)").matches) {
-            imgLogo.setAttribute('src', 'img/logo-dental-clean-menu-tablet.PNG');
-            const containerChildLeft = document.querySelector('#container-child-left');
-            const linkImg = document.querySelector('.img-link');
-            const containerBotoesMenu = document.querySelector('.container-botoes-menu');
-            const containerChildLeft_div_1 = document.createElement('div');
-            const containerChildLeft_div_2 = document.createElement('div');
-            if (!containerChildLeft_div_1_existe && !containerChildLeft_div_2_existe) {
-                containerChildLeft_div_1.classList.add('containerChildLeft_div_1');
-                containerChildLeft_div_2.classList.add('containerChildLeft_div_2');
-                containerChildLeft_div_1.appendChild(linkImg);
-                containerChildLeft_div_2.appendChild(containerBotoesMenu);
-                containerChildLeft.appendChild(containerChildLeft_div_1);
-                containerChildLeft.appendChild(containerChildLeft_div_2);
+        else if (window.matchMedia("(max-width: 1200px) and (min-width: 844px)").matches) {
+            if (PHOTO_NORMAL.style.display === 'block' || PHOTO_TABLET.style.display === 'block') {
+                PHOTO_NORMAL.style.display = 'none';
+                PHOTO_TABLET.style.display = 'none';
+                PHOTO_NOTEBOOK.style.display = 'block';
             }
-            else if (window.matchMedia("(min-width: 1602px)").matches) {
-                imgLogo.setAttribute('src', 'img/logo-dental-clean-original.PNG');
-            }
-            const btnModalUpdateChangeNome = document.querySelector('#btnModalUpdateChangeNome');
-            if (window.matchMedia("(max-width: 360px)").matches) {
-                btnModalUpdateChangeNome.textContent = 'Atualizar';
+        }
+        else if (window.matchMedia("(max-width: 844px)").matches) {
+            if (PHOTO_NORMAL.style.display === 'none' || PHOTO_NOTEBOOK.style.display === 'none') {
+                PHOTO_NORMAL.style.display = 'none';
+                PHOTO_NOTEBOOK.style.display = 'none';
+                PHOTO_TABLET.style.display = 'block';
             }
             else {
-                btnModalUpdateChangeNome.textContent = 'Atualizar mesmo assim';
+                PHOTO_TABLET.style.display = 'none';
+                PHOTO_NOTEBOOK.style.display = 'none';
+                PHOTO_NORMAL.style.display = 'block';
             }
         }
     }

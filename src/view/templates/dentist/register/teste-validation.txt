@@ -1,0 +1,76 @@
+faz esse teste
+
+// Função para validar o campo de nome completo
+validateNomeCompleto() {
+  const nomeCompleto = document.getElementById('nomeCompleto');
+  const spanNomeCompleto = document.getElementById('spanNomeCompleto');
+  const messageServer = 'Mensagem de erro para nome completo';
+  
+  if (nomeCompleto.value.length < 4) {
+    this.error.setErrorMessage(nomeCompleto, spanNomeCompleto, this.colorError, messageServer);
+    return false;
+  }
+  
+  return true;
+}
+
+// Função para validar o campo de data de nascimento
+validateDataNascimento() {
+  const dataNascimento = document.getElementById('dataNascimento');
+  const spanDataNascimento = document.getElementById('spanDataNascimento');
+  const messageServer = 'Mensagem de erro para data de nascimento';
+  
+  // Cálculo de diffInYears
+  
+  if (diffInYears < 18 || diffInYears > 70) {
+    this.error.setErrorMessage(dataNascimento, spanDataNascimento, this.colorError, messageServer);
+    return false;
+  }
+  
+  return true;
+}
+
+// Função para validar o campo de e-mail
+validateEmail() {
+  const email = document.getElementById('email');
+  const spanEmail = document.getElementById('spanEmail');
+  const messageServer = 'Mensagem de erro para e-mail';
+  
+  const regex1 = /primeiroRegex/;
+  const regex2 = /segundoRegex/;
+  
+  if (!regex1.test(email.value) || !regex2.test(email.value)) {
+    this.error.setErrorMessage(email, spanEmail, this.colorError, messageServer);
+    return false;
+  }
+  
+  return true;
+}
+
+// Função para validar o campo de CPF
+validateCPF() {
+  const cpf = document.getElementById('cpf');
+  const spanCpf = document.getElementById('spanCpf');
+  const messageServer = 'Mensagem de erro para CPF';
+  
+  if (cpf.value.length < 14) {
+    this.error.setErrorMessage(cpf, spanCpf, this.colorError, messageServer);
+    return false;
+  }
+  
+  return true;
+}
+
+// Função principal para validar todos os campos
+validateForm() {
+  const isValidNomeCompleto = this.validateNomeCompleto();
+  const isValidDataNascimento = this.validateDataNascimento();
+  const isValidEmail = this.validateEmail();
+  const isValidCPF = this.validateCPF();
+  
+  // Outras validações ou ações para o formulário
+  
+  if (isValidNomeCompleto && isValidDataNascimento && isValidEmail && isValidCPF) {
+    // Realizar ação desejada quando o formulário for válido
+  }
+}

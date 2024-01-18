@@ -7,14 +7,25 @@ export class Menu {
     <div id="container-child-left" class="col-ajuste-nav">
         
       
-        <a href="http://localhost:3000" class="img-link">
-            <img src="img/logo-dental-clean-menu.PNG" alt="DentalClean" class=" img-logo">
+        <a href="http://localhost:3000" id="photo-normal" class="img-link ">
+            <img src="img/logo-dental-clean-menu.PNG" alt="DentalClean" class=" img-logo no-select-img">
         </a>
+
+        <a href="http://localhost:3000" id="photo-notebook" class="img-link" style="display: none;">
+            <img src="img/logo-dental-clean-menu-notebook.PNG" alt="DentalClean" class="img-logo no-select-img">
+        </a>
+
+        <a href="http://localhost:3000" id="photo-tablet" class="img-link" style="display: none;">
+            <img src="img/logo-dental-clean-menu-tablet.PNG" alt="DentalClean" class="img-logo no-select-img">
+        </a>
+
+
+
+
+
      
         <div class="btn-group-vertical container-botoes-menu">
-                    
 
-    
                 <button
                     
                     type="button"

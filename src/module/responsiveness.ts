@@ -1,12 +1,11 @@
 export class Responsiveness {
 
 
-
-
     public constructor() {
-        window.addEventListener('resize', this.getContainerResponsive);
-        this.getContainerResponsive();
+        window.addEventListener('resize', this.getImageContainerResponsive);
+        this.getImageContainerResponsive();
        
+     
     }
 
     
@@ -14,70 +13,46 @@ export class Responsiveness {
     /**
      * Método que trata responsividade do menu principal para telas menores entre  1200px a  
      */
-    public getContainerResponsive(): void {
+    private getImageContainerResponsive(): void {      
 
- 
+      const PHOTO_NORMAL = document.querySelector('#photo-normal') as HTMLImageElement;
+      const PHOTO_TABLET =  document.querySelector('#photo-tablet') as HTMLImageElement;
+      const PHOTO_NOTEBOOK = document.querySelector('#photo-notebook') as HTMLImageElement;
 
-
-      
-      
-      // voce precisa fazer um if para verificar se as divs ja existem, caso não então crie elas
-      const containerChildLeft_div_1_existe = document.querySelector('.containerChildLeft_div_1');
-      const containerChildLeft_div_2_existe = document.querySelector('.containerChildLeft_div_2');
-      
-
-
-       
-      const imgLogo = document.querySelector('.img-logo') as HTMLImageElement;
-
-     if(window.matchMedia("(max-width: 1200px) and (min-width: 844px)").matches) {
-
-        imgLogo.setAttribute('src', 'img/logo-dental-clean-menu-notebook.PNG');
-
-
-      } else if (window.matchMedia("(max-width: 843px)").matches) {
-
-
-        imgLogo.setAttribute('src', 'img/logo-dental-clean-menu-tablet.PNG');
-
-        const containerChildLeft = document.querySelector('#container-child-left');
-        const linkImg = document.querySelector('.img-link');
-        const containerBotoesMenu = document.querySelector('.container-botoes-menu');
-      
-
-        // criando as divs...
-
-        const containerChildLeft_div_1 = document.createElement('div');
-        const containerChildLeft_div_2 = document.createElement('div');
-
-
-        // se não existe então crie...
-        if(!containerChildLeft_div_1_existe && !containerChildLeft_div_2_existe) {
-
+      if (window.matchMedia("(min-width: 1602px)").matches) {
           
+        if(PHOTO_NOTEBOOK.style.display === 'none' || PHOTO_TABLET.style.display === 'none') {            
+          PHOTO_TABLET.style.display = 'none';
+          PHOTO_NOTEBOOK.style.display = 'none';
+          PHOTO_NORMAL.style.display = 'block';
+        }
+        
+      } else if(window.matchMedia("(max-width: 1200px) and (min-width: 844px)").matches) {
 
-          containerChildLeft_div_1.classList.add('containerChildLeft_div_1');
-          containerChildLeft_div_2.classList.add('containerChildLeft_div_2');
+        if(PHOTO_NORMAL.style.display === 'block' || PHOTO_TABLET.style.display === 'block') {
+          PHOTO_NORMAL.style.display = 'none';
+          PHOTO_TABLET.style.display = 'none';
+          PHOTO_NOTEBOOK.style.display = 'block';
+        }
+
+      } else if (window.matchMedia("(max-width: 844px)").matches) {
+        
+        if(PHOTO_NORMAL.style.display === 'none' || PHOTO_NOTEBOOK.style.display === 'none') {
+          PHOTO_NORMAL.style.display = 'none';
+          PHOTO_NOTEBOOK.style.display = 'none';
+          PHOTO_TABLET.style.display = 'block';       
+
+        }    else {
+
+            PHOTO_TABLET.style.display = 'none';
+            PHOTO_NOTEBOOK.style.display = 'none';
+            PHOTO_NORMAL.style.display = 'block';
+        }
 
 
-          // colocando os componentes como filhos de cada uma...
-          containerChildLeft_div_1.appendChild(linkImg);
-          containerChildLeft_div_2.appendChild(containerBotoesMenu);
 
 
-          // adicionando as divs como filhas do container...
-          containerChildLeft.appendChild(containerChildLeft_div_1);
-          containerChildLeft.appendChild(containerChildLeft_div_2); 
-
-        } else if (window.matchMedia("(min-width: 1602px)").matches) {
-
-          imgLogo.setAttribute('src', 'img/logo-dental-clean-original.PNG');
-
-        } 
-
-
-
-      const btnModalUpdateChangeNome = document.querySelector('#btnModalUpdateChangeNome');
+      /* const btnModalUpdateChangeNome = document.querySelector('#btnModalUpdateChangeNome');
 
       
       if(window.matchMedia("(max-width: 360px)").matches) {
@@ -85,9 +60,11 @@ export class Responsiveness {
       } else {
         
         btnModalUpdateChangeNome.textContent = 'Atualizar mesmo assim';
-      }
+      }*/
 
-    }
+
+
+    } 
         
 
     }  

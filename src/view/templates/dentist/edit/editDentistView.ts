@@ -1,6 +1,7 @@
 
 import { ControllerRouteTS } from "../../../../controller/controllerRouterTS.js";
 import { DentistaController } from "../../../../controller/dentistaController.js";
+import { ModalController } from "../../../../controller/modalController.js";
 import { Dentist } from "../../../../module/dentist.js";
 
 export  class EditDentistView {
@@ -24,17 +25,20 @@ export  class EditDentistView {
     private estadoEditado: string;
 
     private btnEditOptions: HTMLButtonElement | null;
-    private btnUpdate: HTMLButtonElement | null;
+    private btnSave: HTMLButtonElement | null;
     private btnDelete: HTMLButtonElement | null;
 
     private renderTemplate: DentistaController; 
     private controllerRouterTS: ControllerRouteTS;  
+    private modalController: ModalController;
     
 
      
 
 
     public constructor (objectDentist: any[]) {
+
+        this.modalController = new ModalController();
 
         if (objectDentist.length > 0) {
             const firstDentist = objectDentist[0];
@@ -182,7 +186,7 @@ export  class EditDentistView {
         this.form = document.querySelector('#container_editar form');
         this.btnEditOptions = document.querySelector('#btnUpdate');
         this.btnDelete = document.querySelector('#btnDelete');
-        this.btnUpdate = document.querySelector('#btnSave');
+        this.btnSave = document.querySelector('#btnSave');
 
 
 
@@ -197,7 +201,7 @@ export  class EditDentistView {
         this.btnEditOptions.addEventListener('click',  this.editOptionsViwer );
         
 
-        this.btnUpdate.addEventListener('click', () => {  this.update(this.form ,this.id, [validationNameAndCROJSON]) });
+        this.btnSave.addEventListener('click', () => {  this.update(this.form ,this.id, [validationNameAndCROJSON]) });
 
 
 
@@ -209,6 +213,10 @@ export  class EditDentistView {
 
     public getTemplate(): string {
         return this.template;
+    }
+
+    public getBtnSave(): HTMLButtonElement {
+        return this.btnSave;
     }
     
     
@@ -259,106 +267,88 @@ export  class EditDentistView {
             
         } else {
 
-        this.nomeCompletoEditado = (formSubmit.querySelector('#nomeCompletoEditado') as HTMLInputElement)?.value || '';
-        this.dataNascimentoEditado = (formSubmit.querySelector('#dataNascimentoEditar') as HTMLInputElement)?.value || '';
-        this.cpfEditado = (formSubmit.querySelector('#cpfEditar') as HTMLInputElement)?.value || '';
-        this.croEditado = (formSubmit.querySelector('#croEditar') as HTMLInputElement)?.value || '';
-        this.especialidadeEditado = (formSubmit.querySelector('#especialidadeEditar') as HTMLInputElement)?.value || '';
-        this.telefoneResidencialEditado = (formSubmit.querySelector('#telefoneResidencialEditar') as HTMLInputElement)?.value || '';
-        this.telefoneCelularEditado = (formSubmit.querySelector('#telefoneCelularEditar') as HTMLInputElement)?.value || '';
-        this.emailEditado = (formSubmit.querySelector('#emailEditar') as HTMLInputElement)?.value || '';
-        this.ruaEditado = (formSubmit.querySelector('#ruaEditar') as HTMLInputElement)?.value || '';
-        this.numeroEditado = (formSubmit.querySelector('#numeroEditar') as HTMLInputElement)?.value || '';
-        this.bairroEditado = (formSubmit.querySelector('#bairroEditar') as HTMLInputElement)?.value || '';
-        this.cidadeEditado = (formSubmit.querySelector('#cidadeEditar') as HTMLInputElement)?.value || '';
-        this.estadoEditado = (formSubmit.querySelector('#estadoEditar') as HTMLInputElement)?.value || '';
+            this.nomeCompletoEditado = (formSubmit.querySelector('#nomeCompletoEditado') as HTMLInputElement)?.value || '';
+            this.dataNascimentoEditado = (formSubmit.querySelector('#dataNascimentoEditar') as HTMLInputElement)?.value || '';
+            this.cpfEditado = (formSubmit.querySelector('#cpfEditar') as HTMLInputElement)?.value || '';
+            this.croEditado = (formSubmit.querySelector('#croEditar') as HTMLInputElement)?.value || '';
+            this.especialidadeEditado = (formSubmit.querySelector('#especialidadeEditar') as HTMLInputElement)?.value || '';
+            this.telefoneResidencialEditado = (formSubmit.querySelector('#telefoneResidencialEditar') as HTMLInputElement)?.value || '';
+            this.telefoneCelularEditado = (formSubmit.querySelector('#telefoneCelularEditar') as HTMLInputElement)?.value || '';
+            this.emailEditado = (formSubmit.querySelector('#emailEditar') as HTMLInputElement)?.value || '';
+            this.ruaEditado = (formSubmit.querySelector('#ruaEditar') as HTMLInputElement)?.value || '';
+            this.numeroEditado = (formSubmit.querySelector('#numeroEditar') as HTMLInputElement)?.value || '';
+            this.bairroEditado = (formSubmit.querySelector('#bairroEditar') as HTMLInputElement)?.value || '';
+            this.cidadeEditado = (formSubmit.querySelector('#cidadeEditar') as HTMLInputElement)?.value || '';
+            this.estadoEditado = (formSubmit.querySelector('#estadoEditar') as HTMLInputElement)?.value || '';
 
 
 
-        console.log(
-            'Pegando os valores:\n\n',
-            this.nomeCompletoEditado, '\n',
-            this.dataNascimentoEditado, '\n',
-            this.cpfEditado, '\n',
-            this.croEditado, '\n',
-            this.especialidadeEditado, '\n',
-            this.telefoneResidencialEditado, '\n',
-            this.telefoneCelularEditado, '\n',
-            this.emailEditado, '\n',
-            this.ruaEditado, '\n',
-            this.numeroEditado, '\n',
-            this.bairroEditado, '\n',
-            this.cidadeEditado, '\n',
-            this.estadoEditado
-        )
+            console.log(
+                'Pegando os valores:\n\n',
+                this.nomeCompletoEditado, '\n',
+                this.dataNascimentoEditado, '\n',
+                this.cpfEditado, '\n',
+                this.croEditado, '\n',
+                this.especialidadeEditado, '\n',
+                this.telefoneResidencialEditado, '\n',
+                this.telefoneCelularEditado, '\n',
+                this.emailEditado, '\n',
+                this.ruaEditado, '\n',
+                this.numeroEditado, '\n',
+                this.bairroEditado, '\n',
+                this.cidadeEditado, '\n',
+                this.estadoEditado
+            )
 
 
-        /* console.log('Nome antes da alteração: ',this.nomeCompletoEditado)
-        console.log('CRO antes da alteração: ',this.croEditado) */  
-
-
-
-        const updateObjectDentist = {
-            nomeCompleto: this.nomeCompletoEditado,            
-            cro: this.croEditado
-        };       
+            const updateObjectDentist = {
+                nomeCompleto: this.nomeCompletoEditado,            
+                cro: this.croEditado
+            };       
 
 
 
-       // console.log(updateObjectDentist);
-       // console.log(validation);
 
-
-        
-        // validando os dados...
-        let nomeOriginal: string;
-        let croOriginal: string;
-
-        // extraindo JSON...
-        validation.forEach(objeto => {
-            for (const chave in objeto) {
-                if (objeto.hasOwnProperty(chave)) {
-                    const valor = objeto[chave];
-                    if(chave === 'nome') { nomeOriginal = valor; }
-                    if(chave === 'cro') { croOriginal = valor }
-                    //console.log(`Chave: ${chave}, Valor: ${valor}`); //- {Debug}
-                }
-            }
-        });
-
-
-
-        // {Debug}
-        //console.log('Valor do objeto "validation" - nome', nomeOriginal);
-        //console.log('Valor do objeto "validation" - CRO', croOriginal);
-
-
-        const modal = new Dentist(); 
-
-        if(updateObjectDentist.nomeCompleto === nomeOriginal && updateObjectDentist.cro != croOriginal) {
-            // alert('Modal -> MODAL_CHANGE_CRO')  //{Debugg}
-            modal.modalInformationUpdateDentist('MODAL_CHANGE_CRO',id, updateObjectDentist);
-
-        } else if (updateObjectDentist.nomeCompleto != nomeOriginal && updateObjectDentist.cro === croOriginal) {
-             // alert('Modal -> MODAL_CHANGE_NAME')  //{Debugg}
-            modal.modalInformationUpdateDentist('MODAL_CHANGE_NAME', id, updateObjectDentist);
-
-        } else if(updateObjectDentist.nomeCompleto != nomeOriginal && updateObjectDentist.cro != croOriginal) {
-             // alert('Modal -> NEW_CRO_AND_NEW_NAME')  //{Debugg}
-            modal.modalInformationUpdateDentist('NEW_CRO_AND_NEW_NAME', id, updateObjectDentist);
-
-           
-        } else {
-            // alert('Modal -> NORMAL_MODE')   //{Debugg}
             
+            // validando os dados...
+            let nomeOriginal: string;
+            let croOriginal: string;
 
+            // extraindo JSON...
+            validation.forEach(objeto => {
+                for (const chave in objeto) {
+                    if (objeto.hasOwnProperty(chave)) {
+                        const valor = objeto[chave];
+                        if(chave === 'nome') { nomeOriginal = valor; }
+                        if(chave === 'cro') { croOriginal = valor }
+                        //console.log(`Chave: ${chave}, Valor: ${valor}`); //- {Debug}
+                    }
+                }
+            });
 
-        }
+    
 
+            if(updateObjectDentist.nomeCompleto === nomeOriginal && updateObjectDentist.cro != croOriginal) {
+                this.modalController.modalInformationUpdateDentist('MODAL_CHANGE_CRO',id, updateObjectDentist)
 
-
+            } else if (updateObjectDentist.nomeCompleto != nomeOriginal && updateObjectDentist.cro === croOriginal) {
+                this.modalController.modalInformationUpdateDentist('MODAL_CHANGE_NAME', id, updateObjectDentist);
+            
+            } else if(updateObjectDentist.nomeCompleto != nomeOriginal && updateObjectDentist.cro != croOriginal) {
+                this.modalController.modalInformationUpdateDentist('NEW_CRO_AND_NEW_NAME', id, updateObjectDentist);
+            
+            } else {
+                // salvar os dados aqui caso não houver alteração...
+                alert('Dados salvos...')
+            }
         } 
     }
+
+
+
+
+
+
 
 
 

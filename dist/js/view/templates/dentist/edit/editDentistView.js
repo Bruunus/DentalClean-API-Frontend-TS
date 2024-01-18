@@ -1,8 +1,9 @@
 import { ControllerRouteTS } from "../../../../controller/controllerRouterTS.js";
 import { DentistaController } from "../../../../controller/dentistaController.js";
-import { Dentist } from "../../../../module/dentist.js";
+import { ModalController } from "../../../../controller/modalController.js";
 export class EditDentistView {
     constructor(objectDentist) {
+        this.modalController = new ModalController();
         if (objectDentist.length > 0) {
             const firstDentist = objectDentist[0];
             this.id = firstDentist.id;
@@ -138,14 +139,17 @@ export class EditDentistView {
         this.form = document.querySelector('#container_editar form');
         this.btnEditOptions = document.querySelector('#btnUpdate');
         this.btnDelete = document.querySelector('#btnDelete');
-        this.btnUpdate = document.querySelector('#btnSave');
+        this.btnSave = document.querySelector('#btnSave');
         this.btnEditOptions.addEventListener('click', this.editOptionsViwer);
-        this.btnUpdate.addEventListener('click', () => { this.update(this.form, this.id, [validationNameAndCROJSON]); });
+        this.btnSave.addEventListener('click', () => { this.update(this.form, this.id, [validationNameAndCROJSON]); });
         this.btnDelete.addEventListener('click', () => { this.delete(this.id); });
     }
     ;
     getTemplate() {
         return this.template;
+    }
+    getBtnSave() {
+        return this.btnSave;
     }
     editOptionsViwer() {
         const camposEditar = document.querySelectorAll('form .editar');
@@ -195,17 +199,17 @@ export class EditDentistView {
                     }
                 }
             });
-            const modal = new Dentist();
             if (updateObjectDentist.nomeCompleto === nomeOriginal && updateObjectDentist.cro != croOriginal) {
-                modal.modalInformationUpdateDentist('MODAL_CHANGE_CRO', id, updateObjectDentist);
+                this.modalController.modalInformationUpdateDentist('MODAL_CHANGE_CRO', id, updateObjectDentist);
             }
             else if (updateObjectDentist.nomeCompleto != nomeOriginal && updateObjectDentist.cro === croOriginal) {
-                modal.modalInformationUpdateDentist('MODAL_CHANGE_NAME', id, updateObjectDentist);
+                this.modalController.modalInformationUpdateDentist('MODAL_CHANGE_NAME', id, updateObjectDentist);
             }
             else if (updateObjectDentist.nomeCompleto != nomeOriginal && updateObjectDentist.cro != croOriginal) {
-                modal.modalInformationUpdateDentist('NEW_CRO_AND_NEW_NAME', id, updateObjectDentist);
+                this.modalController.modalInformationUpdateDentist('NEW_CRO_AND_NEW_NAME', id, updateObjectDentist);
             }
             else {
+                alert('Dados salvos...');
             }
         }
     }

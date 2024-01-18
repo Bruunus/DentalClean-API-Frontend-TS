@@ -1,5 +1,35 @@
 
 
+/**
+*   Responsividade para telas grandes 4K
+*/
+@media(min-width: 1602px) {
+
+  #container-register-dentist {
+    height: 43rem;
+  }
+
+  .spanMessage {
+    font-size: 9pt;
+  }
+
+  #form_cadastro_dentista div button {
+    height: 42px;
+    margin-top: 5rem;
+    font-size: 13.5pt;
+    line-height: 2rem;
+
+  }
+
+  .form-group {
+    margin-bottom: 1.1rem !important;
+  }
+
+
+   
+
+}
+
 
 
 @media(max-width:1601px) {

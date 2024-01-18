@@ -5,13 +5,9 @@ import { Menu } from "../view/templates/menu/menu.js";
 import { AppDentalCleanView } from "../view/templates/appDentalCleanView.js";
 import { DentistaController } from "./dentistaController.js";
 import { PacienteController } from "./pacienteController.js";
-import { Sprint } from '../view/templates/sprint/sprint.js';
 export class ControllerRouteTS {
     constructor() {
         ControllerRouteTS.initBody = document.querySelector('html body');
-    }
-    renderSprint() {
-        new Sprint();
     }
     static loadAppDentalClean() {
         new AppDentalCleanView(ControllerRouteTS.initBody);

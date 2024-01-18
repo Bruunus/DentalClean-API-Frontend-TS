@@ -1,10 +1,18 @@
 /**
 *   Responsividade para telas grandes 4K
 */
-/* @media(min-width: 1602) {
+@media(min-width: 1602px) {
    
+    .form-seach div div button {
 
-} */
+        font-size: 12.4pt !important;
+        height: 29px;
+        padding-top: 8px;
+        width: 7rem;
+         
+    }
+
+}
 
 
 /*********** Telas média/pequena ***********/    

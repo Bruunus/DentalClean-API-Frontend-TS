@@ -28,6 +28,10 @@ body, .label-form, .form-input, .select-form {
         font-size: .9vw !important;
     }
 
+    #container-child-right {
+        padding: 2.8666666rem 2.3rem !important;
+    }
+
      
 }
 
@@ -60,7 +64,7 @@ body, .label-form, .form-input, .select-form {
     max-height: 100vh !important; /* tranca da tela */
     display: block;
     /* background-color: lightgoldenrodyellow; */
-    padding: 1rem 2.3rem !important;
+    padding: 1rem 2.3rem;
     overflow: auto !important;
 }
 
@@ -114,6 +118,15 @@ body, .label-form, .form-input, .select-form {
     -ms-user-select: none; /* Internet Explorer */
     -webkit-user-select: none; /* Chrome, Safari, and Opera */
     user-select: none;
+}
+
+.no-select-img {
+    
+pointer-events: none;  /* Impede que a imagem seja arrastada */
+  user-select: none;  /* Impede a seleção do conteúdo durante o arraste */
+  -moz-user-select: none;  /* Suporte para navegadores Firefox mais antigos */
+  -webkit-user-drag: none;  /* Impede o arraste da imagem no Safari e navegadores baseados em WebKit */
+  -webkit-user-select: none;  /* Impede a seleção do conteúdo durante o arraste no Safari e navegadores baseados em WebKit */
 }
 
 

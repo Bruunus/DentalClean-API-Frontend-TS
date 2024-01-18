@@ -7,7 +7,6 @@ import { AppDentalCleanView } from "../view/templates/appDentalCleanView.js";
 import { DentistaController } from "./dentistaController.js";
 import { PacienteController } from "./pacienteController.js";
 import { Dentist } from "../module/dentist.js";
-import { Sprint } from '../view/templates/sprint/sprint.js';
 
 export class ControllerRouteTS {
 
@@ -33,15 +32,7 @@ export class ControllerRouteTS {
          
    }
 
-   /** 
-    * Sprint - projeto temporário durante a fase de dev
-    * 
-   */
-   public renderSprint() {
 
-        new Sprint();
-
-   }
     
 
 
