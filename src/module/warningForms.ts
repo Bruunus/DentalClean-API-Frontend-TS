@@ -1,6 +1,6 @@
 import { CadastroController } from "../controller/cadastroController.js";
 import { Dentist } from "./dentist.js";
-import { ErrorMessageForm } from "./errorMessageForm.js";
+import { MessagesForm } from "./messagesForm.js";
 
 export class WarningForms {
 
@@ -29,7 +29,7 @@ export class WarningForms {
 
 
     
-  private error: ErrorMessageForm;
+  private error: MessagesForm;
   private colorError: string;
   private colorOriginalDentist: string;
   
@@ -37,7 +37,7 @@ export class WarningForms {
 
   public constructor() {
 
-    this.error = new ErrorMessageForm();
+    this.error = new MessagesForm();
 
     this.inputNomeCompleto = document.querySelector('.container-nome-completo input');
     this.inputDataNascimento = document.querySelector('.container-data-nascimento input');
@@ -71,22 +71,22 @@ export class WarningForms {
        * Regra aplicada expressamente no campo 'Nome completo' que não será aceito se houver
        * a conjunção de até 3 letras.
        */
-    public warningNomeCompleto(input: HTMLInputElement): void {
+    public warningNomeCompleto(input: HTMLInputElement, span: HTMLSpanElement): void {
 
       input.addEventListener('focusout', () => {
         /* console.log('focus enter') */
         if(input.value === '') {
-          this.error.setErrorMessageInput(input, this.spanNomeCompleto, this.colorError, 'Message: O campo não pode estar vazio');
+          this.error.setErrorMessageInput(input, span, this.colorError, 'Message: O campo não pode estar vazio');
          /*  console.log('Nome vazio') */
         } else if (input.value.length < 4) {
-          this.error.setErrorMessageInput(input, this.spanNomeCompleto, this.colorError, 'Message: Nome fornecido incorreto');
+          this.error.setErrorMessageInput(input, span, this.colorError, 'Message: Nome fornecido incorreto');
           /* console.log('Nome menor ') */
         } else {
-          this.error.setRemoveMessageErrorInput(input, this.spanNomeCompleto, this.colorOriginalDentist);
+          this.error.setRemoveMessageErrorInput(input, span, this.colorOriginalDentist);
         }
       });
 
-      this.error.setRemoveErrorMessageInputEvent(input, this.spanNomeCompleto, this.colorOriginalDentist);
+      this.error.setRemoveErrorMessageInputEvent(input, span, this.colorOriginalDentist);
         
 
         
@@ -102,7 +102,7 @@ export class WarningForms {
      * é iniciado a validação para 
      * @param input 
      */
-    public warningDataDeNascimento(input: HTMLInputElement): boolean {
+    public warningDataDeNascimento(input: HTMLInputElement, span: HTMLSpanElement): boolean {
 
       input.addEventListener('focusout', () => {
 
@@ -112,90 +112,90 @@ export class WarningForms {
         let message: string = '';
           if(input.value === '') {
             message = 'Message: O campo não pode estar vazio';
-            this.error.setErrorMessageInput(input, this.spanDataNascimento, this.colorError, message);
+            this.error.setErrorMessageInput(input, span, this.colorError, message);
             return false;
           } else if (diffInYears < 18) {
             message = 'Message: O cadastrado deve ter idade maior que 18 anos';
-            this.error.setErrorMessageInput(input, this.spanDataNascimento, this.colorError, message);
+            this.error.setErrorMessageInput(input, span, this.colorError, message);
             return false;
           } else if (diffInYears > 70) {
             message = 'Message: Idade fora do parâmetro para cadastro de dentista';
-            this.error.setErrorMessageInput(input, this.spanDataNascimento, this.colorError, message);
+            this.error.setErrorMessageInput(input, span, this.colorError, message);
             return false;
           }
           else {
-            this.error.setRemoveMessageErrorInput(input, this.spanDataNascimento, this.colorOriginalDentist);     
+            this.error.setRemoveMessageErrorInput(input, span, this.colorOriginalDentist);     
           }
 
       });
 
-      this.error.setRemoveErrorMessageInputEvent(input, this.spanDataNascimento, this.colorOriginalDentist);     
+      this.error.setRemoveErrorMessageInputEvent(input, span, this.colorOriginalDentist);     
       return true;
 
     }
 
 
-    public warningCpf(input: HTMLInputElement): void {
+    public warningCpf(input: HTMLInputElement, span: HTMLSpanElement): void {
       input.addEventListener('focusout', () => {
         if(input.value.length < 14) {
-          this.error.setErrorMessageInput(input, this.spanCpf, this.colorError, 'Message: CPF inválido')
+          this.error.setErrorMessageInput(input, span, this.colorError, 'Message: CPF inválido')
         }else {
-          this.error.setRemoveMessageErrorInput(input, this.spanCpf, this.colorOriginalDentist)
+          this.error.setRemoveMessageErrorInput(input, span, this.colorOriginalDentist)
         }
       });
-      this.error.setRemoveErrorMessageInputEvent(input, this.spanCpf, this.colorOriginalDentist);
+      this.error.setRemoveErrorMessageInputEvent(input, span, this.colorOriginalDentist);
     }
 
 
-    public warningCro(input: HTMLInputElement): void {
+    public warningCro(input: HTMLInputElement, span: HTMLSpanElement): void {
       input.addEventListener('focusout', () => {
         if(input.value.length < 4) {
-          this.error.setErrorMessageInput(input, this.spanCro, this.colorError, 'Message: CRO inválido');
+          this.error.setErrorMessageInput(input, span, this.colorError, 'Message: CRO inválido');
         } else {
-          this.error.setRemoveMessageErrorInput(input, this.spanCro, this.colorOriginalDentist);
+          this.error.setRemoveMessageErrorInput(input, span, this.colorOriginalDentist);
         }
       });
-      this.error.setRemoveErrorMessageInputEvent(input, this.spanCro, this.colorOriginalDentist);
+      this.error.setRemoveErrorMessageInputEvent(input, span, this.colorOriginalDentist);
     }
 
 
-    public warningEspecialidade(input: HTMLInputElement): void {
+    public warningEspecialidade(input: HTMLInputElement, span: HTMLSpanElement): void {
       input.addEventListener('focusout', () => {
         if(input.value.length === 0) {
-          this.error.setErrorMessageInput(input, this.spanEspecialidade, this.colorError, 'Message: O campo não pode estar vazio')
+          this.error.setErrorMessageInput(input, span, this.colorError, 'Message: O campo não pode estar vazio')
         } else {
-          this.error.setRemoveMessageErrorInput(input, this.spanEspecialidade, this.colorOriginalDentist);
+          this.error.setRemoveMessageErrorInput(input, span, this.colorOriginalDentist);
         }
       });
-      this.error.setRemoveErrorMessageInputEvent(input, this.spanEspecialidade, this.colorOriginalDentist);
+      this.error.setRemoveErrorMessageInputEvent(input, span, this.colorOriginalDentist);
     }
 
 
-    public warningTelefoneResidencial(input: HTMLInputElement): void {
+    public warningTelefoneResidencial(input: HTMLInputElement, span: HTMLSpanElement): void {
       input.addEventListener('focusout', () => {
         if(input.value.length < 14) {
-          this.error.setErrorMessageInput(input, this.spanTelRes, this.colorError, 'Message: Número de telefone incorreto')
+          this.error.setErrorMessageInput(input, span, this.colorError, 'Message: Número de telefone incorreto')
         } else {
-          this.error.setRemoveMessageErrorInput(input, this.spanTelRes, this.colorOriginalDentist);
+          this.error.setRemoveMessageErrorInput(input, span, this.colorOriginalDentist);
         }
       });
-      this.error.setRemoveErrorMessageInputEvent(input, this.spanTelRes, this.colorOriginalDentist);
+      this.error.setRemoveErrorMessageInputEvent(input, span, this.colorOriginalDentist);
     }
 
     
-    public warningTelefoneCelular(input: HTMLInputElement): void {
+    public warningTelefoneCelular(input: HTMLInputElement, span: HTMLSpanElement): void {
       input.addEventListener('focusout', () => {
         if(input.value.length < 16) {
-          this.error.setErrorMessageInput(input, this.spanTelCel, this.colorError, 'Message: Número de celular incorreto')
+          this.error.setErrorMessageInput(input, span, this.colorError, 'Message: Número de celular incorreto')
         } else {
-          this.error.setRemoveMessageErrorInput(input, this.spanTelCel, this.colorOriginalDentist);
+          this.error.setRemoveMessageErrorInput(input, span, this.colorOriginalDentist);
         }
       });
-      this.error.setRemoveErrorMessageInputEvent(input, this.spanTelCel, this.colorOriginalDentist);
+      this.error.setRemoveErrorMessageInputEvent(input, span, this.colorOriginalDentist);
     }
 
 
-    public warningEmail(input: HTMLInputElement): void {
+    public warningEmail(input: HTMLInputElement, span: HTMLSpanElement): void {
 
       const regex1 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       const regex2 = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
@@ -204,82 +204,88 @@ export class WarningForms {
 
         if(!regex1.test(input.value) || !regex2.test(input.value)) {
           let message = 'Message: E-mail inválido';
-          this.error.setErrorMessageInput(input, this.spanEmail, this.colorError, message);
+          this.error.setErrorMessageInput(input, span, this.colorError, message);
         } else {
-          this.error.setRemoveMessageErrorInput(input, this.spanEmail, this.colorOriginalDentist);
+          this.error.setRemoveMessageErrorInput(input, span, this.colorOriginalDentist);
         }
 
       });
 
-      this.error.setRemoveErrorMessageInputEvent(input, this.spanEmail, this.colorOriginalDentist);
+      this.error.setRemoveErrorMessageInputEvent(input, span, this.colorOriginalDentist);
 
     };
 
 
 
-    public warningRua(input: HTMLInputElement): void {
+    public warningRua(input: HTMLInputElement, span: HTMLSpanElement): void {
 
       input.addEventListener('focusout', () => {
         if(input.value === '') {
-          this.error.setErrorMessageInput(input, this.spanRua, this.colorError, 'Message: O campo não pode estar vazio');
+          this.error.setErrorMessageInput(input, span, this.colorError, 'Message: O campo não pode estar vazio');
         } else if (input.value.length < 3) {
-          this.error.setErrorMessageInput(input, this.spanRua, this.colorError, 'Message: Descrição de rua incorreta');
+          this.error.setErrorMessageInput(input, span, this.colorError, 'Message: Descrição de rua incorreta');
         } else {
-          this.error.setRemoveMessageErrorInput(input, this.spanRua, this.colorOriginalDentist);
+          this.error.setRemoveMessageErrorInput(input, span, this.colorOriginalDentist);
         }
       });
 
-      this.error.setRemoveErrorMessageInputEvent(input, this.spanRua, this.colorOriginalDentist);
+      this.error.setRemoveErrorMessageInputEvent(input, span, this.colorOriginalDentist);
     }
 
 
 
-    public warningNumero(input: HTMLInputElement): void {
+    public warningNumero(input: HTMLInputElement, span: HTMLSpanElement): void {
       input.addEventListener('focusout', () => {
         if(input.value === '') {
-          this.error.setErrorMessageInput(input, this.spanNumero, this.colorError, 'Message: O campo não pode estar vazio');
+          this.error.setErrorMessageInput(input, span, this.colorError, 'Message: O campo não pode estar vazio');
         } else {
-          this.error.setRemoveMessageErrorInput(input, this.spanNumero, this.colorOriginalDentist);
+          this.error.setRemoveMessageErrorInput(input, span, this.colorOriginalDentist);
         }
       });
-      this.error.setRemoveErrorMessageInputEvent(input, this.spanNumero, this.colorOriginalDentist);
+      this.error.setRemoveErrorMessageInputEvent(input, span, this.colorOriginalDentist);
     }
 
 
 
-    public warningBairro(input: HTMLInputElement): void {
+    public warningBairro(input: HTMLInputElement, span: HTMLSpanElement): void {
       input.addEventListener('focusout', () => {
         if(input.value === '') {
-          this.error.setErrorMessageInput(input, this.spanBairro, this.colorError, 'Message: O campo não pode estar vazio');
+          this.error.setErrorMessageInput(input, span, this.colorError, 'Message: O campo não pode estar vazio');
+        }  else if(input.value.length < 4) {
+          this.error.setErrorMessageInput(input, span, this.colorError, 'Message: Descrição de bairro inválido');
         } else {
-          this.error.setRemoveMessageErrorInput(input, this.spanBairro, this.colorOriginalDentist);
+          this.error.setRemoveMessageErrorInput(input, span, this.colorOriginalDentist);
         }
       });
-      this.error.setRemoveErrorMessageInputEvent(input, this.spanBairro, this.colorOriginalDentist);
+      this.error.setRemoveErrorMessageInputEvent(input, span, this.colorOriginalDentist);
     }
 
 
-    public warningCidade(input: HTMLInputElement): void {
+    public warningCidade(input: HTMLInputElement, span: HTMLSpanElement): void {
       input.addEventListener('focusout', () => {
         if(input.value === '') {
-          this.error.setErrorMessageInput(input, this.spanCidade, this.colorError, 'Message: O campo não pode estar vazio');
+          this.error.setErrorMessageInput(input, span, this.colorError, 'Message: O campo não pode estar vazio');
+        } else if(input.value.length < 4) {
+          this.error.setErrorMessageInput(input, span, this.colorError, 'Message: Descrição de cidade inválida');
         } else {
-          this.error.setRemoveMessageErrorInput(input, this.spanCidade, this.colorOriginalDentist);
+          this.error.setRemoveMessageErrorInput(input, span, this.colorOriginalDentist);
         }
       });
-      this.error.setRemoveErrorMessageInputEvent(input, this.spanCidade, this.colorOriginalDentist);
+      this.error.setRemoveErrorMessageInputEvent(input, span, this.colorOriginalDentist);
     }
 
 
-    public warningEstado(input: HTMLInputElement): void {
+    public warningEstado(input: HTMLInputElement, span: HTMLSpanElement): void {
       input.addEventListener('focusout', () => {
         if(input.value === '') {
-          this.error.setErrorMessageInput(input, this.spanEstado, this.colorError, 'Message: O campo não pode estar vazio');
+          this.error.setErrorMessageInput(input, span, this.colorError, 'Message: O campo não pode estar vazio');
+        } else if(input.value.length < 2) {
+          this.error.setErrorMessageInput(input, span, this.colorError, 'Message: Estado inválido');
         } else {
-          this.error.setRemoveMessageErrorInput(input, this.spanEstado, this.colorOriginalDentist);
+          this.error.setRemoveMessageErrorInput(input, span, this.colorOriginalDentist);
         }
       });
-      this.error.setRemoveErrorMessageInputEvent(input, this.spanEstado, this.colorOriginalDentist);
+      this.error.setRemoveErrorMessageInputEvent(input, span, this.colorOriginalDentist);
     }
 
 

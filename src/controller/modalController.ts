@@ -9,7 +9,8 @@ export class ModalController {
     private btnSaveUpdateDentist: HTMLButtonElement;
 
     public constructor() {
-        this.renderTemplateFather = document.querySelector('#container-pai') as HTMLDivElement;        
+        this.renderTemplateFather = document.querySelector('#container-pai') as HTMLDivElement;  
+        this.controllerRouterTs = new ControllerRouteTS();      
         
     }
 
@@ -23,9 +24,9 @@ export class ModalController {
      * @param id 
      * @param objectDataForUpdate 
      */
-    public modalInformationUpdateDentist(modalname: string, id: string, objectDataForUpdate): void {
+    public modalInformationUpdateDentist(modalname: string, id: string, objectDataForUpdate: any[]): void {
 
-        console.log('Entrado em modalInformationUpdateDentist');
+        //console.log('Entrado em modalInformationUpdateDentist');
         
         this.btnSaveUpdateDentist = document.querySelector('#btnSave') as HTMLButtonElement;
          
@@ -60,7 +61,7 @@ export class ModalController {
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary btnCancelar" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary btnModalUpdate" data-dismiss="modal">Atualizar mesmo assim</button>
+                            <button type="button" id="btnModalUpdateChangeNome" class="btn btn-primary btnModalUpdate" data-dismiss="modal">Atualizar mesmo assim</button>
                         </div>
                     </div>
                 </div>
@@ -106,7 +107,7 @@ export class ModalController {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btnCancelar" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary btnModalUpdate" data-dismiss="modal">Atualizar mesmo assim</button>
+                    <button type="button" id="btnModalUpdateChangeCro" class="btn btn-primary btnModalUpdate" data-dismiss="modal">Atualizar mesmo assim</button>
                 </div>
                 </div>
             </div>
@@ -118,7 +119,10 @@ export class ModalController {
             this.renderTemplateFather.insertAdjacentHTML('beforeend', templateModalChangeCro);
             const btnModalUpdateChangeCro = document.querySelector('#btnModalUpdateChangeCro');
 
+             
+
             btnModalUpdateChangeCro.addEventListener('click', () => {
+                //console.log(objectDataForUpdate)
                 this.controllerRouterTs.updateDentist(id, objectDataForUpdate);
             });
 
@@ -147,7 +151,7 @@ export class ModalController {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btnCancelar" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary btnModalUpdate" data-dismiss="modal">Atualizar mesmo assim</button>
+                    <button type="button" id="btnModalNewCroAndNewName" class="btn btn-primary btnModalUpdate" data-dismiss="modal">Atualizar mesmo assim</button>
                 </div>
                 </div>
             </div>

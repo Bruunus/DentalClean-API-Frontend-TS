@@ -47,6 +47,10 @@ export class MaskForm {
 
 
 
+ 
+
+
+
 
   public characterLowerCaseMask(inputs: HTMLInputElement[]): void {
 

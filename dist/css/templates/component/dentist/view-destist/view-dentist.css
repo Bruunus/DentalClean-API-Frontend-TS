@@ -383,7 +383,7 @@
 .div_container_tables::-webkit-scrollbar-thumb {
   background-color: #2ab78cc4; /* Cor do polegar da barra de rolagem */
   border-radius: 4px; /* Raio de borda do polegar */
-  transition: fadeIn 0.3s ease;
+  transition: fade 0.3s ease;
 }
 
 .div_container_tables:hover::-webkit-scrollbar-thumb {

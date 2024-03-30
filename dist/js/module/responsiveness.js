@@ -1,7 +1,11 @@
 export class Responsiveness {
     constructor() {
-        window.addEventListener('resize', this.getImageContainerResponsive);
+        window.addEventListener('resize', () => {
+            this.getImageContainerResponsive();
+            this.getHeightAlertError();
+        });
         this.getImageContainerResponsive();
+        this.getHeightAlertError();
     }
     getImageContainerResponsive() {
         const PHOTO_NORMAL = document.querySelector('#photo-normal');
@@ -33,5 +37,7 @@ export class Responsiveness {
                 PHOTO_NORMAL.style.display = 'block';
             }
         }
+    }
+    getHeightAlertError() {
     }
 }

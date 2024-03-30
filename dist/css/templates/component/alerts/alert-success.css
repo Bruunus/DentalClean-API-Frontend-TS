@@ -1,0 +1,20 @@
+
+
+.alert-success {
+    width: 50rem;
+    height: 48.5px;
+    position: fixed;
+    overflow: hidden;
+    bottom: 10px; /* Ajuste a posição vertical conforme necessário */
+    right: 10px; /* Ajuste a posição horizontal conforme necessário */
+    opacity: 1;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+
+@media (max-width: 843px)  {
+    .alert-success {
+        max-width: 80%;  
+        height: 48.5px; 
+    }
+}

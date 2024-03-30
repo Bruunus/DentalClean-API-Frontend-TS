@@ -1,6 +1,5 @@
 
 import { ControllerRouteTS } from "../controller/controllerRouterTS.js";
-import { DentistaController } from "../controller/dentistaController.js";
 import { EditDentistView } from "../view/templates/dentist/edit/editDentistView.js";
 import { AppModule } from "./appModule.js";
 

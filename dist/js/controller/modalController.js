@@ -1,9 +1,10 @@
+import { ControllerRouteTS } from "./controllerRouterTS.js";
 export class ModalController {
     constructor() {
         this.renderTemplateFather = document.querySelector('#container-pai');
+        this.controllerRouterTs = new ControllerRouteTS();
     }
     modalInformationUpdateDentist(modalname, id, objectDataForUpdate) {
-        console.log('Entrado em modalInformationUpdateDentist');
         this.btnSaveUpdateDentist = document.querySelector('#btnSave');
         switch (modalname) {
             case 'MODAL_CHANGE_NAME':
@@ -32,7 +33,7 @@ export class ModalController {
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary btnCancelar" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary btnModalUpdate" data-dismiss="modal">Atualizar mesmo assim</button>
+                            <button type="button" id="btnModalUpdateChangeNome" class="btn btn-primary btnModalUpdate" data-dismiss="modal">Atualizar mesmo assim</button>
                         </div>
                     </div>
                 </div>
@@ -68,7 +69,7 @@ export class ModalController {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btnCancelar" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary btnModalUpdate" data-dismiss="modal">Atualizar mesmo assim</button>
+                    <button type="button" id="btnModalUpdateChangeCro" class="btn btn-primary btnModalUpdate" data-dismiss="modal">Atualizar mesmo assim</button>
                 </div>
                 </div>
             </div>
@@ -103,7 +104,7 @@ export class ModalController {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary btnCancelar" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary btnModalUpdate" data-dismiss="modal">Atualizar mesmo assim</button>
+                    <button type="button" id="btnModalNewCroAndNewName" class="btn btn-primary btnModalUpdate" data-dismiss="modal">Atualizar mesmo assim</button>
                 </div>
                 </div>
             </div>

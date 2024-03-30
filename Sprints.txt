@@ -27,10 +27,7 @@ Histórico
     -   [Feito]      Configurar a imagem para impedir que seja arrastada
 
 
----------------------------------------------------------------------------------------------------------------------------------------
 
-
-Sprints
 
 
     * Tela cadastro dentista *
@@ -53,33 +50,40 @@ Sprints
     -   [Feito] validação para Cidade: O mesma necessidade do campo nomeCompleto - Não pode ter menos que 3 caracteres
         - terminado em [18/01/2024]
 
-    -   []  Gerar mensagem de "cadastro realizado com sucesso" depois de enviar.
-    
-    -   []      Verificar a tela de cadastro de dentista quando a media querie chega em 768px. Quando chega nessa
+   -   [Feito]  Verificar a tela de cadastro de dentista quando a media querie chega em 768px. Quando chega nessa
             resolução o template de cadastro de dentista está aparecendo a 2° barra de rolagem o que não é para            
             ocorrer. Ja soltei o menu superior para rolar a vontada para resolução pequena, porém está aparecendo uma   
             2° barra de rolagem. 
-    -   []      Arrumar o focus do butão sibmit de cadastro de dentista, pois quando navega com o Tab não dá para identificar.
-                Devolva o focus novamente com a cor conbinativa do sistema.
-    -   []      O Campo nomeCompleto está permitindo colar números. A digitação está ok porém precisa adicionar o seguinte
-                
-                const input = document.querySelector('#seuInput');
+    -   [Feito]  Gerar mensagem de "cadastro realizado com sucesso" depois de enviar.
+    -   [Feito]   Preparar mensagem de erro para dispositivos responsivos, a mensagem deve aparecer no topo ao centro para dispositivos
+        menores.
 
-                input.addEventListener('paste', (event) => {
-                    const pastedText = event.clipboardData.getData('text');
-                    if (/^\d+$/.test(pastedText)) {
-                        event.preventDefault();
-                    }
-                });  
+    -   [Feito]      Arrumar o focus do butão sibmit de cadastro de dentista, pois quando navega com o Tab não dá para identificar. E 
+                criar o mesmo efeito para navegação com teclado.
+
+                Devolva o focus novamente com a cor conbinativa do sistema.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+Sprints
+
+
+    * Tela cadastro dentista *
+
 
     *Tela Editar*
 
-    -   []      Verificar o evento do botão "Atualiza" da tela 'Editar Dentista' o mesmo não está salvando.
-    -   []      Tela de atualização: Não está atualizando os dados previamente - Verificar
-    -   []      Gerar mensagem de "Dados atualizados com sucesso" no botão atualizar.
-    -   []      Gerar mensagem de "Dados atualizados com sucesso" no botão excluir.
-    -   [04-01-2024]    []  Aumentar o tamanho da tela na mesma altura da tela de cadastro de dentista. Isso é somente para 
+    -   [Feito]      Verificar o evento do botão "Atualiza" da tela 'Editar Dentista' o mesmo não está salvando.
+    -   [Feito]      Tela de atualização: Não está atualizando os dados previamente - Verificar
+    -   [Feito]      Gerar mensagem de "Dados atualizados com sucesso" no botão atualizar.
+    -   [Feito]      Gerar mensagem de "Dados excluídos com sucesso" no botão excluir.
+    -   [04-01-2024]    [Feito]  Aumentar o tamanho da tela na mesma altura da tela de cadastro de dentista. Isso é somente para 
     telas grandes, use o @media min-width 1601
+    -   [Feito]  [26/01/2024]    Colocar mascara em todos os campos
+    -   [Feito]  [26/01/2024]    Colocar avisos em todos os campos
+    -   []  [26/01/2024]    Colocar validação em todos os campos
 
 
 
@@ -120,6 +124,14 @@ Sprints
     * Tela cadastro dentista *
 
     -   [03-01-2024]    []  Colocar box-shadon ao redor dos inputs em estado de erro. Pode ser coloração avermelhada.
+    -   [20-01-204]     []  Precisa deixar as letras dos inputs sempre com a primeira maiúscula e a sequencia min´uscula até clicar
+    'espaço' - Fiz um testo com o CapsLook ativado e todas saíram maiúsculas, isso não pode. Mesmo que o usuário insira assim ao sair
+    do campo deve-se ajustar adequadamente. Os campos que precisam sao: nome completo, e-mail, rua, bairro, cidade e estado
+    -   [20-01-204]     []  Verifique o campo data, coloquei uma data que não existe 31-02-1980 e ele acusou 'este campo não pode ficar
+    vazio';
+    -   [20-01-204]     []  Colocar o '9' automaticamente no input do telefone celular  
+
+
 
 
 

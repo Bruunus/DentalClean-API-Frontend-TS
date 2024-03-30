@@ -10,7 +10,33 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import { AppModule } from "../module/appModule.js";
 import { DentistaView } from "../view/templates/dentist/dentistaView.js";
 import { Dentist } from "../module/dentist.js";
+import { MessagesForm } from "../module/messagesForm.js";
 export class DentistaController {
+    constructor() {
+        this.messagesForm = new MessagesForm();
+    }
+    accessListDentist() {
+        this.loadListDentist()
+            .then((dentistData) => {
+            const templateView = DentistaView.render(dentistData);
+            AppModule.loadCellEffects();
+        });
+    }
+    accessSeachDentist(value) {
+        this.seachDentistForName(value)
+            .then((resultSeachData) => {
+            const templatView = Dentist.renderDentistList(resultSeachData);
+            AppModule.loadCellEffects();
+        });
+    }
+    setFetAPIUpdate(id, objectDataForUpdate) {
+        const idFet = id;
+        const objFer = objectDataForUpdate;
+        this.fetchAPIUpdate(idFet, objFer);
+    }
+    setDeleteDentist(id) {
+        this.delete(id);
+    }
     loadListDentist() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -38,20 +64,6 @@ export class DentistaController {
             }
         });
     }
-    accessListDentist() {
-        this.loadListDentist()
-            .then((dentistData) => {
-            const templateView = DentistaView.render(dentistData);
-            AppModule.loadCellEffects();
-        });
-    }
-    accessSeachDentist(value) {
-        this.seachDentistForName(value)
-            .then((resultSeachData) => {
-            const templatView = Dentist.renderDentistList(resultSeachData);
-            AppModule.loadCellEffects();
-        });
-    }
     fetchAPIUpdate(id, objectDataForUpdate) {
         fetch(`http://localhost:8080/atualizar/cadastro/dentista/${id}`, {
             method: 'PUT',
@@ -69,21 +81,29 @@ export class DentistaController {
             }
         })
             .then((data) => {
-            console.log(`Dados atualizados com sucesso !`);
-            console.log(data);
-            const renderTemplate = new DentistaController();
-            renderTemplate.accessListDentist();
+            this.messagesForm.alertSuccess('Dados atualizados com sucesso !');
         })
             .catch((error) => {
             console.error(error);
         });
     }
-    setFetAPIUpdate(id, objectDataForUpdate) {
-        const idFet = id;
-        const objFer = objectDataForUpdate;
-        this.fetchAPIUpdate(idFet, objFer);
-    }
-    testeRender() {
-        alert('test render is a Ok');
+    delete(id) {
+        fetch(`http://localhost:8080/api/delete/dentista/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => {
+            if (response.ok) {
+                this.messagesForm.alertSuccess('Dados excluídos com sucesso !');
+            }
+            else {
+                throw new Error('Erro ao excluir os dados');
+            }
+        })
+            .catch(error => {
+            console.error(error);
+        });
     }
 }

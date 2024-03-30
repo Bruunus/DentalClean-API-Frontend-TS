@@ -1,7 +1,7 @@
-import { ErrorMessageForm } from "./errorMessageForm.js";
+import { MessagesForm } from "./messagesForm.js";
 export class Validation {
     constructor() {
-        this.error = new ErrorMessageForm();
+        this.error = new MessagesForm();
         this.colorError = '#fb8b77';
         this.colorOriginalDentist = '#61a19352';
         this.nomeCompleto = document.querySelector('#nomeCompleto');
@@ -33,6 +33,7 @@ export class Validation {
         this.formSubmit = document.querySelector('#form_cadastro_dentista');
     }
     validationNomeCompletoDentist() {
+        const hasNumbers = /\d/.test(this.nomeCompleto.value);
         if (this.nomeCompleto.value.length > 4) {
             return true;
         }

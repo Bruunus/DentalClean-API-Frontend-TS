@@ -27,6 +27,7 @@ export class AppDentalCleanView {
                 </div>
 
                 <div id="container-child-right"></div>
+                
             </div>
 
 

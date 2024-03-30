@@ -1,4 +1,4 @@
-export class ErrorMessageForm {
+export class MessagesForm {
     messageError(input, span, borderColor, message) {
         input.style.borderColor = borderColor;
         span.style.display = 'block';

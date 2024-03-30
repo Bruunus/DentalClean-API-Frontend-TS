@@ -7,7 +7,9 @@ import { DentistaController } from "./dentistaController.js";
 import { PacienteController } from "./pacienteController.js";
 export class ControllerRouteTS {
     constructor() {
+        this.containerFather = document.querySelector('#container-pai');
         ControllerRouteTS.initBody = document.querySelector('html body');
+        this.dentistaController = new DentistaController();
     }
     static loadAppDentalClean() {
         new AppDentalCleanView(ControllerRouteTS.initBody);
@@ -44,8 +46,10 @@ export class ControllerRouteTS {
         renderTemplate.innerHTML = template;
     }
     updateDentist(id, jsonObjectDentist) {
-        const updateInDataBase = new DentistaController();
-        updateInDataBase.setFetAPIUpdate(id, jsonObjectDentist);
+        this.dentistaController.setFetAPIUpdate(id, jsonObjectDentist);
+    }
+    deleteDentist(id) {
+        this.dentistaController.setDeleteDentist(id);
     }
 }
 ControllerRouteTS.screenViewContainerMenu = '#container-child-left';

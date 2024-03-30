@@ -1,8 +1,8 @@
-import { ErrorMessageForm } from "./errorMessageForm.js";
+import { MessagesForm } from "./messagesForm.js";
 
 export class Validation {
 
-  private error: ErrorMessageForm;
+  private error: MessagesForm;
   private colorError: string;
   private colorOriginalDentist: string;
 
@@ -39,7 +39,7 @@ export class Validation {
 
   public constructor() {
 
-      this.error = new ErrorMessageForm();
+      this.error = new MessagesForm();
       this.colorError = '#fb8b77';
       this.colorOriginalDentist = '#61a19352';
 
@@ -78,12 +78,14 @@ export class Validation {
 
   public validationNomeCompletoDentist(): boolean  {  
 
+    const hasNumbers = /\d/.test(this.nomeCompleto.value);
+
     if(this.nomeCompleto.value.length > 4) {
         return true;
     } else if (this.nomeCompleto.value === '') {
         this.error.setErrorMessageInput(this.nomeCompleto, this.spanNomeCompleto, this.colorError, 'Message: O campo não pode estar vazio');
         return false;
-    } else {
+    }  else {
         //console.log('Nome menor que 4')
         let message = '' as string; 
         message = 'Message: Nome fornecido incorreto';

@@ -82,7 +82,8 @@
 
 #container-button-editar button:focus {
     /* box-shadow: 0 0 0 0.2rem #e7ace957; */
-    box-shadow: none;
+    
+
 }
 
 
@@ -111,26 +112,47 @@
 
 /* desativando a sombra */
 #container-father-div-editar button:first-of-type:focus,
-#container-father-div-editar button:nth-child(2):focus, 
-#container-father-div-editar button:nth-child(3):focus {
-    box-shadow: none;
+#container-father-div-editar button:nth-child(2):focus {
+    box-shadow: 0 0 0 0.2rem #cdebf4b0;
 }
-
-
-
-
-
-
+/*  cor do botão */
 #container-father-div-editar button:first-of-type:hover,
 #container-father-div-editar button:nth-child(2):hover {
     background-color: #afdff1;
+    box-shadow: 0 0 0 0.2rem #cdebf4b0;
 }
 
+#container-father-div-editar button:first-of-type:active,
+#container-father-div-editar button:nth-child(2):active {
+    background-color: #a2d6e9;
+    box-shadow: 0 0 0 0.2rem #cdebf4de;
+}
+
+
+
+
+
+
+
+/* botão excluir */
+#container-father-div-editar button:nth-child(3):focus {
+    background-color: #f76b6b;
+    border-color: #f05d5d;
+    color: #fff;
+    box-shadow: 0 0 0 0.2rem #dd5f5f62;
+}
+
+#container-father-div-editar button:nth-child(3):active {
+    box-shadow: 0 0 0 0.2rem #f76b6b59;
+    background-color: #e65757;
+    color: #fff;
+}
 
 #container-father-div-editar button:nth-child(3):hover {
     background-color: #f76b6b;
     border-color: #f05d5d;
     color: #fff;
+    box-shadow: 0 0 0 0.2rem #dd5f5f62;
 }
 
 

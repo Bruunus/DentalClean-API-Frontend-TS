@@ -1,8 +1,8 @@
-
 import { ControllerRouteTS } from "../../../../controller/controllerRouterTS.js";
 import { DentistaController } from "../../../../controller/dentistaController.js";
 import { ModalController } from "../../../../controller/modalController.js";
-import { Dentist } from "../../../../module/dentist.js";
+import { MaskForm } from "../../../../module/maskForm.js";
+import { WarningForms } from "../../../../module/warningForms.js";
 
 export  class EditDentistView {
  
@@ -24,6 +24,34 @@ export  class EditDentistView {
     private cidadeEditado: string;
     private estadoEditado: string;
 
+    private nomeCompletoInput: HTMLInputElement;
+    private dataNascimentoInput: HTMLInputElement;
+    private cpfInput: HTMLInputElement;
+    private croInput: HTMLInputElement;
+    private especialidadeInput: HTMLInputElement;
+    private telefoneResidencialInput: HTMLInputElement;
+    private telefoneCelularInput: HTMLInputElement;
+    private emailInput: HTMLInputElement;
+    private ruaInput: HTMLInputElement;
+    private numeroInput: HTMLInputElement;
+    private bairroInput: HTMLInputElement;
+    private cidadeInput: HTMLInputElement;
+    private estadoInput: HTMLInputElement;
+
+    private nomeCompletoSpan: HTMLSpanElement;    
+    private dataNascimentoSpan: HTMLSpanElement;
+    private cpfSpan: HTMLSpanElement;
+    private croSpan: HTMLSpanElement;
+    private especialidadeSpan: HTMLSpanElement;
+    private telefoneResidencialSpan: HTMLSpanElement;
+    private telefoneCelularSpan: HTMLSpanElement;
+    private emailSpan: HTMLSpanElement;
+    private ruaSpan: HTMLSpanElement;
+    private numeroSpan: HTMLSpanElement;
+    private bairroSpan: HTMLSpanElement;
+    private cidadeSpan: HTMLSpanElement;
+    private estadoSpan: HTMLSpanElement;
+
     private btnEditOptions: HTMLButtonElement | null;
     private btnSave: HTMLButtonElement | null;
     private btnDelete: HTMLButtonElement | null;
@@ -31,6 +59,8 @@ export  class EditDentistView {
     private renderTemplate: DentistaController; 
     private controllerRouterTS: ControllerRouteTS;  
     private modalController: ModalController;
+    private maskForm: MaskForm;
+    private warningForms: WarningForms;
     
 
      
@@ -39,6 +69,8 @@ export  class EditDentistView {
     public constructor (objectDentist: any[]) {
 
         this.modalController = new ModalController();
+        this.maskForm = new MaskForm();
+        this.warningForms = new WarningForms();
 
         if (objectDentist.length > 0) {
             const firstDentist = objectDentist[0];
@@ -82,27 +114,29 @@ export  class EditDentistView {
                    <div class="form-row">
                         <!-- col 1 -->
             
-                        <div class="form-group col-md-6">
-                            <label class="system-color-text label-form" name="nomeCompletoEditado">Nome Completo</label>
+                        <div class="form-group col-md-6 container-nome-completo">
+                            <label class="system-color-text label-form" for="nomeCompletoEditado">Nome Completo</label>
                             <input type="text" class="form-control form-input editar " id="nomeCompletoEditado" maxlength="20" disabled value="${this.nomeCompletoEditado}">
+                            <span class="spanMessage"></span>
                         </div>
-                        <div class="form-group col-md-3">
-                            <label class="system-color-text label-form" name="dataNascimentoEditar">Data nascimento</label>
+                        <div class="form-group col-md-3 container-data-nascimento">
+                            <label class="system-color-text label-form" for="dataNascimentoEditar">Data nascimento</label>
                             <input type="date" class="form-control form-input editar " id="dataNascimentoEditar" disabled value="${this.dataNascimentoEditado}">
+                            <span class="spanMessage"></span>
                         </div>
-                        <div class="form-group  col-md-3">
-                            <label class="system-color-text label-form" name="cpfEditar">CPF</label>
-                            <input type="text" class="form-control form-input editar" id="cpfEditar" disabled value="${this.cpfEditado}">
+                        <div class="form-group  col-md-3 container-cpf">
+                            <label class="system-color-text label-form" for="cpfEditar">CPF</label>
+                            <input type="text" class="form-control form-input editar" id="cpfEditar" disabled value="${this.cpfEditado}" maxlength="14">
+                            <span class="spanMessage"></span>
                         </div>
                         <!-- col 2 -->
-                        <div class="form-group col-12 col-sm-12 col-lg-6">
-                            <label class="system-color-text label-form" name="cro">CRO</label>
-                            <input type="number" class="form-control form-input editar" id="croEditar" disabled  value="${this.croEditado}">
+                        <div class="form-group col-12 col-sm-12 col-lg-6 container-cro">
+                            <label class="system-color-text label-form" for="croEditar">CRO</label>
+                            <input type="number" class="form-control form-input editar" id="croEditar" disabled  value="${this.croEditado}" maxlength="4">
+                            <span class="spanMessage"></span>
                         </div>
-                        <div class="form-group col-12 col-sm-12 col-lg-6">
-                            <label class="system-color-text label-form" name="especialidadeEditar">Especialidade</label>
-                           <!-- <input type="text" class="form-control editar" id="especialidadeEditar" disabled value="${this.especialidadeEditado}">
-                            -->
+                        <div class="form-group col-12 col-sm-12 col-lg-6 container-especialidade">
+                            <label class="system-color-text label-form" for="especialidadeEditar">Especialidade</label>
                             <select id="especialidadeEditar" class="form-control select-form editar" disabled >
                                 <option value="" disabled selected>Selecione</option>
                                 <option value="Cirurgia">Cirurgia</option>
@@ -115,42 +149,52 @@ export  class EditDentistView {
                                 <option value="Odontogeriatria">Odontogeriatria</option>
                                 <option value="Estética">Estética</option>
                             </select>
-                            </select>
+                            <span class="spanMessage"></span>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label class="system-color-text label-form" name="telefoneResidencialEditar">Telefine Residencial</label>
-                            <input type="text" class="form-control form-input editar" id="telefoneResidencialEditar" disabled value="${this.telefoneResidencialEditado}">
+                        <div class="form-group col-md-6 container-telefone-residencial">
+                            <label class="system-color-text label-form" for="telefoneResidencialEditar">Telefine Residencial</label>
+                            <input type="text" class="form-control form-input editar" id="telefoneResidencialEditar" 
+                                disabled value="${this.telefoneResidencialEditado}" maxlength="14">
+                            <span class="spanMessage"></span>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label class="system-color-text label-form" name="telefoneCelularEditar">Telefone Celular</label>
-                            <input type="text" class="form-control form-input editar" id="telefoneCelularEditar" disabled value="${this.telefoneCelularEditado}">
+                        <div class="form-group col-md-6 container-telefone-celular">
+                            <label class="system-color-text label-form" for="telefoneCelularEditar">Telefone Celular</label>
+                            <input type="text" class="form-control form-input editar" id="telefoneCelularEditar" 
+                                disabled value="${this.telefoneCelularEditado}" maxlength="16">
+                            <span class="spanMessage"></span>
                         </div>
                         <!-- col 3 -->
-                        <div class="form-group col-md-12">
-                            <label class="system-color-text label-form" name="emailEditar">E-mail</label>
-                            <input type="text" class="form-control form-input editar" id="emailEditar" disabled maxlength="35" value="${this.emailEditado}">
+                        <div class="form-group col-md-12 container-email">
+                            <label class="system-color-text label-form" for="emailEditar">E-mail</label>
+                            <input type="text" class="form-control form-input editar" id="emailEditar" disabled maxlength="31" value="${this.emailEditado}">
+                            <span class="spanMessage"></span>
                         </div>
                         <!-- col 4 -->
-                        <div class="form-group col-md-5">
-                            <label class="system-color-text label-form" name="ruaEditar">Rua</label>
-                            <input type="text" class="form-control form-input editar" id="ruaEditar" disabled maxlength="32" value="${this.ruaEditado}">
+                        <div class="form-group col-md-5 container-rua">
+                            <label class="system-color-text label-form" for="ruaEditar">Rua</label>
+                            <input type="text" class="form-control form-input editar" id="ruaEditar" disabled maxlength="25" value="${this.ruaEditado}">
+                            <span class="spanMessage"></span>
                         </div>
-                        <div class="form-group col-md-3">
-                            <label class="system-color-text label-form" name="numeroEditar">Número</label>
-                            <input type="text" class="form-control form-input editar" id="numeroEditar" disabled maxlength="5" value="${this.numeroEditado}">
+                        <div class="form-group col-md-3 container-numero">
+                            <label class="system-color-text label-form" for="numeroEditar">Número</label>
+                            <input type="text" class="form-control form-input editar" id="numeroEditar" disabled maxlength="6" value="${this.numeroEditado}">
+                            <span class="spanMessage"></span>
                         </div>
-                        <div class="form-group col-md-4">
-                            <label class="system-color-text label-form" name="bairroEditar">Bairro</label>
-                            <input type="text" class="form-control form-input editar" id="bairroEditar" disabled maxlength="20" value="${this.bairroEditado}">
+                        <div class="form-group col-md-4 container-bairro">
+                            <label class="system-color-text label-form" for="bairroEditar">Bairro</label>
+                            <input type="text" class="form-control form-input editar" id="bairroEditar" disabled maxlength="24" value="${this.bairroEditado}">
+                            <span class="spanMessage"></span>
                         </div>
                         <!-- col 5 -->
-                        <div class="form-group col-md-9">
-                            <label class="system-color-text label-form" name="cidadeEditar">Cidade</label>
+                        <div class="form-group col-md-9 container-cidade">
+                            <label class="system-color-text label-form" for="cidadeEditar">Cidade</label>
                             <input type="text" class="form-control form-input editar" id="cidadeEditar" disabled maxlength="24" value="${this.cidadeEditado}">
+                            <span class="spanMessage"></span>
                         </div>
-                        <div class="form-group col-md-3">
-                            <label class="system-color-text label-form" name="estadoEditar">Estado</label>
-                            <input type="text" class="form-control form-input editar" id="estadoEditar" disabled maxlength="35" value="${this.estadoEditado}">
+                        <div class="form-group col-md-3 container-estado">
+                            <label class="system-color-text label-form" for="estadoEditar">Estado</label>
+                            <input type="text" class="form-control form-input editar" id="estadoEditar" disabled maxlength="2" value="${this.estadoEditado}">
+                            <span class="spanMessage"></span>
                         </div>
             
                     </div>
@@ -175,6 +219,58 @@ export  class EditDentistView {
         this.controllerRouterTS = new ControllerRouteTS();
         this.controllerRouterTS.loadCallEditDentist(this.template);
 
+        // validations
+        this.nomeCompletoInput = document.querySelector('#nomeCompletoEditado') as HTMLInputElement;
+        this.dataNascimentoInput = document.querySelector('#dataNascimentoEditar') as HTMLInputElement;
+        this.cpfInput = document.querySelector('#cpfEditar') as HTMLInputElement;
+        this.croInput = document.querySelector('#croEditar') as HTMLInputElement;
+        this.especialidadeInput = document.querySelector('#especialidadeEditar') as HTMLInputElement;
+        this.telefoneResidencialInput = document.querySelector('#telefoneResidencialEditar') as HTMLInputElement;
+        this.telefoneCelularInput = document.querySelector('#telefoneCelularEditar') as HTMLInputElement;
+        this.emailInput = document.querySelector('#emailEditar') as HTMLInputElement;
+        this.ruaInput = document.querySelector('#ruaEditar') as HTMLInputElement;
+        this.numeroInput = document.querySelector('#numeroEditar') as HTMLInputElement;
+        this.bairroInput = document.querySelector('#bairroEditar') as HTMLInputElement;
+        this.cidadeInput = document.querySelector('#cidadeEditar') as HTMLInputElement;
+        this.estadoInput = document.querySelector('#estadoEditar') as HTMLInputElement;
+
+        this.nomeCompletoSpan = document.querySelector('.container-nome-completo span') as HTMLSpanElement;
+        this.dataNascimentoSpan = document.querySelector('.container-data-nascimento span') as HTMLSpanElement;
+        this.cpfSpan = document.querySelector('.container-cpf span') as HTMLSpanElement;
+        this.croSpan = document.querySelector('.container-cro span') as HTMLSpanElement;
+        this.especialidadeSpan = document.querySelector('.container-especialidade span') as HTMLSpanElement;
+        this.telefoneResidencialSpan = document.querySelector('.container-telefone-residencial span') as HTMLSpanElement;
+        this.telefoneCelularSpan = document.querySelector('.container-telefone-celular span') as HTMLSpanElement;
+        this.emailSpan = document.querySelector('.container-email span') as HTMLSpanElement;
+        this.ruaSpan = document.querySelector('.container-rua span') as HTMLSpanElement;
+        this.numeroSpan = document.querySelector('.container-numero span') as HTMLSpanElement;
+        this.bairroSpan = document.querySelector('.container-bairro span') as HTMLSpanElement;
+        this.cidadeSpan = document.querySelector('.container-cidade span') as HTMLSpanElement;
+        this.estadoSpan = document.querySelector('.container-estado span') as HTMLSpanElement;
+
+
+
+        this.mask(
+            this.nomeCompletoInput, this.croInput, this.bairroInput, this.cidadeInput, this.estadoInput, 
+            this.ruaInput, this.numeroInput, this.telefoneResidencialInput, this.telefoneCelularInput,
+            this.cpfInput
+        );
+
+
+        this.warning(
+            this.nomeCompletoInput, this.dataNascimentoInput, this.cpfInput, this.croInput, this.especialidadeInput,
+            this.telefoneResidencialInput, this.telefoneCelularInput, this.emailInput, this.ruaInput, this.numeroInput,
+            this.bairroInput, this.cidadeInput, this.estadoInput
+        );
+
+
+        //this.validation();
+
+
+
+
+        
+
         const validationNameAndCROJSON = {
 
             nome: this.nomeCompletoEditado,
@@ -190,11 +286,7 @@ export  class EditDentistView {
 
 
 
-        // {Debugg}
         
-        /* console.log('Botão editar', this.btnEditOptions) */
-
-        /* console.log(tela) */
 
 
 
@@ -204,8 +296,7 @@ export  class EditDentistView {
         this.btnSave.addEventListener('click', () => {  this.update(this.form ,this.id, [validationNameAndCROJSON]) });
 
 
-
-        this.btnDelete.addEventListener('click', () => { this.delete(this.id) })
+        this.btnDelete.addEventListener('click', () => { this.controllerRouterTS.deleteDentist(this.id) })
         
         
     };
@@ -218,7 +309,63 @@ export  class EditDentistView {
     public getBtnSave(): HTMLButtonElement {
         return this.btnSave;
     }
-    
+
+
+
+    private mask(
+
+        nomeInput: HTMLInputElement, croInput: HTMLInputElement, bairroInput: HTMLInputElement,
+        cidadeInput: HTMLInputElement, estadoInput: HTMLInputElement, ruaInput: HTMLInputElement,
+        numeroInput: HTMLInputElement, telefoneResidencialInput: HTMLInputElement,
+        telefoneCelularInput: HTMLInputElement, cpfInput: HTMLInputElement
+
+        ): void {
+        
+        const noNumbersAndCharacters = [nomeInput , bairroInput, cidadeInput, estadoInput] ;
+        const upperCaseCharacters = [estadoInput];
+        const characterLowerCase = [nomeInput, ruaInput, bairroInput, cidadeInput, estadoInput];
+        const noWordsAndCharacters = [croInput, numeroInput, telefoneResidencialInput, telefoneCelularInput];
+
+        this.maskForm.blockNumbersAnsCharacters(noNumbersAndCharacters);
+        this.maskForm.upperCaseLongMask(upperCaseCharacters);
+        this.maskForm.characterLowerCaseMask(characterLowerCase);
+        this.maskForm.noWordsAndCharacters(noWordsAndCharacters); 
+
+        this.maskForm.cpfMask(cpfInput);
+        this.maskForm.telefoneResidencialMask(telefoneResidencialInput);
+        this.maskForm.telefonecelularMask(telefoneCelularInput);
+
+    }    
+
+
+    private warning(
+
+        nomeCompleto: HTMLInputElement, dataNascimento: HTMLInputElement, cpf: HTMLInputElement, cro: HTMLInputElement,
+        especialidade: HTMLInputElement, telefoneResidencial: HTMLInputElement, telefoneCelular: HTMLInputElement,
+        email: HTMLInputElement, rua: HTMLInputElement, numero: HTMLInputElement, bairro: HTMLInputElement,
+        cidade: HTMLInputElement, estado: HTMLInputElement
+
+        ): void {
+
+
+        
+
+
+        this.warningForms.warningNomeCompleto(nomeCompleto, this.nomeCompletoSpan);
+        this.warningForms.warningDataDeNascimento(dataNascimento, this.dataNascimentoSpan);
+        this.warningForms.warningCpf(cpf, this.cpfSpan);
+        this.warningForms.warningCro(cro, this.croSpan);
+        this.warningForms.warningEspecialidade(especialidade, this.especialidadeSpan);
+        this.warningForms.warningTelefoneResidencial(telefoneResidencial, this.telefoneResidencialSpan);
+        this.warningForms.warningTelefoneCelular(telefoneCelular, this.telefoneCelularSpan);
+        this.warningForms.warningEmail(email, this.emailSpan);
+        this.warningForms.warningRua(rua, this.ruaSpan);
+        this.warningForms.warningNumero(numero, this.numeroSpan);
+        this.warningForms.warningBairro(bairro, this.bairroSpan);
+        this.warningForms.warningCidade(cidade, this.cidadeSpan);
+        this.warningForms.warningEstado(estado, this.estadoSpan);
+
+    }
     
 
     /**
@@ -301,10 +448,22 @@ export  class EditDentistView {
             )
 
 
-            const updateObjectDentist = {
-                nomeCompleto: this.nomeCompletoEditado,            
-                cro: this.croEditado
-            };       
+            const updateObjectDentist: any = {
+                nomeCompleto: this.nomeCompletoEditado,   
+                rua: this.ruaEditado,
+                numero: this.numeroEditado,
+                bairro: this.bairroEditado,
+                cidade: this.cidadeEditado,
+                estado: this.estadoEditado,
+                email: this.emailEditado,
+                dataNascimento: this.dataNascimentoEditado,
+                telefoneResidencial: this.telefoneCelularEditado,
+                telefoneCelular: this.telefoneCelularEditado,
+                especialidade: this.especialidadeEditado,                                    
+                cro: this.croEditado,
+                cpf: this.cpfEditado
+                
+            };         
 
 
 
@@ -326,20 +485,37 @@ export  class EditDentistView {
                 }
             });
 
+
+
+               
+
+
     
 
             if(updateObjectDentist.nomeCompleto === nomeOriginal && updateObjectDentist.cro != croOriginal) {
+
+                console.log('Entrado em condição - MODAL_CHANGE_CRO')
                 this.modalController.modalInformationUpdateDentist('MODAL_CHANGE_CRO',id, updateObjectDentist)
 
             } else if (updateObjectDentist.nomeCompleto != nomeOriginal && updateObjectDentist.cro === croOriginal) {
+
+                // criar api no backend para update específico de nomeOriginal...
+                console.log('Entrado em condição - MODAL_CHANGE_NAME')
                 this.modalController.modalInformationUpdateDentist('MODAL_CHANGE_NAME', id, updateObjectDentist);
             
             } else if(updateObjectDentist.nomeCompleto != nomeOriginal && updateObjectDentist.cro != croOriginal) {
+
+                // criar api no backend para update específico de nomeOriginal e croOriginal...
+                console.log('Entrado em condição - NEW_CRO_AND_NEW_NAME')
                 this.modalController.modalInformationUpdateDentist('NEW_CRO_AND_NEW_NAME', id, updateObjectDentist);
             
             } else {
+
                 // salvar os dados aqui caso não houver alteração...
-                alert('Dados salvos...')
+                
+
+                this.controllerRouterTS.updateDentist(id, updateObjectDentist);
+                 
             }
         } 
     }
@@ -352,34 +528,6 @@ export  class EditDentistView {
 
 
 
-    /**
-     * Método utilizado para excluir um cadastro de dentista no banco de dados.
-     * Atrávés do id di cadastro capturado e mapeado é feito uma requisição para
-     * exclusão segundo o mesmo.
-     * 
-     * @param id 
-     */
-    private delete(id: string): void {
-        fetch(`http://localhost:8080/api/delete/dentista/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                alert('Dentista excluído com sucesso!');
-                this.renderTemplate = new DentistaController();
-                this.renderTemplate.accessListDentist(/* 'SCREEN_DENTIST' */);
-
-            } else {
-                throw new Error('Erro ao excluir os dados');
-            }
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    }
 
 
 

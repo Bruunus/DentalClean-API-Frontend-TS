@@ -1,18 +1,17 @@
 import { CadastroDentistaView } from "../view/templates/dentist/register/cadastroDentistaView.js";
 import { CadastroPacienteView } from "../view/templates/patient/register/cadastroPacienteView.js";
 import { AppModule } from "../module/appModule.js";
-import { DentistaView } from "../view/templates/dentist/dentistaView.js";
 import { Menu } from "../view/templates/menu/menu.js";
 import { AppDentalCleanView } from "../view/templates/appDentalCleanView.js";
 import { DentistaController } from "./dentistaController.js";
 import { PacienteController } from "./pacienteController.js";
-import { Dentist } from "../module/dentist.js";
 
 export class ControllerRouteTS {
 
     /**
     * Controller TS responsável para renderizar os templates que são invocados conforme o usuário clicar em app.ts
     */     
+   public containerFather: HTMLElement = document.querySelector('#container-pai');
    public static screenViewContainerMenu: string = '#container-child-left';
    public static screenViewContainer: string = '#container-child-right'; 
    public static redirectChildLeft:HTMLElement = document.querySelector('#container-child-left');
@@ -21,6 +20,8 @@ export class ControllerRouteTS {
 
    private cadastroDentistaView: CadastroDentistaView;
    private cadastroPacienteView: CadastroPacienteView;
+
+   private dentistaController: DentistaController;
     
     
 
@@ -28,6 +29,8 @@ export class ControllerRouteTS {
    public constructor() {
 
         ControllerRouteTS.initBody = document.querySelector('html body') as HTMLElement;
+
+        this.dentistaController = new DentistaController();
 
          
    }
@@ -67,6 +70,7 @@ export class ControllerRouteTS {
         
        ControllerRouteTS.redirectChildRight.innerHTML = templateView; 
        AppModule.loadCellEffects();
+       
        
    }
 
@@ -157,11 +161,16 @@ export class ControllerRouteTS {
 
 
     public updateDentist(id: string, jsonObjectDentist: any[]) : void {
-        const updateInDataBase = new DentistaController();
-        updateInDataBase.setFetAPIUpdate(id, jsonObjectDentist);
+        //const updateInDataBase = new DentistaController();
+        this.dentistaController.setFetAPIUpdate(id, jsonObjectDentist);
+    }
+
+    public deleteDentist(id: string) : void {
+        this.dentistaController.setDeleteDentist(id);
     }
 
 
+ 
 
 
 }

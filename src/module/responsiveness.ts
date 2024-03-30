@@ -2,8 +2,13 @@ export class Responsiveness {
 
 
     public constructor() {
-        window.addEventListener('resize', this.getImageContainerResponsive);
+      window.addEventListener('resize', () => {
         this.getImageContainerResponsive();
+        this.getHeightAlertError();
+      });
+        
+        this.getImageContainerResponsive();
+        this.getHeightAlertError();
        
      
     }
@@ -40,7 +45,7 @@ export class Responsiveness {
         if(PHOTO_NORMAL.style.display === 'none' || PHOTO_NOTEBOOK.style.display === 'none') {
           PHOTO_NORMAL.style.display = 'none';
           PHOTO_NOTEBOOK.style.display = 'none';
-          PHOTO_TABLET.style.display = 'block';       
+          PHOTO_TABLET.style.display = 'block';  
 
         }    else {
 
@@ -50,24 +55,15 @@ export class Responsiveness {
         }
 
 
-
-
-      /* const btnModalUpdateChangeNome = document.querySelector('#btnModalUpdateChangeNome');
-
-      
-      if(window.matchMedia("(max-width: 360px)").matches) {
-        btnModalUpdateChangeNome.textContent = 'Atualizar';
-      } else {
-        
-        btnModalUpdateChangeNome.textContent = 'Atualizar mesmo assim';
-      }*/
-
-
-
-    } 
-        
+      } 
 
     }  
+
+
+    private getHeightAlertError(): void {
+      
+          
+    }
 
         
         
