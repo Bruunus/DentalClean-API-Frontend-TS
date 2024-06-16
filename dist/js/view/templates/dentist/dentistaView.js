@@ -83,7 +83,7 @@ export class DentistaView {
 
                 ${dentistData.map((dentist) => {
             return `
-                        <tr class="no-select tr_format" style="color: #354057"> 
+                        <tr class="no-select tr_format_dentist" style="color: #354057"> 
                             <td class="nomeCompleto">${dentist.nomeCompleto}</td>
                             <td class="dataNascimento">${dentist.dataNascimento}</td>
                             <td class="cpf">${dentist.cpf}</td>

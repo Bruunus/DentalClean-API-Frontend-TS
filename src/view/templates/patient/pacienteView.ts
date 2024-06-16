@@ -40,7 +40,7 @@ export class PacienteView {
         </div>
 
 
-        <div class="div_container_tables_paciente" style="background-color: #f7fcff;">
+        <div class="div_container_tables_paciente" >
 
             <table class='table_paciente table-hover table-sm '>
                 <thead class='thead_paciente'>
@@ -65,7 +65,7 @@ export class PacienteView {
 
                         return `
                         
-                            <tr>
+                            <tr class="no-select tr_format" style="color: #354057">
                                 <td>${patient.nomeCompleto}</td>
                                 <td>${patient.dataNascimento}</td>
                                 <td>${patient.genero}</td>

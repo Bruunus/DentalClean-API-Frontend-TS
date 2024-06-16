@@ -8,12 +8,12 @@
 
 .div_titulo_patient_home {
 
-    background-color: #ffe2ca;      /*background-color: #ffdfc4; Talvez a cor do formulário  */
+    background-color: #fceaaeee;      /*background-color: #ffdfc4; Talvez a cor do formulário  */
     text-align: center  !important;
-    border: 1px solid #c5590040;
+    border: 1px solid #c5590036;
     border-radius: 10px 10px 0 0 !important; /* Raio de borda nos cantos superiores esquerdo e direito */
     
-    color: #c55900;
+    color: #c55900cf;
 }
 
 .div_titulo_patient_home h4 {
@@ -25,10 +25,10 @@
 
 
 .container-nav-bar-pesquisar-paciente {
-    background-color: #ffe2ca;
+    background-color: #fff1e5;
     max-width: 100% !important;
-    border-left: 1px solid #c5590040;
-    border-right: 1px solid #c5590040;
+    border-left: 1px solid #c5590036;
+    border-right: 1px solid #c5590036;
     margin-right: 0vw !important;
     margin-left: 0vw !important;
 } 
@@ -36,7 +36,7 @@
 .nav-container-pesquisar-paciente {
     max-width: 100% !important;
     padding: 7px 16px 2px 7px;
-    background-color: #ffe2ca;
+    background-color: #fff1e5;
 }
 
 /******** Barra de pesquisa ********/
@@ -94,7 +94,7 @@
     height: 30px;   /* Altura fixa */
     max-width: 100%;
     font-size: 15px !important;
-    border: 1px solid #c5590040 !important;   /* borda do input */
+    border: 1px solid #c5590036 !important;   /* borda do input */
 }
 
 
@@ -106,8 +106,8 @@
 
 .input-form-pesquisar-paciente:focus, .input-form-pesquisar-paciente:active {
     outline: none;
-    box-shadow: 0 0 0 .1rem #c5590040;
-    border-color: #c5590040;
+    box-shadow: 0 0 0 .1rem #c5590036;
+    border-color: #c5590036;
     background-color: #fff;
 }
 
@@ -116,7 +116,7 @@
 
 .btn-outline-success-paciente {
     max-width: 100% !important;
-    color: #c55900;  
+    color: #c55900cf;  
     background-color:transparent;
     background-image:none;
     border-color: #c5590070;
@@ -171,9 +171,9 @@
     scrollbar-width: thin;
     
   
-    border-left: 1px solid #c5590040;
-    border-right: 1px solid #c5590040;
-    border-bottom: 1px solid #c5590040;
+    border-left: 1px solid #c5590036;
+    border-right: 1px solid #c5590036;
+    border-bottom: 1px solid #c5590036;
   }
   .div_container_tables_paciente:hover {
     overflow: scroll ;
@@ -212,7 +212,6 @@
 /* 
 *  Configuração da row principal th 
 */
-
 .thead_paciente {
     /* background-color: #f1a085; */
     position: -webkit-sticky;
@@ -224,21 +223,21 @@
   }
   
   .thead_paciente th {
-    background-color: #ffe2ca;
+    background-color: #fff1e5;
     font-family: 'fonte-tema';
     letter-spacing: 0.3px;
   }
   
   .thead_paciente th a {
-    color: #cd5757;
+    color: #cb453dcf;
   }
   .thead_paciente th a:hover {
     text-decoration: underline;
-    color: #cd5757 !important;
+    color: #cb453dcf !important;
   }
   
   .color_font_th_paciente {
-    color: #cd5757 !important;
+    color: #cb453dcf !important;
   }
 
 
@@ -273,24 +272,39 @@
 
 .div_container_tables_paciente::-webkit-scrollbar {   
     width: 0.6666666rem;  
-    height: 0.7666666rem; /* Engrossar barra */
+    height: 0.5666666rem; /* Engrossar barra */
   }
   
   
   /* Estilo do polegar da barra de rolagem (a parte que você arrasta) */
   .div_container_tables_paciente::-webkit-scrollbar-thumb {
-    background-color: #2ab78cc4; /* Cor do polegar da barra de rolagem */
-    border-radius: 4px; /* Raio de borda do polegar */
+    background-color: #da9e6d; /* Cor do polegar da barra de rolagem */
+    border-radius: 7px; /* Raio de borda do polegar */
     transition: fade 0.3s ease;
   }
   
   .div_container_tables_paciente:hover::-webkit-scrollbar-thumb {
-    background-color: #2ab78cc4;
+    background-color: #da9e6d;
     opacity: 1;
   }
   
   /* Estilo da pista da barra de rolagem (a parte onde o polegar se move) */
   .div_container_tables_paciente::-webkit-scrollbar-track {
-    background-color: #f3fbff; /* Cor da pista da barra de rolagem */
+    background-color: #fcf3ff; /* Cor da pista da barra de rolagem */
   }
+
+
   
+  /* Para o Firefox */
+.div_container_tables_paciente {
+  scrollbar-color: #da9e6d #f3fbff;
+  scrollbar-width: 4px;
+  border-radius: 4px; /* Raio de borda do polegar */
+
+}
+
+.div_container_tables_paciente:hover {
+  scrollbar-color: #e2ad81 #f3fbff;
+  scrollbar-width: auto;
+  border-radius: 4px; /* Raio de borda do polegar */
+}

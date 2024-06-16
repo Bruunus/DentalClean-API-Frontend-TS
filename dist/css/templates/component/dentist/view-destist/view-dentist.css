@@ -252,11 +252,11 @@
 
 /* Alteração de background da classe do framework bootstrap .table-hover - (Template dentista) */
 .table-hover .table_hover_dentist tr:hover td {
-  background: rgb(239, 249, 252);
+  background: #eff9fc;
 }
 
-.tr_format {
-  background-color: #def4ff0a;
+.tr_format_dentist {
+  background-color: #f3fafc70;
   border-bottom: 1px solid #4092cf3b;
 }
 
@@ -358,7 +358,7 @@
 
 .div_container_tables::-webkit-scrollbar {   
   width: 0.6666666rem;  
-  height: 0.7666666rem; /* Engrossar barra */
+  height: 0.9666666rem; /* Engrossar barra */
 }
 
 
@@ -378,5 +378,13 @@
 .div_container_tables::-webkit-scrollbar-track {
   background-color: #f3fbff; /* Cor da pista da barra de rolagem */
 }
+
+
+/* Para o Firefox */
+.div_container_tables {
+  scrollbar-color: #2ab78cc4 #f3fbff;
+  scrollbar-width: auto;
+}
+
 
 
