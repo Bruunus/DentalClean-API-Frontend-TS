@@ -104,24 +104,7 @@
 
   
 
-  /*
-          Importante: A cor do botão e seus detalhes foi definida diretamente no framework, segue o caminho 
-          dist/css/bootstrap_4_1_3/bootstrap.min.css -> Pesquise por 'btn-outline-success'
-      */
-  .btn-pesquisar {
-      font-size: .9vw !important;
-      height: 2vw;
-      font-family: 'fonte-tema';
-      letter-spacing: 0.5px;
-
-      /* centralizando nome do button */
-      align-items: center;
-      justify-content: center;
-      justify-items: center;
-      text-align: center;
-      display: flex;
-      
-  }
+  
 
 
 

@@ -3,7 +3,7 @@
 /******** Estilo para título da tabela ********/
 
 
-
+/* listagem de dentista */
 .div_titulo_dentist {
 
     background-color: #e0f5ff;
@@ -14,6 +14,7 @@
     color: #4092cf;
 
 }
+
 
 .div_titulo_dentist h4 {
     font-family: 'fonte-tema';

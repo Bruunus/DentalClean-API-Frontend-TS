@@ -4,3 +4,293 @@
     position:fixed;
     
 } */
+
+
+.div_titulo_patient_home {
+
+    background-color: #ffe2ca;      /*background-color: #ffdfc4; Talvez a cor do formulário  */
+    text-align: center  !important;
+    border: 1px solid #c5590040;
+    border-radius: 10px 10px 0 0 !important; /* Raio de borda nos cantos superiores esquerdo e direito */
+    
+    color: #c55900;
+}
+
+.div_titulo_patient_home h4 {
+    font-family: 'fonte-tema';
+    padding-top: 5px;
+    margin-bottom: 0;
+}
+
+
+
+.container-nav-bar-pesquisar-paciente {
+    background-color: #ffe2ca;
+    max-width: 100% !important;
+    border-left: 1px solid #c5590040;
+    border-right: 1px solid #c5590040;
+    margin-right: 0vw !important;
+    margin-left: 0vw !important;
+} 
+
+.nav-container-pesquisar-paciente {
+    max-width: 100% !important;
+    padding: 7px 16px 2px 7px;
+    background-color: #ffe2ca;
+}
+
+/******** Barra de pesquisa ********/
+
+.form-seach-paciente {
+    width: 100%;
+}
+
+/* row */
+.form-seach-paciente div {
+    /* background-color: lightpink;  {Debug}   */
+
+    height: 38.55px; /* Altura fixa */
+
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+
+
+.form-seach-paciente div div:nth-child(1) {
+
+    /* background-color: red; {Debug}   */
+
+    padding-left: 7px;
+    padding-right: 5px;
+
+    -ms-flex: 0 0 80.666667%;
+    flex: 0 0 19.666667%;
+    min-width: 19.666667%;
+    max-width: 22.666667%; /* tamanho máximo de largura */
+
+
+}
+
+.form-seach-paciente div div:nth-child(2) {
+
+    /* background-color: lightgreen; {Debug}    */
+
+    padding-left: 5px;
+    padding-right: 10px;
+
+    flex: 0 0 9%;
+    max-width: 40%;
+
+}
+
+
+.form-seach-paciente div div input {
+    /* input segue o pai */
+    width: 100%;
+    height: 30px;   /* Altura fixa */
+    max-width: 100%;
+    font-size: 15px !important;
+    border: 1px solid #c5590040 !important;   /* borda do input */
+}
+
+
+.form-seach-paciente div div button {
+    font-size: 14px !important;
+    height: 29px;   /* Altura fixa */
+    width: 88.27px; /* Largura fixa */
+}
+
+.input-form-pesquisar-paciente:focus, .input-form-pesquisar-paciente:active {
+    outline: none;
+    box-shadow: 0 0 0 .1rem #c5590040;
+    border-color: #c5590040;
+    background-color: #fff;
+}
+
+
+/* Estilo do botão pesquisar */
+
+.btn-outline-success-paciente {
+    max-width: 100% !important;
+    color: #c55900;  
+    background-color:transparent;
+    background-image:none;
+    border-color: #c5590070;
+}
+.btn-outline-success-paciente:hover {
+    color:#fff;
+    background-color: #e47718;
+    border-color:#c5590100;
+}
+.btn-outline-success-paciente.focus,.btn-outline-success-paciente:focus {
+    /* box-shadow:0 0 0 .2rem rgba(40,167,69,.5)  - Original Bootstrap*/
+    /*Desabilitando focus do botão*/
+    outline: none;
+    box-shadow: none;
+    border-color: #e47718;
+}
+.btn-outline-success-paciente.disabled,.btn-outline-success-paciente:disabled {
+    color:lightgray;
+    border-color:lightgray;
+    background-color:transparent;
+
+}
+.btn-outline-success-paciente:not(:disabled):not(.disabled).active,.btn-outline-success-paciente:not(:disabled):not(.disabled):active,.show>.btn-outline-success-paciente.dropdown-toggle  {
+    color:#fff;
+    background-color: #ca6715;
+    border-color:#ca6715;
+}
+.btn-outline-success-paciente:not(:disabled):not(.disabled).active:focus,.btn-outline-success-paciente:not(:disabled):not(.disabled):active:focus,.show>.btn-outline-success-paciente.dropdown-toggle:focus    {
+    /* box-shadow:0 0 0 .2rem rgba(40,167,69,.5)  Original Bootstrap*/
+    /*Desabilitando focus do botão*/
+    outline: none;
+    box-shadow: none;
+    border-color: #ca6715;
+}
+
+
+
+/******** Estilo a lista da tabela ********/
+
+
+
+
+/*
+*   Configuração do container da tabela
+*/
+
+.div_container_tables_paciente {
+    width: 100%; 
+    height: 82vh !important;  /* tamanho recomendado */
+    max-height: 100vh !important; /* Definição do tamanho da tabela no total */
+    overflow: hidden;
+    scrollbar-width: thin;
+    
+  
+    border-left: 1px solid #c5590040;
+    border-right: 1px solid #c5590040;
+    border-bottom: 1px solid #c5590040;
+  }
+  .div_container_tables_paciente:hover {
+    overflow: scroll ;
+    
+  }
+
+
+
+/* 
+*  Configuração e layout da tabela
+*/
+.table_paciente {
+    max-width: 100%;
+    table-layout: fixed;
+  }
+  
+  .table_paciente th, .table_paciente td {
+    /* width: 200px; */
+    white-space: nowrap;
+    text-align: center;
+    padding: 0.5vw;
+  }
+  
+  .table.table_paciente th {
+    border-top: none;
+    border-bottom: none;
+  }
+  
+  /* AGUARDANDO FONTE PARA TEXTO */
+  .table_paciente td {
+    color: #33334d;
+    /*  font-family: 'fonte-sistema'; */
+  }
+
+
+/* 
+*  Configuração da row principal th 
+*/
+
+.thead_paciente {
+    /* background-color: #f1a085; */
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0.1px !important;
+    z-index: 1000; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+      
+  }
+  
+  .thead_paciente th {
+    background-color: #ffe2ca;
+    font-family: 'fonte-tema';
+    letter-spacing: 0.3px;
+  }
+  
+  .thead_paciente th a {
+    color: #cd5757;
+  }
+  .thead_paciente th a:hover {
+    text-decoration: underline;
+    color: #cd5757 !important;
+  }
+  
+  .color_font_th_paciente {
+    color: #cd5757 !important;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+*   Estilo da barra de rolagem  da tabela de destista 
+*/
+
+.div_container_tables_paciente::-webkit-scrollbar {   
+    width: 0.6666666rem;  
+    height: 0.7666666rem; /* Engrossar barra */
+  }
+  
+  
+  /* Estilo do polegar da barra de rolagem (a parte que você arrasta) */
+  .div_container_tables_paciente::-webkit-scrollbar-thumb {
+    background-color: #2ab78cc4; /* Cor do polegar da barra de rolagem */
+    border-radius: 4px; /* Raio de borda do polegar */
+    transition: fade 0.3s ease;
+  }
+  
+  .div_container_tables_paciente:hover::-webkit-scrollbar-thumb {
+    background-color: #2ab78cc4;
+    opacity: 1;
+  }
+  
+  /* Estilo da pista da barra de rolagem (a parte onde o polegar se move) */
+  .div_container_tables_paciente::-webkit-scrollbar-track {
+    background-color: #f3fbff; /* Cor da pista da barra de rolagem */
+  }
+  
