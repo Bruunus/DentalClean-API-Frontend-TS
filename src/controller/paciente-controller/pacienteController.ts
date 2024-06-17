@@ -1,5 +1,4 @@
-import { PacienteView } from '../view/templates/patient/pacienteView.js';
-import { ControllerRouteTS } from './controllerRouterTS.js';
+import { PacienteView } from '../../view/templates/patient/pacienteView.js';
 
 
 export class PacienteController {

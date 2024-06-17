@@ -1,14 +1,15 @@
-import { CadastroController } from "../../../../controller/cadastroController.js";
-import { MessagesForm } from "../../../../module/messagesForm.js";
-import { Validation } from "../../../../module/validationForm.js";
-import { WarningForms } from "../../../../module/warningForms.js";
+import { CadastroService } from "../../../../service/cadastroService.js";
+import { MessagesForm } from "../../../../module/application/messagesForm.js";
+import { Validation } from "../../../../module/validation/validationForm.js";
+import { WarningForms } from "../../../../module/validation/warningForms.js";
 import { MaskForm } from "../../../../module/maskForm.js";
+
 
 export class CadastroDentistaView {
 
 
     private error: MessagesForm;
-    private dentistaAPI: CadastroController;
+    private dentistaAPI: CadastroService;
     private maskForm: MaskForm;
     private validationForm: Validation;
 
@@ -42,7 +43,7 @@ export class CadastroDentistaView {
      */
     public constructor(renderizadorId: string) {
         this.error = new MessagesForm();
-        this.dentistaAPI = new CadastroController();
+        this.dentistaAPI = new CadastroService();
         this.maskForm = new MaskForm();
         this.validationForm = new Validation();
 

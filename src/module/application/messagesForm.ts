@@ -1,4 +1,4 @@
-import { CadastroDentistaView } from "../view/templates/dentist/register/cadastroDentistaView.js";
+import { CadastroDentistaView } from "../../view/templates/dentist/register/cadastroDentistaView.js";
 
 export class MessagesForm {
 

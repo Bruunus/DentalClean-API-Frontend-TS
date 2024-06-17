@@ -1,7 +1,7 @@
-import { CadastroController } from "../../../../controller/cadastroController.js";
+import { CadastroService } from "../../../../service/cadastroService.js";
 export class CadastroPacienteView {
     constructor(renderizadorId) {
-        this.pacienteAPI = new CadastroController();
+        this.pacienteAPI = new CadastroService();
         this.elementDOM = document.querySelector(renderizadorId);
     }
     templatePaciente() {

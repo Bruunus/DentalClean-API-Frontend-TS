@@ -1,4 +1,4 @@
-import { MessagesForm } from "./messagesForm.js";
+import { MessagesForm } from "./application/messagesForm.js";
 export class Validation {
     constructor() {
         this.error = new MessagesForm();

@@ -1,9 +1,9 @@
-import { CadastroController } from "../../../../controller/cadastroController.js";
+import { CadastroService } from "../../../../service/cadastroService.js";
 
 export class CadastroPacienteView {
 
     private elementDOM: HTMLElement;
-    private pacienteAPI = new CadastroController();
+    private pacienteAPI = new CadastroService();
     
     
     public constructor(renderizadorId: string) {

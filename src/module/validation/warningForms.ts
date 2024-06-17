@@ -1,6 +1,4 @@
-import { CadastroController } from "../controller/cadastroController.js";
-import { Dentist } from "./dentist.js";
-import { MessagesForm } from "./messagesForm.js";
+import { MessagesForm } from "../application/messagesForm.js";
 
 export class WarningForms {
 

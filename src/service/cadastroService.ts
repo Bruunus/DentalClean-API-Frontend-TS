@@ -1,4 +1,4 @@
-export class CadastroController {
+export class CadastroService {
 
     public cadastrarPaciente(nome: string, dataNascimento: string, genero: string, email: string, 
         convenio: string, numeroCarteirinha: string, rua: string, numero: string, bairro: string, cidade:string, estado: string): void {

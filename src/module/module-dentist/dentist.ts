@@ -1,7 +1,7 @@
 
-import { ControllerRouteTS } from "../controller/controllerRouterTS.js";
-import { EditDentistView } from "../view/templates/dentist/edit/editDentistView.js";
-import { AppModule } from "./appModule.js";
+import { ControllerRouteTS } from "../../controller/controllerRouterTS.js";
+import { EditDentistView } from "../../view/templates/dentist/edit/editDentistView.js";
+import { AppModule } from "../appModule.js";
 
 export class Dentist {
 

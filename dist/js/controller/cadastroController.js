@@ -1,4 +1,4 @@
-export class CadastroController {
+export class CadastroService {
     cadastrarPaciente(nome, dataNascimento, genero, email, convenio, numeroCarteirinha, rua, numero, bairro, cidade, estado) {
         const pacienteDataJSON = {
             nomeCompleto: nome,

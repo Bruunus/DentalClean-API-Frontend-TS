@@ -1,5 +1,3 @@
-import { AppModule } from "../../../module/appModule.js";
-
 export class PacienteView { 
  
 

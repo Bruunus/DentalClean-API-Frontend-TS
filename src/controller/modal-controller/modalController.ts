@@ -1,6 +1,4 @@
-import { AppDentalCleanView } from "../view/templates/appDentalCleanView.js";
-import { ControllerRouteTS } from "./controllerRouterTS.js";
-import { DentistaController } from "./dentistaController.js";
+import { ControllerRouteTS } from "../controllerRouterTS.js";
 
 export class ModalController {
 

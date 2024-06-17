@@ -1,4 +1,5 @@
-import { MessagesForm } from "./messagesForm.js";
+import { MessagesForm } from "../application/messagesForm.js";
+
 
 export class Validation {
 

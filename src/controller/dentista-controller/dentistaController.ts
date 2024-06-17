@@ -1,7 +1,9 @@
-import { AppModule } from "../module/appModule.js";
-import { DentistaView } from "../view/templates/dentist/dentistaView.js";
-import { Dentist } from "../module/dentist.js";
-import { MessagesForm } from "../module/messagesForm.js";
+
+import { AppModule } from "../../module/appModule.js";
+import { Dentist } from "../../module/module-dentist/dentist.js";
+import { MessagesForm } from "../../module/application/messagesForm.js";
+import { DentistaView } from "../../view/templates/dentist/dentistaView.js";
+
 
 export class DentistaController {
  

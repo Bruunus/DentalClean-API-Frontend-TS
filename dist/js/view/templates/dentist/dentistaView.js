@@ -1,5 +1,5 @@
-import { DentistaController } from "../../../controller/dentistaController.js";
-import { Dentist } from "../../../module/dentist.js";
+import { DentistaController } from "../../../controller/dentista-controller/dentistaController.js";
+import { Dentist } from "../../../module/module-dentist/dentist.js";
 import { EditDentistView } from "./edit/editDentistView.js";
 export class DentistaView {
     constructor() {
@@ -30,12 +30,12 @@ export class DentistaView {
         </head>
 
 
-        <div class="div_titulo_dentist">
+        <div class="div_titulo_dentist_home">
             <h4 class="no-select">Dentistas</h4>
         </div>  
 
 
-        <div class="row justify-content-end container-nav-bar-pesquisar">
+        <div class="row justify-content-end container-nav-bar-pesquisar-dentista">
             <nav class="col-12 navbar navbar-expand-lg nav-container-pesquisar" style="
                 /* border: 1px solid tomato; {Debug} */
                 padding: 0 !important;

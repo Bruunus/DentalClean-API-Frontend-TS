@@ -1,7 +1,7 @@
 import { ControllerRouteTS } from "../../../../controller/controllerRouterTS.js";
-import { ModalController } from "../../../../controller/modalController.js";
+import { ModalController } from "../../../../controller/modal-controller/modalController.js";
 import { MaskForm } from "../../../../module/maskForm.js";
-import { WarningForms } from "../../../../module/warningForms.js";
+import { WarningForms } from "../../../../module/validation/warningForms.js";
 export class EditDentistView {
     constructor(objectDentist) {
         this.modalController = new ModalController();
