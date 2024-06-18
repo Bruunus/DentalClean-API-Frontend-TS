@@ -57,7 +57,7 @@ export class DentistaView {
         </div>
 
 
-        <div class="div_container_tables" style="background-color: #f7fcff;">
+        <div class="div_container_tables_dentist" style="background-color: #f7fcff;">
             
             <table class="table_dentist  table-hover " style="background-color: white">
                 <thead class="thead_dentist">

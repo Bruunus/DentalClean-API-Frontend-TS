@@ -50,12 +50,12 @@ export class PacienteView {
                         <th class="color_font_th_paciente">Editar</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="table_hover_paciente">
 
                     ${pacienteData.map((patient) => {
             return `
                         
-                            <tr class="no-select tr_format" style="color: #354057">
+                            <tr class="no-select tr_format_paciente" style="color: #354057">
                                 <td>${patient.nomeCompleto}</td>
                                 <td>${patient.dataNascimento}</td>
                                 <td>${patient.genero}</td>
