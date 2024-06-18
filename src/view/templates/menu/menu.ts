@@ -4,6 +4,7 @@ import { ControllerRouteTS } from "../../../controller/controllerRouterTS.js";
 export class Menu {
 
     private template: string;
+    private btnListaPaciente: HTMLButtonElement;
     private btnListaDentista: HTMLButtonElement;
     private btnEditarTemp: HTMLButtonElement;
     private subBtnRegisterDentist: HTMLButtonElement;
@@ -39,18 +40,32 @@ export class Menu {
 
 
 
+
+
      
         <div class="btn-group-vertical container-botoes-menu">
 
-                <button
+            <button
                     
-                    type="button"
-                    id="listaDentista"
-                    class="btn botoes-menu hvr-sweep-to-right ">
+                type="button"
+                id="listaPaciente"
+                class="btn botoes-menu hvr-sweep-to-right ">
 
-                        Destistas
-                        
-                </button>
+                    Pacientes
+                    
+            </button>
+
+
+
+            <button
+                
+                type="button"
+                id="listaDentista"
+                class="btn botoes-menu hvr-sweep-to-right ">
+
+                    Dentistas
+                    
+            </button>
     
         
          
@@ -71,9 +86,9 @@ export class Menu {
                     aria-haspopup="true" 
                     aria-expanded="false">
 
-                        Cadastro
+                    Cadastro
 
-                </button>
+            </button>
 
                 <div class="dropdown-menu container-sub-menu-buttons-a" aria-labelledby="btnGroupDrop1">
                     <a class="dropdown-item botoes-menu sub-menu-buttons-a hvr-sweep-to-right op-dentist"
@@ -117,12 +132,15 @@ export class Menu {
      */
     public loadEvents(): void {
 
+
+        this.btnListaPaciente = document.querySelector('#listaPaciente');
         this.btnListaDentista = document.querySelector('#listaDentista');
         /* this.btnEditarTemp = document.querySelector('#editarTemp'); */
         this.subBtnRegisterDentist = document.querySelector('#btnCadDentista');
         this.subBtnRegisterPatient = document.querySelector('#btnCadPaciente');
         this.linkSprint = document.querySelector('#container-sprint span');
 
+        this.btnListaPaciente.addEventListener('click', this.controllerRouterTS.routerCallListPatient);
         this.btnListaDentista.addEventListener('click', this.controllerRouterTS.routerCallScreenDentist);
         /* this.btnEditarTemp.addEventListener('click', this.editTempUpdateDentist); */
         this.subBtnRegisterDentist.addEventListener('click', this.controllerRouterTS.redirectScreenRegisterDentist);

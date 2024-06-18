@@ -1,0 +1,309 @@
+/**
+*   Responsividade para telas grandes 4K
+*/
+@media(min-width: 1602px) {
+   
+    .form-seach div div button {
+
+        font-size: 12.4pt !important;
+        height: 29px;
+        padding-top: 8px;
+        width: 7rem;
+         
+    }
+
+}
+
+
+/*********** Telas média/pequena ***********/    
+
+/**
+*   Altura do container (tabela) para todas as medias
+*/
+/* @media(max-width: 1601px) {
+    
+} */
+
+
+
+
+@media(max-width:1601px) and (min-width: 1301px) {
+
+    
+
+    /**
+    *   Tabela: Exibir Dentistas
+    */
+    .div_titulo_dentist h4 {
+        font-size: 23px !important;
+    }
+
+    .form-seach {
+        width: 100%;
+    }
+
+    /* row */
+    .form-seach div {
+        /* background-color: lightpink;  {Debug}   */
+
+        height: 38.55px; /* Altura fixa */
+
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+
+
+    .form-seach div div:nth-child(1) {
+
+        /* background-color: red; {Debug}   */
+
+        padding-left: 7px;
+        padding-right: 5px;
+
+        -ms-flex: 0 0 80.666667%;
+        flex: 0 0 19.666667%;
+        min-width: 19.666667%;
+        max-width: 22.666667%; /* tamanho máximo de largura */
+
+
+    }
+
+    .form-seach div div:nth-child(2) {
+
+        /* background-color: lightgreen; {Debug}    */
+
+        padding-left: 5px;
+        padding-right: 10px;
+
+        flex: 0 0 9%;
+        max-width: 40%;
+
+    }
+
+
+    .form-seach div div input {
+        /* input segue o pai */
+        width: 100%;
+        height: 30px;   /* Altura fixa */
+        max-width: 100%;
+        font-size: 15px !important;
+    }
+
+
+    .form-seach div div button {
+        font-size: 14px !important;
+        height: 29px;   /* Altura fixa */
+        width: 88.27px; /* Largura fixa */
+
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        text-align: center;
+        display: flex;
+    }
+
+
+    
+
+    
+
+}
+
+/* media de excessão    */
+
+@media(max-width: 1300px) and (min-width: 1199px) {
+
+    
+
+    /* Aumento da largura da lista de dentistas */
+    #container-child-right {
+        padding: 1rem 0.8rem !important;
+    }
+
+    /* Ajuste responsivo da barra de pesquisa */
+    .form-seach div div:nth-child(1) {
+        /* background-color: red;   {Debug} */
+        -ms-flex: 0 0 80.666667%;
+        flex: 0 0 19.666667%;
+        min-width: 21.666667%;
+        max-width: 22.666667%;
+    }
+
+
+}
+
+
+/*********** Laptops pequenos ***********/    
+
+@media (max-width: 1200px) and (min-width: 843px) {
+
+    .div_container_tables {
+        height: 69vh !important;
+    }
+
+    #container-child-right {
+        padding: 1rem 1.2rem !important;
+    }
+ 
+
+    .div_titulo_dentist h4{
+        font-size: 1.4rem;
+    }
+
+    .input-form-pesquisar {
+        width: 170px;
+        height: 30px;
+        margin-right: 9.7px!important;
+        font-size: 14px !important;
+    }
+
+    .btn-pesquisar {
+        font-size: 14px !important;
+        height: 29px;
+    }
+
+}
+
+
+/* media de excessão */
+
+@media(max-width: 1044px) and (min-width: 842px) {
+
+    /* Ajuste responsivo da barra de pesquisa */
+    .form-seach div div:nth-child(1) {                    
+        /* background-color: red;   {Debug} */
+        padding-left: 7px;
+        padding-right: 5px;
+        -ms-flex: 0 0 80.666667%;
+        flex: 0 0 21.666667%;
+        min-width: 19.666667%;
+        max-width: 22.666667%;
+    }
+
+}
+
+
+/*********** Tablets e Mobiles ***********/
+
+
+@media (max-width: 843px)  {
+
+
+       /*********** Dentista lista ***********/
+
+    .div_container_tables {
+        height: 72vh !important;    /* altura para tablet de 1080p */
+    }
+
+    .div_titulo_dentist h4{
+        font-size: 1.4rem;
+    }
+
+    #container-child-right {
+        padding: 1rem 0.3rem !important;
+    }
+
+
+    .div_titulo_dentist {
+        border-radius: 0.2rem 0.2rem 0 0 !important;
+    }
+
+    .form-seach div div:nth-child(1) {
+       /*  background-color: red; {Debug} */
+        -ms-flex: 0 0 80.666667%;
+        flex: 0 0 100%;
+        max-width: 100%;    /* tamanho máximo de largura */
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    .form-seach div div:nth-child(2) {
+        display: none;
+    }
+
+    .form-seach div {
+        padding: 0px;
+    }
+
+
+    .form-seach div div input {
+        height: 36px;
+        margin-top: 1px;
+        border-radius: 0.09rem;
+    }
+
+
+
+}
+
+
+/*********** Mobiles personalizados ***********/
+
+/* Mobile - Large */
+
+@media(max-width: 425px) {
+
+    /* imagem */
+    .img-logo {
+        max-width: 77% !important;
+    }
+
+    /* botões do menu */
+    .botoes-menu {
+        font-size: 13pt !important;
+    }
+
+    /* titulo do template */
+    .div_titulo_dentist h4 {
+        font-size: 15pt;
+    }
+
+    /* barra de pesquisa */
+    .form-seach {
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+    }
+
+    .form-seach div div input {
+        border-radius: 0.55rem !important;
+        font-size: 12pt !important;
+    }
+
+    /* titulos das colunas */
+    .thead_dentist th a {
+        font-size: 12pt !important;
+    }
+    /* linhas da tabela */
+    .table_dentist td {
+        font-size: 12pt !important;
+    }
+
+
+
+
+    /* Para títulos: entre 14 e 25 pt */
+    /* Para textos: 12pt */
+
+
+}
+
+
+
+
+/* Mobile - Medium */
+/* @media(max-width: 375px) and (min-width: 321px) {
+
+} */
+
+
+
+
+/* Mobile - Small */
+/* @media(max-widt: 320px) {
+
+} */
+

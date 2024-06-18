@@ -1,0 +1,66 @@
+
+
+/**
+*   Responsividade para telas grandes 4K
+*/
+@media(min-width: 1602px) {
+
+  #container-register-patient {
+    height: 43rem;
+  }
+
+  .spanMessage {
+    font-size: 9pt;
+  }
+
+  
+
+  #form_cadastro_paciente div button {
+    height: 42px;
+    margin-top: 5rem;
+    font-size: 13.5pt;
+    line-height: 2rem;
+
+  }
+
+  .form-group {
+    margin-bottom: 1.1rem !important;
+  }
+
+
+   
+
+}
+
+
+
+@media(max-width:1601px) {
+  
+
+  #form_cadastro_paciente div input, #form_cadastro_paciente div select {
+    height: 32px;
+  }
+
+
+}
+
+
+/*********** Laptops pequenos ***********/    
+
+@media (max-width: 1200px)  {
+
+
+  #container-child-right {
+    height: 46rem;
+  }
+
+
+    #form_cadastro_paciente div div {
+        display: flex;
+        justify-content: center;
+      }
+
+
+}
+
+

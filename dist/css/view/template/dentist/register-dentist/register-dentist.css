@@ -1,0 +1,84 @@
+.div_titulo_dentist_register {
+  font-family: 'fonte-tema';
+  padding: 6px;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  background-color: #75bfaf !important;
+  color: #fff;;
+}
+
+.div_titulo_dentist_register h4 {
+  margin: 0;
+}
+
+
+#container-register-dentist {
+
+  border-left: 1px solid #75bfaf;
+  border-bottom: 1px solid #75bfaf;
+  border-right: 1px solid #75bfaf;
+
+  background-color: #f7fdfd;
+
+  padding-bottom: 13px; /* ajustar botão */
+  
+ 
+}
+
+
+
+.form-group {
+  height: 80px; /* Aumento da altura do forumário ideal para tratar o erro. */
+  margin-bottom: 0.5rem !important; /* diminuindo a margin inferior para adaptar mensagem de erro */
+}
+
+#form_cadastro_dentista {
+
+  margin: 0px;
+  padding-top: 1rem;  
+
+}
+
+
+#form_cadastro_dentista div label {
+  font-family: 'fonte-tema';
+  color: #60a6c7;
+
+}
+
+
+#form_cadastro_dentista div input, #form_cadastro_dentista div select {
+  border-color: #61a19352;
+  
+}
+
+#form_cadastro_dentista div input:focus , #form_cadastro_dentista div select:focus {
+  box-shadow: 0 0 0 0.2rem #60a6c727;
+}
+
+
+#form_cadastro_dentista div button {
+  background-color: #75bfaf;
+  border-color: #6bb9a9;
+  width: 19rem;
+  height: 36px;
+  margin-top: 2rem;
+  font-family: 'fonte-tema';
+}
+
+
+#form_cadastro_dentista div button:hover {
+  background-color: #5eaf9e;
+}
+
+
+#form_cadastro_dentista div button:focus {
+  box-shadow: 0 0 0 0.2rem #75bfaf71;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,85 @@
+.div_titulo_patient_register {
+  font-family: 'fonte-tema';
+  padding: 6px;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  background-color: #DEAE78 !important;
+  color: #fff;;
+}
+
+
+.div_titulo_patient_register h4 {
+  margin: 0;
+}
+
+
+#container-register-patient {
+
+  border-left: 1px solid #DEAE78;
+  border-bottom: 1px solid #DEAE78;
+  border-right: 1px solid #DEAE78;
+
+  background-color: #FFFFFE;
+
+  padding-bottom: 13px; /* ajustar botão */
+  
+  /* f4fffd3d */
+}
+
+
+
+.form-group {
+  height: 80px; /* Aumento da altura do forumário ideal para tratar o erro. */
+  margin-bottom: 0.5rem !important; /* diminuindo a margin inferior para adaptar mensagem de erro */
+}
+
+#form_cadastro_paciente {
+
+  margin: 0px;
+  padding-top: 1rem;  
+
+}
+
+
+#form_cadastro_paciente div label {
+  font-family: 'fonte-tema';
+  color: #c76360;
+
+}
+
+
+#form_cadastro_paciente div input, #form_cadastro_paciente div select {
+  border-color: #EADCCE;
+  
+}
+
+#form_cadastro_paciente div input:focus , #form_cadastro_paciente div select:focus {
+  box-shadow: 0 0 0 0.2rem #eadcce7e;
+}
+
+
+#form_cadastro_paciente div button {
+  background-color: #DEAE78;
+  border-color: #ce9d65;
+  width: 19rem;
+  height: 36px;
+  margin-top: 2rem;
+  font-family: 'fonte-tema';
+}
+
+
+#form_cadastro_paciente div button:hover {
+  background-color: #cf9b60;
+}
+
+
+#form_cadastro_paciente div button:focus {
+  box-shadow: 0 0 0 0.2rem #75bfaf71;
+}
+
+
+
+
+
+
+

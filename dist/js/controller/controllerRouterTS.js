@@ -21,6 +21,10 @@ export class ControllerRouteTS {
         ControllerRouteTS.redirectChildRight.innerHTML = templateView;
         AppModule.loadCellEffects();
     }
+    loadScreenViewPatient(templateView) {
+        ControllerRouteTS.redirectChildRight.innerHTML = templateView;
+        AppModule.loadCellEffects();
+    }
     redirectScreenRegisterDentist() {
         this.cadastroDentistaView = new CadastroDentistaView(ControllerRouteTS.screenViewContainer);
         this.cadastroDentistaView.render();
@@ -38,6 +42,10 @@ export class ControllerRouteTS {
         dentistaController.accessListDentist();
     }
     static routerCallListPatient() {
+        const patientController = new PacienteController();
+        patientController.accessListPatient();
+    }
+    routerCallListPatient() {
         const patientController = new PacienteController();
         patientController.accessListPatient();
     }

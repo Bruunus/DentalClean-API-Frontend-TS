@@ -15,61 +15,110 @@ export class CadastroPacienteView {
 
         return `
         
-            <h2>Formulário de Cadastro de Paciente</h2>
-            <div style="border 0.5px solid lightgray">
-            <form id="form_cadastro_paciente">
-                <label for="nomeCompleto">Nome completo</label>
-                <input type="text" name="nomeCompleto" id="nomeCompleto">
-                <br>
-                <label for="dataNascimento">Data de nascimento</label>
-                <input type="date" name="dataNascimento" id="dataNascimento">
-                <br>
-                <label for="genero">Sexo</label>
-                <select name="genero" id="genero">
-                    <option value="empty"></option>
-                    <option value="masculino">Masculino</option>
-                    <option value="feminino">Feminino</option>
-                    <option value="outros">Outros</option>
-                </select>
-                <br>
-                <label for="email">E-mail</label>
-                <input type="text" name="email" id="email">
-                <br>
-                <label for="convenio">Convênio</label>
-                <select name="convenio" id="convenio">
-                    <option value="empty"></option>
-                    <option value="amilDental">Amil Dental</option>
-                    <option value="bradescoDental">Bradesco Dental</option>
-                    <option value="dentalUni">Dental Uni</option>
-                    <option value="odontoprev">Odontoprev</option>
-                    <option value="sulamericaOdonto">SulAmérica Odonto</option>
-                    <option value="unidemOdonto">Unimed Odonto</option>
-                    <option value="portoSeguroOdontologico">Porto Seguro Odontológico</option>
-                    <option value="dentalEstetica">Dental Estética</option>
-                    <option value="interodonto">Interodonto</option>
-                    <option value="prodent">Prodent</option>
-                </select>
-                <br>
-                <label for="numCarteirinha">Número Carteirinha</label>
-                <input type="text" name="numCarteirinha" maxlength="8" id="numCarteirinha">
-                <br>
-                <label for="rua">Rua</label>
-                <input type="text" name="rua" id="rua">
-                <br>
-                <label for="numero">Número</label>
-                <input type="text" name="numero" id="numero">
-                <br>
-                <label for="bairro">Bairro</label>
-                <input type="text" name="bairro" id="bairro">
-                <br>
-                <label for="cidade">Cidade</label>
-                <input type="text" name="cidade" id="cidade">
-                <br>
-                <label for="estado">Estado</label>
-                <input type="text" name="estado" id="estado">
-                <br><br>
-                <button type="submit">Salvar</button>
-            </form>
+            <div class="div_titulo_dentist div_titulo_patient_register">
+                <h4 class="no-select">Cadastro Paciente</h4>
+            </div>
+
+
+            <div id="container-register-patient" style="border 0.5px solid lightgray">
+
+                <form id="form_cadastro_paciente" class="row">
+
+                    <div class="form-group col-md-6 col-sm-12 container-nome-completo">  
+                        <label for="nomeCompleto">Nome completo</label>
+                        <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control form-input required" maxlength="20">
+                        <span class="spanMessage"></span>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-12 container-data-nascimento"> 
+                        <label for="dataNascimento" class="label-form">Data de nascimento</label>
+                        <input type="date" name="dataNascimento" id="dataNascimento" class="form-control form-input required">
+                        <span class="spanMessage"></span>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-12 container-sexo"> 
+                        <label for="sexo" class="label-form">Sexo</label>
+                        <select id="sexo" class="form-control select-form required">
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                        <span class="spanMessage"></span>
+                    </div>
+
+
+                    <div class="form-group col-md-4 col-sm-12 container-email"> 
+                        <label for="email" class="label-form">E-mail</label>
+                        <input type="text" name="email" id="email" maxlength="35" class="form-control form-input required" maxlength="31">
+                        <span class="spanMessage"></span>
+                    </div>
+
+ 
+                    <div class="form-group col-md-4 col-sm-12 container-convenio"> 
+                        <label for="convenio" class="label-form">Convênio</label>
+                        <select id="convenio" class="form-control select-form required">
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="amilDental">Amil Dental</option>
+
+                            <option value="bradescoDental">Bradesco Dental</option>
+                            <option value="dentalUni">Dental Uni</option>
+                            <option value="odontoprev">Odontoprev</option>
+                            <option value="sulamericaOdonto">Unimed Odonto</option>
+                            <option value="unidemOdonto">Prótese Dentária</option>
+                            <option value="portoSeguroOdontologico">Porto Seguro Odontológico</option>
+                            <option value="dentalEstetica">Dental Estética</option>
+                            <option value="Estética">Estética</option>
+                            <option value="interodonto">Interodonto</option>
+                            <option value="prodent">Prodent</option>
+                        </select>
+                        <span class="spanMessage"></span>
+                    </div>
+                    
+                     <div class="form-group col-md-4 col-sm-12 container-num-carteirinha"> 
+                        <label for="numCarteirinha" class="label-form">Número Carteirinha</label>
+                        <input type="text" name="numCarteirinha" id="numCarteirinha" class="form-control form-input required" maxlength="14">
+                        <span class="spanMessage"></span>
+                    </div>
+                      
+                    <div class="form-group col-md-6 col-sm-12 container-rua"> 
+                        <label for="rua" class="label-form">Rua</label>
+                        <input type="text" name="rua" id="rua" maxlength="20" class="form-control form-input required" maxlength="25">
+                        <span class="spanMessage"></span>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-12 container-numero"> 
+                        <label for="numero" class="label-form">Número</label>
+                        <input type="text" name="numero" id="numero" maxlength="6" class="form-control form-input required" >
+                        <span class="spanMessage"></span>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-12 container-bairro"> 
+                        <label for="bairro" class="label-form">Bairro</label>
+                        <input type="text" name="bairro" id="bairro" maxlength="24" class="form-control form-input required">
+                        <span class="spanMessage"></span>
+                    </div class="form-group col-md-4">
+
+                    <div class="form-group col-md-4 col-sm-12 container-cidade"> 
+                        <label for="cidade" class="label-form">Cidade</label>
+                        <input type="text" name="cidade" id="cidade" maxlength="24" class="form-control form-input required">
+                        <span class="spanMessage"></span>
+                    </div>
+
+                    <div class="form-group col-md-4 col-sm-12 container-estado"> 
+                        <label for="estado" class="label-form">Estado</label>
+                        <input type="text" name="estado" maxlength="2" id="estado" class="form-control form-input required">
+                        <span class="spanMessage"></span>
+                    </div>
+                      
+                    <div class="form-group col-12">
+                        <div>
+                            <button type="submit" id="btn-cadastro-dentista" class="btn btn-secondary">Salvar</button>
+                        </div>
+                    </div>
+                    
+                     
+                </form>
             </div>
         `;
     }

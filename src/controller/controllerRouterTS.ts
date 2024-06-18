@@ -71,8 +71,14 @@ export class ControllerRouteTS {
        ControllerRouteTS.redirectChildRight.innerHTML = templateView; 
        AppModule.loadCellEffects();
        
-       
    }
+
+   public loadScreenViewPatient(templateView: string): void {
+        
+    ControllerRouteTS.redirectChildRight.innerHTML = templateView; 
+    AppModule.loadCellEffects();
+    
+}
 
 
 
@@ -140,6 +146,12 @@ export class ControllerRouteTS {
      * Controller responsável por carregar a lista de paciente.
      */
     public static routerCallListPatient(): void {
+
+        const patientController = new PacienteController();
+        patientController.accessListPatient();
+    }
+
+    public routerCallListPatient(): void {
 
         const patientController = new PacienteController();
         patientController.accessListPatient();
