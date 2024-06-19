@@ -46,7 +46,7 @@ export class Menu {
                 id="listaDentista"
                 class="btn botoes-menu hvr-sweep-to-right ">
 
-                    Destistas
+                    Dentistas
                     
             </button>
     

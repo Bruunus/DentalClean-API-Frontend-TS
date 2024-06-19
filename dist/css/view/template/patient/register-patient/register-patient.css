@@ -3,7 +3,7 @@
   padding: 6px;
   text-align: center;
   border-radius: 10px 10px 0 0;
-  background-color: #DEAE78 !important;
+  background-color: #75bfaf !important;
   color: #fff;;
 }
 
@@ -15,11 +15,11 @@
 
 #container-register-patient {
 
-  border-left: 1px solid #DEAE78;
-  border-bottom: 1px solid #DEAE78;
-  border-right: 1px solid #DEAE78;
+  border-left: 1px solid #75bfaf;
+  border-bottom: 1px solid #75bfaf;
+  border-right: 1px solid #75bfaf;
 
-  background-color: #FFFFFE;
+  background-color: #f7fdfd;
 
   padding-bottom: 13px; /* ajustar botão */
   
@@ -43,24 +43,24 @@
 
 #form_cadastro_paciente div label {
   font-family: 'fonte-tema';
-  color: #c76360;
+  color: #60a6c7;
 
 }
 
 
 #form_cadastro_paciente div input, #form_cadastro_paciente div select {
-  border-color: #EADCCE;
+  border-color: #61a19352;
   
 }
 
 #form_cadastro_paciente div input:focus , #form_cadastro_paciente div select:focus {
-  box-shadow: 0 0 0 0.2rem #eadcce7e;
+  box-shadow: 0 0 0 0.2rem #60a6c727;
 }
 
 
 #form_cadastro_paciente div button {
-  background-color: #DEAE78;
-  border-color: #ce9d65;
+  background-color: #75bfaf;
+  border-color: #5eb3a0;
   width: 19rem;
   height: 36px;
   margin-top: 2rem;
@@ -69,7 +69,7 @@
 
 
 #form_cadastro_paciente div button:hover {
-  background-color: #cf9b60;
+  background-color: #46ac96;
 }
 
 
