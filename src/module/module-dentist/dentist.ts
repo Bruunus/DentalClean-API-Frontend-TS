@@ -83,11 +83,11 @@ export class Dentist {
         
         tableBody.innerHTML = '';
 
-        // Renderiza a lista de dentistas na tabela
+        // Realizo um foreach para cada linha da tabela
         dentistData.forEach((dentist: any) => {
 
             const row = document.createElement('tr');
-            row.classList.add('no-select', 'tr_format');
+            row.classList.add('no-select', 'tr_format_dentist');
 
             // Crie as células para cada propriedade do dentista e adicione ao tr
             const nomeCompletoCell = document.createElement('td');
@@ -158,9 +158,10 @@ export class Dentist {
                 // pegar os dados do link clicado
                 const elementoClicado = event.target as HTMLElement;
                 const linha = elementoClicado.closest('.table_hover_dentist tr');
+                
 
                 if (linha) {
-                    
+               
                     const nomeCompletoEditar = linha.querySelector('.nomeCompleto')?.textContent;
                     const dataNascimentoEditar = linha.querySelector('.dataNascimento')?.textContent;
                     const cpfEditar = linha.querySelector('.cpf')?.textContent;
