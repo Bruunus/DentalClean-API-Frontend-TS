@@ -14,11 +14,12 @@
   "author": "Bruno Fernandes dos Santos",
   "license": "ISC",
   "devDependencies": {
+    "dayjs": "^1.11.11",
     "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "lite-server": "^2.6.1",
-    "tsconfig-paths": "^4.2.0"
+    "lite-server": "^2.6.1"
   }
 }

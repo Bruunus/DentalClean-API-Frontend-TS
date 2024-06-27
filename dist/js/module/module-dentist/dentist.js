@@ -35,7 +35,7 @@ export class Dentist {
         tableBody.innerHTML = '';
         dentistData.forEach((dentist) => {
             const row = document.createElement('tr');
-            row.classList.add('no-select', 'tr_format');
+            row.classList.add('no-select', 'tr_format_dentist');
             const nomeCompletoCell = document.createElement('td');
             nomeCompletoCell.classList.add('nomeCompleto');
             const dataNascCell = document.createElement('td');
@@ -66,7 +66,7 @@ export class Dentist {
             const linkEditar = document.createElement('a');
             linkEditar.href = '#';
             nomeCompletoCell.textContent = dentist.nomeCompleto;
-            dataNascCell.textContent = dentist.dataNascimento;
+            dataNascCell.textContent = this.formatter(dentist.dataNascimento);
             cpfCell.textContent = dentist.cpf;
             croCell.textContent = dentist.cro;
             especialidadeCell.textContent = dentist.especialidade;
@@ -154,6 +154,14 @@ export class Dentist {
         });
     }
     ;
+    static formatter(data) {
+        const date = new Date(data);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = String(date.getFullYear());
+        const endFormatt = `${day}/${month}/${year}`;
+        return endFormatt;
+    }
     nomeCompletoValidation(nomeCompleto) {
         console.log('O nome completo passou pela validação de dentist');
     }

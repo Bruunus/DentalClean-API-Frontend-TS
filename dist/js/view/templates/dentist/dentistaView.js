@@ -82,10 +82,11 @@ export class DentistaView {
                 <tbody class="table_hover_dentist">
 
                 ${dentistData.map((dentist) => {
+            const formatDatanascimento = this.formatter(dentist.dataNascimento);
             return `
                         <tr class="no-select tr_format_dentist" style="color: #354057"> 
                             <td class="nomeCompleto">${dentist.nomeCompleto}</td>
-                            <td class="dataNascimento">${dentist.dataNascimento}</td>
+                            <td class="dataNascimento">${formatDatanascimento}</td>
                             <td class="cpf">${dentist.cpf}</td>
                             <td class="cro">${dentist.cro}</td>
                             <td class="especialidade">${dentist.especialidade}</td>
@@ -153,7 +154,7 @@ export class DentistaView {
                 }
             });
         });
-        const form = document.querySelector('.container-nav-bar-pesquisar nav form');
+        const form = document.querySelector('.container-nav-bar-pesquisar-dentista nav form');
         const input = document.getElementById('input-seach');
         const btnSeach = document.getElementById('btn-seach');
         this.seachDentist(form, input, btnSeach);
@@ -166,5 +167,13 @@ export class DentistaView {
             callAPI.accessSeachDentist(seachValue);
             input.value = '';
         });
+    }
+    static formatter(data) {
+        const date = new Date(data);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = String(date.getFullYear());
+        const endFormatt = `${day}/${month}/${year}`;
+        return endFormatt;
     }
 }

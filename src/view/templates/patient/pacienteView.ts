@@ -61,11 +61,13 @@ export class PacienteView {
 
                     ${pacienteData.map((patient: any) => {
 
+                        const formatDatanascimento = this.formatter(patient.dataNascimento)
+
                         return `
                         
                             <tr class="no-select tr_format_paciente" style="color: #354057">
                                 <td>${patient.nomeCompleto}</td>
-                                <td>${patient.dataNascimento}</td>
+                                <td>${formatDatanascimento}</td>
                                 <td>${patient.genero}</td>
                                 <td>${patient.email}</td>
                                 <td>${patient.convenio}</td>
@@ -97,6 +99,22 @@ export class PacienteView {
     
     
     }
+
+
+
+    public static formatter(data: string): string {
+  
+        const date = new Date(data);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = String(date.getFullYear());
+    
+        const endFormatt = `${day}/${month}/${year}`;
+        
+        return endFormatt;
+    
+      }
+
                     
                     
 

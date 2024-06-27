@@ -2,6 +2,7 @@
 	"compilerOptions": {
 		"target": "ES6",
 		"outDir": "dist/js",
+		"baseUrl": "./",
 		"rootDir": "src",
 		"strict": false,
 		"noEmitOnError": true,
@@ -11,6 +12,7 @@
 			"@my-module": ["./node_modules/my-module"]
 		  }
 	},
+	
 	"include": [
 		"src/**/*.ts"
 	]

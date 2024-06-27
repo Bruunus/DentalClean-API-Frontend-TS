@@ -96,6 +96,7 @@ export class Dentist {
             const dataNascCell = document.createElement('td');
             dataNascCell.classList.add('dataNascimento');
 
+
             const cpfCell = document.createElement('td');
             cpfCell.classList.add('cpf')
 
@@ -136,7 +137,8 @@ export class Dentist {
 
 
             nomeCompletoCell.textContent = dentist.nomeCompleto;
-            dataNascCell.textContent = dentist.dataNascimento;
+            dataNascCell.textContent = this.formatter(dentist.dataNascimento);
+
             cpfCell.textContent = dentist.cpf;
             croCell.textContent = dentist.cro;
             especialidadeCell.textContent = dentist.especialidade;
@@ -274,6 +276,19 @@ export class Dentist {
 
 
 
+    public static formatter(data: string): string {
+  
+        const date = new Date(data);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = String(date.getFullYear());
+    
+        const endFormatt = `${day}/${month}/${year}`;
+        
+        return endFormatt;
+    
+      }
+    
     
     
 

@@ -1,7 +1,8 @@
-
+import { FormattDates } from './../../../module/application/formattDates';
 import { DentistaController } from "../../../controller/dentista-controller/dentistaController.js";
 import { Dentist } from "../../../module/module-dentist/dentist.js";
 import { EditDentistView } from "./edit/editDentistView.js";
+ 
 
 export class DentistaView {
     
@@ -10,11 +11,13 @@ export class DentistaView {
     private static template: string;
     private static btnSeach: HTMLElement;
     private static nameDentistSeach: string;
+    private static format: FormattDates;
 
     public constructor() {
         DentistaView.template;
         DentistaView.btnSeach;
         DentistaView.nameDentistSeach;
+     
     }
 
 
@@ -112,12 +115,12 @@ export class DentistaView {
 
                 ${dentistData.map((dentist: any) => {
 
-                   
+                    const formatDatanascimento = this.formatter(dentist.dataNascimento)
                     
                     return `
                         <tr class="no-select tr_format_dentist" style="color: #354057"> 
                             <td class="nomeCompleto">${dentist.nomeCompleto}</td>
-                            <td class="dataNascimento">${dentist.dataNascimento}</td>
+                            <td class="dataNascimento">${formatDatanascimento}</td>
                             <td class="cpf">${dentist.cpf}</td>
                             <td class="cro">${dentist.cro}</td>
                             <td class="especialidade">${dentist.especialidade}</td>
@@ -204,7 +207,7 @@ export class DentistaView {
         })
 
         
-        const form = document.querySelector('.container-nav-bar-pesquisar nav form') as HTMLFormElement;
+        const form = document.querySelector('.container-nav-bar-pesquisar-dentista nav form') as HTMLFormElement;
         const input = document.getElementById('input-seach') as HTMLInputElement;
         const btnSeach = document.getElementById('btn-seach') as HTMLButtonElement;
 
@@ -237,6 +240,22 @@ export class DentistaView {
         });
 
     }
+
+    public static formatter(data: string): string {
+  
+        const date = new Date(data);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = String(date.getFullYear());
+    
+        const endFormatt = `${day}/${month}/${year}`;
+        
+        return endFormatt;
+    
+      }
+
+
+
 
 
 
