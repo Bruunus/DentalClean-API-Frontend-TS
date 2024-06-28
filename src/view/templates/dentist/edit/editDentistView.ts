@@ -1,3 +1,4 @@
+
 import { ControllerRouteTS } from "../../../../controller/controllerRouterTS.js";
 import { DentistaController } from "../../../../controller/dentista-controller/dentistaController.js";
 import { ModalController } from "../../../../controller/modal-controller/modalController.js";
@@ -72,6 +73,8 @@ export  class EditDentistView {
         this.modalController = new ModalController();
         this.maskForm = new MaskForm();
         this.warningForms = new WarningForms();
+        
+
 
         if (objectDentist.length > 0) {
             const firstDentist = objectDentist[0];
@@ -92,6 +95,32 @@ export  class EditDentistView {
         } else {
             // Lógica para lidar com a lista vazia, se necessário
         }
+
+        
+
+        const formatoPadraoEUA = this.formatterDefaultEUA(this.dataNascimentoEditado);
+        
+        var especialidade = {
+
+            vazio: '',
+            cirurgia: 'Cirurgia',
+            cirurgiaBucomaxilofacial: 'Cirurgia Bucomaxilofacial',
+            ortodontia: 'Ortodontia',
+            dentistica: 'Dentística',
+            endodontia: 'Endodontia',
+            odontopediatria: 'Odontopediatria',
+            proteseDentária: 'Prótese Dentária',
+            periodontia: 'Periodontia',
+            odontogeriatria: 'Odontogeriatria',
+            estetica: 'Estética'
+      
+          }
+        
+
+
+
+
+
 
 
         this.template = `
@@ -114,41 +143,49 @@ export  class EditDentistView {
                 <form  id="form_editar">
                    <div class="form-row">
                         <!-- col 1 -->
-            
+
                         <div class="form-group col-md-6 container-nome-completo">
                             <label class="system-color-text label-form" for="nomeCompletoEditado">Nome Completo</label>
                             <input type="text" class="form-control form-input editar " id="nomeCompletoEditado" maxlength="20" disabled value="${this.nomeCompletoEditado}">
                             <span class="spanMessage"></span>
                         </div>
+
                         <div class="form-group col-md-3 container-data-nascimento">
                             <label class="system-color-text label-form" for="dataNascimentoEditar">Data nascimento</label>
-                            <input type="date" class="form-control form-input editar " id="dataNascimentoEditar" disabled value="${this.dataNascimentoEditado}">
+                            <input type="date" class="form-control form-input editar " id="dataNascimentoEditar" disabled value="${formatoPadraoEUA}">
                             <span class="spanMessage"></span>
                         </div>
+
                         <div class="form-group  col-md-3 container-cpf">
                             <label class="system-color-text label-form" for="cpfEditar">CPF</label>
                             <input type="text" class="form-control form-input editar" id="cpfEditar" disabled value="${this.cpfEditado}" maxlength="14">
                             <span class="spanMessage"></span>
                         </div>
+
                         <!-- col 2 -->
                         <div class="form-group col-12 col-sm-12 col-lg-6 container-cro">
                             <label class="system-color-text label-form" for="croEditar">CRO</label>
                             <input type="number" class="form-control form-input editar" id="croEditar" disabled  value="${this.croEditado}" maxlength="4">
                             <span class="spanMessage"></span>
                         </div>
+                        
                         <div class="form-group col-12 col-sm-12 col-lg-6 container-especialidade">
                             <label class="system-color-text label-form" for="especialidadeEditar">Especialidade</label>
                             <select id="especialidadeEditar" class="form-control select-form editar" disabled >
                                 <option value="" disabled selected>Selecione</option>
-                                <option value="Cirurgia">Cirurgia</option>
-                                <option value="Cirurgia Bucomaxilofacial">Cirurgia Bucomaxilofacial</option>
-                                <option value="Dentística">Dentística</option>
-                                <option value="Endodontia">Endodontia</option>
-                                <option value="Odontopediatria">Odontopediatria</option>
-                                <option value="Prótese Dentária">Prótese Dentária</option>
-                                <option value="Periodontia">Periodontia</option>
-                                <option value="Odontogeriatria">Odontogeriatria</option>
-                                <option value="Estética">Estética</option>
+                                <option value="Ortodontia" ${this.especialidadeEditado === 'Ortodontia' ? 'selected' : ''}>Ortodontia</option>
+                                <option value="Cirurgia" ${this.especialidadeEditado === 'Cirurgia' ? 'selected' : ''}>Cirurgia</option>
+                                <option value="Cirurgia Bucomaxilofacial" 
+                                    ${this.especialidadeEditado === 'Cirurgia Bucomaxilofacial' ? 'selected' : ''}>Cirurgia Bucomaxilofacial
+                                </option>
+                                <option value="Dentística" ${this.especialidadeEditado === 'Dentística' ? 'selected' : ''}>Dentística</option>
+                                <option value="Endodontia" ${this.especialidadeEditado === 'Endodontia' ? 'selected' : ''}>Endodontia</option>
+                                <option value="Odontopediatria" ${this.especialidadeEditado === 'Odontopediatria' ? 'selected' : ''}>Odontopediatria</option>
+                                <option value="Prótese Dentária" ${this.especialidadeEditado === 'Prótese Dentária' ? 'selected' : ''}>Prótese Dentária</option>
+                                <option value="Periodontia" ${this.especialidadeEditado === 'Periodontia' ? 'selected' : ''}>Periodontia</option>
+                                <option value="Odontogeriatria" ${this.especialidadeEditado === 'Odontogeriatria' ? 'selected' : ''}>Odontogeriatria</option>
+                                <option value="Estética"${this.especialidadeEditado === 'Estética' ? 'selected' : ''}>Estética</option>                                
+                               
                             </select>
                             <span class="spanMessage"></span>
                         </div>
@@ -219,6 +256,16 @@ export  class EditDentistView {
         
         this.controllerRouterTS = new ControllerRouteTS();
         this.controllerRouterTS.loadCallEditDentist(this.template);
+
+
+
+
+       
+
+
+
+
+
 
         // validations
         this.nomeCompletoInput = document.querySelector('#nomeCompletoEditado') as HTMLInputElement;
@@ -368,6 +415,7 @@ export  class EditDentistView {
 
     }
     
+
 
     /**
      * Método para editar as informações do dentista selecionado.
@@ -520,6 +568,58 @@ export  class EditDentistView {
             }
         } 
     }
+
+
+
+    /**
+     * Este método recebe uma data formatada em padrão brasileiro dd/MM/aaaa
+     * e realiza a volta retroativa original do sistema para ser renderizada no 
+     * formulário de edição no campo de data de nascimento.
+     * 
+     * O padrão americano é o único aceito no campo type="date"
+     * 
+     * @param data 
+     * @returns 
+     */
+    private formatterDefaultEUA(data: string): string {
+
+        var partesData = data.split('/');
+        var formatterDefaultEUA = partesData[2] + '-' + partesData[1] + '-' + partesData[0];
+
+        console.log('Valor formatado ', formatterDefaultEUA)
+
+        return formatterDefaultEUA;
+    }
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

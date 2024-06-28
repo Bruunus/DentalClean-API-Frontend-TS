@@ -181,6 +181,10 @@ export class DentistaView {
                 const cidadeEditar = linha.querySelector('.cidade')?.textContent;
                 const estadoEditar = linha.querySelector('.estado')?.textContent;
 
+                
+                
+
+
                 const JSONUpdate = {
                     id: idDentista,
                     nomeCompleto: nomeCompletoEditar,
@@ -197,9 +201,14 @@ export class DentistaView {
                     cidade: cidadeEditar,
                     estado: estadoEditar
                 }
+
+                
                     
                 const sendArray = [JSONUpdate];
                 this.renderEditDentistView = new EditDentistView(sendArray);
+                // console.log(sendArray)
+
+                // console.log('data-nascimento-editar ',JSONUpdate.dataNascimento)
 
             }
     
@@ -241,7 +250,7 @@ export class DentistaView {
 
     }
 
-    public static formatter(data: string): string {
+    private static formatter(data: string): string {
   
         const date = new Date(data);
         const day = String(date.getDate()).padStart(2, '0');
@@ -253,6 +262,9 @@ export class DentistaView {
         return endFormatt;
     
       }
+
+
+    
 
 
 

@@ -3,7 +3,6 @@ import { CadastroDentistaView } from "../../view/templates/dentist/register/cada
 export class MessagesForm {
 
 
-    private cadastroDentistaView: CadastroDentistaView;
 
 
     private messageError(input: HTMLInputElement, span: HTMLSpanElement, borderColor: string, message: string): void {
