@@ -1,16 +1,26 @@
 
 Data desta observação: 30/08/2023 - Quarta-feira
 
-Problema: Ao enviar os dados via JSON para a API, não está salvando o campo 'dataNascimento' do tipo LocalDate e o campo 'numeto_carteirinha' Integer
+Problema: Ao enviar os dados via JSON para a API, 
+não está salvando o campo 'dataNascimento' do tipo 
+LocalDate e o campo 'numeto_carteirinha' Integer
 
 
-Possível solução: Faz o teste de envio dos dados com a API aberta no eclipse junto com o app typescript ao mesmo tempo para aumentar as chances de correção em tempo em runtime.
+Possível solução: Faz o teste de envio dos dados com a 
+API aberta no eclipse junto com o app typescript ao mesmo 
+tempo para aumentar as chances de correção em tempo em 
+runtime.
 
 
 GIT Hub subir projeto
  https://www.alura.com.br/artigos/nova-exigencia-do-git-de-autenticacao-por-token-o-que-e-o-que-devo-fazer 
 
 
+Start no app:
+
+npm run server
+ou
+npm run serve
 
 
 
